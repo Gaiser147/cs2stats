@@ -1,2 +1,4 @@
 .env
 __pycache__/
+.impeccable/review/
+.impeccable/hook.cache.json

@@ -7,6 +7,7 @@ rating, ADR, aim (accuracy, preaim, reaction time), utility and trades.
 Usage:
   python3 leetify_analyze.py fetch  [STEAM64]   # download profile, match list and new match details
   python3 leetify_analyze.py report [STEAM64] [all|matches|summary]
+  python3 leetify_analyze.py debrief [STEAM64]  # bake the data into debrief/index.html
 
 Data is stored in data/leetify/<steam64>/. LEETIFY_API_KEY (environment or .env) is optional
 and only raises the rate limit (https://leetify.com/app/developer).
@@ -148,6 +149,14 @@ def build_rows(steam64):
             tk_opp=g(me, "trade_kill_opportunities"), tk_att=g(me, "trade_kill_attempts"), tk_ok=g(me, "trade_kills_succeed"),
             td_opp=g(me, "traded_death_opportunities"), td_ok=g(me, "traded_deaths_succeed"),
             ff=g(me, "shots_hit_friend"),
+            # lobby (the other players in the match): per-round averages and summed counts for rates
+            l_surv=lavg(lambda p: g(p, "rounds_survived_percentage")),
+            l_fl_pr=lavg(lambda p: g(p, "flashbang_thrown") / max(g(p, "rounds_count", 1), 1)),
+            l_fl_sum=sum(g(p, "flashbang_thrown") for p in others),
+            l_fl_foe_sum=sum(g(p, "flashbang_hit_foe") for p in others),
+            l_fl_friend_sum=sum(g(p, "flashbang_hit_friend") for p in others),
+            l_tk_att_sum=sum(g(p, "trade_kill_attempts") for p in others),
+            l_tk_ok_sum=sum(g(p, "trade_kills_succeed") for p in others),
         ))
     return rows
 
@@ -238,13 +247,34 @@ def print_summary(rows):
                   f"preaim {st.mean(r['preaim'] for r in rs):4.1f}  head {st.mean(r['acc_head'] for r in rs) * 100:4.1f}%  util/round {st.mean(r['util_pr'] for r in rs):.2f}")
 
 
+def build_debrief(steam64):
+    """Bake the player's rows (own stats + lobby averages, no other players' names) into debrief/template.html."""
+    rows = build_rows(steam64)
+    profile = json.load(open(os.path.join(data_dir(steam64), "profile.json"), encoding="utf-8"))
+    data = {
+        "steam64": steam64,
+        "matches": [{k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()} for r in rows],
+        "profile": {k: profile.get(k) for k in ("name", "winrate", "total_matches", "first_match_date", "ranks", "rating", "stats")},
+    }
+    template = os.path.join(ROOT, "debrief", "template.html")
+    out = os.path.join(ROOT, "debrief", "index.html")
+    html = open(template, encoding="utf-8").read()
+    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    with open(out, "w", encoding="utf-8") as f:
+        f.write(html.replace("__DATA__", payload))
+    print(f"Debrief with {len(rows)} matches written to {os.path.relpath(out, ROOT)}")
+
+
 def main():
     args = sys.argv[1:]
-    if not args or args[0] not in ("fetch", "report"):
+    if not args or args[0] not in ("fetch", "report", "debrief"):
         sys.exit(__doc__)
     steam64 = next((a for a in args[1:] if a.isdigit() and len(a) == 17), DEFAULT_STEAM64)
     if args[0] == "fetch":
         fetch(steam64)
+        return
+    if args[0] == "debrief":
+        build_debrief(steam64)
         return
     section = next((a for a in args[1:] if a in ("all", "matches", "summary")), "all")
     rows = build_rows(steam64)

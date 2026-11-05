@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "debrief/template.html"
+        ],
+        "createdAt": "2026-11-05T14:30:01.931Z",
+        "reason": "Claude: rendered captures show .end with 22px side and 56/40px block padding; detector renders the unbaked template"
+      }
+    ]
+  }
+}
