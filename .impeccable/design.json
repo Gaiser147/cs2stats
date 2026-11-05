@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T14:50:26+00:00",
+  "title": "Design System: Zattocat Debrief",
+  "extensions": {
+    "colorMeta": {
+      "room": {
+        "role": "neutral",
+        "displayName": "Room Light",
+        "canonical": "#e3e7e8",
+        "oklch": "oklch(92.5% 0.005 214)",
+        "tonalRamp": [
+          "oklch(15% 0.002 214)",
+          "oklch(26% 0.003 214)",
+          "oklch(38% 0.004 214)",
+          "oklch(49% 0.005 214)",
+          "oklch(61% 0.005 214)",
+          "oklch(72% 0.005 214)",
+          "oklch(84% 0.004 214)",
+          "oklch(95% 0.003 214)"
+        ]
+      },
+      "board": {
+        "role": "neutral",
+        "displayName": "Melamine",
+        "canonical": "#f2f4f3",
+        "oklch": "oklch(96.5% 0.002 165)",
+        "tonalRamp": [
+          "oklch(15% 0.001 165)",
+          "oklch(26% 0.002 165)",
+          "oklch(38% 0.002 165)",
+          "oklch(49% 0.002 165)",
+          "oklch(61% 0.002 165)",
+          "oklch(72% 0.002 165)",
+          "oklch(84% 0.002 165)",
+          "oklch(95% 0.001 165)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Marker Black",
+        "canonical": "#1c1e23",
+        "oklch": "oklch(23.5% 0.010 268)",
+        "tonalRamp": [
+          "oklch(15% 0.004 268)",
+          "oklch(26% 0.006 268)",
+          "oklch(38% 0.009 268)",
+          "oklch(49% 0.010 268)",
+          "oklch(61% 0.010 268)",
+          "oklch(72% 0.010 268)",
+          "oklch(84% 0.009 268)",
+          "oklch(95% 0.006 268)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "#444952",
+        "oklch": "oklch(40.4% 0.016 262)",
+        "tonalRamp": [
+          "oklch(15% 0.006 262)",
+          "oklch(26% 0.010 262)",
+          "oklch(38% 0.015 262)",
+          "oklch(49% 0.016 262)",
+          "oklch(61% 0.016 262)",
+          "oklch(72% 0.016 262)",
+          "oklch(84% 0.014 262)",
+          "oklch(95% 0.010 262)"
+        ]
+      },
+      "marker-blue": {
+        "role": "secondary",
+        "displayName": "Lobby Blue",
+        "canonical": "#1f4fbf",
+        "oklch": "oklch(46.8% 0.184 263)",
+        "tonalRamp": [
+          "oklch(15% 0.064 263)",
+          "oklch(26% 0.113 263)",
+          "oklch(38% 0.162 263)",
+          "oklch(49% 0.184 263)",
+          "oklch(61% 0.184 263)",
+          "oklch(72% 0.184 263)",
+          "oklch(84% 0.156 263)",
+          "oklch(95% 0.107 263)"
+        ]
+      },
+      "marker-red": {
+        "role": "primary",
+        "displayName": "Fix Red",
+        "canonical": "#d62f2a",
+        "oklch": "oklch(57.3% 0.204 28)",
+        "tonalRamp": [
+          "oklch(15% 0.071 28)",
+          "oklch(26% 0.126 28)",
+          "oklch(38% 0.180 28)",
+          "oklch(49% 0.204 28)",
+          "oklch(61% 0.204 28)",
+          "oklch(72% 0.204 28)",
+          "oklch(84% 0.173 28)",
+          "oklch(95% 0.119 28)"
+        ]
+      },
+      "marker-red-text": {
+        "role": "primary",
+        "displayName": "Fix Red, Text",
+        "canonical": "#b5221d",
+        "oklch": "oklch(50.2% 0.183 28)",
+        "tonalRamp": [
+          "oklch(15% 0.064 28)",
+          "oklch(26% 0.113 28)",
+          "oklch(38% 0.162 28)",
+          "oklch(49% 0.183 28)",
+          "oklch(61% 0.183 28)",
+          "oklch(72% 0.183 28)",
+          "oklch(84% 0.156 28)",
+          "oklch(95% 0.107 28)"
+        ]
+      },
+      "magnet-orange": {
+        "role": "tertiary",
+        "displayName": "Magnet Orange",
+        "canonical": "#e8862a",
+        "oklch": "oklch(71.2% 0.155 58)",
+        "tonalRamp": [
+          "oklch(15% 0.054 58)",
+          "oklch(26% 0.096 58)",
+          "oklch(38% 0.137 58)",
+          "oklch(49% 0.155 58)",
+          "oklch(61% 0.155 58)",
+          "oklch(72% 0.155 58)",
+          "oklch(84% 0.132 58)",
+          "oklch(95% 0.090 58)"
+        ]
+      },
+      "magnet-orange-deep": {
+        "role": "tertiary",
+        "displayName": "Magnet Orange, Deep",
+        "canonical": "#b9661a",
+        "oklch": "oklch(59.4% 0.134 57)",
+        "tonalRamp": [
+          "oklch(15% 0.047 57)",
+          "oklch(26% 0.083 57)",
+          "oklch(38% 0.119 57)",
+          "oklch(49% 0.134 57)",
+          "oklch(61% 0.134 57)",
+          "oklch(72% 0.134 57)",
+          "oklch(84% 0.114 57)",
+          "oklch(95% 0.078 57)"
+        ]
+      },
+      "magnet-graphite": {
+        "role": "neutral",
+        "displayName": "Graphite Magnet",
+        "canonical": "#3a3d43",
+        "oklch": "oklch(35.9% 0.011 264)",
+        "tonalRamp": [
+          "oklch(15% 0.004 264)",
+          "oklch(26% 0.007 264)",
+          "oklch(38% 0.010 264)",
+          "oklch(49% 0.011 264)",
+          "oklch(61% 0.011 264)",
+          "oklch(72% 0.011 264)",
+          "oklch(84% 0.009 264)",
+          "oklch(95% 0.006 264)"
+        ]
+      },
+      "rule-grey": {
+        "role": "neutral",
+        "displayName": "Rule Grey",
+        "canonical": "#9aa0a6",
+        "oklch": "oklch(70.3% 0.011 248)",
+        "tonalRamp": [
+          "oklch(15% 0.004 248)",
+          "oklch(26% 0.007 248)",
+          "oklch(38% 0.010 248)",
+          "oklch(49% 0.011 248)",
+          "oklch(61% 0.011 248)",
+          "oklch(72% 0.011 248)",
+          "oklch(84% 0.009 248)",
+          "oklch(95% 0.006 248)"
+        ]
+      },
+      "floor": {
+        "role": "neutral",
+        "displayName": "Floor",
+        "canonical": "#d2d7d8",
+        "oklch": "oklch(87.6% 0.006 211)",
+        "tonalRamp": [
+          "oklch(15% 0.002 211)",
+          "oklch(26% 0.003 211)",
+          "oklch(38% 0.005 211)",
+          "oklch(49% 0.006 211)",
+          "oklch(61% 0.006 211)",
+          "oklch(72% 0.006 211)",
+          "oklch(84% 0.005 211)",
+          "oklch(95% 0.003 211)"
+        ]
+      },
+      "aluminium": {
+        "role": "neutral",
+        "displayName": "Aluminium",
+        "canonical": "#d3d8dc",
+        "oklch": "oklch(88.0% 0.008 242)",
+        "tonalRamp": [
+          "oklch(15% 0.003 242)",
+          "oklch(26% 0.005 242)",
+          "oklch(38% 0.007 242)",
+          "oklch(49% 0.008 242)",
+          "oklch(61% 0.008 242)",
+          "oklch(72% 0.008 242)",
+          "oklch(84% 0.007 242)",
+          "oklch(95% 0.005 242)"
+        ]
+      },
+      "selection": {
+        "role": "neutral",
+        "displayName": "Highlighter",
+        "canonical": "#f5c48f",
+        "oklch": "oklch(85.2% 0.088 68)",
+        "tonalRamp": [
+          "oklch(15% 0.031 68)",
+          "oklch(26% 0.055 68)",
+          "oklch(38% 0.078 68)",
+          "oklch(49% 0.088 68)",
+          "oklch(61% 0.088 68)",
+          "oklch(72% 0.088 68)",
+          "oklch(84% 0.075 68)",
+          "oklch(95% 0.052 68)"
+        ]
+      }
+    },
+    "canvasPalette": {
+      "source": "debrief/template.html const C",
+      "C": {
+        "ink": "#1c1e23",
+        "ink2": "#444952",
+        "blue": "#1f4fbf",
+        "red": "#d62f2a",
+        "redT": "#b5221d",
+        "org": "#e8862a",
+        "orgD": "#b9661a",
+        "board": "#f2f4f3"
+      },
+      "magnetGradients": {
+        "o (you)": [
+          "#ffbe7a",
+          "#e8862a",
+          "#b9661a"
+        ],
+        "g (opponent)": [
+          "#7d828a",
+          "#3a3d43",
+          "#24262a"
+        ],
+        "w (teammate, 1.5px ink outline)": [
+          "#ffffff",
+          "#eceeee",
+          "#c9cdd0"
+        ]
+      },
+      "ghostRing": {
+        "stroke": "#b9661a",
+        "width": 2,
+        "dash": [
+          4,
+          3
+        ],
+        "meaning": "all matches"
+      },
+      "strokes": {
+        "structure": {
+          "color": "#1c1e23",
+          "width": "2.2-3"
+        },
+        "fix": {
+          "color": "#d62f2a",
+          "width": "4-5",
+          "fanFill": "rgba(214,47,42,.13)"
+        },
+        "lobby": {
+          "color": "#1f4fbf",
+          "width": "2.4-3",
+          "dash": [
+            7,
+            6
+          ]
+        },
+        "rowRule": {
+          "color": "#9aa0a6",
+          "width": "1.4-1.6"
+        },
+        "wobble": "seeded, ~1.3 amplitude per 24-unit segment, round caps and joins"
+      },
+      "boardSmudge": "16 strokes rgba(80,90,105,.018-.043), 10-36 units wide"
+    },
+    "materials3d": {
+      "roomBackgroundAndFog": "#e3e7e8",
+      "floor": {
+        "color": "#d2d7d8",
+        "roughness": 0.95
+      },
+      "aluminiumFrame": {
+        "color": "#d3d8dc",
+        "metalness": 0.3,
+        "roughness": 0.28
+      },
+      "darkFittings": {
+        "color": "#2a2c30",
+        "roughness": 0.6
+      },
+      "boardCore": {
+        "color": "#e9ecec",
+        "roughness": 0.7
+      },
+      "boardFace": {
+        "roughness": 0.36,
+        "emissiveIntensity": 0.5,
+        "emissiveOnlyOnBareMelamine": true
+      },
+      "mapWalls": {
+        "color": "#f6f7f7",
+        "roughness": 0.92,
+        "outline": "#1c1e23",
+        "height": "2.6 m"
+      },
+      "markerCaps": [
+        "#1c1e23",
+        "#1f4fbf",
+        "#d62f2a"
+      ],
+      "markerBody": "#f4f4f4",
+      "eraser": {
+        "felt": "#3b3e44",
+        "top": "#9aa1a8"
+      },
+      "figureT": {
+        "cloth": "#b08a58",
+        "pants": "#6e5c45",
+        "vest": "#4f4536",
+        "head": "#2a2a2b",
+        "hat": "#7a6142",
+        "trim": "#2f2a22"
+      },
+      "figureCT": {
+        "cloth": "#4a586e",
+        "pants": "#353e4d",
+        "vest": "#262c35",
+        "head": "#2b323d",
+        "hat": "#323b47",
+        "trim": "#15181c"
+      },
+      "gun": {
+        "color": "#2a2c30",
+        "metalness": 0.35
+      },
+      "figureBases": {
+        "you": "#e8862a",
+        "teammate": "#f2f2f0",
+        "opponent": "#3a3d43"
+      },
+      "eyeHeight": "1.63 m",
+      "lights": {
+        "hemisphere": [
+          "#ffffff",
+          "#c4c9ca",
+          1.65
+        ],
+        "directional": {
+          "intensity": 1.15,
+          "position": [
+            -0.8,
+            6,
+            1.6
+          ],
+          "shadow": "PCFSoft, 1024, radius 5"
+        }
+      },
+      "fog": "near camera distance + 1.6, far + 9"
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Drill section heading after the board."
+      },
+      "headline": {
+        "displayName": "Caption headline",
+        "purpose": "Caption titles on phones; lettered views A, B, C."
+      },
+      "headline-desktop": {
+        "displayName": "Caption headline (desktop)",
+        "purpose": "Caption titles in the right-hand column."
+      },
+      "title": {
+        "displayName": "Drill title",
+        "purpose": "Drill names."
+      },
+      "annotation": {
+        "displayName": "Marker annotation",
+        "purpose": "Labels over the 3D scene; degree counter at 30px in Fix Red."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Captions (48ch) and drills (60ch)."
+      },
+      "body-desktop": {
+        "displayName": "Body (desktop captions)",
+        "purpose": "Caption paragraphs beside the board."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Drill progress lines and footer, tabular numerals."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Start buttons."
+      },
+      "board-number": {
+        "displayName": "Board number (canvas)",
+        "purpose": "One giant marker number per page: 110-120px landscape, 52-74px portrait, Fix Red."
+      }
+    },
+    "shadows": [
+      {
+        "name": "magnet-drop",
+        "value": "canvas disc rgba(28,30,35,.28) offset 0.6px 1.8px",
+        "purpose": "Under every drawn magnet."
+      },
+      {
+        "name": "flat-page",
+        "value": "0 6px 18px rgba(28,30,35,.18)",
+        "purpose": "Board images in the no-WebGL fallback."
+      },
+      {
+        "name": "reading-lip",
+        "value": "0 -18px 30px rgba(227,231,232,1)",
+        "purpose": "Drill section fading over the scene."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-house",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "HTML transitions (button lift, 0.2s)."
+      },
+      {
+        "name": "ease-scene",
+        "value": "smoothstep",
+        "purpose": "All scene interpolation."
+      },
+      {
+        "name": "intro",
+        "value": "2200ms, camera from 1.55x distance plus (0.4, 0.1) offset",
+        "purpose": "Ease-in towards the board on load; title reveal starts at 700ms."
+      },
+      {
+        "name": "scroll-step",
+        "value": "1.1 viewport heights per state",
+        "purpose": "Ten states plus 0.32 tail."
+      },
+      {
+        "name": "scroll-damping",
+        "value": "lerp 0.12 per frame",
+        "purpose": "Progress follows scroll."
+      },
+      {
+        "name": "state-window",
+        "value": "hold 0-30%, change 30-90% of each state",
+        "purpose": "Board pivot and camera move."
+      },
+      {
+        "name": "board-pivot",
+        "value": "0, π/2, π/2, π/2, 0, π, 3π/2, 3π/2, π, 2π",
+        "purpose": "Board angle per state; side/first-person to face routes via the top pose."
+      },
+      {
+        "name": "figures-rise",
+        "value": "walls 0.5 state, figures 0.45 state (from p 1.3/1.35 and 6.3/6.35)",
+        "purpose": "Magnets rise into figures as the board lies flat."
+      },
+      {
+        "name": "first-person-flick",
+        "value": "0.3 state (p 2.95-3.25)",
+        "purpose": "Aim turns onto the head; red counter runs to 0."
+      },
+      {
+        "name": "marker-reveal",
+        "value": "1100ms diagonal sweep, triggered at face-to-camera dot > 0.35",
+        "purpose": "Fresh page writes on."
+      },
+      {
+        "name": "eraser-ghost",
+        "value": "previous page at alpha 0.016, blur 6px",
+        "purpose": "Faint ghosting on every rewritten face."
+      },
+      {
+        "name": "caption-fade",
+        "value": "0.06 state, translateY 10px",
+        "purpose": "One caption visible at a time."
+      },
+      {
+        "name": "start-fade",
+        "value": "first 0.08 state",
+        "purpose": "Start buttons fade on first scroll."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "snap to whole states, no damping, intro, sweep or smooth scroll",
+        "purpose": "Same facts, static."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "landscape",
+        "value": "min-aspect-ratio: 21/20 (script: width > 1.05 × height)"
+      }
+    ],
+    "board": {
+      "portrait": {
+        "size": "1.0 × 1.45 m",
+        "canvas": "360 units",
+        "texture": "1400 px"
+      },
+      "landscape": {
+        "size": "1.8 × 1.2 m",
+        "canvas": "840 units",
+        "texture": "2048 px"
+      },
+      "fitBoxes": {
+        "face/top phone": [
+          0.035,
+          0.965,
+          0.035,
+          0.66
+        ],
+        "face/top desktop": [
+          0.04,
+          0.6,
+          0.06,
+          0.94
+        ],
+        "side phone": [
+          0.06,
+          0.94,
+          0.12,
+          0.64
+        ],
+        "side desktop": [
+          0.1,
+          0.6,
+          0.12,
+          0.88
+        ],
+        "firstPersonFov": {
+          "phone": 68,
+          "desktop": 58
+        }
+      },
+      "states": [
+        {
+          "th": "0",
+          "face": "F",
+          "page": "title",
+          "cam": "face"
+        },
+        {
+          "th": "π/2",
+          "face": "B",
+          "page": "map1",
+          "cam": "top"
+        },
+        {
+          "th": "π/2",
+          "face": "B",
+          "page": "map1",
+          "cam": "side"
+        },
+        {
+          "th": "π/2",
+          "face": "B",
+          "page": "map1",
+          "cam": "ego"
+        },
+        {
+          "th": "0",
+          "face": "F",
+          "page": "util1",
+          "cam": "face"
+        },
+        {
+          "th": "π",
+          "face": "B",
+          "page": "util2",
+          "cam": "face"
+        },
+        {
+          "th": "3π/2",
+          "face": "F",
+          "page": "map2",
+          "cam": "top"
+        },
+        {
+          "th": "3π/2",
+          "face": "F",
+          "page": "map2",
+          "cam": "side"
+        },
+        {
+          "th": "π",
+          "face": "B",
+          "page": "erg",
+          "cam": "face"
+        },
+        {
+          "th": "2π",
+          "face": "F",
+          "page": "plan",
+          "cam": "face"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "\"Debrief starten\": ink pill under the board on load.",
+      "html": "<button class=\"ds-btn-primary\">Debrief starten</button>",
+      "css": ".ds-btn-primary { appearance: none; border: 2px solid #1c1e23; border-radius: 999px; padding: 12px 22px; font: 700 16px/1 \"Archivo\", \"Helvetica Neue\", Arial, sans-serif; background: #1c1e23; color: #f2f4f3; cursor: pointer; transition: transform .2s cubic-bezier(.16,1,.3,1); } .ds-btn-primary:hover { transform: translateY(-2px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid #1c1e23; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "\"Zum Plan\": outlined pill beside the primary.",
+      "html": "<button class=\"ds-btn-ghost\">Zum Plan</button>",
+      "css": ".ds-btn-ghost { appearance: none; border: 2px solid #1c1e23; border-radius: 999px; padding: 12px 22px; font: 700 16px/1 \"Archivo\", \"Helvetica Neue\", Arial, sans-serif; background: transparent; color: #1c1e23; cursor: pointer; transition: transform .2s cubic-bezier(.16,1,.3,1); } .ds-btn-ghost:hover { transform: translateY(-2px); } .ds-btn-ghost:active { transform: translateY(0); } .ds-btn-ghost:focus-visible { outline: 2px solid #1c1e23; outline-offset: 3px; }"
+    },
+    {
+      "name": "Caption",
+      "kind": "custom",
+      "refersTo": "caption",
+      "description": "Marker headline and Archivo paragraph using the ink code for numbers.",
+      "html": "<div class=\"ds-cap\"><h2>A · Draufsicht</h2><p>Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class=\"ds-fix\">13,4°</b> neben ihm. In deiner Lobby sind es <span class=\"ds-lobby\">11,7°</span>.</p></div>",
+      "css": ".ds-cap { display: grid; gap: 8px; padding: 40px 22px 26px; background: #e3e7e8; color: #1c1e23; font: 400 16px/1.5 \"Archivo\", Arial, sans-serif; } .ds-cap h2 { margin: 0; font: 400 clamp(22px, 6vw, 30px)/1.12 \"Permanent Marker\", \"Marker Felt\", cursive; max-width: 22ch; } .ds-cap p { margin: 0; color: #444952; max-width: 48ch; } .ds-fix { color: #b5221d; font-weight: 700; } .ds-lobby { color: #1f4fbf; font-weight: 600; }"
+    },
+    {
+      "name": "Drill",
+      "kind": "card",
+      "refersTo": "drill",
+      "description": "Drill entry after the board: ink rule, marker title, text, tabular progress.",
+      "html": "<div class=\"ds-drill\"><h3>Fadenkreuz vorplatzieren</h3><p>Vor jeder Session 10 bis 15 Minuten eine Prefire-Map.</p><span class=\"ds-state\">Alle Matches 13,4° · letzte 5: 12,1° · Ziel (Lobby) 11,7° · noch nicht geschafft</span></div>",
+      "css": ".ds-drill { display: grid; gap: 6px; padding-top: 18px; border-top: 2.5px solid #1c1e23; font: 400 16px/1.5 \"Archivo\", Arial, sans-serif; background: #e3e7e8; } .ds-drill h3 { margin: 0; font: 400 23px/1.15 \"Permanent Marker\", \"Marker Felt\", cursive; color: #1c1e23; } .ds-drill p { margin: 0; color: #444952; max-width: 60ch; } .ds-state { font-size: 14px; color: #444952; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Magnet Legend",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Magnet code as drawn on the plan page: orange you (last 5), outlined ring all matches, dashed blue lobby target; graphite opponent and white teammate.",
+      "html": "<div class=\"ds-legend\"><span><i class=\"ds-mag ds-o\"></i>letzte 5</span><span><i class=\"ds-ring\"></i>alle</span><span class=\"ds-lob\"><i class=\"ds-tick\"></i>Lobby = Ziel</span><span><i class=\"ds-mag ds-g\"></i>Gegner</span><span><i class=\"ds-mag ds-w\"></i>Mitspieler</span></div>",
+      "css": ".ds-legend { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 16px; background: #f2f4f3; font: 400 14px/1 \"Archivo\", Arial, sans-serif; color: #444952; } .ds-legend span { display: inline-flex; gap: 6px; align-items: center; } .ds-mag { width: 16px; height: 16px; border-radius: 50%; box-shadow: .6px 1.8px 0 rgba(28,30,35,.28); } .ds-o { background: radial-gradient(circle at 35% 30%, #ffbe7a, #e8862a 55%, #b9661a); } .ds-g { background: radial-gradient(circle at 35% 30%, #7d828a, #3a3d43 55%, #24262a); } .ds-w { background: radial-gradient(circle at 35% 30%, #fff, #eceeee 55%, #c9cdd0); border: 1.5px solid #1c1e23; } .ds-ring { width: 16px; height: 16px; border-radius: 50%; border: 2px dashed #b9661a; } .ds-tick { width: 0; height: 14px; border-left: 3px dashed #1f4fbf; } .ds-lob { color: #1f4fbf; }"
+    },
+    {
+      "name": "Board Page",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Melamine face with one giant red marker number, sans note and the black/blue/red stroke legend.",
+      "html": "<div class=\"ds-board\"><div class=\"ds-big\">13,4°</div><div class=\"ds-note\">Fadenkreuz neben dem Gegner</div><div class=\"ds-key\"><span class=\"ds-red\">du 13,4°</span><span class=\"ds-blue\">Lobby 11,7°</span></div><div class=\"ds-sketch\">Skizze · Winkel gemessen, Positionen nicht</div></div>",
+      "css": ".ds-board { width: 300px; padding: 20px 22px; background: #f2f4f3; border: 8px solid #d3d8dc; color: #1c1e23; display: grid; gap: 6px; } .ds-big { font: 400 56px/1 \"Permanent Marker\", cursive; color: #d62f2a; } .ds-note { font: 400 12.5px/1.3 \"Archivo\", Arial, sans-serif; color: #444952; } .ds-key { display: flex; gap: 18px; margin-top: 18px; font: 400 17px/1 \"Permanent Marker\", cursive; } .ds-red { color: #b5221d; border-left: 32px solid #d62f2a; border-left-width: 0; } .ds-red::before { content: \"\"; display: inline-block; width: 30px; height: 4px; background: #d62f2a; border-radius: 2px; vertical-align: middle; margin-right: 8px; } .ds-blue { color: #1f4fbf; } .ds-blue::before { content: \"\"; display: inline-block; width: 30px; border-top: 3px dashed #1f4fbf; vertical-align: middle; margin-right: 8px; } .ds-sketch { font: 600 12.5px/1.3 \"Archivo\", Arial, sans-serif; color: #1c1e23; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Coach's Tactic Board",
+    "overview": "The whole page is one physical object: a double-sided white melamine whiteboard in an aluminium frame on a rolling stand with a marker tray and eraser, lit by bright, cool room light. Scrolling pivots the board around its horizontal axis. Every lesson is drawn on a face in dry-erase marker, explained in a plain caption beside or below it, then the board turns and the next face arrives freshly written, carrying a faint eraser ghost of what was there before. When the board tips flat, its back is a map sketch, and the magnets on it rise into small original CT/T-style figures standing at eye height to scale.\n\nDensity is low: one giant marker number per chapter, a handful of strokes, a two-to-four-line caption. Colour is functional, not decorative: black structures, blue dashed means the lobby, red marks the thing to fix. The page refuses the dark stats dashboard of KPI tiles and neon charts; there is no chrome, no top bar, no menu, and the graphics carry the page.",
+    "keyCharacteristics": [
+      "One pivoting whiteboard is the only stage; there are no cards, panels or tiles.",
+      "Marker hand for annotations and big numbers, a sturdy grotesk for anything read as sentences.",
+      "A three-ink code: black for structure, blue dashed for the lobby, red for the one thing to fix.",
+      "Magnets as the player tokens: orange is you, graphite is the opponent, white is a teammate, an outlined ring is \"all matches\".",
+      "Bright, light room; depth comes from real 3D light and soft shadow, never from UI elevation."
+    ],
+    "rules": [
+      {
+        "name": "The Three Inks Rule",
+        "body": "Black structures, blue dashed is the lobby, red is the thing to fix. No other marker colours exist on the board, and blue is never used for the player.",
+        "section": "colors"
+      },
+      {
+        "name": "The Rationed Red Rule",
+        "body": "Red marks only the measured value the chapter asks the player to change, and the strokes that draw that value. On the plan page it marks each latest value that has not reached its lobby target. It is never decoration, never a heading colour, never a second highlighted stat in the same caption.",
+        "section": "colors"
+      },
+      {
+        "name": "The Magnet Code Rule",
+        "body": "Orange magnet is you, graphite is the opponent, white with a black outline is a teammate, a dashed deep-orange outline ring is \"all matches\". The code holds on the canvas, in 3D figure bases, and in counting rows (filled orange for won, graphite for lost; ranks 4 and 5 orange).",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Hands Rule",
+        "body": "If it is read as a sentence, it is Archivo. If it is written on or over the board, a heading, or a number to remember, it is Permanent Marker. Marker headings are always weight 400.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Big Number Rule",
+        "body": "Each board page carries exactly one giant marker number, the chapter's measured value.",
+        "section": "typography"
+      },
+      {
+        "name": "The Room Is The Elevation Rule",
+        "body": "No HTML element floats on a card or shadow. Captions sit on a scrim in the room colour; anything that needs depth is a 3D object lit by the room.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do draw every lesson on the one board; a new idea is a new page and a turn, not a new panel.",
+      "Do keep the ink code: black structure, blue dashed lobby, red only for the value to fix.",
+      "Do use the magnet code: orange you, graphite opponent, white teammate, dashed outline ring for all matches.",
+      "Do set one giant marker number per page and explain it in an Archivo caption.",
+      "Do label every map scene on the board as a sketch whose positions are not measured.",
+      "Do compose separate portrait and landscape pages and fit the camera to the free screen box rather than scaling one layout.",
+      "Do keep reduced-motion and no-WebGL paths showing the same facts as the animated page."
+    ],
+    "donts": [
+      "Don't build a dark dashboard of KPI tiles and neon charts.",
+      "Don't add top bars, menus or other interface chrome.",
+      "Don't use Valve game assets (character models, maps, logos); figures and map sketches are original.",
+      "Don't imply measured positions: no death spots or standing positions presented as data.",
+      "Don't use red for a heading, decoration or a second emphasis in the same caption.",
+      "Don't set reading sentences in Permanent Marker.",
+      "Don't put HTML content on cards or shadows; depth belongs to the lit 3D room."
+    ]
+  }
+}
