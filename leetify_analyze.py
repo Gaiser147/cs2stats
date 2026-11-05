@@ -152,6 +152,9 @@ def build_rows(steam64):
             # lobby (the other players in the match): per-round averages and summed counts for rates
             l_surv=lavg(lambda p: g(p, "rounds_survived_percentage")),
             l_fl_pr=lavg(lambda p: g(p, "flashbang_thrown") / max(g(p, "rounds_count", 1), 1)),
+            l_smoke_pr=lavg(lambda p: g(p, "smoke_thrown") / max(g(p, "rounds_count", 1), 1)),
+            l_he_pr=lavg(lambda p: g(p, "he_thrown") / max(g(p, "rounds_count", 1), 1)),
+            l_molly_pr=lavg(lambda p: g(p, "molotov_thrown") / max(g(p, "rounds_count", 1), 1)),
             l_fl_sum=sum(g(p, "flashbang_thrown") for p in others),
             l_fl_foe_sum=sum(g(p, "flashbang_hit_foe") for p in others),
             l_fl_friend_sum=sum(g(p, "flashbang_hit_friend") for p in others),

@@ -12,15 +12,15 @@
   --blue: #1f4fbf;
   --red: #d62f2a;
   --red-text: #b5221d;
-  --orange: #e8862a;
   --hand: "Permanent Marker", "Marker Felt", "Segoe Print", "Bradley Hand", cursive;
   --sans: "Archivo", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   --ease: cubic-bezier(.16, 1, .3, 1);
   color-scheme: light;
 }
 * { box-sizing: border-box; }
+html, body { height: 100%; }
 html { background: var(--room); }
-body { margin: 0; background: var(--room); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+body { margin: 0; overflow: hidden; overscroll-behavior: none; background: var(--room); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; touch-action: none; }
 ::selection { background: #f5c48f; color: var(--ink); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
 a { color: var(--blue); text-underline-offset: .2em; text-decoration-thickness: 1.5px; }
@@ -28,39 +28,33 @@ b { font-weight: 700; }
 .lobby { color: var(--blue); font-weight: 600; }
 .fix { color: var(--red-text); font-weight: 700; }
 
-#gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
-.track { position: relative; z-index: 1; }
-.overlay { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+.overlay { position: fixed; inset: 0; pointer-events: none; }
 
 /* captions under the board (phone) or beside it (desktop) */
 .cap {
   position: absolute; left: 0; right: 0; bottom: 0; display: grid; gap: 8px; opacity: 0; will-change: opacity, transform;
-  padding: 40px max(22px, env(safe-area-inset-right, 0px)) max(26px, calc(env(safe-area-inset-bottom, 0px) + 16px)) max(22px, env(safe-area-inset-left, 0px));
-  background: linear-gradient(to top, var(--room) calc(100% - 30px), rgba(227, 231, 232, 0));
+  padding: 34px 22px 26px;
+  background: linear-gradient(to top, var(--room) calc(100% - 26px), rgba(227, 231, 232, 0));
 }
+@supports (padding: max(1px, 2px)) { .cap { padding: 34px max(22px, env(safe-area-inset-right, 0px)) max(26px, calc(env(safe-area-inset-bottom, 0px) + 16px)) max(22px, env(safe-area-inset-left, 0px)); } }
 .cap h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: clamp(22px, 6vw, 30px); line-height: 1.12; text-wrap: balance; max-width: 22ch; }
 .cap p { margin: 0; color: var(--ink-2); max-width: 48ch; text-wrap: pretty; }
 .cap p b { color: var(--ink); }
+.cap .again { font-size: 14px; color: var(--ink-2); }
 @media (min-aspect-ratio: 21/20) {
   .cap { left: auto; right: 0; top: 0; bottom: 0; width: min(38vw, 460px); align-content: center; gap: 12px;
-    padding: 40px max(48px, env(safe-area-inset-right, 0px)) 40px 28px; background: linear-gradient(to left, var(--room) 78%, rgba(227, 231, 232, 0)); }
+    padding: 40px 48px 40px 28px; background: linear-gradient(to left, var(--room) 80%, rgba(227, 231, 232, 0)); }
   .cap h2 { font-size: clamp(28px, 2.6vw, 40px); }
   .cap p { font-size: 17px; }
 }
 
-.start {
-  position: absolute; left: 0; right: 0; bottom: max(22px, calc(env(safe-area-inset-bottom, 0px) + 14px)); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-  padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); pointer-events: auto;
-}
-.start p { flex-basis: 100%; text-align: center; margin: 0 0 4px; color: var(--ink-2); font-size: 15px; }
-.btn {
-  appearance: none; border: 2px solid var(--ink); border-radius: 999px; padding: 12px 22px; font: 700 16px/1 var(--sans); cursor: pointer;
-  background: transparent; color: var(--ink); transition: transform .2s var(--ease), background .2s, color .2s;
-}
-.btn.primary { background: var(--ink); color: var(--board); }
-.btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0); }
-@media (min-aspect-ratio: 21/20) { .start { left: auto; width: min(38vw, 460px); justify-content: flex-start; padding-left: 28px; bottom: 15vh; } .start p { text-align: left; } }
+/* swipe hint on the first page */
+.hint { position: absolute; left: 0; right: 0; bottom: max(26px, calc(env(safe-area-inset-bottom, 0px) + 18px)); display: grid; justify-items: center; gap: 6px; opacity: 0; transition: opacity .5s; }
+.hint span { font-family: var(--hand); font-size: 19px; }
+.hint svg { width: 34px; height: 46px; animation: nudge 1.8s var(--ease) infinite; }
+@keyframes nudge { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-12px); } }
+@media (min-aspect-ratio: 21/20) { .hint { left: auto; right: 0; width: min(38vw, 460px); bottom: 50%; transform: translateY(50%); } }
 
 .labels { position: absolute; inset: 0; }
 .lbl { position: absolute; left: 0; top: 0; font-family: var(--hand); font-size: 17px; line-height: 1; white-space: nowrap; transform: translate(-50%, -50%); opacity: 0; }
@@ -68,11 +62,24 @@ b { font-weight: 700; }
 .lbl.count { font-size: 30px; color: var(--red); }
 #rings { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 
-/* after the board: the drills, as plain reading text */
-.end { position: relative; z-index: 3; background: var(--room); box-shadow: 0 -18px 30px rgba(227, 231, 232, 1); padding: 56px 22px 40px; }
-@supports (padding: max(1px, 2px)) { .end { padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); } }
-.end .inner { max-width: 760px; margin: 0 auto; display: grid; gap: 26px; }
-.end h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: clamp(30px, 7vw, 46px); line-height: 1.1; }
+/* the flash: the whole screen goes white for a moment */
+#flash { position: fixed; inset: 0; background: #fff; opacity: 0; pointer-events: none; display: grid; place-content: center; text-align: center; gap: 10px; padding: 24px; }
+#flash strong { font-family: var(--hand); font-weight: 400; font-size: clamp(54px, 16vw, 110px); line-height: 1; color: var(--ink); }
+#flash span { font-size: 18px; color: var(--ink-2); max-width: 30ch; justify-self: center; }
+
+/* skip links for keyboard and screen reader users */
+.nav-sr { position: fixed; top: 10px; left: 10px; display: flex; gap: 8px; z-index: 5; }
+.nav-sr button { position: absolute; left: -9999px; font: 600 15px var(--sans); padding: 10px 16px; border-radius: 999px; border: 2px solid var(--ink); background: var(--board); color: var(--ink); }
+.nav-sr button:focus { position: static; }
+
+/* the drills: a sheet that slides over the board after the last page */
+.sheet { position: fixed; inset: 0; z-index: 4; background: var(--room); overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; transform: translateY(102%); transition: transform .7s var(--ease); box-shadow: 0 -10px 30px rgba(28, 30, 35, .18); }
+.sheet.open { transform: none; }
+.sheet .inner { max-width: 760px; margin: 0 auto; display: grid; gap: 26px; padding: 34px 22px 48px; }
+@supports (padding: max(1px, 2px)) { .sheet .inner { padding: max(34px, calc(env(safe-area-inset-top, 0px) + 20px)) max(22px, env(safe-area-inset-right, 0px)) max(48px, calc(env(safe-area-inset-bottom, 0px) + 30px)) max(22px, env(safe-area-inset-left, 0px)); } }
+.sheet .grab { justify-self: center; width: 44px; height: 5px; border-radius: 3px; background: #a4aab0; }
+.sheet h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: clamp(30px, 7vw, 46px); line-height: 1.1; }
+.sheet .back { justify-self: start; font: 600 15px var(--sans); background: none; border: 0; padding: 4px 0; color: var(--ink-2); cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
 .drill { display: grid; gap: 6px; padding-top: 18px; border-top: 2.5px solid var(--ink); }
 .drill h3 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: 23px; line-height: 1.15; }
 .drill p { margin: 0; color: var(--ink-2); max-width: 60ch; }
@@ -81,21 +88,23 @@ b { font-weight: 700; }
 .foot { font-size: 14px; color: var(--ink-2); display: grid; gap: 6px; padding-top: 22px; border-top: 1.5px dashed #9aa0a6; }
 .foot code { font-size: 13px; background: var(--board); padding: 2px 6px; border-radius: 3px; overflow-wrap: anywhere; }
 
-/* without WebGL: the board pages as flat images */
-.flat { display: none; position: relative; z-index: 3; padding: 24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px)); }
-.nogl .flat { display: grid; gap: 28px; justify-items: center; }
-.nogl .track, .nogl .overlay, .nogl #gl { display: none; }
+/* without WebGL: the board pages as flat images in a normal scrolling page */
+.flat { display: none; }
+.nogl body, body.nogl { overflow: auto; touch-action: auto; }
+body.nogl .flat { display: grid; gap: 28px; justify-items: center; padding: 24px 16px; }
+body.nogl .overlay, body.nogl #gl, body.nogl .nav-sr { display: none; }
+body.nogl .sheet { position: static; transform: none; box-shadow: none; overflow: visible; }
 .flat figure { margin: 0; display: grid; gap: 10px; max-width: 760px; width: 100%; }
 .flat canvas { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 18px rgba(28,30,35,.18); background: var(--board); }
 .flat figcaption { display: grid; gap: 6px; }
 .flat figcaption h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: 24px; }
 .flat figcaption p { margin: 0; color: var(--ink-2); }
 
-@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .hint svg { animation: none; } .sheet { transition: none; } }
 </style>
 
 <canvas id="gl" aria-hidden="true"></canvas>
-<div class="track" id="track"></div>
+<div class="nav-sr"><button type="button" id="srPrev">Vorherige Seite</button><button type="button" id="srNext">Nächste Seite</button></div>
 <div class="overlay" id="overlay">
   <div class="labels" id="labels" aria-hidden="true">
     <svg id="rings" aria-hidden="true">
@@ -105,18 +114,20 @@ b { font-weight: 700; }
       <g id="rCross" opacity="0" stroke="#d62f2a" stroke-width="3" stroke-linecap="round"><line x1="-19" y1="0" x2="-7" y2="0"/><line x1="7" y1="0" x2="19" y2="0"/><line x1="0" y1="-19" x2="0" y2="-7"/><line x1="0" y1="7" x2="0" y2="19"/></g>
     </svg>
   </div>
-  <div id="caps"></div>
-  <div class="start" id="start">
-    <p id="startLine"></p>
-    <button class="btn primary" type="button" id="go">Debrief starten</button>
-    <button class="btn" type="button" id="toPlan">Zum Plan</button>
+  <div id="caps" aria-live="polite"></div>
+  <div class="hint" id="hint">
+    <svg viewBox="0 0 34 46" aria-hidden="true"><path d="M17 42c.3-11 .2-24-.2-36M6 16c4-4 7.5-8 11-11.5 3.4 3.6 7 7.4 11 11.3" fill="none" stroke="#1c1e23" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span id="hintText">Wischen, um die Tafel zu drehen</span>
   </div>
 </div>
+<div id="flash" aria-hidden="true"><strong>Flash!</strong><span id="flashText"></span></div>
 
 <section class="flat" id="flat" aria-label="Debrief als Bilder"></section>
 
-<section class="end" id="end" aria-labelledby="t-end">
+<section class="sheet" id="sheet" aria-labelledby="t-end" aria-hidden="true">
   <div class="inner">
+    <span class="grab" aria-hidden="true"></span>
+    <button class="back" type="button" id="back">Zurück zur Tafel</button>
     <h2 id="t-end">So übst du bis zum nächsten Update</h2>
     <div id="drills"></div>
     <div class="foot">
@@ -135,14 +146,18 @@ b { font-weight: 700; }
 const D = JSON.parse(document.getElementById('data').textContent);
 const M = D.matches, P0 = D.profile;
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = v => { v = clamp(v); return v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2; };
+const out = v => 1 - Math.pow(1 - clamp(v), 3);
+const lerp = (a, b, k) => a + (b - a) * k;
 
 // ---------------- numbers ----------------
 const FIVE = M.filter(m => m.n_lobby >= 10);
 const PLAYED = FIVE.filter(m => m.rounds >= 5);
 const LAST = PLAYED.slice(-5);
 const rounds = rs => rs.reduce((s, r) => s + r.rounds, 0);
-const wavg = (rs, k) => rs.reduce((s, r) => s + r[k] * r.rounds, 0) / Math.max(1, rounds(rs));
-const tot = (rs, k) => rs.reduce((s, r) => s + r[k], 0);
+const wavg = (rs, k) => rs.reduce((s, r) => s + (r[k] || 0) * r.rounds, 0) / Math.max(1, rounds(rs));
+const tot = (rs, k) => rs.reduce((s, r) => s + (r[k] || 0), 0);
 const mean = xs => xs.reduce((a, b) => a + b, 0) / Math.max(1, xs.length);
 const S = {
   pre: wavg(FIVE, 'preaim'), lPre: wavg(FIVE, 'l_preaim'), head: wavg(FIVE, 'acc_head'), lHead: wavg(FIVE, 'l_head'),
@@ -150,11 +165,14 @@ const S = {
   adr: wavg(FIVE, 'adr'), lAdr: wavg(FIVE, 'l_adr'), surv: wavg(FIVE, 'survived'), lSurv: wavg(FIVE, 'l_surv'),
   uod: wavg(FIVE, 'uod'), lUod: wavg(FIVE, 'l_uod'), rounds: rounds(FIVE),
   fl: tot(FIVE, 'fl'), flFoe: tot(FIVE, 'fl_foe'), lFlPr: wavg(FIVE, 'l_fl_pr'),
+  sm: tot(FIVE, 'smoke'), lSmPr: wavg(FIVE, 'l_smoke_pr'), he: tot(FIVE, 'he'), lHePr: wavg(FIVE, 'l_he_pr'), mo: tot(FIVE, 'molly'), lMoPr: wavg(FIVE, 'l_molly_pr'),
   lFoePer: tot(FIVE, 'l_fl_foe_sum') / Math.max(1, tot(FIVE, 'l_fl_sum')),
   tkOpp: tot(FIVE, 'tk_opp'), tkAtt: tot(FIVE, 'tk_att'), tkOk: tot(FIVE, 'tk_ok'),
   lTk: tot(FIVE, 'l_tk_ok_sum') / Math.max(1, tot(FIVE, 'l_tk_att_sum')),
 };
 S.flPr = S.fl / Math.max(1, S.rounds); S.foePer = S.flFoe / Math.max(1, S.fl); S.tk = S.tkOk / Math.max(1, S.tkAtt);
+S.smPr = S.sm / Math.max(1, S.rounds); S.hePr = S.he / Math.max(1, S.rounds); S.moPr = S.mo / Math.max(1, S.rounds);
+const lobN = pr => Math.round(pr * S.rounds);
 const L5 = LAST.length ? { pre: wavg(LAST, 'preaim'), uod: wavg(LAST, 'uod'), flPr: tot(LAST, 'fl') / Math.max(1, rounds(LAST)), tk: tot(LAST, 'tk_ok') / Math.max(1, tot(LAST, 'tk_att')), util: wavg(LAST, 'util_pr'), lUtil: wavg(LAST, 'l_util_pr') } : null;
 const ST = P0.stats || {}, tOpen = ST.t_opening_duel_success_percentage || 0, ctOpen = ST.ct_opening_duel_success_percentage || 0;
 const modes = ['competitive', 'premier'].map(k => { const rs = M.filter(m => m.mode === k); return { k, rs, rating: mean(rs.map(r => r.rating)), rank: mean(rs.map(r => r.rk_team)) }; }).filter(x => x.rs.length);
@@ -167,6 +185,7 @@ const sg = (v, d = 2) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(d).replace
 const dt = s => { const [y, m, d] = s.split('-'); return `${+d}.${+m}.${y}`; };
 const dts = s => { const [, m, d] = s.split('-'); return `${+d}.${+m}.`; };
 const first = M[0].date, last = M[M.length - 1].date;
+const cmp = (a, b) => a >= b ? 'mehr als' : 'weniger als';
 
 const TASKS = [
   { t: 'Fadenkreuz vorplatzieren', all: S.pre, last: L5 && L5.pre, goal: S.lPre, lower: true, fmt: v => de(v) + '°', worst: 18, best: 8,
@@ -179,300 +198,329 @@ const TASKS = [
     drill: 'Auf T-Seite gehst du nicht als Erster, sondern direkt hinter dem Entry, so nah, dass du seinen Gegner sofort siehst.' },
 ].map(t => ({ ...t, done: t.last != null && (t.lower ? t.last <= t.goal : t.last >= t.goal) }));
 
-// ---------------- captions ----------------
+// ---------------- captions, one per board state ----------------
+const AGAIN = '<span class="again">Tippe auf die Tafel, um es nochmal zu sehen.</span>';
 const CAPS = [
   null,
-  ['A · Draufsicht', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>. Rot dein Winkel, blau gestrichelt die Lobby.`],
+  ['A · Draufsicht', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>.`],
   ['B · Seitenansicht', `Von deinen Treffern gehen <b>${pc(S.head, 1)}</b> an den Kopf, in deiner Lobby <span class="lobby">${pc(S.lHead, 1)}</span>. Halte das Fadenkreuz schon vor dem Peek auf Kopfhöhe an der Kante.`],
   ['C · Ego-Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
-  ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Wenn du flashst, blendest du mehr Gegner als die Lobby. Du flashst nur nicht mal halb so oft.`],
+  ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Auf den nächsten Seiten: welche Granaten fehlen.`],
   ['Match für Match', L5 ? `Im Herbst gab es Matches fast ohne Utility. In deinen letzten ${LAST.length} Matches wirfst du <b>${de(L5.util, 2)}</b> Granaten pro Runde, deine Lobby <span class="lobby">${de(L5.lUtil, 2)}</span>.` : 'Geworfene Granaten pro Runde.'],
+  ['Flash', `Du wirfst <b class="fix">${de(S.flPr, 2)}</b> Flashes pro Runde, ein Spieler deiner Lobby <span class="lobby">${de(S.lFlPr, 2)}</span>. Wenn du flashst, blendest du <b>${de(S.foePer, 2)}</b> Gegner pro Flash, die Lobby <span class="lobby">${de(S.lFoePer, 2)}</span>. Deine Flashes sind gut, es sind nur zu wenige. ${AGAIN}`],
+  ['HE-Granate', `${S.he} HE in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lHePr)}</span>, also ${cmp(S.hePr, S.lHePr)} du. Wirf sie dorthin, wo ein Gegner stehen muss, bevor du peekst, statt sie mit ins Grab zu nehmen. ${AGAIN}`],
+  ['Molotov', `${S.mo} Molotovs in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lMoPr)}</span>. Ein Molotov in die Ecke zwingt den CT aus seiner Position, bevor du reingehst. ${AGAIN}`],
+  ['Smoke', `Smokes wirfst du ${S.smPr >= S.lSmPr ? 'sogar etwas mehr als' : 'weniger als'} deine Lobby: <b>${S.sm}</b> gegen <span class="lobby">${lobN(S.lSmPr)}</span>. Eine Smoke nimmt dem CT die Sicht auf den Eingang. Das machst du schon richtig. ${AGAIN}`],
   ['Das erste Duell', `Auf T-Seite gewinnst du <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %. Wer als Erster reingeht und fällt, lässt sein Team zu viert.`],
-  ['So soll es aussehen', `Direkt hinter dem Entry. Traden willst du: Du versuchst es in <b>${pc(S.tkAtt / Math.max(1, S.tkOpp))}</b> der Fälle, es klappt aber nur in <b class="fix">${pc(S.tk)}</b>, in deiner Lobby in <span class="lobby">${pc(S.lTk)}</span>. Die Skizze zeigt keine gemessenen Positionen.`],
+  ['So soll es aussehen', `Direkt hinter dem Entry. Du versuchst es in <b>${pc(S.tkAtt / Math.max(1, S.tkOpp))}</b> der Fälle zu traden, es klappt aber nur in <b class="fix">${pc(S.tk)}</b>, in deiner Lobby in <span class="lobby">${pc(S.lTk)}</span>. Die Skizze zeigt keine gemessenen Positionen.`],
   ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
-  ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Der orange Magnet zeigt deine letzten ${LAST.length} Matches, der Umriss alle. Darunter steht, wie du übst.`],
+  ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Das Kreuz zeigt deine letzten ${LAST.length} Matches, der Kreis alle. Noch einmal wischen für die Übungen.`],
 ];
 const capsEl = document.getElementById('caps');
-CAPS.forEach((c, i) => {
-  const el = document.createElement('div'); el.className = 'cap'; el.dataset.i = i;
-  if (c) el.innerHTML = `<h2>${c[0]}</h2><p>${c[1]}</p>`;
-  capsEl.appendChild(el);
-});
+CAPS.forEach(c => { const el = document.createElement('div'); el.className = 'cap'; if (c) el.innerHTML = `<h2>${c[0]}</h2><p>${c[1]}</p>`; capsEl.appendChild(el); });
 const capEls = [...capsEl.children];
-document.getElementById('startLine').textContent = `Dein CS2-Debrief aus ${M.length} Matches. Scrolle, um die Tafel zu drehen.`;
 document.getElementById('f-stand').textContent = `Stand ${dt(last)} · ${M.length} Matches seit ${dt(first)} · Durchschnitte nach Runden gewichtet, nur 5v5.`;
 document.getElementById('f-link').href = `https://leetify.com/app/profile/${D.steam64}`;
 document.getElementById('drills').innerHTML = TASKS.map(t => `<div class="drill"><h3>${t.t}</h3><p>${t.drill}</p>
   <span class="state">Alle Matches ${t.fmt(t.all)}${t.last != null ? ` · letzte ${LAST.length}: ${t.fmt(t.last)}` : ''} · Ziel (Lobby) ${t.fmt(t.goal)} · ${t.done ? '<b class="ok">geschafft</b>' : 'noch nicht geschafft'}</span></div>`).join('');
+document.getElementById('flashText').textContent = `Du wirfst ${de(S.flPr, 2)} Flashes pro Runde, deine Lobby ${de(S.lFlPr, 2)}. Eine Flash vor jedem Peek.`;
 
-// ---------------- board geometry and pages ----------------
+// ---------------- board pages, recorded as marker strokes ----------------
 const land = innerWidth > innerHeight * 1.05;
 const BW = land ? 1.8 : 1.0, BH = land ? 1.2 : 1.45;
 const CW = land ? 840 : 360, CH = Math.round(CW * BH / BW);
 const TEXW = land ? 2048 : 1400, SC = TEXW / CW, TEXH = Math.round(CH * SC), PXM = CW / BW;
-const C = { ink: '#1c1e23', ink2: '#444952', blue: '#1f4fbf', red: '#d62f2a', redT: '#b5221d', org: '#e8862a', orgD: '#b9661a', board: '#f2f4f3' };
-
-await Promise.race([Promise.all([document.fonts.load('40px "Permanent Marker"'), document.fonts.load('400 16px Archivo'), document.fonts.load('700 16px Archivo')]).catch(() => {}), new Promise(r => setTimeout(r, 2500))]);
+const C = { ink: '#1c1e23', ink2: '#444952', blue: '#1f4fbf', red: '#d62f2a', redT: '#b5221d', board: '#f2f4f3', rule: '#9aa0a6' };
+await Promise.race([Promise.all([document.fonts.load('40px "Permanent Marker"'), document.fonts.load('400 16px Archivo'), document.fonts.load('600 16px Archivo')]).catch(() => {}), new Promise(r => setTimeout(r, 2500))]);
 
 function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-function wob(pts, amp, seed, sharp = false) {
-  const r = rng(seed); const out = [];
+function wobPts(pts, amp, seed) {
+  const r = rng(seed), o = [];
   for (let i = 0; i < pts.length - 1; i++) {
     const [x0, y0] = pts[i], [x1, y1] = pts[i + 1], len = Math.hypot(x1 - x0, y1 - y0), n = Math.max(1, Math.round(len / 24));
     const nx = -(y1 - y0) / (len || 1), ny = (x1 - x0) / (len || 1);
-    for (let k = 0; k < n; k++) { const f = k / n, j = (k === 0 ? 0 : (r() - .5) * amp); out.push([x0 + (x1 - x0) * f + nx * j, y0 + (y1 - y0) * f + ny * j]); }
+    for (let k = 0; k < n; k++) { const f = k / n, j = k === 0 ? 0 : (r() - .5) * amp; o.push([x0 + (x1 - x0) * f + nx * j, y0 + (y1 - y0) * f + ny * j]); }
   }
-  out.push(pts[pts.length - 1]);
-  let d = `M${out[0][0].toFixed(2)},${out[0][1].toFixed(2)}`;
-  if (sharp) { for (let i = 1; i < out.length; i++) d += `L${out[i][0].toFixed(2)},${out[i][1].toFixed(2)}`; return d; }
-  for (let i = 1; i < out.length - 1; i++) { const mx = (out[i][0] + out[i + 1][0]) / 2, my = (out[i][1] + out[i + 1][1]) / 2; d += `Q${out[i][0].toFixed(2)},${out[i][1].toFixed(2)} ${mx.toFixed(2)},${my.toFixed(2)}`; }
-  const l = out[out.length - 1]; return d + `L${l[0].toFixed(2)},${l[1].toFixed(2)}`;
+  o.push(pts[pts.length - 1]); return o;
 }
+function pathD(o, sharp) {
+  let d = `M${o[0][0].toFixed(2)},${o[0][1].toFixed(2)}`;
+  if (sharp) { for (let i = 1; i < o.length; i++) d += `L${o[i][0].toFixed(2)},${o[i][1].toFixed(2)}`; return d; }
+  for (let i = 1; i < o.length - 1; i++) { const mx = (o[i][0] + o[i + 1][0]) / 2, my = (o[i][1] + o[i + 1][1]) / 2; d += `Q${o[i][0].toFixed(2)},${o[i][1].toFixed(2)} ${mx.toFixed(2)},${my.toFixed(2)}`; }
+  const l = o[o.length - 1]; return d + `L${l[0].toFixed(2)},${l[1].toFixed(2)}`;
+}
+const plen = o => o.reduce((s, p, i) => i ? s + Math.hypot(p[0] - o[i - 1][0], p[1] - o[i - 1][1]) : 0, 0);
 const font = (size, fam, w = 400) => `${w} ${size}px ${fam === 'sans' ? 'Archivo, Arial, sans-serif' : '"Permanent Marker", "Marker Felt", cursive'}`;
-function tx(c, s, x, y, size, col = C.ink, fam = 'hand', align = 'left', w = 400) { c.font = font(size, fam, w); c.fillStyle = col; c.textAlign = align; c.textBaseline = 'alphabetic'; c.fillText(s, x, y); return c.measureText(s).width; }
-function sd(c, d, col, w) { c.save(); c.strokeStyle = col; c.lineWidth = w; c.lineCap = 'round'; c.lineJoin = 'round'; c.setLineDash([]); c.stroke(new Path2D(d)); c.restore(); }
-function ln(c, x0, y0, x1, y1, col = C.ink, w = 2.6, seed = 1, amp = 1.3) { sd(c, wob([[x0, y0], [x1, y1]], amp, seed), col, w); }
-function dash(c, x0, y0, x1, y1, col = C.blue, w = 2.6, pat = [7, 6]) { c.save(); c.strokeStyle = col; c.lineWidth = w; c.lineCap = 'round'; c.setLineDash(pat); c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y1); c.stroke(); c.restore(); }
-const MAGF = { o: ['#ffbe7a', '#e8862a', '#b9661a'], g: ['#7d828a', '#3a3d43', '#24262a'], w: ['#ffffff', '#eceeee', '#c9cdd0'] };
-function mag(c, x, y, r, kind = 'o') {
-  const f = MAGF[kind]; c.save(); c.fillStyle = 'rgba(28,30,35,.28)'; c.beginPath(); c.arc(x + .6, y + 1.8, r, 0, 7); c.fill();
-  const g = c.createRadialGradient(x - r * .3, y - r * .4, r * .1, x, y, r); g.addColorStop(0, f[0]); g.addColorStop(.55, f[1]); g.addColorStop(1, f[2]);
-  c.fillStyle = g; c.beginPath(); c.arc(x, y, r, 0, 7); c.fill(); if (kind === 'w') { c.strokeStyle = C.ink; c.lineWidth = 1.5; c.stroke(); } c.restore();
+const MC = document.createElement('canvas').getContext('2d');
+let OPS = [];
+function stroke(pts, col = C.ink, w = 2.6, seed = 1, amp = 1.3, sharp = false) { const o = wobPts(pts, amp, seed); OPS.push({ k: 's', d: pathD(o, sharp), L: plen(o), col, w }); }
+function ln(x0, y0, x1, y1, col = C.ink, w = 2.6, seed = 1, amp = 1.3) { stroke([[x0, y0], [x1, y1]], col, w, seed, amp); }
+function tx(s, x, y, size, col = C.ink, fam = 'hand', align = 'left', w = 400) { OPS.push({ k: 't', s, x, y, size, col, fam, align, w }); MC.font = font(size, fam, w); return MC.measureText(s).width; }
+function dash(x0, y0, x1, y1, col = C.blue, w = 2.6, pat = [7, 6]) { OPS.push({ k: 'd', x0, y0, x1, y1, col, w, pat, L: Math.hypot(x1 - x0, y1 - y0) }); }
+function fill(pts, col) { OPS.push({ k: 'f', pts, col }); }
+function ring(x, y, r, col = C.ink, w = 2.4, seed = 1) { const p = []; for (let i = 0; i <= 16; i++) { const a = -Math.PI / 2 + i / 16 * Math.PI * 2.06; p.push([x + Math.cos(a) * r, y + Math.sin(a) * r]); } stroke(p, col, w, seed, Math.max(.4, r * .1)); }
+function check(x, y, s, col = C.ink, seed = 1) { stroke([[x - s * .5, y - s * .05], [x - s * .12, y + s * .38], [x + s * .55, y - s * .48]], col, Math.max(2.4, s * .16), seed, .3, true); }
+function cross(x, y, s, col = C.ink, seed = 1, w = 2.6) { ln(x - s / 2, y - s / 2, x + s / 2, y + s / 2, col, w, seed, .3); ln(x + s / 2, y - s / 2, x - s / 2, y + s / 2, col, w, seed + 1, .3); }
+function hatchBox(x, y, w, h, col, seed) {
+  stroke([[x, y], [x + w, y], [x + w, y + h], [x, y + h], [x, y]], col, 2.2, seed, .6, true);
+  [.34, .68, 1, 1.32, 1.66].forEach((s, i) => { const a = s <= 1 ? [x + w * s, y + h] : [x + w, y + h - h * (s - 1)], b = s <= 1 ? [x, y + h - h * s] : [x + w * (s - 1), y]; ln(a[0], a[1], b[0], b[1], col, 1.6, seed + i + 1, .3); });
 }
-function ghostRing(c, x, y, r) { c.save(); c.strokeStyle = C.orgD; c.lineWidth = 2; c.setLineDash([4, 3]); c.beginPath(); c.arc(x, y, r, 0, 7); c.stroke(); c.restore(); }
-function tally(c, x, y, n, col, seed, h, step, gap, maxW) {
+function arrow(x0, y0, x1, y1, col = C.ink, w = 2.6, seed = 1, dashed = false) {
+  if (dashed) dash(x0, y0, x1, y1, col, w * .9, [6, 6]); else ln(x0, y0, x1, y1, col, w, seed, .8);
+  const a = Math.atan2(y1 - y0, x1 - x0), l = 10;
+  ln(x1, y1, x1 - l * Math.cos(a - .45), y1 - l * Math.sin(a - .45), col, w, seed + 2, .3); ln(x1, y1, x1 - l * Math.cos(a + .45), y1 - l * Math.sin(a + .45), col, w, seed + 3, .3);
+}
+function tally(x, y, n, col, seed, h, step, gap, maxW) {
   const r = rng(seed); let cx = x, cy = y, rows = 1;
   for (let i = 0; i < n; i++) {
     const g = i % 5;
-    if (g === 4) { ln(c, cx - step * 4 - 3, cy + h * .78, cx + 2, cy + h * .2, col, 2.3, seed + i, .8); cx += gap; if (cx + step * 5 > x + maxW && i < n - 1) { cx = x; cy += h + 10; rows++; } }
-    else { const j = (r() - .5) * 2; ln(c, cx + j, cy, cx - j, cy + h, col, 2.3, seed + i * 7, 1); cx += step; }
+    if (g === 4) { ln(cx - step * 4 - 3, cy + h * .78, cx + 2, cy + h * .2, col, 2.3, seed + i, .8); cx += gap; if (cx + step * 5 > x + maxW && i < n - 1) { cx = x; cy += h + 10; rows++; } }
+    else { const j = (r() - .5) * 2; ln(cx + j, cy, cx - j, cy + h, col, 2.3, seed + i * 7, 1); cx += step; }
   }
   return rows * (h + 10);
 }
-function arrowHead(c, x, y, ang, col, len = 10, w = 2.6) { ln(c, x, y, x - len * Math.cos(ang - .45), y - len * Math.sin(ang - .45), col, w, 9, .4); ln(c, x, y, x - len * Math.cos(ang + .45), y - len * Math.sin(ang + .45), col, w, 10, .4); }
+function viewTag(letter, name, x, y, s = 1) { ring(x, y, 17 * s, C.ink, 2.2, 77); tx(letter, x, y + 7 * s, 19 * s, C.ink, 'hand', 'center'); tx(name, x, y + 36 * s, 11 * s, C.ink2, 'sans', 'center', 600); }
 
 // map scenarios, in metres on a 1:1 floor, shrunk by k onto the board
-const EYE = 1.63;
-const MAP1 = { k: land ? .115 : .125, mcx: -1, mcy: 3.5, fx: land ? .28 : 0, fy: 0, P: [0, 0], E: [.35, 6.3], walls: [[-3, 3.4, -.3, 4.3]], path: [[-1.8, 7.6], [.1, 6.65]] };
-const MAP2 = { k: land ? .115 : .125, mcx: 0, mcy: 2.9, fx: land ? .25 : 0, fy: 0, walls: [[-3, 2.6, -.9, 3.4], [.9, 2.6, 3, 3.4]], you: [-.35, 2.2], entry: [.1, 3.9], foe: [1.8, 6.2], ghost: [-.9, -.7] };
-const toPx = (m, x, y) => [CW / 2 + (m.k * (x - m.mcx) + m.fx) * PXM, CH / 2 - (m.k * (y - m.mcy) + m.fy) * PXM];
-const DEG = Math.PI / 180;
+const EYE = 1.63, DEG = Math.PI / 180, PI = Math.PI;
+const MAP1 = { k: land ? .115 : .125, mcx: -1, mcy: 3.5, fx: land ? .28 : 0, P: [0, 0], E: [.35, 6.3], walls: [[-3, 3.4, -.3, 4.3]], path: [[-1.8, 7.6], [.1, 6.65]] };
+const MAPU = { k: land ? .115 : .125, mcx: .1, mcy: 3.2, fx: land ? .26 : 0, walls: [[-3, 2.6, -.7, 3.4], [.7, 2.6, 3, 3.4]], you: [-.3, .5], foe: [1.5, 5.6], flee: [2.7, 6.6], door: [0, 3] };
+const MAP2 = { k: land ? .115 : .125, mcx: 0, mcy: 2.9, fx: land ? .25 : 0, walls: [[-3, 2.6, -.9, 3.4], [.9, 2.6, 3, 3.4]], you: [-.35, 2.2], entry: [.1, 3.9], foe: [1.8, 6.2], ghost: [-.9, -.7] };
+const toPx = (m, x, y) => [CW / 2 + (m.k * (x - m.mcx) + m.fx) * PXM, CH / 2 - m.k * (y - m.mcy) * PXM];
 const rot2 = (v, a) => [v[0] * Math.cos(a) - v[1] * Math.sin(a), v[0] * Math.sin(a) + v[1] * Math.cos(a)];
 const norm2 = v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; };
 const TOE = norm2([MAP1.E[0] - MAP1.P[0], MAP1.E[1] - MAP1.P[1]]), DIST = Math.hypot(MAP1.E[0] - MAP1.P[0], MAP1.E[1] - MAP1.P[1]);
 const AIM = rot2(TOE, S.pre * DEG), LOB = rot2(TOE, S.lPre * DEG);
+function wallsOf(m, seed) { m.walls.forEach((w, i) => { const a = toPx(m, w[0], w[1]), b = toPx(m, w[2], w[3]); stroke([[a[0], a[1]], [b[0], a[1]], [b[0], b[1]], [a[0], b[1]], [a[0], a[1]]], C.ink, 3, seed + i, 1.2, true); }); }
 
+const L = land;
 const PAGES = {};
-PAGES.title = (c) => {
+PAGES.title = () => {
   const rowsT = [['Premier', (P0.ranks && P0.ranks.premier || 0).toLocaleString('de-DE')], ['Winrate', pc(P0.winrate || 0)], ['Leetify-Rating', sg(P0.ranks && P0.ranks.leetify || 0)]];
-  if (land) {
-    tx(c, P0.name || 'Zattocat', 64, 186, 84);
-    tx(c, 'Debrief', 68, 262, 52, C.blue);
-    tx(c, `${M.length} Matches · ${dts(first)}–${dt(last)}`, 70, 310, 19, C.ink2, 'sans');
-    tx(c, 'Daten: Leetify', 70, 336, 19, C.ink2, 'sans');
-    ln(c, 64, 372, 400, 372, C.ink, 3, 3);
-    tx(c, 'Wo du Runden verlierst:', 68, 430, 30);
-    tx(c, 'Fadenkreuz · Granaten · erstes Duell', 70, 468, 21, C.ink2, 'sans');
-    rowsT.forEach(([k, v], i) => { const y = 200 + i * 104; tx(c, k, 500, y, 22); tx(c, v, 790, y + 4, 44, C.ink, 'hand', 'right'); ln(c, 500, y + 24, 790, y + 24, '#9aa0a6', 1.6, 40 + i); });
+  if (L) {
+    tx(P0.name || 'Zattocat', 64, 186, 84); tx('Debrief', 68, 254, 52, C.blue);
+    tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 70, 302, 19, C.ink2, 'sans'); tx('Daten: Leetify', 70, 328, 19, C.ink2, 'sans');
+    ln(64, 364, 400, 364, C.ink, 3, 3);
+    tx('Wo du Runden verlierst:', 68, 424, 30); tx('Fadenkreuz · Granaten · erstes Duell', 70, 462, 21, C.ink2, 'sans');
+    rowsT.forEach(([k, v], i) => { const y = 200 + i * 104; tx(k, 500, y, 22); tx(v, 790, y + 4, 44, C.ink, 'hand', 'right'); ln(500, y + 24, 790, y + 24, C.rule, 1.6, 40 + i); });
     return;
   }
-  tx(c, P0.name || 'Zattocat', 22, 92, 60);
-  tx(c, 'Debrief', 24, 140, 34, C.blue);
-  tx(c, `${M.length} Matches · ${dts(first)}–${dt(last)}`, 26, 172, 13.5, C.ink2, 'sans');
-  tx(c, 'Daten: Leetify', 26, 191, 13.5, C.ink2, 'sans');
-  ln(c, 22, 214, 338, 214, C.ink, 2.8, 3);
-  rowsT.forEach(([k, v], i) => { const y = 270 + i * 62; tx(c, k, 24, y, 21); tx(c, v, 336, y + 3, 36, C.ink, 'hand', 'right'); ln(c, 24, y + 18, 336, y + 18, '#9aa0a6', 1.4, 40 + i); });
-  tx(c, 'Wo du Runden verlierst:', 24, 470, 21);
-  tx(c, 'Fadenkreuz · Granaten · erstes Duell', 26, 494, 13.5, C.ink2, 'sans');
+  tx(P0.name || 'Zattocat', 22, 92, 60); tx('Debrief', 24, 140, 34, C.blue);
+  tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 26, 172, 13.5, C.ink2, 'sans'); tx('Daten: Leetify', 26, 191, 13.5, C.ink2, 'sans');
+  ln(22, 214, 338, 214, C.ink, 2.8, 3);
+  rowsT.forEach(([k, v], i) => { const y = 270 + i * 62; tx(k, 24, y, 21); tx(v, 336, y + 3, 36, C.ink, 'hand', 'right'); ln(24, y + 18, 336, y + 18, C.rule, 1.4, 40 + i); });
+  tx('Wo du Runden verlierst:', 24, 470, 21); tx('Fadenkreuz · Granaten · erstes Duell', 26, 494, 13.5, C.ink2, 'sans');
 };
-PAGES.map1 = (c, paint) => {
+PAGES.map1 = (paint) => {
   const m = MAP1, px = (x, y) => toPx(m, x, y);
-  m.walls.forEach((w, i) => { const a = px(w[0], w[1]), b = px(w[2], w[3]); sd(c, wob([[a[0], a[1]], [b[0], a[1]], [b[0], b[1]], [a[0], b[1]], [a[0], a[1]]], 1.2, 30 + i, true), C.ink, 3); });
-  const p0 = px(...m.path[0]), p1 = px(...m.path[1]); dash(c, p0[0], p0[1], p1[0], p1[1], C.ink, 2.4, [6, 6]); arrowHead(c, p1[0], p1[1], Math.atan2(p1[1] - p0[1], p1[0] - p0[0]), C.ink);
+  if (L) { tx(`${de(S.pre)}°`, 60, 250, 120, C.red); tx('neben dem Gegner, wenn er auftaucht', 66, 290, 19, C.ink2, 'sans'); }
+  else { tx(`${de(S.pre)}°`, 20, 60, 56, C.red); tx('Fadenkreuz neben dem Gegner', 22, 80, 12.5, C.ink2, 'sans'); }
+  wallsOf(m, 30);
+  const p0 = px(...m.path[0]), p1 = px(...m.path[1]); arrow(p0[0], p0[1], p1[0], p1[1], C.ink, 2.4, 50, true);
   const P = px(...m.P), E = px(...m.E), R = DIST * .82;
-  const fan = new Path2D(); fan.moveTo(P[0], P[1]); for (let i = 0; i <= 16; i++) { const d = rot2(TOE, S.pre * DEG * i / 16), q = px(m.P[0] + d[0] * R, m.P[1] + d[1] * R); fan.lineTo(q[0], q[1]); } fan.closePath();
-  c.save(); c.fillStyle = 'rgba(214,47,42,.13)'; c.fill(fan); c.restore();
-  const A = px(m.P[0] + AIM[0] * R, m.P[1] + AIM[1] * R), L = px(m.P[0] + LOB[0] * R * .96, m.P[1] + LOB[1] * R * .96);
-  ln(c, P[0], P[1], E[0], E[1], C.ink, 2.2, 21, .8); ln(c, P[0], P[1], A[0], A[1], C.red, 4, 22, .9); dash(c, P[0], P[1], L[0], L[1], C.blue, 3);
-  const arc = []; for (let i = 0; i <= 10; i++) { const d = rot2(TOE, S.pre * DEG * i / 10), q = px(m.P[0] + d[0] * 1.6, m.P[1] + d[1] * 1.6); arc.push(q); } sd(c, wob(arc, .5, 23), C.red, 2.6);
-  if (paint) { mag(c, P[0], P[1], 11); mag(c, E[0], E[1], 11, 'g'); }
-  tx(c, 'du', P[0] + 30, P[1] + 7, 18, C.redT); tx(c, 'Gegner', E[0] + 30, E[1] + 7, 18);
-  if (land) {
-    tx(c, `${de(S.pre)}°`, 60, 250, 120, C.red);
-    tx(c, 'neben dem Gegner, wenn er auftaucht', 66, 290, 19, C.ink2, 'sans');
-    dash(c, 66, 360, 126, 360); tx(c, `Lobby ${de(S.lPre)}°`, 140, 368, 30, C.blue);
-    ln(c, 66, 420, 126, 420, C.red, 4, 5); tx(c, `du ${de(S.pre)}°`, 140, 428, 30, C.redT);
-    tx(c, 'Skizze: Winkel aus deinen Matches,', 66, 480, 16, C.ink2, 'sans'); tx(c, 'Positionen nicht gemessen', 66, 502, 16, C.ink2, 'sans');
-    sd(c, wob([[100, 40], [124, 52], [124, 80], [100, 92], [76, 80], [76, 52], [100, 40]], .4, 77), C.ink, 2.4); tx(c, 'A', 100, 75, 26, C.ink, 'hand', 'center'); tx(c, 'Draufsicht', 136, 72, 18, C.ink2, 'sans');
+  const fan = [P]; for (let i = 0; i <= 16; i++) { const d = rot2(TOE, S.pre * DEG * i / 16); fan.push(px(m.P[0] + d[0] * R, m.P[1] + d[1] * R)); }
+  ln(P[0], P[1], E[0], E[1], C.ink, 2.2, 21, .8);
+  const A = px(m.P[0] + AIM[0] * R, m.P[1] + AIM[1] * R), Lo = px(m.P[0] + LOB[0] * R * .96, m.P[1] + LOB[1] * R * .96);
+  ln(P[0], P[1], A[0], A[1], C.red, 4, 22, .9); fill(fan, 'rgba(214,47,42,.13)'); dash(P[0], P[1], Lo[0], Lo[1], C.blue, 3);
+  const arc = []; for (let i = 0; i <= 10; i++) { const d = rot2(TOE, S.pre * DEG * i / 10); arc.push(px(m.P[0] + d[0] * 1.6, m.P[1] + d[1] * 1.6)); } stroke(arc, C.red, 2.6, 23, .5);
+  if (paint) { ring(P[0], P[1], 10, C.ink); ring(E[0], E[1], 10, C.ink); }
+  tx('du', P[0] + 30, P[1] + 7, 18, C.redT); tx('Gegner', E[0] + 30, E[1] + 7, 18);
+  if (L) {
+    dash(66, 360, 126, 360); tx(`Lobby ${de(S.lPre)}°`, 140, 368, 30, C.blue);
+    ln(66, 420, 126, 420, C.red, 4, 5); tx(`du ${de(S.pre)}°`, 140, 428, 30, C.redT);
+    tx('Skizze: Winkel aus deinen Matches,', 66, 480, 16, C.ink, 'sans', 'left', 600); tx('Positionen nicht gemessen', 66, 502, 16, C.ink, 'sans', 'left', 600);
+    viewTag('A', 'Draufsicht', 100, 70, 1.3);
   } else {
-    tx(c, `${de(S.pre)}°`, 20, 60, 56, C.red);
-    tx(c, 'Fadenkreuz neben dem Gegner', 22, 80, 12.5, C.ink2, 'sans');
-    ln(c, 24, 488, 56, 488, C.red, 4, 5); tx(c, `du ${de(S.pre)}°`, 64, 494, 17, C.redT);
-    dash(c, 176, 488, 208, 488); tx(c, `Lobby ${de(S.lPre)}°`, 216, 494, 17, C.blue);
-    tx(c, 'Skizze · Winkel gemessen, Positionen nicht', 24, 514, 12.5, C.ink, 'sans', 'left', 600);
-    sd(c, wob([[318, 22], [336, 30], [336, 50], [318, 58], [300, 50], [300, 30], [318, 22]], .4, 77), C.ink, 2.2); tx(c, 'A', 318, 48, 19, C.ink, 'hand', 'center'); tx(c, 'Draufsicht', 336, 74, 11, C.ink2, 'sans', 'right');
+    ln(24, 488, 56, 488, C.red, 4, 5); tx(`du ${de(S.pre)}°`, 64, 494, 17, C.redT);
+    dash(176, 488, 208, 488); tx(`Lobby ${de(S.lPre)}°`, 216, 494, 17, C.blue);
+    tx('Skizze · Winkel gemessen, Positionen nicht', 24, 514, 12.5, C.ink, 'sans', 'left', 600);
+    viewTag('A', 'Draufsicht', 318, 40);
   }
 };
-PAGES.util1 = (c) => {
-  const L = land, x0 = L ? 64 : 24, rx1 = L ? 400 : 336, ry = L ? 340 : 230, maxv = 600, X = v => x0 + (rx1 - x0) * v / maxv;
-  tx(c, 'Du stirbst mit', x0, L ? 96 : 50, L ? 40 : 25);
-  const w = tx(c, `$${de(S.uod, 0)}`, x0 - 2, L ? 196 : 124, L ? 110 : 74, C.red);
-  tx(c, `Lobby $${de(S.lUod, 0)}`, x0 + w + 14, L ? 190 : 120, L ? 30 : 20, C.blue);
-  tx(c, 'Granatenwert im Inventar beim Tod,', x0, L ? 230 : 148, L ? 18 : 13, C.ink2, 'sans'); tx(c, 'im Schnitt pro Tod', x0, L ? 254 : 165, L ? 18 : 13, C.ink2, 'sans');
-  ln(c, x0, ry, rx1, ry, C.ink, 2.8, 3);
-  for (let v = 0; v <= maxv; v += 100) { ln(c, X(v), ry - 7, X(v), ry + 7, C.ink, 2.2, 10 + v, .6); tx(c, `$${v}`, X(v), ry + 24, L ? 15 : 11, C.ink2, 'sans', 'center'); }
-  tx(c, 'Flash', X(200), ry + (L ? 50 : 42), L ? 20 : 14, C.ink, 'hand', 'center'); tx(c, 'Smoke', X(300), ry + (L ? 74 : 60), L ? 20 : 14, C.ink, 'hand', 'center');
-  dash(c, X(S.lUod), ry - 34, X(S.lUod), ry + 8); tx(c, 'Lobby', X(S.lUod), ry - 40, L ? 20 : 15, C.blue, 'hand', 'center');
-  ln(c, X(0), ry - 14, X(S.uod), ry - 14, C.red, 5, 6, .8); mag(c, X(S.uod), ry - 14, L ? 12 : 9); tx(c, 'du', X(S.uod), ry - 32, L ? 20 : 15, C.redT, 'hand', 'center');
+PAGES.util1 = () => {
+  const x0 = L ? 64 : 24, rx1 = L ? 400 : 336, ry = L ? 340 : 230, maxv = 600, X = v => x0 + (rx1 - x0) * v / maxv;
+  tx('Du stirbst mit', x0, L ? 96 : 50, L ? 40 : 25);
+  const w = tx(`$${de(S.uod, 0)}`, x0 - 2, L ? 196 : 124, L ? 110 : 74, C.red);
+  tx(`Lobby $${de(S.lUod, 0)}`, x0 + w + 14, L ? 190 : 120, L ? 30 : 20, C.blue);
+  tx('Granatenwert im Inventar beim Tod,', x0, L ? 230 : 148, L ? 18 : 13, C.ink2, 'sans'); tx('im Schnitt pro Tod', x0, L ? 254 : 165, L ? 18 : 13, C.ink2, 'sans');
+  ln(x0, ry, rx1, ry, C.ink, 2.8, 3);
+  for (let v = 0; v <= maxv; v += 100) { ln(X(v), ry - 7, X(v), ry + 7, C.ink, 2.2, 10 + v, .6); tx(`$${v}`, X(v), ry + 24, L ? 15 : 11, C.ink2, 'sans', 'center'); }
+  tx('Flash', X(200), ry + (L ? 50 : 42), L ? 20 : 14, C.ink, 'hand', 'center'); tx('Smoke', X(300), ry + (L ? 74 : 60), L ? 20 : 14, C.ink, 'hand', 'center');
+  dash(X(S.lUod), ry - 34, X(S.lUod), ry + 8); tx('Lobby', X(S.lUod), ry - 40, L ? 20 : 15, C.blue, 'hand', 'center');
+  ln(X(0), ry - 14, X(S.uod), ry - 14, C.red, 5, 6, .8);
+  const tw = L ? 9 : 7; fill([[X(S.uod) - tw, ry - 32], [X(S.uod) + tw, ry - 32], [X(S.uod), ry - 16]], C.red);
+  tx('du', X(S.uod), ry - 38, L ? 20 : 15, C.redT, 'hand', 'center');
   const fx = L ? 470 : 24, fy = L ? 96 : 322, mw = L ? 320 : 312;
-  tx(c, 'Flashes', fx, fy, L ? 40 : 24);
-  tx(c, `in ${S.rounds} Runden`, fx + (L ? 150 : 96), fy, L ? 19 : 13, C.ink2, 'sans');
-  tx(c, `du: ${S.fl}`, fx, fy + (L ? 44 : 30), L ? 22 : 16);
-  const h1 = tally(c, fx, fy + (L ? 58 : 36), S.fl, C.ink, 21, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
-  const lob = Math.round(S.lFlPr * S.rounds), ly = fy + (L ? 58 : 36) + h1 + (L ? 34 : 20);
-  tx(c, `ein Lobby-Spieler: ${lob}`, fx, ly, L ? 22 : 16, C.blue);
-  const h2 = tally(c, fx, ly + (L ? 14 : 8), lob, C.blue, 77, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
+  tx('Flashes', fx, fy, L ? 40 : 24); tx(`in ${S.rounds} Runden`, fx + (L ? 150 : 96), fy, L ? 19 : 13, C.ink2, 'sans');
+  tx(`du: ${S.fl}`, fx, fy + (L ? 44 : 30), L ? 22 : 16);
+  const h1 = tally(fx, fy + (L ? 58 : 36), S.fl, C.ink, 21, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
+  const lob = lobN(S.lFlPr), ly = fy + (L ? 58 : 36) + h1 + (L ? 34 : 20);
+  tx(`ein Lobby-Spieler: ${lob}`, fx, ly, L ? 22 : 16, C.blue);
+  const h2 = tally(fx, ly + (L ? 14 : 8), lob, C.blue, 77, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
   const by = ly + (L ? 14 : 8) + h2 + (L ? 36 : 18);
-  const w1 = tx(c, 'Gegner pro Flash:', fx, by, L ? 19 : 13, C.ink2, 'sans');
-  const w2 = tx(c, `du ${de(S.foePer, 2)}`, fx + w1 + 10, by, L ? 22 : 16); tx(c, `Lobby ${de(S.lFoePer, 2)}`, fx + w1 + w2 + 22, by, L ? 22 : 16, C.blue);
+  const w1 = tx('Gegner pro Flash:', fx, by, L ? 19 : 13, C.ink2, 'sans');
+  const w2 = tx(`du ${de(S.foePer, 2)}`, fx + w1 + 10, by, L ? 22 : 16); tx(`Lobby ${de(S.lFoePer, 2)}`, fx + w1 + w2 + 22, by, L ? 22 : 16, C.blue);
 };
-PAGES.util2 = (c) => {
-  const L = land, rs = PLAYED, x0 = L ? 96 : 40, x1 = L ? 790 : 340, y0 = L ? 160 : 130, y1 = L ? 470 : 420, hi = 2, Y = v => y1 - (y1 - y0) * Math.min(v, hi) / hi;
-  tx(c, 'Granaten pro Runde', L ? 64 : 24, L ? 96 : 50, L ? 40 : 25);
-  tx(c, 'jedes Match · gestrichelt: deine Lobby', L ? 66 : 24, L ? 126 : 74, L ? 19 : 13, C.ink2, 'sans');
-  ln(c, x0, y1, x1, y1, C.ink, 2.6, 400);
-  [1, 2].forEach(v => tx(c, String(v), x0 - 10, Y(v) + 5, L ? 15 : 11, C.ink2, 'sans', 'right'));
+PAGES.util2 = () => {
+  const rs = PLAYED, x0 = L ? 96 : 40, x1 = L ? 790 : 340, y0 = L ? 160 : 130, y1 = L ? 470 : 420, hi = 2, Y = v => y1 - (y1 - y0) * Math.min(v, hi) / hi;
+  tx('Granaten pro Runde', L ? 64 : 24, L ? 96 : 50, L ? 40 : 25);
+  tx('jedes Match · gestrichelt: deine Lobby', L ? 66 : 24, L ? 126 : 74, L ? 19 : 13, C.ink2, 'sans');
+  ln(x0, y1, x1, y1, C.ink, 2.6, 400);
+  [1, 2].forEach(v => tx(String(v), x0 - 10, Y(v) + 5, L ? 15 : 11, C.ink2, 'sans', 'right'));
   const slot = (x1 - x0) / rs.length, bw = Math.min(L ? 30 : 15, slot * .56); let lastLbl = -1e9;
   rs.forEach((r, i) => {
     const cx = x0 + slot * i + slot / 2;
-    sd(c, wob([[cx - bw / 2, y1], [cx - bw / 2, Y(r.util_pr)], [cx + bw / 2, Y(r.util_pr)], [cx + bw / 2, y1]], 1, 500 + i, true), C.ink, 2.4);
-    dash(c, cx - bw / 2 - 4, Y(r.l_util_pr), cx + bw / 2 + 4, Y(r.l_util_pr), C.blue, 2.4, [5, 4]);
-    if ((i === 0 || r.date.slice(5, 7) !== rs[i - 1].date.slice(5, 7)) && cx - lastLbl > (L ? 44 : 30) && (lastLbl = cx)) tx(c, ['', 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'][+r.date.slice(5, 7)], cx, y1 + (L ? 26 : 20), L ? 15 : 11, C.ink2, 'sans', 'center');
+    stroke([[cx - bw / 2, y1], [cx - bw / 2, Y(r.util_pr)], [cx + bw / 2, Y(r.util_pr)], [cx + bw / 2, y1]], C.ink, 2.4, 500 + i, 1, true);
+    dash(cx - bw / 2 - 4, Y(r.l_util_pr), cx + bw / 2 + 4, Y(r.l_util_pr), C.blue, 2.4, [5, 4]);
+    if ((i === 0 || r.date.slice(5, 7) !== rs[i - 1].date.slice(5, 7)) && cx - lastLbl > (L ? 44 : 30)) { lastLbl = cx; tx(['', 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'][+r.date.slice(5, 7)], cx, y1 + (L ? 26 : 20), L ? 15 : 11, C.ink2, 'sans', 'center'); }
   });
   const dry = rs.map((r, i) => r.util_pr < .1 ? i : -1).filter(i => i >= 0);
-  if (dry.length) { const a = x0 + slot * dry[0] + 3, b = x0 + slot * (dry[dry.length - 1] + 1) - 3, by = Y(1.25); sd(c, wob([[a, by + 10], [a, by], [b, by], [b, by + 10]], .8, 600, true), C.ink, 2.4); tx(c, `${dry.length} fast ohne`, (a + b) / 2, by - 10, L ? 20 : 14, C.ink, 'hand', 'center'); }
-  if (L5) {
-    tx(c, `letzte ${LAST.length}: ${de(L5.util, 2)}`, L ? 64 : 24, L ? 530 : 476, L ? 28 : 19);
-    tx(c, `Lobby ${de(L5.lUtil, 2)}`, L ? 330 : 190, L ? 530 : 476, L ? 28 : 19, C.blue);
-  }
+  if (dry.length) { const a = x0 + slot * dry[0] + 3, b = x0 + slot * (dry[dry.length - 1] + 1) - 3, by = Y(1.25); stroke([[a, by + 10], [a, by], [b, by], [b, by + 10]], C.ink, 2.4, 600, .8, true); tx(`${dry.length} fast ohne`, (a + b) / 2, by - 10, L ? 20 : 14, C.ink, 'hand', 'center'); }
+  if (L5) { tx(`letzte ${LAST.length}: ${de(L5.util, 2)}`, L ? 64 : 24, L ? 530 : 476, L ? 28 : 19); tx(`Lobby ${de(L5.lUtil, 2)}`, L ? 330 : 190, L ? 530 : 476, L ? 28 : 19, C.blue); }
 };
-PAGES.map2 = (c, paint) => {
-  const m = MAP2, px = (x, y) => toPx(m, x, y);
-  m.walls.forEach((w, i) => { const a = px(w[0], w[1]), b = px(w[2], w[3]); sd(c, wob([[a[0], a[1]], [b[0], a[1]], [b[0], b[1]], [a[0], b[1]], [a[0], a[1]]], 1.2, 70 + i, true), C.ink, 3); });
-  const Yp = px(...m.you), En = px(...m.entry), F = px(...m.foe), G = px(...m.ghost);
-  dash(c, F[0], F[1], En[0], En[1], '#3a3d43', 2.2, [5, 5]);
-  ln(c, Yp[0], Yp[1], F[0], F[1], C.ink, 2.2, 80, .8);
-  sd(c, wob([[G[0] + 10, G[1] - 8], [Yp[0] - 8, Yp[1] + 12]], 1, 81), C.red, 2.4); arrowHead(c, Yp[0] - 8, Yp[1] + 12, Math.atan2(Yp[1] + 12 - G[1] + 8, Yp[0] - 8 - G[0] - 10), C.red);
-  ghostRing(c, G[0], G[1], land ? 13 : 11); ln(c, G[0] - 6, G[1] - 6, G[0] + 6, G[1] + 6, C.red, 2.6, 82, .3); ln(c, G[0] + 6, G[1] - 6, G[0] - 6, G[1] + 6, C.red, 2.6, 83, .3);
-  if (paint) { mag(c, Yp[0], Yp[1], 11); mag(c, En[0], En[1], 11, 'w'); mag(c, F[0], F[1], 11, 'g'); }
-  const fs = land ? 20 : 16;
-  tx(c, 'nicht hier', G[0] + 16, G[1] + 18, fs, C.redT);
-  tx(c, 'du', Yp[0] - 28, Yp[1] + 6, fs, C.redT, 'hand', 'right');
-  tx(c, 'Entry (T)', En[0] + 28, En[1] + 6, fs);
-  tx(c, 'Gegner (CT)', F[0], F[1] + 40, fs, C.ink, 'hand', 'center');
-  const rowsO = [['T', tOpen], ['CT', ctOpen]];
-  if (land) {
-    tx(c, `${de(tOpen)} %`, 60, 230, 110, C.red);
-    tx(c, 'erste Duelle gewonnen, T-Seite', 66, 268, 19, C.ink2, 'sans');
-    rowsO.forEach(([n, v], k) => { const y = 340 + k * 50; tx(c, n, 66, y + 8, 24); for (let i = 0; i < 10; i++) mag(c, 120 + i * 28, y, 11, i < Math.round(v / 10) ? 'o' : 'g'); });
-    tx(c, 'auf 10 gerundet · Skizze, keine Positionsdaten', 66, 440, 16, C.ink2, 'sans');
+PAGES.utilmap = (paint) => {
+  const m = MAPU, px = (x, y) => toPx(m, x, y);
+  tx('Granaten', L ? 64 : 22, L ? 110 : 54, L ? 64 : 40);
+  tx('Skizze, keine Positionsdaten', L ? 68 : 24, L ? 142 : 76, L ? 16 : 12.5, C.ink, 'sans', 'left', 600);
+  wallsOf(m, 60);
+  const Y = px(...m.you), F = px(...m.foe), Dd = px(...m.door);
+  dash(F[0], F[1], Dd[0], Dd[1], '#3a3d43', 2.2, [5, 5]);
+  if (paint) { ring(Y[0], Y[1], 10); ring(F[0], F[1], 10); }
+  tx('du (T)', Y[0] + 28, Y[1] + 6, L ? 20 : 16, C.redT); tx('Gegner (CT)', F[0] - 26, F[1] + 6, L ? 20 : 16, C.ink, 'hand', 'right');
+  // utility per round, you against one lobby player
+  const rows = [['Flash', S.flPr, S.lFlPr], ['HE', S.hePr, S.lHePr], ['Molotov', S.moPr, S.lMoPr], ['Smoke', S.smPr, S.lSmPr]];
+  if (L) {
+    tx('pro Runde', 66, 300, 18, C.ink2, 'sans'); tx('du', 230, 300, 18, C.ink2, 'sans', 'right'); tx('Lobby', 320, 300, 18, C.blue, 'sans', 'right');
+    rows.forEach(([n, a, b], i) => { const y = 340 + i * 40; tx(n, 66, y, 24); tx(de(a, 2), 230, y, 24, a < b ? C.redT : C.ink, 'hand', 'right'); tx(de(b, 2), 320, y, 24, C.blue, 'hand', 'right'); ln(66, y + 10, 320, y + 10, C.rule, 1.2, 300 + i); });
   } else {
-    tx(c, `${de(tOpen)} %`, 20, 58, 52, C.red);
-    tx(c, 'erste Duelle gewonnen, T-Seite', 22, 78, 12.5, C.ink2, 'sans');
-    rowsO.forEach(([n, v], k) => { const y = 470 + k * 26; tx(c, n, 24, y + 6, 16); for (let i = 0; i < 10; i++) mag(c, 70 + i * 19, y, 7.5, i < Math.round(v / 10) ? 'o' : 'g'); });
-    tx(c, 'auf 10', 268, 476, 11, C.ink2, 'sans'); tx(c, 'gerundet', 268, 490, 11, C.ink2, 'sans');
-    tx(c, 'Skizze, keine Positionsdaten', 24, 516, 12.5, C.ink, 'sans', 'left', 600);
+    tx('pro Runde: du / Lobby', 24, 462, 11.5, C.ink2, 'sans', 'left', 600);
+    rows.forEach(([n, a, b], i) => { const x = 24 + (i % 2) * 168, y = 484 + Math.floor(i / 2) * 26; tx(n, x, y, 15); tx(de(a, 2), x + 104, y, 15, a < b ? C.redT : C.ink, 'hand', 'right'); tx(de(b, 2), x + 150, y, 15, C.blue, 'hand', 'right'); });
   }
 };
-PAGES.erg = (c) => {
-  const L = land;
-  tx(c, 'Das kostet dich', L ? 64 : 24, L ? 96 : 50, L ? 40 : 25);
-  const w = tx(c, de(S.adr - S.lAdr), L ? 60 : 20, L ? 200 : 124, L ? 110 : 72, C.red);
-  tx(c, 'ADR', (L ? 60 : 20) + w + 12, L ? 192 : 118, L ? 36 : 24);
-  tx(c, `${de(S.adr)} gegen ${de(S.lAdr)} in deiner Lobby`, L ? 66 : 24, L ? 236 : 150, L ? 19 : 13, C.ink2, 'sans');
-  const hx = L ? 470 : 24, hy = L ? 470 : 404, hw = L ? 320 : 312, col = hw / 5, r = L ? 13 : 10.5, gap = L ? 28 : 22.5;
-  tx(c, 'Dein Platz im Team', hx, L ? 96 : 194, L ? 28 : 19);
-  ln(c, hx, hy + r + 4, hx + hw, hy + r + 4, C.ink, 2.6, 900);
-  ranks.forEach((n, i) => { const cx = hx + col * i + col / 2; for (let k = 0; k < n; k++) mag(c, cx, hy - k * gap, r, i >= 3 ? 'o' : 'g'); tx(c, `Platz ${i + 1}`, cx, hy + r + (L ? 30 : 24), L ? 17 : 12.5, C.ink, 'hand', 'center'); });
-  if (prem && comp) {
-    tx(c, `Premier: Platz ${de(prem.rank)} von 5`, L ? 64 : 24, L ? 330 : 470, L ? 28 : 18);
-    tx(c, `Rating Competitive ${sg(comp.rating)} · Premier ${sg(prem.rating)}`, L ? 66 : 24, L ? 362 : 493, L ? 19 : 13, C.ink2, 'sans');
-  }
+PAGES.map2 = (paint) => {
+  const m = MAP2, px = (x, y) => toPx(m, x, y);
+  if (L) { tx(`${de(tOpen)} %`, 60, 230, 110, C.red); tx('erste Duelle gewonnen, T-Seite', 66, 268, 19, C.ink2, 'sans'); }
+  else { tx(`${de(tOpen)} %`, 20, 58, 52, C.red); tx('erste Duelle gewonnen, T-Seite', 22, 78, 12.5, C.ink2, 'sans'); }
+  wallsOf(m, 70);
+  const Y = px(...m.you), En = px(...m.entry), F = px(...m.foe), G = px(...m.ghost);
+  dash(F[0], F[1], En[0], En[1], '#3a3d43', 2.2, [5, 5]);
+  ln(Y[0], Y[1], F[0], F[1], C.ink, 2.2, 80, .8);
+  arrow(G[0] + 10, G[1] - 8, Y[0] - 8, Y[1] + 12, C.red, 2.4, 81);
+  ring(G[0], G[1], L ? 13 : 11, C.red, 2, 84); cross(G[0], G[1], 10, C.red, 82);
+  if (paint) { ring(Y[0], Y[1], 10); ring(En[0], En[1], 10); ring(F[0], F[1], 10); }
+  const fs = L ? 20 : 16;
+  tx('nicht hier', G[0] + 16, G[1] + 18, fs, C.redT); tx('du', Y[0] - 28, Y[1] + 6, fs, C.redT, 'hand', 'right');
+  tx('Entry (T)', En[0] + 28, En[1] + 6, fs); tx('Gegner (CT)', F[0], F[1] + 40, fs, C.ink, 'hand', 'center');
+  const rowsO = [['T', tOpen], ['CT', ctOpen]];
+  rowsO.forEach(([n, v], k) => {
+    const y = L ? 340 + k * 50 : 470 + k * 26, x = L ? 120 : 64, step = L ? 28 : 19, s = L ? 16 : 11, won = Math.round(v / 10);
+    tx(n, L ? 66 : 24, y + 6, L ? 24 : 16);
+    for (let i = 0; i < 10; i++) { if (i < won) check(x + i * step, y, s, C.ink, 900 + k * 20 + i); else cross(x + i * step, y, s * .8, k === 0 ? C.red : C.ink2, 920 + k * 20 + i, 2.2); }
+  });
+  if (L) tx('auf 10 gerundet · Skizze, keine Positionsdaten', 66, 440, 16, C.ink, 'sans', 'left', 600);
+  else { tx('auf 10', 268, 476, 11, C.ink2, 'sans'); tx('gerundet', 268, 490, 11, C.ink2, 'sans'); tx('Skizze, keine Positionsdaten', 24, 516, 12.5, C.ink, 'sans', 'left', 600); }
 };
-PAGES.plan = (c) => {
-  const L = land;
-  tx(c, 'Bis zum nächsten Update', L ? 64 : 24, L ? 86 : 46, L ? 40 : 24);
-  const lg = L ? 66 : 24, ly = L ? 118 : 70; mag(c, lg + 8, ly - 5, L ? 8 : 6); tx(c, `letzte ${LAST.length}`, lg + 22, ly, L ? 17 : 12, C.ink2, 'sans');
-  ghostRing(c, lg + (L ? 118 : 96), ly - 5, L ? 8 : 6); tx(c, 'alle', lg + (L ? 132 : 106), ly, L ? 17 : 12, C.ink2, 'sans');
-  dash(c, lg + (L ? 190 : 148), ly - 12, lg + (L ? 190 : 148), ly + 2); tx(c, 'Lobby = Ziel', lg + (L ? 200 : 156), ly, L ? 17 : 12, C.blue, 'sans');
+PAGES.erg = () => {
+  tx('Das kostet dich', L ? 64 : 24, L ? 96 : 50, L ? 40 : 25);
+  const w = tx(de(S.adr - S.lAdr), L ? 60 : 20, L ? 200 : 124, L ? 110 : 72, C.red);
+  tx('ADR', (L ? 60 : 20) + w + 12, L ? 192 : 118, L ? 36 : 24);
+  tx(`${de(S.adr)} gegen ${de(S.lAdr)} in deiner Lobby`, L ? 66 : 24, L ? 236 : 150, L ? 19 : 13, C.ink2, 'sans');
+  const hx = L ? 470 : 24, base = L ? 470 : 418, hw = L ? 320 : 312, col = hw / 5, bs = L ? 22 : 17, gap = 4;
+  tx('Dein Platz im Team', hx, L ? 96 : 194, L ? 28 : 19); tx('1 Kästchen = 1 Match', hx, L ? 122 : 212, L ? 16 : 11.5, C.ink2, 'sans');
+  ln(hx, base + 3, hx + hw, base + 3, C.ink, 2.6, 900);
+  ranks.forEach((n, i) => { const cx = hx + col * i + col / 2; for (let k = 0; k < n; k++) hatchBox(cx - bs / 2, base - (k + 1) * (bs + gap), bs, bs, i >= 3 ? C.red : C.ink, 1000 + i * 20 + k); tx(L ? String(i + 1) : `Platz ${i + 1}`, cx, base + (L ? 30 : 24), L ? 20 : 12.5, C.ink, 'hand', 'center'); });
+  if (prem && comp) { tx(`Premier: Platz ${de(prem.rank)} von 5`, L ? 64 : 24, L ? 330 : 472, L ? 28 : 18); tx(`Rating Competitive ${sg(comp.rating)} · Premier ${sg(prem.rating)}`, L ? 66 : 24, L ? 362 : 494, L ? 19 : 13, C.ink2, 'sans'); }
+};
+PAGES.plan = () => {
+  tx('Bis zum nächsten Update', L ? 64 : 24, L ? 86 : 46, L ? 40 : 24);
+  const lg = L ? 66 : 24, ly = L ? 118 : 70;
+  cross(lg + 6, ly - 5, L ? 11 : 9, C.ink, 1400); tx(`letzte ${LAST.length}`, lg + 18, ly, L ? 17 : 12, C.ink2, 'sans');
+  ring(lg + (L ? 112 : 92), ly - 5, L ? 6 : 5, C.ink, 2, 1401); tx('alle', lg + (L ? 124 : 102), ly, L ? 17 : 12, C.ink2, 'sans');
+  dash(lg + (L ? 180 : 146), ly - 12, lg + (L ? 180 : 146), ly + 2); tx('Lobby = Ziel', lg + (L ? 190 : 154), ly, L ? 17 : 12, C.blue, 'sans');
   TASKS.forEach((t, i) => {
     const gx = L ? 64 + (i % 2) * 390 : 24, gy = L ? 170 + Math.floor(i / 2) * 190 : 96 + i * 104, w = L ? 300 : 262;
-    tx(c, t.t, gx, gy + 22, L ? 21 : 18);
+    tx(t.t, gx, gy + 22, L ? 21 : 18);
     const yy = gy + (L ? 88 : 62), X = v => gx + w * (v - t.worst) / (t.best - t.worst), cl = v => Math.max(gx + 10, Math.min(gx + w - 10, X(v)));
-    ln(c, gx, yy, gx + w, yy, C.ink, 2.4, 1000 + i); ln(c, gx + w - 8, yy - 6, gx + w, yy, C.ink, 2.4, 1100 + i, .3); ln(c, gx + w - 8, yy + 6, gx + w, yy, C.ink, 2.4, 1200 + i, .3);
-    tx(c, 'besser', gx + w, yy + (L ? 26 : 20), L ? 14 : 10.5, C.ink2, 'sans', 'right');
-    dash(c, cl(t.goal), yy - 24, cl(t.goal), yy + 10); tx(c, t.fmt(t.goal), cl(t.goal), yy - 28, L ? 16 : 12, C.blue, 'hand', 'center');
-    ghostRing(c, cl(t.all), yy, L ? 10 : 8);
-    if (t.last != null) { mag(c, cl(t.last), yy, L ? 10 : 8); tx(c, t.fmt(t.last), cl(t.last), yy + (L ? 30 : 24), L ? 16 : 12.5, t.done ? C.ink : C.redT, 'hand', 'center'); }
-    if (t.done) { c.save(); c.translate(gx + w + (L ? 18 : 14), gy + (L ? 52 : 36)); c.scale(L ? 1 : .75, L ? 1 : .75); sd(c, wob([[0, 12], [13, 27], [42, -5]], .6, 1300 + i), C.ink, 4); c.restore(); }
+    arrow(gx, yy, gx + w, yy, C.ink, 2.4, 1000 + i); tx('besser', gx + w, yy + (L ? 26 : 20), L ? 14 : 10.5, C.ink2, 'sans', 'right');
+    dash(cl(t.goal), yy - 24, cl(t.goal), yy + 10); tx(t.fmt(t.goal), cl(t.goal), yy - 28, L ? 16 : 12, C.blue, 'hand', 'center');
+    ring(cl(t.all), yy, L ? 7 : 6, C.ink, 2.2, 1500 + i);
+    if (t.last != null) { cross(cl(t.last), yy, L ? 14 : 12, t.done ? C.ink : C.red, 1600 + i * 3, 3); tx(t.fmt(t.last), cl(t.last), yy + (L ? 30 : 24), L ? 16 : 12.5, t.done ? C.ink : C.redT, 'hand', 'center'); }
+    if (t.done) check(gx + w + (L ? 32 : 26), gy + (L ? 52 : 40), L ? 34 : 26, C.ink, 1300 + i);
   });
 };
 
+const OPCACHE = {};
+function opsFor(id, paint = false) {
+  const key = id + (paint ? '+p' : ''); if (OPCACHE[key]) return OPCACHE[key];
+  OPS = []; PAGES[id](paint); const ops = OPS; OPS = [];
+  let t = 0;
+  ops.forEach(o => { const d = o.k === 's' ? clamp(o.L / 650, .05, .4) : o.k === 'd' ? clamp(o.L / 900, .05, .28) : o.k === 't' ? clamp(o.s.length * .03, .08, .4) : .16; o.a = t; o.b = t + d; t += d * .45; });
+  const end = Math.max(...ops.map(o => o.b)); ops.forEach(o => { o.a /= end; o.b /= end; });
+  ops.dur = clamp(end, 1, 2.1);
+  return (OPCACHE[key] = ops);
+}
+function drawOps(c, ops, prog) {
+  for (const o of ops) {
+    const f = prog >= o.b ? 1 : clamp((prog - o.a) / Math.max(1e-4, o.b - o.a)); if (f <= 0) continue;
+    if (o.k === 's') { c.save(); c.strokeStyle = o.col; c.lineWidth = o.w; c.lineCap = 'round'; c.lineJoin = 'round'; if (f < 1) c.setLineDash([o.L * f, o.L + 20]); c.stroke(o.p || (o.p = new Path2D(o.d))); c.restore(); }
+    else if (o.k === 'd') { c.save(); c.strokeStyle = o.col; c.lineWidth = o.w; c.lineCap = 'round'; c.setLineDash(o.pat); c.beginPath(); c.moveTo(o.x0, o.y0); c.lineTo(o.x0 + (o.x1 - o.x0) * f, o.y0 + (o.y1 - o.y0) * f); c.stroke(); c.restore(); }
+    else if (o.k === 't') {
+      c.save(); c.font = font(o.size, o.fam, o.w); c.fillStyle = o.col; c.textAlign = o.align; c.textBaseline = 'alphabetic';
+      if (f < 1) { const w = c.measureText(o.s).width, left = o.align === 'center' ? o.x - w / 2 : o.align === 'right' ? o.x - w : o.x; c.beginPath(); c.rect(left - 4, o.y - o.size * 1.25, (w + 8) * f, o.size * 1.7); c.clip(); }
+      c.fillText(o.s, o.x, o.y); c.restore();
+    } else if (o.k === 'f') { c.save(); c.globalAlpha = f; c.fillStyle = o.col; c.beginPath(); o.pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.closePath(); c.fill(); c.restore(); }
+  }
+}
 function boardBase(c, seed) {
   c.fillStyle = C.board; c.fillRect(0, 0, CW, CH);
   const r = rng(seed); c.save(); c.lineCap = 'round';
   for (let i = 0; i < 16; i++) { c.strokeStyle = `rgba(80,90,105,${.018 + r() * .025})`; c.lineWidth = 10 + r() * 26; c.beginPath(); const sx = r() * CW, sy = r() * CH; c.moveTo(sx, sy); c.quadraticCurveTo(sx + (r() - .5) * 160, sy + (r() - .5) * 120, sx + (r() - .5) * 200, sy + (r() - .5) * 90); c.stroke(); }
   c.restore();
 }
-function paintPage(canvas, id, ghostSrc, paintMagnets) {
-  const c = canvas.getContext('2d');
-  c.setTransform(SC, 0, 0, SC, 0, 0);
-  boardBase(c, id.length * 31 + 7);
-  if (ghostSrc) { c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = .016; try { c.filter = 'blur(6px)'; } catch (e) { } c.drawImage(ghostSrc, 0, 0); c.restore(); c.setTransform(SC, 0, 0, SC, 0, 0); }
-  PAGES[id](c, paintMagnets);
-}
 const mkCanvas = () => { const cv = document.createElement('canvas'); cv.width = TEXW; cv.height = TEXH; return cv; };
 
 // ---------------- states ----------------
-const PI = Math.PI;
 const STATES = [
   { th: 0, face: 'F', page: 'title', cam: 'face' },
-  { th: PI / 2, face: 'B', page: 'map1', cam: 'top' },
-  { th: PI / 2, face: 'B', page: 'map1', cam: 'side' },
-  { th: PI / 2, face: 'B', page: 'map1', cam: 'ego' },
+  { th: PI / 2, face: 'B', page: 'map1', cam: 'top', p: { mag1: 1 } },
+  { th: PI / 2, face: 'B', page: 'map1', cam: 'side', p: { mag1: 1, wall1: 1, fig1: 1, rays1: 1 } },
+  { th: PI / 2, face: 'B', page: 'map1', cam: 'ego', p: { mag1: 1, wall1: 1, fig1: 1, hide1: 1 } },
   { th: 0, face: 'F', page: 'util1', cam: 'face' },
   { th: PI, face: 'B', page: 'util2', cam: 'face' },
-  { th: 3 * PI / 2, face: 'F', page: 'map2', cam: 'top' },
-  { th: 3 * PI / 2, face: 'F', page: 'map2', cam: 'side' },
-  { th: PI, face: 'B', page: 'erg', cam: 'face' },
-  { th: 2 * PI, face: 'F', page: 'plan', cam: 'face' },
+  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'flash', p: { magU: 1, wallU: 1, figU: 1 } },
+  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'he', p: { magU: 1, wallU: 1, figU: 1 } },
+  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'molly', p: { magU: 1, wallU: 1, figU: 1 } },
+  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'smoke', p: { magU: 1, wallU: 1, figU: 1 } },
+  { th: 5 * PI / 2, face: 'B', page: 'map2', cam: 'top', p: { mag2: 1 } },
+  { th: 5 * PI / 2, face: 'B', page: 'map2', cam: 'side', p: { mag2: 1, wall2: 1, fig2: 1 } },
+  { th: 2 * PI, face: 'F', page: 'erg', cam: 'face' },
+  { th: 3 * PI, face: 'B', page: 'plan', cam: 'face' },
 ];
-const NST = STATES.length, PMAX = NST - 1 + .32;
-function pageFor(face, s) {
-  if (STATES[s].face === face) return STATES[s].page;
-  for (let t = s + 1; t < NST; t++) if (STATES[t].face === face) return STATES[t].page;
-  for (let t = s - 1; t >= 0; t--) if (STATES[t].face === face) return STATES[t].page;
-  return 'title';
-}
+const NST = STATES.length;
+const PKEYS = ['mag1', 'wall1', 'fig1', 'rays1', 'hide1', 'magU', 'wallU', 'figU', 'mag2', 'wall2', 'fig2'];
+const flatPage = st => st.cam !== 'face';
 
 // ---------------- no WebGL: flat pages ----------------
 function flatFallback() {
   document.body.classList.add('nogl');
-  const flat = document.getElementById('flat'); const seen = new Set();
+  const flat = document.getElementById('flat'); const seen = new Map();
   STATES.forEach((st, i) => {
-    if (seen.has(st.page)) { const fig = flat.lastElementChild; if (CAPS[i]) fig.querySelector('figcaption').insertAdjacentHTML('beforeend', `<h2>${CAPS[i][0]}</h2><p>${CAPS[i][1]}</p>`); return; }
-    seen.add(st.page);
-    const fig = document.createElement('figure'), cv = mkCanvas(); paintPage(cv, st.page, null, true);
-    cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', CAPS[i] ? CAPS[i][0] : 'Titel');
-    fig.appendChild(cv); const cap = document.createElement('figcaption'); if (CAPS[i]) cap.innerHTML = `<h2>${CAPS[i][0]}</h2><p>${CAPS[i][1]}</p>`; fig.appendChild(cap); flat.appendChild(fig);
+    let fig = seen.get(st.page);
+    if (!fig) {
+      fig = document.createElement('figure'); const cv = mkCanvas(), c = cv.getContext('2d');
+      c.setTransform(SC, 0, 0, SC, 0, 0); boardBase(c, st.page.length * 31 + 7); drawOps(c, opsFor(st.page, true), 1);
+      cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', CAPS[i] ? CAPS[i][0] : 'Titel');
+      fig.appendChild(cv); fig.appendChild(document.createElement('figcaption')); flat.appendChild(fig); seen.set(st.page, fig);
+    }
+    if (CAPS[i]) fig.querySelector('figcaption').insertAdjacentHTML('beforeend', `<h2>${CAPS[i][0]}</h2><p>${CAPS[i][1].replace(AGAIN, '')}</p>`);
   });
+  document.getElementById('sheet').setAttribute('aria-hidden', 'false');
 }
-
 if (!window.THREE) { flatFallback(); return; }
 const T = THREE;
-const canvas = document.getElementById('gl');
+const glc = document.getElementById('gl');
 let renderer;
-try { renderer = new T.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }); if (!renderer.getContext()) throw new Error('no gl'); } catch (e) { flatFallback(); return; }
+try { renderer = new T.WebGLRenderer({ canvas: glc, antialias: true, powerPreference: 'high-performance' }); if (!renderer.getContext()) throw new Error('no gl'); } catch (e) { flatFallback(); return; }
 renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
 renderer.outputColorSpace = T.SRGBColorSpace;
@@ -482,10 +530,9 @@ scene.background = new T.Color(ROOM); scene.fog = new T.Fog(ROOM, 6, 18);
 const camera = new T.PerspectiveCamera(35, 1, .02, 60);
 scene.add(new T.HemisphereLight(0xffffff, 0xc4c9ca, 1.65));
 const sun = new T.DirectionalLight(0xffffff, 1.15); sun.position.set(-.8, 6, 1.6); sun.castShadow = true;
-sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -2.6, right: 2.6, top: 2.6, bottom: -2.6, near: .5, far: 12 }); sun.shadow.radius = 5; sun.shadow.bias = -.0004;
+sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -2.6, right: 2.6, top: 2.6, bottom: -2.6, near: .5, far: 12 }); sun.shadow.radius = 5; sun.shadow.bias = -.0005; sun.shadow.normalBias = .015;
 scene.add(sun);
-const Y = new T.Vector3(0, 1, 0);
-const V = (x, y, z) => new T.Vector3(x, y, z);
+const Y = new T.Vector3(0, 1, 0), V = (x, y, z) => new T.Vector3(x, y, z);
 const floor = new T.Mesh(new T.PlaneGeometry(40, 40), new T.MeshStandardMaterial({ color: 0xd2d7d8, roughness: .95 }));
 floor.rotation.x = -PI / 2; floor.receiveShadow = true; scene.add(floor);
 
@@ -513,7 +560,7 @@ eraser.position.set(.17, .338, 0); eraser.traverse(o => { o.castShadow = true; }
 // the pivoting board
 const pivot = new T.Group(); pivot.position.set(0, HP, 0); scene.add(pivot);
 const TH = .018;
-const core = new T.Mesh(new T.BoxGeometry(BW, BH, TH), new T.MeshStandardMaterial({ color: 0xe9ecec, roughness: .7 })); core.castShadow = true; core.receiveShadow = true; pivot.add(core);
+const core = new T.Mesh(new T.BoxGeometry(BW, BH, TH), new T.MeshStandardMaterial({ color: 0xe9ecec, roughness: .7 })); core.castShadow = true; pivot.add(core);
 const boardCasters = [core];
 const fr = .03, fd = .034;
 [[0, BH / 2 + fr / 2, BW + fr * 2, fr], [0, -BH / 2 - fr / 2, BW + fr * 2, fr], [-BW / 2 - fr / 2, 0, fr, BH], [BW / 2 + fr / 2, 0, fr, BH]].forEach(([x, y, w, h]) => {
@@ -522,23 +569,11 @@ const fr = .03, fd = .034;
 const BOARDLIN = new T.Color(C.board).convertSRGBToLinear();
 function faceMat(tex) {
   const m = new T.MeshStandardMaterial({ map: tex, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: .5, roughness: .36, metalness: 0 });
-  m.userData.reveal = { value: 1 };
   m.onBeforeCompile = sh => {
-    sh.uniforms.uReveal = m.userData.reveal; sh.uniforms.uBoard = { value: new T.Vector3(BOARDLIN.r, BOARDLIN.g, BOARDLIN.b) };
-    sh.fragmentShader = 'uniform float uReveal;\nuniform vec3 uBoard;\n' + sh.fragmentShader.replace('#include <map_fragment>', `
-      #ifdef USE_MAP
-        vec4 sampledDiffuseColor = texture2D( map, vMapUv );
-        float sweep = vMapUv.x * 0.55 + (1.0 - vMapUv.y) * 0.75;
-        float shown = 1.0 - smoothstep(uReveal * 1.45 - 0.1, uReveal * 1.45, sweep);
-        sampledDiffuseColor.rgb = mix(uBoard, sampledDiffuseColor.rgb, shown);
-        diffuseColor *= sampledDiffuseColor;
-      #endif`).replace('#include <emissivemap_fragment>', `
+    sh.uniforms.uBoard = { value: new T.Vector3(BOARDLIN.r, BOARDLIN.g, BOARDLIN.b) };
+    sh.fragmentShader = 'uniform vec3 uBoard;\n' + sh.fragmentShader.replace('#include <emissivemap_fragment>', `
       #ifdef USE_EMISSIVEMAP
         vec4 emissiveColor = texture2D( emissiveMap, vEmissiveMapUv );
-        float sweepE = vEmissiveMapUv.x * 0.55 + (1.0 - vEmissiveMapUv.y) * 0.75;
-        float shownE = 1.0 - smoothstep(uReveal * 1.45 - 0.1, uReveal * 1.45, sweepE);
-        emissiveColor.rgb = mix(uBoard, emissiveColor.rgb, shownE);
-        // only the bare melamine glows; marker ink keeps its full colour
         float bare = smoothstep(0.55, 0.85, min(min(emissiveColor.r, emissiveColor.g), emissiveColor.b));
         totalEmissiveRadiance *= uBoard * bare;
       #endif`);
@@ -548,19 +583,23 @@ function faceMat(tex) {
 const faces = {};
 ['F', 'B'].forEach(f => {
   const cv = mkCanvas(), tex = new T.CanvasTexture(cv); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-  const mat = faceMat(tex), mesh = new T.Mesh(new T.PlaneGeometry(BW, BH), mat);
-  mesh.position.z = (f === 'F' ? 1 : -1) * (TH / 2 + .0008); if (f === 'B') mesh.rotation.x = PI; mesh.receiveShadow = true; pivot.add(mesh);
+  const mesh = new T.Mesh(new T.PlaneGeometry(BW, BH), faceMat(tex));
+  mesh.position.z = (f === 'F' ? 1 : -1) * (TH / 2 + .0008); if (f === 'B') mesh.rotation.x = PI; pivot.add(mesh);
   const ghost = document.createElement('canvas'); ghost.width = TEXW; ghost.height = TEXH;
-  faces[f] = { cv, tex, mat, mesh, page: null, revealT0: -1, pending: false, ghost };
+  faces[f] = { cv, ctx: cv.getContext('2d'), tex, mesh, ghost, page: null, ops: null, prog: 1, hasGhost: false, lastPaint: 0 };
 });
-function setPage(f, id, animateIn) {
-  const F = faces[f]; if (F.page === id) return;
-  const g = F.ghost.getContext('2d'); g.clearRect(0, 0, TEXW, TEXH); if (F.page) g.drawImage(F.cv, 0, 0);
-  paintPage(F.cv, id, F.page ? F.ghost : null, false); F.tex.needsUpdate = true; F.page = id;
-  if (animateIn && !REDUCED) { F.mat.userData.reveal.value = 0; F.pending = true; F.revealT0 = -1; } else { F.mat.userData.reveal.value = 1; F.pending = false; F.revealT0 = -1; }
+function paintFace(F) {
+  const c = F.ctx; c.setTransform(SC, 0, 0, SC, 0, 0); boardBase(c, F.page.length * 31 + 7);
+  if (F.hasGhost) { c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = .016; try { c.filter = 'blur(6px)'; } catch (e) { } c.drawImage(F.ghost, 0, 0); c.restore(); c.setTransform(SC, 0, 0, SC, 0, 0); }
+  drawOps(c, F.ops, F.prog); F.tex.needsUpdate = true;
+}
+function setFace(f, page, animate) {
+  const F = faces[f]; if (F.page === page) return false;
+  if (F.page) { const g = F.ghost.getContext('2d'); g.clearRect(0, 0, TEXW, TEXH); g.drawImage(F.cv, 0, 0); F.hasGhost = true; }
+  F.page = page; F.ops = opsFor(page); F.prog = animate ? 0 : 1; paintFace(F); return animate;
 }
 
-// ---------------- maps with figures ----------------
+// ---------------- figures, walls and maps on the board ----------------
 function tube(a, b, r, mat) { const len = a.distanceTo(b), m = new T.Mesh(new T.CylinderGeometry(r, r, len, 8, 1), mat); m.position.copy(a).add(b).multiplyScalar(.5); m.quaternion.setFromUnitVectors(Y, b.clone().sub(a).normalize()); return m; }
 function dashedTube(a, b, r, mat, on = .3, off = .22) { const g = new T.Group(), d = b.clone().sub(a), len = d.length(); d.normalize(); for (let s = 0; s < len; s += on + off) g.add(tube(a.clone().addScaledVector(d, s), a.clone().addScaledVector(d, Math.min(len, s + on)), r, mat)); return g; }
 function limb(a, b, r, mat) { const len = a.distanceTo(b), m = new T.Mesh(new T.CapsuleGeometry(r, len, 4, 10), mat); m.position.copy(a).add(b).multiplyScalar(.5); m.quaternion.setFromUnitVectors(Y, b.clone().sub(a).normalize()); m.castShadow = true; return m; }
@@ -580,13 +619,8 @@ function soldier(team, ring) {
   [-.11, 0, .11].forEach(x => box(.085, .09, .05, trim, x, 1.1, -.16));
   fig.add(limb(V(0, 1.42, 0), V(0, 1.5, 0), .055, head));
   const hd = new T.Mesh(new T.SphereGeometry(.115, 20, 16), head); hd.position.set(0, EYE - .03, 0); hd.castShadow = true; fig.add(hd);
-  if (team === 'ct') {
-    const helm = new T.Mesh(new T.SphereGeometry(.132, 20, 12, 0, PI * 2, 0, PI * .55), hat); helm.position.set(0, EYE - .01, 0); helm.castShadow = true; fig.add(helm);
-    box(.2, .042, .06, trim, 0, EYE + .03, -.1);
-  } else {
-    const capm = new T.Mesh(new T.SphereGeometry(.124, 20, 12, 0, PI * 2, 0, PI * .5), hat); capm.position.set(0, EYE - .005, 0); capm.castShadow = true; fig.add(capm);
-    box(.16, .02, .09, hat, 0, EYE + .005, -.12);
-  }
+  if (team === 'ct') { const helm = new T.Mesh(new T.SphereGeometry(.132, 20, 12, 0, PI * 2, 0, PI * .55), hat); helm.position.set(0, EYE - .01, 0); helm.castShadow = true; fig.add(helm); box(.2, .042, .06, trim, 0, EYE + .03, -.1); }
+  else { const capm = new T.Mesh(new T.SphereGeometry(.124, 20, 12, 0, PI * 2, 0, PI * .5), hat); capm.position.set(0, EYE - .005, 0); capm.castShadow = true; fig.add(capm); box(.16, .02, .09, hat, 0, EYE + .005, -.12); }
   fig.add(limb(V(.22, 1.38, 0), V(.19, 1.24, -.2), .055, cloth), limb(V(.19, 1.24, -.2), V(.05, 1.38, -.3), .05, cloth));
   fig.add(limb(V(-.22, 1.38, 0), V(-.17, 1.27, -.27), .055, cloth), limb(V(-.17, 1.27, -.27), V(-.01, 1.37, -.55), .05, cloth));
   const gb = new T.Group(); gb.position.set(.02, 1.42, -.44); fig.add(gb);
@@ -594,46 +628,113 @@ function soldier(team, ring) {
   const brl = new T.Mesh(new T.CylinderGeometry(.014, .014, .3, 8), gun); brl.rotation.x = PI / 2; brl.position.set(0, .015, -.44); gb.add(brl);
   const gmag = new T.Mesh(new T.BoxGeometry(.04, .14, .06), gun); gmag.position.set(0, -.1, -.06); gmag.rotation.x = .25; gb.add(gmag);
   const stock = new T.Mesh(new T.BoxGeometry(.05, .1, .2), gun); stock.position.set(.005, -.02, .37); gb.add(stock);
-  fig.scale.setScalar(.001);
-  return { root, fig };
+  fig.scale.setScalar(.001); base.scale.setScalar(.001);
+  return { root, fig, base };
 }
-function face2(root, dx, dy) { root.rotation.y = Math.atan2(-dx, dy); }
-function wallBlock(w, outlineMat) {
+const face2 = (root, dx, dy) => { root.rotation.y = Math.atan2(-dx, dy); };
+const outline = new T.MeshBasicMaterial({ color: 0x1c1e23 });
+function wallBlock(w) {
   const g = new T.Group(), Hh = 2.6, [x0, y0, x1, y1] = w;
   const m = new T.Mesh(new T.BoxGeometry(x1 - x0, Hh, y1 - y0), new T.MeshStandardMaterial({ color: 0xf6f7f7, roughness: .92 }));
   m.position.set((x0 + x1) / 2, Hh / 2, -(y0 + y1) / 2); m.castShadow = true; m.receiveShadow = true; g.add(m);
   const cs = [[x0, y0], [x1, y0], [x1, y1], [x0, y1]];
-  cs.forEach((c, i) => { const n = cs[(i + 1) % 4]; g.add(tube(V(c[0], Hh, -c[1]), V(n[0], Hh, -n[1]), .05, outlineMat)); g.add(tube(V(c[0], 0, -c[1]), V(c[0], Hh, -c[1]), .045, outlineMat)); });
-  g.scale.y = .02; return g;
+  cs.forEach((c, i) => { const n = cs[(i + 1) % 4]; g.add(tube(V(c[0], Hh, -c[1]), V(n[0], Hh, -n[1]), .05, outline)); g.add(tube(V(c[0], 0, -c[1]), V(c[0], Hh, -c[1]), .045, outline)); });
+  g.scale.y = .001; g.visible = false; return g;
 }
 function mapRoot(m, f) {
   const r = new T.Group(); r.scale.setScalar(m.k);
-  if (f === 'B') { r.rotation.x = -PI / 2; r.position.set(m.fx - m.k * m.mcx, m.k * m.mcy - m.fy, -(TH / 2 + .0012)); }
-  else { r.rotation.x = PI / 2; r.position.set(m.fx - m.k * m.mcx, m.fy - m.k * m.mcy, TH / 2 + .0012); }
+  if (f === 'B') { r.rotation.x = -PI / 2; r.position.set(m.fx - m.k * m.mcx, m.k * m.mcy, -(TH / 2 + .0012)); }
+  else { r.rotation.x = PI / 2; r.position.set(m.fx - m.k * m.mcx, -m.k * m.mcy, TH / 2 + .0012); }
   r.visible = false; pivot.add(r); return r;
 }
-const inkMat = c => new T.MeshBasicMaterial({ color: c, transparent: true });
-const outline = inkMat(0x1c1e23);
+const worldOf = (root, x, h, y) => root.localToWorld(V(x, h, -y));
+// map 1: preaim
 const m1 = mapRoot(MAP1, 'B');
-const m1walls = MAP1.walls.map(w => { const g = wallBlock(w, outline); m1.add(g); return g; });
+const w1 = MAP1.walls.map(w => { const g = wallBlock(w); m1.add(g); return g; });
 const you1 = soldier('t', 0xe8862a), foe1 = soldier('ct', 0x3a3d43);
 you1.root.position.set(MAP1.P[0], 0, -MAP1.P[1]); face2(you1.root, AIM[0], AIM[1]); m1.add(you1.root);
 foe1.root.position.set(MAP1.E[0], 0, -MAP1.E[1]); face2(foe1.root, -TOE[0], -TOE[1]); m1.add(foe1.root);
 const rays = new T.Group(); m1.add(rays);
-const redM = inkMat(0xd62f2a), blueM = inkMat(0x1f4fbf), blackM = inkMat(0x1c1e23);
-const eyeP = V(MAP1.P[0], EYE, -MAP1.P[1]), R3 = DIST * .82;
-const d3 = v => V(v[0], 0, -v[1]);
-rays.add(tube(eyeP, eyeP.clone().addScaledVector(d3(AIM), R3), .045, redM));
-rays.add(tube(eyeP, eyeP.clone().addScaledVector(d3(TOE), DIST - .4), .03, blackM));
-rays.add(dashedTube(eyeP, eyeP.clone().addScaledVector(d3(LOB), R3 * .96), .04, blueM));
-const headM = inkMat(0x1c1e23), headLine = new T.Group(); m1.add(headLine);
-{ const w = MAP1.walls[0], z = -w[1] + .03; headLine.add(dashedTube(V(w[0], EYE, z), V(w[2] + .03, EYE, z), .035, headM, .22, .16)); headLine.add(dashedTube(V(w[2] + .03, EYE, z), V(w[2] + .03, EYE, -w[3]), .035, headM, .22, .16)); }
-const m2 = mapRoot(MAP2, 'F');
-const m2walls = MAP2.walls.map(w => { const g = wallBlock(w, outline); m2.add(g); return g; });
+const redM = new T.MeshBasicMaterial({ color: 0xd62f2a, transparent: true }), blueM = new T.MeshBasicMaterial({ color: 0x1f4fbf, transparent: true }), blackM = new T.MeshBasicMaterial({ color: 0x1c1e23, transparent: true });
+const eyeP = V(MAP1.P[0], EYE, -MAP1.P[1]), R3 = DIST * .82, d3 = v => V(v[0], 0, -v[1]);
+rays.add(tube(eyeP, eyeP.clone().addScaledVector(d3(AIM), R3), .045, redM), tube(eyeP, eyeP.clone().addScaledVector(d3(TOE), DIST - .4), .03, blackM), dashedTube(eyeP, eyeP.clone().addScaledVector(d3(LOB), R3 * .96), .04, blueM));
+const headLine = new T.Group(); m1.add(headLine);
+{ const w = MAP1.walls[0], z = -w[1] + .03; headLine.add(dashedTube(V(w[0], EYE, z), V(w[2] + .03, EYE, z), .035, outline, .22, .16), dashedTube(V(w[2] + .03, EYE, z), V(w[2] + .03, EYE, -w[3]), .035, outline, .22, .16)); }
+// utility scene
+const mU = mapRoot(MAPU, 'F');
+const wU = MAPU.walls.map(w => { const g = wallBlock(w); mU.add(g); return g; });
+const youU = soldier('t', 0xe8862a), foeU = soldier('ct', 0x3a3d43);
+youU.root.position.set(MAPU.you[0], 0, -MAPU.you[1]); face2(youU.root, MAPU.door[0] - MAPU.you[0] + .3, MAPU.door[1] - MAPU.you[1]); mU.add(youU.root);
+const foeHome = V(MAPU.foe[0], 0, -MAPU.foe[1]); foeU.root.position.copy(foeHome); face2(foeU.root, MAPU.door[0] - MAPU.foe[0], MAPU.door[1] - MAPU.foe[1]); mU.add(foeU.root);
+// map 2: duel drill
+const m2 = mapRoot(MAP2, 'B');
+const w2 = MAP2.walls.map(w => { const g = wallBlock(w); m2.add(g); return g; });
 const you2 = soldier('t', 0xe8862a), ent2 = soldier('t', 0xf2f2f0), foe2 = soldier('ct', 0x3a3d43);
 you2.root.position.set(MAP2.you[0], 0, -MAP2.you[1]); face2(you2.root, MAP2.foe[0] - MAP2.you[0], MAP2.foe[1] - MAP2.you[1]); m2.add(you2.root);
 ent2.root.position.set(MAP2.entry[0], 0, -MAP2.entry[1]); face2(ent2.root, MAP2.foe[0] - MAP2.entry[0], MAP2.foe[1] - MAP2.entry[1]); m2.add(ent2.root);
 foe2.root.position.set(MAP2.foe[0], 0, -MAP2.foe[1]); face2(foe2.root, MAP2.entry[0] - MAP2.foe[0], MAP2.entry[1] - MAP2.foe[1]); m2.add(foe2.root);
+
+// ---------------- grenades and their effects ----------------
+function softTex(stops) { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d'), gr = g.createRadialGradient(64, 64, 0, 64, 64, 64); stops.forEach(([o, col]) => gr.addColorStop(o, col)); g.fillStyle = gr; g.fillRect(0, 0, 128, 128); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t; }
+const TEX = {
+  smoke: softTex([[0, 'rgba(206,210,212,.95)'], [.55, 'rgba(190,195,198,.75)'], [1, 'rgba(190,195,198,0)']]),
+  fire: softTex([[0, 'rgba(255,240,170,1)'], [.35, 'rgba(255,150,40,.9)'], [1, 'rgba(214,47,42,0)']]),
+  burst: softTex([[0, 'rgba(255,255,255,1)'], [.4, 'rgba(255,255,240,.8)'], [1, 'rgba(255,255,255,0)']]),
+  boom: softTex([[0, 'rgba(255,245,200,1)'], [.3, 'rgba(255,160,60,.95)'], [.7, 'rgba(120,60,30,.5)'], [1, 'rgba(60,60,60,0)']]),
+};
+const sprite = (tex, op = 1) => { const s = new T.Sprite(new T.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: op })); s.visible = false; return s; };
+const FX = new T.Group(); mU.add(FX);
+const nadeMats = { flash: 0xd9dde0, he: 0x4d5a3c, molly: 0x7a4a22, smoke: 0x8b9298 };
+const nade = new T.Mesh(new T.CylinderGeometry(.09, .09, .28, 14), new T.MeshStandardMaterial({ color: 0xd9dde0, roughness: .5, metalness: .2 })); nade.castShadow = true; nade.visible = false; FX.add(nade);
+const burst = sprite(TEX.burst); FX.add(burst);
+const boom = sprite(TEX.boom); FX.add(boom);
+const shock = new T.Mesh(new T.TorusGeometry(1, .05, 8, 48), new T.MeshBasicMaterial({ color: 0x1c1e23, transparent: true })); shock.rotation.x = PI / 2; shock.visible = false; FX.add(shock);
+const puffs = [], flames = [];
+const SMOKE_AT = V(.75, 0, -4.5), FIRE_AT = V(MAPU.foe[0], 0, -MAPU.foe[1]), POP_AT = V(.9, 1.9, -4.6), HE_AT = V(MAPU.foe[0] - .2, 0, -MAPU.foe[1] + .2);
+{ const r = rng(5); for (let i = 0; i < 26; i++) { const s = sprite(TEX.smoke, .9); s.userData = { a: r() * PI * 2, rad: .3 + r() * 1.2, h: .2 + r() * 1.9, size: 1.3 + r() * .9, ph: r() * 6 }; FX.add(s); puffs.push(s); } }
+{ const r = rng(9); for (let i = 0; i < 26; i++) { const s = sprite(TEX.fire, .95); s.userData = { a: r() * PI * 2, rad: r() * 1.05, size: .45 + r() * .5, ph: r() * 6, sp: 6 + r() * 6 }; FX.add(s); flames.push(s); } }
+const sight = dashedTube(V(MAPU.foe[0], EYE, -MAPU.foe[1]), V(MAPU.door[0], EYE, -MAPU.door[1]), .04, new T.MeshBasicMaterial({ color: 0x3a3d43, transparent: true }), .22, .16); sight.visible = false; FX.add(sight);
+const flashEl = document.getElementById('flash');
+function resetFX() { [nade, burst, boom, shock, sight, ...puffs, ...flames].forEach(o => { o.visible = false; }); foeU.root.position.copy(foeHome); foeU.root.rotation.z = 0; flashEl.style.opacity = 0; }
+function arc(from, to, k, apex) { const p = from.clone().lerp(to, k); p.y = lerp(from.y, to.y, k) + apex * 4 * k * (1 - k); return p; }
+function utilFX(type, u) {
+  // returns true while the effect still moves
+  const hand = V(MAPU.you[0] + .1, 1.5, -MAPU.you[1] - .3);
+  const target = type === 'flash' ? POP_AT : type === 'smoke' ? SMOKE_AT.clone().setY(.1) : type === 'he' ? HE_AT.clone().setY(.1) : FIRE_AT.clone().setY(.1);
+  if (REDUCED) u = 9;
+  const k = clamp(u / .9);
+  nade.material.color.setHex(nadeMats[type]);
+  nade.visible = u < (type === 'flash' ? 1.0 : type === 'he' ? 1.35 : type === 'molly' ? .95 : 9) && u > 0;
+  if (nade.visible) { nade.position.copy(arc(hand, target, k, 2.6)); nade.rotation.set(u * 9, 0, u * 6); }
+  if (type === 'flash') {
+    const b = clamp((u - 1) / .15), fade = 1 - clamp((u - 1.15) / .7);
+    burst.visible = u > 1 && fade > 0; burst.position.copy(POP_AT); burst.scale.setScalar(.5 + b * 7); burst.material.opacity = fade;
+    const wo = REDUCED ? 0 : u < 1.05 ? 0 : u < 1.17 ? (u - 1.05) / .12 : u < 1.9 ? 1 : 1 - clamp((u - 1.9) / 1.4);
+    flashEl.style.opacity = wo;
+    foeU.root.rotation.z = u > 1.1 && u < 2.6 ? Math.sin(u * 22) * .05 : 0;
+    return u < 3.4;
+  }
+  if (type === 'he') {
+    const b = clamp((u - 1.35) / .2), fade = 1 - clamp((u - 1.5) / .6);
+    boom.visible = u > 1.35 && fade > 0; boom.position.copy(HE_AT).setY(.8); boom.scale.setScalar(.6 + b * 4.5); boom.material.opacity = fade;
+    shock.visible = u > 1.35 && u < 2.1; shock.position.copy(HE_AT).setY(.15); shock.scale.setScalar(.2 + clamp((u - 1.35) / .7) * 3); shock.material.opacity = 1 - clamp((u - 1.35) / .75);
+    const shake = u > 1.35 && u < 1.8 ? Math.sin(u * 60) * .08 : 0;
+    foeU.root.position.copy(foeHome).add(V(shake, 0, 0));
+    return u < 2.4;
+  }
+  if (type === 'molly') {
+    const g = clamp((u - .95) / .5), t = performance.now() / 1000;
+    flames.forEach(s => { const d = s.userData; s.visible = u > .95; s.position.copy(FIRE_AT).add(V(Math.cos(d.a) * d.rad * g, .25 + .15 * Math.sin(t * d.sp + d.ph), Math.sin(d.a) * d.rad * g)); s.scale.setScalar(d.size * g * (1 + .25 * Math.sin(t * d.sp * 1.3 + d.ph))); });
+    const run = ease((u - 1.1) / 1.1);
+    foeU.root.position.copy(foeHome).lerp(V(MAPU.flee[0], 0, -MAPU.flee[1]), run);
+    return true;
+  }
+  // smoke
+  const g = out((u - 1.15) / 1.5), t = performance.now() / 1000;
+  sight.visible = true; sight.children.forEach(c => { c.material.opacity = 1 - clamp((u - 1.3) / 1); });
+  puffs.forEach(s => { const d = s.userData; s.visible = u > 1.15; s.position.copy(SMOKE_AT).add(V(Math.cos(d.a) * d.rad * g, d.h * g + .2, Math.sin(d.a) * d.rad * g)); s.scale.setScalar(d.size * g * (1 + .04 * Math.sin(t * .8 + d.ph))); });
+  return u < 3;
+}
 
 // ---------------- camera poses ----------------
 let W = 1, H = 1;
@@ -650,42 +751,40 @@ function fit(pose, dir, pts, box) {
 }
 const desk = () => W / H > 1.05;
 const BOX = () => desk() ? [.04, .6, .06, .94] : [.035, .965, .035, .66];
-let POSES = [];
-function worldOf(root, x, h, y) { return root.localToWorld(V(x, h, -y)); }
+let POSES = [], TOPS = {};
+function sidePose(root, mp, a, b, elev, sideMul, backMul, box, extra = [], wpts = []) {
+  const t2 = norm2([b[0] - a[0], b[1] - a[1]]), dd = Math.hypot(b[0] - a[0], b[1] - a[1]);
+  let perp = [-t2[1], t2[0]];
+  const wc = mp.walls[0], wcx = (wc[0] + wc[2]) / 2 - (a[0] + b[0]) / 2, wcy = (wc[1] + wc[3]) / 2 - (a[1] + b[1]) / 2;
+  if (perp[0] * wcx + perp[1] * wcy > 0) perp = [-perp[0], -perp[1]];
+  const tl = [a[0] + t2[0] * dd * .5, a[1] + t2[1] * dd * .5];
+  const p = { tgt: worldOf(root, tl[0], .9, tl[1]), up: Y.clone(), fov: 40 };
+  const dir = worldOf(root, tl[0] + perp[0] * sideMul - t2[0] * backMul, .9 + elev, tl[1] + perp[1] * sideMul - t2[1] * backMul).sub(p.tgt).normalize();
+  const pts = [worldOf(root, a[0], 2.0, a[1]), worldOf(root, a[0] + perp[0] * .5, 0, a[1] + perp[1] * .5), worldOf(root, b[0], 2.0, b[1]), worldOf(root, b[0], 0, b[1]), ...extra.map(e => worldOf(root, e[0], e[1], e[2])), ...wpts];
+  fit(p, dir, pts, box); return p;
+}
 function computePoses() {
   const keep = pivot.rotation.x;
+  TOPS = {};
   POSES = STATES.map(st => {
     pivot.rotation.x = st.th; pivot.updateMatrixWorld(true);
     const corners = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([a, b]) => pivot.localToWorld(V(a * (BW / 2 + .03), b * (BH / 2 + .03), 0)));
     const ctr = pivot.localToWorld(V(0, 0, 0));
     if (st.cam === 'face') { const p = { tgt: ctr, up: Y.clone(), fov: 35 }; const feet = desk() ? [V(-postX - .03, 0, .32), V(postX + .03, 0, .32)] : []; fit(p, V(0, .07, 1).normalize(), corners.concat(feet), BOX()); return p; }
-    if (st.cam === 'top') { const p = { tgt: ctr, up: V(0, 0, -1), fov: 35 }; fit(p, Y.clone(), corners, BOX()); return p; }
-    if (st.cam === 'side') {
-      const one = st.page === 'map1', root = one ? m1 : m2, mp = one ? MAP1 : MAP2;
-      const a = one ? mp.P : mp.you, b = one ? mp.E : mp.foe;
-      const t2 = norm2([b[0] - a[0], b[1] - a[1]]), dd = Math.hypot(b[0] - a[0], b[1] - a[1]);
-      let perp = [-t2[1], t2[0]];
-      if (one) { const wc = mp.walls[0], wcx = (wc[0] + wc[2]) / 2 - (a[0] + b[0]) / 2, wcy = (wc[1] + wc[3]) / 2 - (a[1] + b[1]) / 2; if (perp[0] * wcx + perp[1] * wcy > 0) perp = [-perp[0], -perp[1]]; }
-      else if (perp[0] > 0) perp = [-perp[0], -perp[1]];
-      const tl = [a[0] + t2[0] * dd * .5, a[1] + t2[1] * dd * .5];
-      const p = { tgt: worldOf(root, tl[0], .9, tl[1]), up: Y.clone(), fov: 40 };
-      const fromL = one ? worldOf(root, tl[0] + perp[0] * .62 - t2[0] * .6, .9 + .38, tl[1] + perp[1] * .62 - t2[1] * .6) : worldOf(root, tl[0] + perp[0] * .35 - t2[0] * .7, .9 + .95, tl[1] + perp[1] * .35 - t2[1] * .7);
-      const dir = fromL.sub(p.tgt).normalize();
-      const pts = [worldOf(root, a[0], 2.0, a[1]), worldOf(root, a[0] + perp[0] * .5, 0, a[1] + perp[1] * .5), worldOf(root, b[0], 2.0, b[1]), worldOf(root, b[0], 0, b[1])];
-      if (!one) pts.push(worldOf(root, mp.entry[0], 2, mp.entry[1]), worldOf(root, mp.entry[0], 0, mp.entry[1]));
-      fit(p, dir, pts, desk() ? [.1, .6, .12, .88] : [.06, .94, .12, .64]);
-      return p;
-    }
+    const top = { tgt: ctr, up: V(0, 0, -1), fov: 35 }; fit(top, Y.clone(), corners, BOX()); TOPS[st.page] = top;
+    if (st.cam === 'top') return top;
+    if (st.cam === 'side' && st.page === 'map1') return sidePose(m1, MAP1, MAP1.P, MAP1.E, .38, .62, .6, desk() ? [.1, .6, .12, .88] : [.06, .94, .12, .64]);
+    if (st.cam === 'side') return sidePose(m2, MAP2, MAP2.you, MAP2.foe, .95, .35, .7, desk() ? [.1, .6, .12, .88] : [.06, .94, .12, .64], [[MAP2.entry[0], 2, MAP2.entry[1]]]);
+    if (st.cam === 'util') return sidePose(mU, MAPU, MAPU.you, MAPU.foe, 3.4, .28, .85, desk() ? [.06, .6, .06, .94] : [.04, .96, .06, .66], [[MAPU.flee[0], 2, MAPU.flee[1]], [.9, 3.6, 4.6], [SMOKE_AT.x - 1.6, 0, -SMOKE_AT.z]], corners);
     return { ego: true, tgt: ctr, pos: ctr.clone(), up: Y.clone(), fov: desk() ? 58 : 68, ox: desk() ? .5 - .33 : 0, oy: desk() ? 0 : .5 - .36 };
   });
   pivot.rotation.x = keep; pivot.updateMatrixWorld(true);
 }
 function egoPose(f, base) {
   const dir2 = rot2(TOE, S.pre * DEG * (1 - f));
-  const eye = worldOf(m1, MAP1.P[0] + dir2[0] * .25, EYE, MAP1.P[1] + dir2[1] * .25);
-  const tgt = worldOf(m1, MAP1.P[0] + dir2[0] * 6, EYE, MAP1.P[1] + dir2[1] * 6);
-  return { pos: eye, tgt, up: Y.clone(), fov: base.fov, ox: base.ox, oy: base.oy, near: .002 };
+  return { pos: worldOf(m1, MAP1.P[0] + dir2[0] * .25, EYE, MAP1.P[1] + dir2[1] * .25), tgt: worldOf(m1, MAP1.P[0] + dir2[0] * 6, EYE, MAP1.P[1] + dir2[1] * 6), up: Y.clone(), fov: base.fov, ox: base.ox, oy: base.oy, near: .002 };
 }
+const lerpPose = (a, b, k) => ({ pos: a.pos.clone().lerp(b.pos, k), tgt: a.tgt.clone().lerp(b.tgt, k), up: a.up.clone().lerp(b.up, k).normalize(), fov: lerp(a.fov, b.fov, k), ox: lerp(a.ox, b.ox, k), oy: lerp(a.oy, b.oy, k), near: Math.min(a.near || .02, b.near || .02) });
 
 // ---------------- overlay ----------------
 const labelsEl = document.getElementById('labels');
@@ -696,106 +795,155 @@ function proj(p) { v3.copy(p).project(camera); return [(v3.x + 1) / 2 * W, (1 - 
 function putL(el, p, op, dx = 0, dy = 0) { if (op < .02) { el.style.opacity = 0; return; } const [x, y, ok] = proj(p), half = el.offsetWidth / 2 + 8; el.style.opacity = ok ? op : 0; el.style.transform = `translate(${Math.max(half, Math.min(W - half, x + dx)).toFixed(1)}px, ${(y + dy).toFixed(1)}px) translate(-50%, -50%)`; }
 function putG(g, p, op) { const [x, y, ok] = proj(p); g.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`); g.setAttribute('opacity', ok ? op : 0); }
 
-// ---------------- frame ----------------
-const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
-const sm = v => { v = clamp(v); return v * v * (3 - 2 * v); };
-const lerp = (a, b, k) => a + (b - a) * k;
-const lerpPose = (a, b, k) => ({ pos: a.pos.clone().lerp(b.pos, k), tgt: a.tgt.clone().lerp(b.tgt, k), up: a.up.clone().lerp(b.up, k).normalize(), fov: lerp(a.fov, b.fov, k), ox: lerp(a.ox, b.ox, k), oy: lerp(a.oy, b.oy, k), near: Math.min(a.near || .02, b.near || .02) });
-const topOf = page => POSES[STATES.findIndex(s => s.page === page && s.cam === 'top')];
+// ---------------- state machine ----------------
+let cur = 0, TR = null, arriveT = performance.now(), pending = 0, flickF = 0, sheetOpen = false;
 const t0 = performance.now();
-const start = document.getElementById('start');
-const qTmp = new T.Quaternion(), pTmp = new T.Vector3();
+const hint = document.getElementById('hint');
+document.getElementById('hintText').textContent = matchMedia('(pointer: coarse)').matches ? 'Wischen, um die Tafel zu drehen' : 'Scrollen oder ↓, um die Tafel zu drehen';
+const isFlatB = th => Math.sin(th) > .9, isFlatF = th => Math.sin(th) < -.9;
+function params(i) { const p = STATES[i].p || {}; const o = {}; PKEYS.forEach(k => { o[k] = p[k] || 0; }); return o; }
+let P = params(0);
 
-function render(p, now) {
-  const s = clamp(Math.floor(p + .1), 0, NST - 1), frac = p - s, k = sm((frac - .3) / .6), nx = Math.min(NST - 1, s + 1);
-  setPage('F', pageFor('F', s), true); setPage('B', pageFor('B', s), true);
-  const A = STATES[s], B = STATES[nx];
-  const routed = (A.cam === 'side' || A.cam === 'ego') && B.cam === 'face';
-  const kRot = routed ? sm((k - .5) * 2) : k;
-  pivot.rotation.x = lerp(A.th, B.th, kRot);
-  pivot.updateMatrixWorld(true);
-  const f = s === 3 ? sm((p - 2.95) / .3) : (s > 3 ? 1 : 0);
-  const poseAt = i => STATES[i].cam === 'ego' ? egoPose(i === 3 ? f : 1, POSES[i]) : POSES[i];
-  let pose;
-  if (k <= 0 || s === nx) pose = poseAt(s);
-  else if (routed) { const mid = topOf(A.page); pose = k < .5 ? lerpPose(poseAt(s), mid, sm(k * 2)) : lerpPose(mid, poseAt(nx), sm((k - .5) * 2)); }
-  else pose = lerpPose(poseAt(s), poseAt(nx), k);
-  // intro: ease in towards the board
-  const intro = REDUCED ? 0 : 1 - sm(clamp((now - t0) / 2200));
-  if (intro > 0 && p < .35) pose = { ...pose, pos: pose.tgt.clone().add(pose.pos.clone().sub(pose.tgt).multiplyScalar(1 + .55 * intro)).add(V(.4 * intro, .1 * intro, 0)) };
+function go(to) {
+  if (to < 0 || to >= NST || to === cur) return;
+  const A = STATES[cur], B = STATES[to];
+  resetFX();
+  ['F', 'B'].forEach(f => { const F = faces[f]; if (F.page && F.prog < 1) { F.prog = 1; paintFace(F); } });
+  const needDraw = setFace(B.face, B.page, !REDUCED);
+  const rot = A.th !== B.th;
+  const D1 = REDUCED ? 0 : rot ? 1.35 : (A.cam === B.cam && A.page === B.page ? .45 : 1.05);
+  const drawDur = needDraw ? faces[B.face].ops.dur : 0;
+  const drawStart = D1 * (rot ? .7 : .25);
+  const fxStart = needDraw ? drawStart + drawDur : D1 * .5;
+  const fxDur = REDUCED ? 0 : .9;
+  const flatA = flatPage(A), flatB = flatPage(B);
+  const routed = flatA !== flatB && ((flatA && A.cam !== 'top') || (flatB && B.cam !== 'top'));
+  TR = { from: cur, to, t0: performance.now(), D1, drawStart, drawDur, fxStart, fxDur, routed, flatSide: flatA ? A.page : B.page, flatFirst: flatA, Pa: params(cur), Pb: params(to), end: Math.max(D1, fxStart + fxDur) + .05 };
+  if (B.face && needDraw) faces[B.face].lastPaint = 0;
+  kick();
+}
+function step(dir) {
+  if (sheetOpen) { if (dir < 0) closeSheet(); return; }
+  if (TR) { pending = dir; return; }
+  const nx = cur + dir;
+  if (nx >= NST) { openSheet(); return; }
+  if (nx < 0) return;
+  go(nx);
+}
+const sheet = document.getElementById('sheet');
+function openSheet() { sheetOpen = true; sheet.classList.add('open'); sheet.setAttribute('aria-hidden', 'false'); sheet.scrollTop = 0; setTimeout(() => document.getElementById('back').focus({ preventScroll: true }), 50); }
+function closeSheet() { sheetOpen = false; sheet.classList.remove('open'); sheet.setAttribute('aria-hidden', 'true'); arriveT = performance.now(); kick(); }
+document.getElementById('back').addEventListener('click', closeSheet);
+
+function poseOf(i, f) { const st = STATES[i]; return st.cam === 'ego' ? egoPose(f, POSES[i]) : POSES[i]; }
+
+function frame(now) {
+  let busy = false, pose;
+  if (TR) {
+    const t = (now - TR.t0) / 1000, A = STATES[TR.from], B = STATES[TR.to], k = TR.D1 ? ease(t / TR.D1) : 1;
+    let kRot = k;
+    if (TR.routed) kRot = TR.flatFirst ? ease(clamp((k - .5) * 2)) : ease(clamp(k * 2));
+    pivot.rotation.x = lerp(A.th, B.th, kRot); pivot.updateMatrixWorld(true);
+    const fA = TR.from === 3 ? flickF : 0, pa = poseOf(TR.from, fA), pb = poseOf(TR.to, 0);
+    if (TR.routed) { const mid = TOPS[TR.flatSide]; pose = k < .5 ? lerpPose(pa, mid, ease(k * 2)) : lerpPose(mid, pb, ease((k - .5) * 2)); }
+    else pose = lerpPose(pa, pb, k);
+    P = {};
+    PKEYS.forEach(key => { const a = TR.Pa[key], b = TR.Pb[key]; P[key] = b >= a ? lerp(a, b, TR.fxDur ? out((t - TR.fxStart) / TR.fxDur) : 1) : lerp(a, b, out(t / .4)); });
+    const F = faces[B.face];
+    if (TR.drawDur && F.prog < 1) { const pr = clamp((t - TR.drawStart) / TR.drawDur); if (pr >= 1 || now - F.lastPaint > 30) { F.prog = pr; paintFace(F); F.lastPaint = now; } }
+    capEls.forEach((el, i) => { el.style.opacity = i === TR.from ? 1 - clamp(t / .25) : 0; });
+    busy = true;
+    if (t >= TR.end) {
+      if (F.prog < 1) { F.prog = 1; paintFace(F); }
+      cur = TR.to; TR = null; arriveT = now; flickF = 0; P = params(cur);
+      if (pending) { const d = pending; pending = 0; setTimeout(() => step(d), 60); }
+    }
+  }
+  if (!TR) {
+    pivot.rotation.x = STATES[cur].th; pivot.updateMatrixWorld(true);
+    const u = (now - arriveT) / 1000;
+    if (cur === 3) { flickF = REDUCED ? 0 : ease((u - .4) / 1.3); if (u < 1.8) busy = true; }
+    pose = poseOf(cur, flickF);
+    if (STATES[cur].util && !sheetOpen) { if (utilFX(STATES[cur].util, u - .2)) busy = true; }
+    capEls.forEach((el, i) => { el.style.opacity = i === cur ? out(u / .4) : 0; });
+    if (u < .5) busy = true;
+  }
+  // intro: ease in towards the board while the title is written
+  const iu = (now - t0) / 1000;
+  if (!REDUCED && cur === 0 && !TR && iu < 3.2) {
+    const k = 1 - out(iu / 2.2); pose = { ...pose, pos: pose.tgt.clone().add(pose.pos.clone().sub(pose.tgt).multiplyScalar(1 + .55 * k)).add(V(.4 * k, .1 * k, 0)) };
+    const F = faces.F; if (F.page === 'title' && F.prog < 1) { const pr = clamp((iu - .6) / F.ops.dur); if (pr >= 1 || now - F.lastPaint > 30) { F.prog = pr; paintFace(F); F.lastPaint = now; } }
+    busy = true;
+  }
   setCam(pose.pos, pose.tgt, pose.up, pose.fov, pose.ox, pose.oy, pose.near || .02);
   const cd = pose.pos.distanceTo(pose.tgt); scene.fog.near = cd + 1.6; scene.fog.far = cd + 9;
 
-  // maps: walls and figures stand up out of the drawing
-  m1.visible = Math.abs(pivot.rotation.x - PI / 2) < .3; m2.visible = Math.abs(pivot.rotation.x - 3 * PI / 2) < .3;
-  const lying = Math.abs(Math.cos(pivot.rotation.x)) < .5; boardCasters.forEach(o => { o.castShadow = !lying; });
-  const g1 = sm((p - 1.35) / .45), wl1 = Math.max(.02, sm((p - 1.3) / .5));
-  m1walls.forEach(w => { w.scale.y = wl1; }); [you1, foe1].forEach(o => o.fig.scale.setScalar(Math.max(.001, g1)));
-  you1.root.visible = p < 2.62;
-  const ro = sm((p - 1.5) / .3) * (1 - sm((p - 2.35) / .25)); rays.visible = ro > .01; redM.opacity = blueM.opacity = blackM.opacity = ro;
-  headLine.visible = p > 1.45;
-  const g2 = sm((p - 6.35) / .45), wl2 = Math.max(.02, sm((p - 6.3) / .5));
-  m2walls.forEach(w => { w.scale.y = wl2; }); [you2, ent2, foe2].forEach(o => o.fig.scale.setScalar(Math.max(.001, g2)));
-
-  // marker reveal when a freshly written side turns to you
-  pivot.getWorldQuaternion(qTmp);
-  ['F', 'B'].forEach(fk => {
-    const F = faces[fk]; if (!F.pending) return;
-    const nrm = V(0, 0, fk === 'F' ? 1 : -1).applyQuaternion(qTmp);
-    const toCam = camera.position.clone().sub(F.mesh.getWorldPosition(pTmp)).normalize();
-    if (nrm.dot(toCam) > .35) { F.pending = false; F.revealT0 = now; }
-  });
-  let animating = false;
-  ['F', 'B'].forEach(fk => { const F = faces[fk]; if (F.revealT0 >= 0) { const r = clamp((now - F.revealT0) / 1100); F.mat.userData.reveal.value = r; if (r < 1) animating = true; else F.revealT0 = -1; } });
+  // which map lies face up, and what stands on it
+  const th = pivot.rotation.x, pages = TR ? [STATES[TR.from].page, STATES[TR.to].page] : [STATES[cur].page];
+  m1.visible = isFlatB(th) && pages.includes('map1'); m2.visible = isFlatB(th) && pages.includes('map2'); mU.visible = isFlatF(th) && pages.includes('utilmap');
+  const lying = Math.abs(Math.cos(th)) < .5; boardCasters.forEach(o => { o.castShadow = !lying; }); faces.F.mesh.receiveShadow = faces.B.mesh.receiveShadow = lying;
+  const grow = (o, mag, fig) => { o.base.scale.setScalar(Math.max(.001, out(mag * 1.15) )); o.fig.scale.setScalar(Math.max(.001, fig)); };
+  [you1, foe1].forEach(o => grow(o, P.mag1, P.fig1)); you1.root.visible = P.hide1 < .5;
+  w1.forEach(w => { w.visible = P.wall1 > .01; w.scale.y = Math.max(.001, P.wall1); });
+  rays.visible = P.rays1 > .01; redM.opacity = blueM.opacity = blackM.opacity = P.rays1; headLine.visible = P.wall1 > .9;
+  [youU, foeU].forEach(o => grow(o, P.magU, P.figU)); wU.forEach(w => { w.visible = P.wallU > .01; w.scale.y = Math.max(.001, P.wallU); });
+  [you2, ent2, foe2].forEach(o => grow(o, P.mag2, P.fig2)); w2.forEach(w => { w.visible = P.wall2 > .01; w.scale.y = Math.max(.001, P.wall2); });
   renderer.render(scene, camera);
 
   // first-person overlay
-  const cOp = (s === 3 || (s === 2 && frac > .3)) ? sm((p - 2.78) / .1) * (1 - sm((p - 3.32) / .06)) : 0;
+  const cOp = !TR && cur === 3 ? out((now - arriveT) / 300) : 0;
   const head = worldOf(m1, MAP1.E[0], EYE, MAP1.E[1]), lobP = worldOf(m1, MAP1.P[0] + LOB[0] * DIST, EYE, MAP1.P[1] + LOB[1] * DIST), stP = worldOf(m1, MAP1.P[0] + AIM[0] * DIST, EYE, MAP1.P[1] + AIM[1] * DIST);
-  const showL = cOp * sm((f - .2) / .2);
+  const showL = cOp * clamp((flickF - .2) / .2);
   putL(LB.head, head, cOp, 0, -36); putG(rHead, head, cOp);
   putL(LB.lob, lobP, showL, 0, -30); putG(rLob, lobP, showL);
   putL(LB.start, stP, showL, 0, 30); putG(rStart, stP, showL);
   const cx = W * (.5 - pose.ox), cy = H * (.5 - pose.oy);
   rCross.setAttribute('transform', `translate(${cx.toFixed(1)} ${cy.toFixed(1)})`); rCross.setAttribute('opacity', cOp);
-  LB.count.textContent = `${de(S.pre * (1 - f))}°`; LB.count.style.opacity = cOp; LB.count.style.transform = `translate(${(cx + 66).toFixed(1)}px, ${(cy - 4).toFixed(1)}px) translate(-50%, -50%)`;
-
-  // captions and start buttons
-  capEls.forEach((el, i) => {
-    let op;
-    if (REDUCED) op = Math.round(p) === i ? 1 : 0;
-    else { const a = i === 0 ? -1 : i - .36, b = i + .44; op = clamp(Math.min((p - a) / .06, (b - p) / .06)); }
-    el.style.opacity = op; el.style.transform = `translateY(${((1 - op) * 10).toFixed(1)}px)`;
-  });
-  const so = 1 - sm(p / .08); start.style.opacity = so; start.style.pointerEvents = so > .5 ? 'auto' : 'none'; start.setAttribute('aria-hidden', so < .5 ? 'true' : 'false');
-  return animating || intro > 0;
+  LB.count.textContent = `${de(S.pre * (1 - flickF))}°`; LB.count.style.opacity = cOp; LB.count.style.transform = `translate(${(cx + 66).toFixed(1)}px, ${(cy - 4).toFixed(1)}px) translate(-50%, -50%)`;
+  hint.style.opacity = !TR && cur === 0 && !sheetOpen && iu > 2 ? 1 : 0;
+  return busy;
 }
-
-// ---------------- scroll ----------------
-const track = document.getElementById('track');
-let stepPx = 1, pTarget = 0, pNow = 0, running = false;
-function layout() {
-  W = innerWidth; H = innerHeight;
-  renderer.setSize(W, H, false); camera.aspect = W / H;
-  rings.setAttribute('viewBox', `0 0 ${W} ${H}`);
-  stepPx = H * 1.1; track.style.height = `${PMAX * stepPx + H}px`;
-  computePoses();
-}
-function readScroll() { pTarget = clamp(scrollY / stepPx, 0, PMAX); if (REDUCED) pTarget = Math.round(pTarget); }
-function tick(now) {
-  pNow = REDUCED ? pTarget : lerp(pNow, pTarget, .12);
-  if (Math.abs(pNow - pTarget) < .0005) pNow = pTarget;
-  const busy = render(pNow, now);
-  if (busy || pNow !== pTarget) requestAnimationFrame(tick); else running = false;
-}
+let running = false;
+function tick(now) { const busy = frame(now); if (busy) requestAnimationFrame(tick); else running = false; }
 function kick() { if (!running) { running = true; requestAnimationFrame(tick); } }
-addEventListener('scroll', () => { readScroll(); kick(); }, { passive: true });
-let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layout(); readScroll(); kick(); }, 150); });
-document.getElementById('go').addEventListener('click', () => scrollTo({ top: stepPx * 1, behavior: REDUCED ? 'auto' : 'smooth' }));
-document.getElementById('toPlan').addEventListener('click', () => scrollTo({ top: stepPx * (NST - 1), behavior: REDUCED ? 'auto' : 'smooth' }));
-layout(); readScroll(); pNow = pTarget;
-setPage('F', pageFor('F', 0), false); setPage('B', pageFor('B', 0), false);
-if (!REDUCED && pNow < .3) { faces.F.mat.userData.reveal.value = 0; faces.F.revealT0 = t0 + 700; }
+
+// ---------------- input: one gesture, one page ----------------
+let wheelAcc = 0, wheelT = 0, wheelLock = false;
+addEventListener('wheel', e => {
+  if (sheetOpen) { if (sheet.scrollTop <= 0 && e.deltaY < -30) { e.preventDefault(); closeSheet(); } return; }
+  e.preventDefault();
+  const now = performance.now(), quiet = now - wheelT > 220; wheelT = now;
+  // one gesture moves one page: ignore the rest of the gesture and anything during a transition
+  if (TR || (wheelLock && !quiet)) return;
+  wheelLock = false; if (quiet) wheelAcc = 0; wheelAcc += e.deltaY;
+  if (Math.abs(wheelAcc) > 40) { step(Math.sign(wheelAcc)); wheelAcc = 0; wheelLock = true; }
+}, { passive: false });
+let ty = null, tx0 = null;
+addEventListener('touchstart', e => { ty = e.touches[0].clientY; tx0 = e.touches[0].clientX; }, { passive: true });
+addEventListener('touchmove', e => { if (!sheetOpen) e.preventDefault(); }, { passive: false });
+addEventListener('touchend', e => {
+  if (ty == null) return; const dy = e.changedTouches[0].clientY - ty, dx = e.changedTouches[0].clientX - tx0; ty = null;
+  if (sheetOpen) { if (sheet.scrollTop <= 0 && dy > 60) closeSheet(); return; }
+  if (Math.abs(dy) > 40 && Math.abs(dy) > Math.abs(dx)) step(dy < 0 ? 1 : -1);
+  else if (Math.abs(dy) < 10 && Math.abs(dx) < 10 && STATES[cur].util && !TR) { arriveT = performance.now(); resetFX(); kick(); }
+}, { passive: true });
+glc.addEventListener('click', () => { if (STATES[cur].util && !TR) { arriveT = performance.now(); resetFX(); kick(); } else if (cur === 0 && !TR) step(1); });
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && sheetOpen) { closeSheet(); return; }
+  if (sheetOpen) return;
+  if (['ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key) && !e.target.closest('button, a')) { e.preventDefault(); step(1); }
+  else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); step(-1); }
+});
+document.getElementById('srNext').addEventListener('click', () => step(1));
+document.getElementById('srPrev').addEventListener('click', () => step(-1));
+hint.style.pointerEvents = 'auto'; hint.addEventListener('click', () => step(1));
+
+// ---------------- start ----------------
+function layout() { W = innerWidth; H = innerHeight; renderer.setSize(W, H, false); camera.aspect = W / H; rings.setAttribute('viewBox', `0 0 ${W} ${H}`); computePoses(); }
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layout(); kick(); }, 150); });
+layout();
+setFace('F', 'title', !REDUCED);
+{ const c = faces.B.ctx; c.setTransform(SC, 0, 0, SC, 0, 0); boardBase(c, 3); faces.B.tex.needsUpdate = true; }
 kick();
 })();
 </script>
