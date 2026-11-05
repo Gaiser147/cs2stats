@@ -414,12 +414,12 @@ PAGES.map2 = (paint) => {
   tx('Entry (T)', En[0] + 28, En[1] + 6, fs); tx('Gegner (CT)', F[0], F[1] + 40, fs, C.ink, 'hand', 'center');
   const rowsO = [['T', tOpen], ['CT', ctOpen]];
   rowsO.forEach(([n, v], k) => {
-    const y = L ? 340 + k * 50 : 462 + k * 24, x = L ? 120 : 186, step = L ? 28 : 17.5, s = L ? 16 : 10, won = Math.round(v / 10);
-    tx(n, L ? 66 : 158, y + 6, L ? 24 : 15);
+    const y = L ? 340 + k * 50 : 466 + k * 24, x = L ? 120 : 190, step = L ? 28 : 15.5, s = L ? 16 : 9.5, won = Math.round(v / 10);
+    tx(n, L ? 66 : 178, y + 6, L ? 24 : 15, C.ink, 'hand', L ? 'left' : 'right');
     for (let i = 0; i < 10; i++) { if (i < won) check(x + i * step, y, s, C.ink, 900 + k * 20 + i); else cross(x + i * step, y, s * .8, k === 0 ? C.red : C.ink2, 920 + k * 20 + i, 2.2); }
   });
   if (L) tx('auf 10 gerundet · Skizze, keine Positionsdaten', 66, 440, 16, C.ink, 'sans', 'left', 600);
-  else { tx('auf 10 gerundet · Skizze, keine Positionsdaten', 196, 516, 9.5, C.ink, 'sans', 'left', 600); }
+  else { tx('auf 10 gerundet', 266, 450, 10.5, C.ink2, 'sans'); tx('Skizze, keine Positionsdaten', 190, 516, 10.5, C.ink, 'sans', 'left', 600); }
 };
 PAGES.erg = () => {
   tx('Das kostet dich', L ? 64 : 24, L ? 96 : 50, L ? 40 : 25);
