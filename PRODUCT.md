@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Single-file HTML page published as a claude.ai Artifact. External scripts only from the Artifact CDN allowlist (cdnjs, jsDelivr, unpkg); no runtime fetch to other hosts, so the page cannot call the Leetify API itself. Data is baked into the page at build time from `data/leetify/<SteamID64>/` (fetched by `leetify_analyze.py fetch`).
+Single-file HTML page published as a claude.ai Artifact. External scripts only from the Artifact CDN allowlist (cdnjs, jsDelivr, unpkg); web fonts from Google Fonts, which the Artifact allows for stylesheets; no runtime fetch to other hosts, so the page cannot call the Leetify API itself. Data is baked into the page at build time from `data/leetify/<SteamID64>/` (fetched by `leetify_analyze.py fetch`).
 
 ## Users
 
