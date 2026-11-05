@@ -36,7 +36,7 @@ b { font-weight: 700; }
 .cap {
   position: absolute; left: 0; right: 0; bottom: 0; display: grid; gap: 8px; opacity: 0; will-change: opacity, transform;
   padding: 40px max(22px, env(safe-area-inset-right, 0px)) max(26px, calc(env(safe-area-inset-bottom, 0px) + 16px)) max(22px, env(safe-area-inset-left, 0px));
-  background: linear-gradient(to top, var(--room) 70%, rgba(227, 231, 232, 0));
+  background: linear-gradient(to top, var(--room) calc(100% - 30px), rgba(227, 231, 232, 0));
 }
 .cap h2 { margin: 0; font-family: var(--hand); font-weight: 400; font-size: clamp(22px, 6vw, 30px); line-height: 1.12; text-wrap: balance; max-width: 22ch; }
 .cap p { margin: 0; color: var(--ink-2); max-width: 48ch; text-wrap: pretty; }
@@ -182,9 +182,9 @@ const TASKS = [
 // ---------------- captions ----------------
 const CAPS = [
   null,
-  ['Von oben', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>. Rot dein Winkel, blau gestrichelt die Lobby.`],
-  ['Von der Seite', `Von deinen Treffern gehen <b>${pc(S.head, 1)}</b> an den Kopf, in deiner Lobby <span class="lobby">${pc(S.lHead, 1)}</span>. Halte das Fadenkreuz schon vor dem Peek auf Kopfhöhe an der Kante.`],
-  ['Aus deiner Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
+  ['A · Draufsicht', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>. Rot dein Winkel, blau gestrichelt die Lobby.`],
+  ['B · Seitenansicht', `Von deinen Treffern gehen <b>${pc(S.head, 1)}</b> an den Kopf, in deiner Lobby <span class="lobby">${pc(S.lHead, 1)}</span>. Halte das Fadenkreuz schon vor dem Peek auf Kopfhöhe an der Kante.`],
+  ['C · Ego-Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
   ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Wenn du flashst, blendest du mehr Gegner als die Lobby. Du flashst nur nicht mal halb so oft.`],
   ['Match für Match', L5 ? `Im Herbst gab es Matches fast ohne Utility. In deinen letzten ${LAST.length} Matches wirfst du <b>${de(L5.util, 2)}</b> Granaten pro Runde, deine Lobby <span class="lobby">${de(L5.lUtil, 2)}</span>.` : 'Geworfene Granaten pro Runde.'],
   ['Das erste Duell', `Auf T-Seite gewinnst du <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %. Wer als Erster reingeht und fällt, lässt sein Team zu viert.`],
@@ -266,14 +266,14 @@ const PAGES = {};
 PAGES.title = (c) => {
   const rowsT = [['Premier', (P0.ranks && P0.ranks.premier || 0).toLocaleString('de-DE')], ['Winrate', pc(P0.winrate || 0)], ['Leetify-Rating', sg(P0.ranks && P0.ranks.leetify || 0)]];
   if (land) {
-    tx(c, P0.name || 'Zattocat', 64, 190, 104);
+    tx(c, P0.name || 'Zattocat', 64, 186, 84);
     tx(c, 'Debrief', 68, 262, 52, C.blue);
     tx(c, `${M.length} Matches · ${dts(first)}–${dt(last)}`, 70, 310, 19, C.ink2, 'sans');
     tx(c, 'Daten: Leetify', 70, 336, 19, C.ink2, 'sans');
     ln(c, 64, 372, 400, 372, C.ink, 3, 3);
     tx(c, 'Wo du Runden verlierst:', 68, 430, 30);
     tx(c, 'Fadenkreuz · Granaten · erstes Duell', 70, 468, 21, C.ink2, 'sans');
-    rowsT.forEach(([k, v], i) => { const y = 200 + i * 104; tx(c, k, 480, y, 22); tx(c, v, 790, y + 4, 44, C.ink, 'hand', 'right'); ln(c, 480, y + 24, 790, y + 24, '#9aa0a6', 1.6, 40 + i); });
+    rowsT.forEach(([k, v], i) => { const y = 200 + i * 104; tx(c, k, 500, y, 22); tx(c, v, 790, y + 4, 44, C.ink, 'hand', 'right'); ln(c, 500, y + 24, 790, y + 24, '#9aa0a6', 1.6, 40 + i); });
     return;
   }
   tx(c, P0.name || 'Zattocat', 22, 92, 60);
@@ -302,11 +302,15 @@ PAGES.map1 = (c, paint) => {
     tx(c, 'neben dem Gegner, wenn er auftaucht', 66, 290, 19, C.ink2, 'sans');
     dash(c, 66, 360, 126, 360); tx(c, `Lobby ${de(S.lPre)}°`, 140, 368, 30, C.blue);
     ln(c, 66, 420, 126, 420, C.red, 4, 5); tx(c, `du ${de(S.pre)}°`, 140, 428, 30, C.redT);
+    tx(c, 'Skizze: Winkel aus deinen Matches,', 66, 480, 16, C.ink2, 'sans'); tx(c, 'Positionen nicht gemessen', 66, 502, 16, C.ink2, 'sans');
+    sd(c, wob([[100, 40], [124, 52], [124, 80], [100, 92], [76, 80], [76, 52], [100, 40]], .4, 77), C.ink, 2.4); tx(c, 'A', 100, 75, 26, C.ink, 'hand', 'center'); tx(c, 'Draufsicht', 136, 72, 18, C.ink2, 'sans');
   } else {
     tx(c, `${de(S.pre)}°`, 20, 60, 56, C.red);
     tx(c, 'Fadenkreuz neben dem Gegner', 22, 80, 12.5, C.ink2, 'sans');
-    ln(c, 24, 494, 56, 494, C.red, 4, 5); tx(c, `du ${de(S.pre)}°`, 64, 500, 17, C.redT);
-    dash(c, 176, 494, 208, 494); tx(c, `Lobby ${de(S.lPre)}°`, 216, 500, 17, C.blue);
+    ln(c, 24, 488, 56, 488, C.red, 4, 5); tx(c, `du ${de(S.pre)}°`, 64, 494, 17, C.redT);
+    dash(c, 176, 488, 208, 488); tx(c, `Lobby ${de(S.lPre)}°`, 216, 494, 17, C.blue);
+    tx(c, 'Skizze: Winkel aus deinen Matches, Positionen nicht gemessen', 24, 513, 10.5, C.ink2, 'sans');
+    sd(c, wob([[318, 22], [336, 30], [336, 50], [318, 58], [300, 50], [300, 30], [318, 22]], .4, 77), C.ink, 2.2); tx(c, 'A', 318, 48, 19, C.ink, 'hand', 'center'); tx(c, 'Draufsicht', 336, 74, 11, C.ink2, 'sans', 'right');
   }
 };
 PAGES.util1 = (c) => {
@@ -338,12 +342,12 @@ PAGES.util2 = (c) => {
   tx(c, 'jedes Match · gestrichelt: deine Lobby', L ? 66 : 24, L ? 126 : 74, L ? 19 : 13, C.ink2, 'sans');
   ln(c, x0, y1, x1, y1, C.ink, 2.6, 400);
   [1, 2].forEach(v => tx(c, String(v), x0 - 10, Y(v) + 5, L ? 15 : 11, C.ink2, 'sans', 'right'));
-  const slot = (x1 - x0) / rs.length, bw = Math.min(L ? 30 : 15, slot * .56);
+  const slot = (x1 - x0) / rs.length, bw = Math.min(L ? 30 : 15, slot * .56); let lastLbl = -1e9;
   rs.forEach((r, i) => {
     const cx = x0 + slot * i + slot / 2;
     sd(c, wob([[cx - bw / 2, y1], [cx - bw / 2, Y(r.util_pr)], [cx + bw / 2, Y(r.util_pr)], [cx + bw / 2, y1]], 1, 500 + i, true), C.ink, 2.4);
     dash(c, cx - bw / 2 - 4, Y(r.l_util_pr), cx + bw / 2 + 4, Y(r.l_util_pr), C.blue, 2.4, [5, 4]);
-    if (i === 0 || r.date.slice(5, 7) !== rs[i - 1].date.slice(5, 7)) tx(c, ['', 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'][+r.date.slice(5, 7)], cx, y1 + (L ? 26 : 20), L ? 15 : 11, C.ink2, 'sans', 'center');
+    if ((i === 0 || r.date.slice(5, 7) !== rs[i - 1].date.slice(5, 7)) && cx - lastLbl > (L ? 44 : 30) && (lastLbl = cx)) tx(c, ['', 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'][+r.date.slice(5, 7)], cx, y1 + (L ? 26 : 20), L ? 15 : 11, C.ink2, 'sans', 'center');
   });
   const dry = rs.map((r, i) => r.util_pr < .1 ? i : -1).filter(i => i >= 0);
   if (dry.length) { const a = x0 + slot * dry[0] + 3, b = x0 + slot * (dry[dry.length - 1] + 1) - 3, by = Y(1.25); sd(c, wob([[a, by + 10], [a, by], [b, by], [b, by + 10]], .8, 600, true), C.ink, 2.4); tx(c, `${dry.length} fast ohne`, (a + b) / 2, by - 10, L ? 20 : 14, C.ink, 'hand', 'center'); }
@@ -377,6 +381,7 @@ PAGES.map2 = (c, paint) => {
     tx(c, 'erste Duelle gewonnen, T-Seite', 22, 78, 12.5, C.ink2, 'sans');
     rowsO.forEach(([n, v], k) => { const y = 470 + k * 26; tx(c, n, 24, y + 6, 16); for (let i = 0; i < 10; i++) mag(c, 70 + i * 19, y, 7.5, i < Math.round(v / 10) ? 'o' : 'g'); });
     tx(c, 'auf 10', 268, 476, 11, C.ink2, 'sans'); tx(c, 'gerundet', 268, 490, 11, C.ink2, 'sans');
+    tx(c, 'Skizze, keine Positionsdaten', 24, 515, 10.5, C.ink2, 'sans');
   }
 };
 PAGES.erg = (c) => {
@@ -423,7 +428,7 @@ function paintPage(canvas, id, ghostSrc, paintMagnets) {
   const c = canvas.getContext('2d');
   c.setTransform(SC, 0, 0, SC, 0, 0);
   boardBase(c, id.length * 31 + 7);
-  if (ghostSrc) { c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = .035; try { c.filter = 'blur(3px)'; } catch (e) { } c.drawImage(ghostSrc, 0, 0); c.restore(); c.setTransform(SC, 0, 0, SC, 0, 0); }
+  if (ghostSrc) { c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = .016; try { c.filter = 'blur(6px)'; } catch (e) { } c.drawImage(ghostSrc, 0, 0); c.restore(); c.setTransform(SC, 0, 0, SC, 0, 0); }
   PAGES[id](c, paintMagnets);
 }
 const mkCanvas = () => { const cv = document.createElement('canvas'); cv.width = TEXW; cv.height = TEXH; return cv; };
@@ -476,7 +481,7 @@ const scene = new T.Scene(), ROOM = 0xe3e7e8;
 scene.background = new T.Color(ROOM); scene.fog = new T.Fog(ROOM, 6, 18);
 const camera = new T.PerspectiveCamera(35, 1, .02, 60);
 scene.add(new T.HemisphereLight(0xffffff, 0xc4c9ca, 1.65));
-const sun = new T.DirectionalLight(0xffffff, 1.15); sun.position.set(-1.8, 4.6, 2.8); sun.castShadow = true;
+const sun = new T.DirectionalLight(0xffffff, 1.15); sun.position.set(-.8, 6, 1.6); sun.castShadow = true;
 sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -2.6, right: 2.6, top: 2.6, bottom: -2.6, near: .5, far: 12 }); sun.shadow.radius = 5; sun.shadow.bias = -.0004;
 scene.add(sun);
 const Y = new T.Vector3(0, 1, 0);
@@ -485,7 +490,7 @@ const floor = new T.Mesh(new T.PlaneGeometry(40, 40), new T.MeshStandardMaterial
 floor.rotation.x = -PI / 2; floor.receiveShadow = true; scene.add(floor);
 
 // stand with marker tray
-const HP = BH / 2 + .42, alu = new T.MeshStandardMaterial({ color: 0xb9bec4, metalness: .55, roughness: .35 }), dark = new T.MeshStandardMaterial({ color: 0x2a2c30, roughness: .6 });
+const HP = BH / 2 + .42, alu = new T.MeshStandardMaterial({ color: 0xd3d8dc, metalness: .3, roughness: .28 }), dark = new T.MeshStandardMaterial({ color: 0x2a2c30, roughness: .6 });
 const stand = new T.Group(); scene.add(stand);
 const postX = BW / 2 + .05;
 [-1, 1].forEach(sx => {
@@ -515,7 +520,7 @@ const fr = .03, fd = .034;
 });
 const BOARDLIN = new T.Color(C.board).convertSRGBToLinear();
 function faceMat(tex) {
-  const m = new T.MeshStandardMaterial({ map: tex, roughness: .55, metalness: 0 });
+  const m = new T.MeshStandardMaterial({ map: tex, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: .5, roughness: .36, metalness: 0 });
   m.userData.reveal = { value: 1 };
   m.onBeforeCompile = sh => {
     sh.uniforms.uReveal = m.userData.reveal; sh.uniforms.uBoard = { value: new T.Vector3(BOARDLIN.r, BOARDLIN.g, BOARDLIN.b) };
@@ -526,6 +531,13 @@ function faceMat(tex) {
         float shown = 1.0 - smoothstep(uReveal * 1.45 - 0.1, uReveal * 1.45, sweep);
         sampledDiffuseColor.rgb = mix(uBoard, sampledDiffuseColor.rgb, shown);
         diffuseColor *= sampledDiffuseColor;
+      #endif`).replace('#include <emissivemap_fragment>', `
+      #ifdef USE_EMISSIVEMAP
+        vec4 emissiveColor = texture2D( emissiveMap, vEmissiveMapUv );
+        float sweepE = vEmissiveMapUv.x * 0.55 + (1.0 - vEmissiveMapUv.y) * 0.75;
+        float shownE = 1.0 - smoothstep(uReveal * 1.45 - 0.1, uReveal * 1.45, sweepE);
+        emissiveColor.rgb = mix(uBoard, emissiveColor.rgb, shownE);
+        totalEmissiveRadiance *= emissiveColor.rgb;
       #endif`);
   };
   return m;
@@ -643,7 +655,7 @@ function computePoses() {
     pivot.rotation.x = st.th; pivot.updateMatrixWorld(true);
     const corners = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([a, b]) => pivot.localToWorld(V(a * (BW / 2 + .03), b * (BH / 2 + .03), 0)));
     const ctr = pivot.localToWorld(V(0, 0, 0));
-    if (st.cam === 'face') { const p = { tgt: ctr, up: Y.clone(), fov: 35 }; fit(p, V(0, .07, 1).normalize(), corners, BOX()); return p; }
+    if (st.cam === 'face') { const p = { tgt: ctr, up: Y.clone(), fov: 35 }; const feet = desk() ? [V(-postX - .03, 0, .32), V(postX + .03, 0, .32)] : []; fit(p, V(0, .07, 1).normalize(), corners.concat(feet), BOX()); return p; }
     if (st.cam === 'top') { const p = { tgt: ctr, up: V(0, 0, -1), fov: 35 }; fit(p, Y.clone(), corners, BOX()); return p; }
     if (st.cam === 'side') {
       const one = st.page === 'map1', root = one ? m1 : m2, mp = one ? MAP1 : MAP2;
@@ -658,7 +670,7 @@ function computePoses() {
       const dir = fromL.sub(p.tgt).normalize();
       const pts = [worldOf(root, a[0], 2.0, a[1]), worldOf(root, a[0] + perp[0] * .5, 0, a[1] + perp[1] * .5), worldOf(root, b[0], 2.0, b[1]), worldOf(root, b[0], 0, b[1])];
       if (!one) pts.push(worldOf(root, mp.entry[0], 2, mp.entry[1]), worldOf(root, mp.entry[0], 0, mp.entry[1]));
-      fit(p, dir, pts, desk() ? [.05, .6, .1, .9] : [.05, .95, .12, .64]);
+      fit(p, dir, pts, desk() ? [.1, .6, .12, .88] : [.06, .94, .12, .64]);
       return p;
     }
     return { ego: true, tgt: ctr, pos: ctr.clone(), up: Y.clone(), fov: desk() ? 58 : 68, ox: desk() ? .5 - .33 : 0, oy: desk() ? 0 : .5 - .36 };
@@ -742,13 +754,13 @@ function render(p, now) {
   putL(LB.start, stP, showL, 0, 30); putG(rStart, stP, showL);
   const cx = W * (.5 - pose.ox), cy = H * (.5 - pose.oy);
   rCross.setAttribute('transform', `translate(${cx.toFixed(1)} ${cy.toFixed(1)})`); rCross.setAttribute('opacity', cOp);
-  LB.count.textContent = `${de(S.pre * (1 - f))}°`; LB.count.style.opacity = cOp; LB.count.style.transform = `translate(${cx.toFixed(1)}px, ${(cy + 46).toFixed(1)}px) translate(-50%, -50%)`;
+  LB.count.textContent = `${de(S.pre * (1 - f))}°`; LB.count.style.opacity = cOp; LB.count.style.transform = `translate(${(cx + 66).toFixed(1)}px, ${(cy - 4).toFixed(1)}px) translate(-50%, -50%)`;
 
   // captions and start buttons
   capEls.forEach((el, i) => {
     let op;
     if (REDUCED) op = Math.round(p) === i ? 1 : 0;
-    else { const a = i === 0 ? -1 : i - .12, b = i + .32; op = clamp(Math.min((p - a) / .06, (b - p) / .06)); }
+    else { const a = i === 0 ? -1 : i - .36, b = i + .44; op = clamp(Math.min((p - a) / .06, (b - p) / .06)); }
     el.style.opacity = op; el.style.transform = `translateY(${((1 - op) * 10).toFixed(1)}px)`;
   });
   const so = 1 - sm(p / .08); start.style.opacity = so; start.style.pointerEvents = so > .5 ? 'auto' : 'none'; start.setAttribute('aria-hidden', so < .5 ? 'true' : 'false');
