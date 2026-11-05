@@ -309,7 +309,7 @@ PAGES.map1 = (c, paint) => {
     tx(c, 'Fadenkreuz neben dem Gegner', 22, 80, 12.5, C.ink2, 'sans');
     ln(c, 24, 488, 56, 488, C.red, 4, 5); tx(c, `du ${de(S.pre)}°`, 64, 494, 17, C.redT);
     dash(c, 176, 488, 208, 488); tx(c, `Lobby ${de(S.lPre)}°`, 216, 494, 17, C.blue);
-    tx(c, 'Skizze: Winkel aus deinen Matches, Positionen nicht gemessen', 24, 513, 10.5, C.ink2, 'sans');
+    tx(c, 'Skizze · Winkel gemessen, Positionen nicht', 24, 514, 12.5, C.ink, 'sans', 'left', 600);
     sd(c, wob([[318, 22], [336, 30], [336, 50], [318, 58], [300, 50], [300, 30], [318, 22]], .4, 77), C.ink, 2.2); tx(c, 'A', 318, 48, 19, C.ink, 'hand', 'center'); tx(c, 'Draufsicht', 336, 74, 11, C.ink2, 'sans', 'right');
   }
 };
@@ -381,7 +381,7 @@ PAGES.map2 = (c, paint) => {
     tx(c, 'erste Duelle gewonnen, T-Seite', 22, 78, 12.5, C.ink2, 'sans');
     rowsO.forEach(([n, v], k) => { const y = 470 + k * 26; tx(c, n, 24, y + 6, 16); for (let i = 0; i < 10; i++) mag(c, 70 + i * 19, y, 7.5, i < Math.round(v / 10) ? 'o' : 'g'); });
     tx(c, 'auf 10', 268, 476, 11, C.ink2, 'sans'); tx(c, 'gerundet', 268, 490, 11, C.ink2, 'sans');
-    tx(c, 'Skizze, keine Positionsdaten', 24, 515, 10.5, C.ink2, 'sans');
+    tx(c, 'Skizze, keine Positionsdaten', 24, 516, 12.5, C.ink, 'sans', 'left', 600);
   }
 };
 PAGES.erg = (c) => {
@@ -514,9 +514,10 @@ eraser.position.set(.17, .338, 0); eraser.traverse(o => { o.castShadow = true; }
 const pivot = new T.Group(); pivot.position.set(0, HP, 0); scene.add(pivot);
 const TH = .018;
 const core = new T.Mesh(new T.BoxGeometry(BW, BH, TH), new T.MeshStandardMaterial({ color: 0xe9ecec, roughness: .7 })); core.castShadow = true; core.receiveShadow = true; pivot.add(core);
+const boardCasters = [core];
 const fr = .03, fd = .034;
 [[0, BH / 2 + fr / 2, BW + fr * 2, fr], [0, -BH / 2 - fr / 2, BW + fr * 2, fr], [-BW / 2 - fr / 2, 0, fr, BH], [BW / 2 + fr / 2, 0, fr, BH]].forEach(([x, y, w, h]) => {
-  const m = new T.Mesh(new T.BoxGeometry(w, h, fd), alu); m.position.set(x, y, 0); m.castShadow = true; pivot.add(m);
+  const m = new T.Mesh(new T.BoxGeometry(w, h, fd), alu); m.position.set(x, y, 0); m.castShadow = true; pivot.add(m); boardCasters.push(m);
 });
 const BOARDLIN = new T.Color(C.board).convertSRGBToLinear();
 function faceMat(tex) {
@@ -537,7 +538,9 @@ function faceMat(tex) {
         float sweepE = vEmissiveMapUv.x * 0.55 + (1.0 - vEmissiveMapUv.y) * 0.75;
         float shownE = 1.0 - smoothstep(uReveal * 1.45 - 0.1, uReveal * 1.45, sweepE);
         emissiveColor.rgb = mix(uBoard, emissiveColor.rgb, shownE);
-        totalEmissiveRadiance *= emissiveColor.rgb;
+        // only the bare melamine glows; marker ink keeps its full colour
+        float bare = smoothstep(0.55, 0.85, min(min(emissiveColor.r, emissiveColor.g), emissiveColor.b));
+        totalEmissiveRadiance *= uBoard * bare;
       #endif`);
   };
   return m;
@@ -725,6 +728,7 @@ function render(p, now) {
 
   // maps: walls and figures stand up out of the drawing
   m1.visible = Math.abs(pivot.rotation.x - PI / 2) < .3; m2.visible = Math.abs(pivot.rotation.x - 3 * PI / 2) < .3;
+  const lying = Math.abs(Math.cos(pivot.rotation.x)) < .5; boardCasters.forEach(o => { o.castShadow = !lying; });
   const g1 = sm((p - 1.35) / .45), wl1 = Math.max(.02, sm((p - 1.3) / .5));
   m1walls.forEach(w => { w.scale.y = wl1; }); [you1, foe1].forEach(o => o.fig.scale.setScalar(Math.max(.001, g1)));
   you1.root.visible = p < 2.62;
