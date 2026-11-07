@@ -170,7 +170,7 @@ const S = {
   tkOpp: tot(FIVE, 'tk_opp'), tkAtt: tot(FIVE, 'tk_att'), tkOk: tot(FIVE, 'tk_ok'),
   lTk: tot(FIVE, 'l_tk_ok_sum') / Math.max(1, tot(FIVE, 'l_tk_att_sum')),
 };
-S.flPr = S.fl / Math.max(1, S.rounds); S.foePer = S.flFoe / Math.max(1, S.fl); S.tk = S.tkOk / Math.max(1, S.tkAtt);
+S.flPr = S.fl / Math.max(1, S.rounds); S.foePer = S.flFoe / Math.max(1, S.fl); S.frPer = tot(FIVE, 'fl_friend') / Math.max(1, S.fl); S.lFrPer = tot(FIVE, 'l_fl_friend_sum') / Math.max(1, tot(FIVE, 'l_fl_sum')); S.tk = S.tkOk / Math.max(1, S.tkAtt);
 S.smPr = S.sm / Math.max(1, S.rounds); S.hePr = S.he / Math.max(1, S.rounds); S.moPr = S.mo / Math.max(1, S.rounds);
 const lobN = pr => Math.round(pr * S.rounds);
 const L5 = LAST.length ? { pre: wavg(LAST, 'preaim'), uod: wavg(LAST, 'uod'), flPr: tot(LAST, 'fl') / Math.max(1, rounds(LAST)), tk: tot(LAST, 'tk_ok') / Math.max(1, tot(LAST, 'tk_att')), util: wavg(LAST, 'util_pr'), lUtil: wavg(LAST, 'l_util_pr') } : null;
@@ -208,13 +208,13 @@ const CAPS = [
   ['C · Ego-Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
   ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Auf den nächsten Seiten: welche Granaten fehlen.`],
   ['Match für Match', L5 ? `Im Herbst gab es Matches fast ohne Utility. In deinen letzten ${LAST.length} Matches wirfst du <b>${de(L5.util, 2)}</b> Granaten pro Runde, deine Lobby <span class="lobby">${de(L5.lUtil, 2)}</span>.` : 'Geworfene Granaten pro Runde.'],
-  ['Flash', `Du wirfst <b class="fix">${de(S.flPr, 2)}</b> Flashes pro Runde, ein Spieler deiner Lobby <span class="lobby">${de(S.lFlPr, 2)}</span>. Wenn du flashst, blendest du <b>${de(S.foePer, 2)}</b> Gegner pro Flash, die Lobby <span class="lobby">${de(S.lFoePer, 2)}</span>. Deine Flashes sind gut, es sind nur zu wenige. ${AGAIN}`],
+  ['Flash', `Du wirfst <b class="${S.flPr < S.lFlPr ? 'fix' : ''}">${de(S.flPr, 2)}</b> Flashes pro Runde, ein Spieler deiner Lobby <span class="lobby">${de(S.lFlPr, 2)}</span>. Wenn du flashst, blendest du <b>${de(S.foePer, 2)}</b> Gegner pro Flash, die Lobby <span class="lobby">${de(S.lFoePer, 2)}</span>. ${S.flPr < S.lFlPr ? (S.foePer >= S.lFoePer ? 'Deine Flashes sind gut, es sind nur zu wenige.' : 'Du flashst zu selten und blendest zu wenige Gegner.') : `Du flashst inzwischen öfter als deine Lobby. Achte noch auf dein Team: <b class="${S.frPer > S.lFrPer ? 'fix' : ''}">${de(S.frPer, 2)}</b> geblendete Teammates pro Flash, Lobby <span class="lobby">${de(S.lFrPer, 2)}</span>.`} ${AGAIN}`],
   ['HE-Granate', `${S.he} HE in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lHePr)}</span>, ${S.hePr < S.lHePr ? 'also mehr als du' : 'also weniger als du'}. Wirf sie dorthin, wo ein Gegner stehen muss, bevor du peekst, statt sie mit ins Grab zu nehmen. ${AGAIN}`],
   ['Molotov', `${S.mo} Molotovs in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lMoPr)}</span>. Ein Molotov in die Ecke zwingt den CT aus seiner Position, bevor du reingehst. ${AGAIN}`],
-  ['Smoke', `Smokes wirfst du ${S.smPr >= S.lSmPr ? 'sogar etwas mehr als' : 'weniger als'} deine Lobby: <b>${S.sm}</b> gegen <span class="lobby">${lobN(S.lSmPr)}</span>. Eine Smoke nimmt dem CT die Sicht auf den Eingang. Das machst du schon richtig. ${AGAIN}`],
+  ['Smoke', `Smokes wirfst du ${S.smPr >= S.lSmPr ? 'sogar etwas mehr als' : 'weniger als'} deine Lobby: <b>${S.sm}</b> gegen <span class="lobby">${lobN(S.lSmPr)}</span>. Eine Smoke nimmt dem CT die Sicht auf den Eingang. ${S.smPr >= S.lSmPr ? 'Das machst du schon richtig.' : 'Lerne pro Seite zwei feste Smokes für Mirage und Inferno.'} ${AGAIN}`],
   ['Das erste Duell', `Auf T-Seite gewinnst du <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %. Wer als Erster reingeht und fällt, lässt sein Team zu viert.`],
   ['So soll es aussehen', `Direkt hinter dem Entry. Du versuchst es in <b>${pc(S.tkAtt / Math.max(1, S.tkOpp))}</b> der Fälle zu traden, es klappt aber nur in <b class="fix">${pc(S.tk)}</b>, in deiner Lobby in <span class="lobby">${pc(S.lTk)}</span>. Die Skizze zeigt keine gemessenen Positionen.`],
-  ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
+  ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. ${S.surv >= S.lSurv * .97 ? `Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.` : `Dazu überlebst du seltener als deine Lobby: ${pc(S.surv)} gegen ${pc(S.lSurv)} der Runden.`}${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
   ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Das Kreuz zeigt deine letzten ${LAST.length} Matches, der Kreis alle. ${COARSE ? 'Noch einmal wischen' : 'Noch einmal scrollen'} für die Übungen.`],
 ];
 const capsEl = document.getElementById('caps');
@@ -224,7 +224,7 @@ document.getElementById('f-stand').textContent = `Stand ${dt(last)} · ${M.lengt
 document.getElementById('f-link').href = `https://leetify.com/app/profile/${D.steam64}`;
 document.getElementById('drills').innerHTML = TASKS.map(t => `<div class="drill"><h3>${t.t}</h3><p>${t.drill}</p>
   <span class="state">Alle Matches ${t.fmt(t.all)}${t.last != null ? ` · letzte ${LAST.length}: ${t.fmt(t.last)}` : ''} · Ziel (Lobby) ${t.fmt(t.goal)} · ${t.done ? '<b class="ok">geschafft</b>' : 'noch nicht geschafft'}</span></div>`).join('');
-document.getElementById('flashText').textContent = `Du wirfst ${de(S.flPr, 2)} Flashes pro Runde, deine Lobby ${de(S.lFlPr, 2)}. Eine Flash vor jedem Peek.`;
+document.getElementById('flashText').textContent = S.flPr < S.lFlPr ? `Du wirfst ${de(S.flPr, 2)} Flashes pro Runde, deine Lobby ${de(S.lFlPr, 2)}. Eine Flash vor jedem Peek.` : `Du flashst jetzt öfter als deine Lobby (${de(S.flPr, 2)} gegen ${de(S.lFlPr, 2)} pro Runde). Wirf sie über die Kante, nicht in dein Team.`;
 
 // ---------------- board pages, recorded as marker strokes ----------------
 const land = innerWidth > innerHeight * 1.05;
@@ -352,10 +352,11 @@ PAGES.util1 = () => {
   arrow(X(S.uod), ry - 46, X(S.uod), ry - 20, C.red, 3, 61);
   tx('du', X(S.uod) + 10, ry - 38, L ? 20 : 15, C.redT, 'hand', 'left');
   const fx = L ? 470 : 24, fy = L ? 96 : 322, mw = L ? 320 : 312;
-  tx('Flashes', fx, fy, L ? 40 : 24); tx(`in ${S.rounds} Runden`, fx + (L ? 150 : 96), fy, L ? 19 : 13, C.ink2, 'sans');
-  tx(`du: ${S.fl}`, fx, fy + (L ? 44 : 30), L ? 22 : 16);
-  const h1 = tally(fx, fy + (L ? 58 : 36), S.fl, C.ink, 21, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
-  const lob = lobN(S.lFlPr), ly = fy + (L ? 58 : 36) + h1 + (L ? 34 : 20);
+  const me100 = Math.round(S.flPr * 100);
+  tx('Flashes', fx, fy, L ? 40 : 24); tx('pro 100 Runden', fx + (L ? 150 : 96), fy, L ? 19 : 13, C.ink2, 'sans');
+  tx(`du: ${me100}`, fx, fy + (L ? 44 : 30), L ? 22 : 16, S.flPr < S.lFlPr ? C.redT : C.ink);
+  const h1 = tally(fx, fy + (L ? 58 : 36), me100, C.ink, 21, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
+  const lob = Math.round(S.lFlPr * 100), ly = fy + (L ? 58 : 36) + h1 + (L ? 34 : 20);
   tx(`ein Lobby-Spieler: ${lob}`, fx, ly, L ? 22 : 16, C.blue);
   const h2 = tally(fx, ly + (L ? 14 : 8), lob, C.blue, 77, L ? 26 : 18, L ? 7 : 5.5, L ? 12 : 9, mw);
   const by = ly + (L ? 14 : 8) + h2 + (L ? 36 : 18);
@@ -426,7 +427,7 @@ PAGES.erg = () => {
   const w = tx(de(S.adr - S.lAdr), L ? 60 : 20, L ? 200 : 124, L ? 110 : 72, C.red);
   tx('ADR', (L ? 60 : 20) + w + 12, L ? 192 : 118, L ? 36 : 24);
   tx(`${de(S.adr)} gegen ${de(S.lAdr)} in deiner Lobby`, L ? 66 : 24, L ? 236 : 150, L ? 19 : 13, C.ink2, 'sans');
-  const hx = L ? 470 : 24, base = L ? 470 : 418, hw = L ? 320 : 312, col = hw / 5, bs = L ? 22 : 17, gap = 4;
+  const hx = L ? 470 : 24, base = L ? 470 : 418, hw = L ? 320 : 312, col = hw / 5, gap = 4, bs = Math.min(L ? 22 : 17, Math.floor((base - (L ? 140 : 228)) / Math.max(1, ...ranks)) - gap);
   tx('Dein Platz im Team', hx, L ? 96 : 194, L ? 28 : 19); tx('1 Kästchen = 1 Match', hx, L ? 122 : 212, L ? 16 : 11.5, C.ink2, 'sans');
   ln(hx, base + 3, hx + hw, base + 3, C.ink, 2.6, 900);
   ranks.forEach((n, i) => { const cx = hx + col * i + col / 2; for (let k = 0; k < n; k++) hatchBox(cx - bs / 2, base - (k + 1) * (bs + gap), bs, bs, i >= 3 ? C.red : C.ink, 1000 + i * 20 + k); tx(L ? String(i + 1) : `Platz ${i + 1}`, cx, base + (L ? 30 : 24), L ? 20 : 12.5, C.ink, 'hand', 'center'); });
