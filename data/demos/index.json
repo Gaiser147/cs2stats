@@ -1,0 +1,26 @@
+{
+ "steamid": "76561198382673172",
+ "matches": [
+  {
+   "demo": "match730_003852423005510566029_0867963918_186",
+   "map": "de_overpass",
+   "mode": "wingman",
+   "rounds": 13,
+   "date": "2026-11-06T00:01:52.000Z",
+   "score": {
+    "own": 9,
+    "enemy": 4,
+    "result": "win"
+   },
+   "leetify_id": "22903fce-bc96-4b54-a274-1b720e4ee613",
+   "rating_hltv1": 0.51,
+   "adr": 31.7,
+   "kast": 61.5,
+   "kills": 2,
+   "deaths": 7,
+   "crosshair_angle_median": 2.71,
+   "time_to_damage_median_ms": 398.0,
+   "counter_strafe_pct": 79.4
+  }
+ ]
+}

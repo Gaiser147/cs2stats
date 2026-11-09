@@ -2,3 +2,5 @@
 __pycache__/
 .impeccable/review/
 .impeccable/hook.cache.json
+.venv/
+*.dem
