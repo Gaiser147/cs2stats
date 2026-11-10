@@ -59,6 +59,17 @@ Positions are game coordinates. `data/maps/overviews.json` holds each map's rada
 
 Aim definitions differ from Leetify: a sighting starts when the server marks the enemy as spotted by the player (the radar spot, which needs the enemy in view), so crosshair angle and time to damage come out lower than Leetify's preaim and reaction time. Compare them across your own demos, not with Leetify numbers. Kills match Leetify in every match; deaths in 224 of 228 player rows (bomb deaths count, "world" suicides after the round do not); ADR within 1.5. Assists are the game's own and can differ from Leetify's by one; flash assists are counted separately.
 
+## Debrief on GitHub Pages
+
+`.github/workflows/debrief-site.yml` builds the debrief and publishes it at `https://<user>.github.io/<repo>/`. It runs on every push to the branch (so each `demo_analyze.py auto` push updates the page), every 6 hours and on demand (Actions → Debrief site → Run workflow). Every run first pulls the latest matches from Leetify (`leetify_analyze.py fetch`), then builds with `leetify_analyze.py site _site`. The fetched Leetify data is only used for the build and is not committed back, so the workflow never conflicts with local pushes.
+
+Setup once:
+1. Settings → Pages → Build and deployment → Source: **GitHub Actions**. On the Free plan Pages needs a public repository.
+2. Optional: Settings → Secrets and variables → Actions → `LEETIFY_API_KEY` for a higher Leetify rate limit.
+3. If you work on a different branch than the one in `on.push.branches`, change it there; scheduled runs use the default branch.
+
+`python3 leetify_analyze.py site [DIR]` builds the same standalone page locally (default `_site/`, git-ignored).
+
 ## Data
 
 `data/leetify/<SteamID64>/` holds the raw API responses: `profile.json`, `history.json` and one file per match in `matches/` with the stats of all players in that match.

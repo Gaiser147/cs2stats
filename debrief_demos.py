@@ -105,8 +105,76 @@ def _simplify_loop(loop, tol):
     return a[:-1] + b[:-1]
 
 
+def _clusters(zs, gap=110):
+    """Height levels in one cell: z values split where they jump by more than `gap` units; tiny groups dropped."""
+    zs = sorted(zs)
+    out = [[zs[0]]]
+    for z in zs[1:]:
+        if z - out[-1][-1] > gap:
+            out.append([z])
+        else:
+            out[-1].append(z)
+    keep = [c for c in out if len(c) >= max(3, .04 * len(zs))]
+    return [(sum(c) / len(c), min(c), max(c), len(c)) for c in keep]
+
+
+def _components(cells):
+    cells, seen, comps = set(cells), set(), []
+    for c in cells:
+        if c in seen:
+            continue
+        stack, comp = [c], []
+        seen.add(c)
+        while stack:
+            i, j = stack.pop()
+            comp.append((i, j))
+            for nb in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
+                if nb in cells and nb not in seen:
+                    seen.add(nb); stack.append(nb)
+        comps.append(comp)
+    return comps
+
+
+def _chain(segments):
+    """Join unit grid edges into polylines."""
+    adj = {}
+    for a, b in segments:
+        adj.setdefault(a, []).append(b); adj.setdefault(b, []).append(a)
+    used, lines = set(), []
+    for a, b in segments:
+        if (a, b) in used or (b, a) in used:
+            continue
+        used.add((a, b))
+        line = [a, b]
+        for end in (1, 0):
+            while True:
+                v = line[-1] if end else line[0]
+                nxt = next((w for w in adj[v] if (v, w) not in used and (w, v) not in used), None)
+                if nxt is None:
+                    break
+                used.add((v, nxt))
+                if end:
+                    line.append(nxt)
+                else:
+                    line.insert(0, nxt)
+        lines.append(_simplify(line, .6))
+    return lines
+
+
+def _grid_loops(cells, n, min_area=6, close=False):
+    g = [[0] * n for _ in range(n)]
+    for i, j in cells:
+        g[i][j] = 1
+    if close:
+        g = _close(g, n)
+    loops = [_simplify_loop(lp, .85) for lp in _loops(g, n) if _area(lp) >= min_area]
+    return [lp for lp in loops if len(lp) >= 3]
+
+
 def _floor(map_name, ov, demos):
-    n, cnt, places = GRID, [[0] * GRID for _ in range(GRID)], {}
+    """Floor plan from movement: walkable cells, stacked passages (a lower path under an upper one),
+    bombsite areas and spawn positions, all in grid coordinates."""
+    n, zs, place_cells, places = GRID, {}, {}, {}
     lower = (ov.get("vertical_sections") or {}).get("lower")
     for d in demos:
         path = os.path.join(DEMOS, d, "positions.csv.gz")
@@ -120,19 +188,71 @@ def _floor(map_name, ov, demos):
                 px, py = (x - ov["pos_x"]) / ov["scale"], (ov["pos_y"] - y) / ov["scale"]
                 i, j = int(py / 1024 * n), int(px / 1024 * n)
                 if 0 <= i < n and 0 <= j < n:
-                    cnt[i][j] += 1
+                    zs.setdefault((i, j), []).append(z)
                     if r.get("place"):
+                        pc = place_cells.setdefault((i, j), {})
+                        pc[r["place"]] = pc.get(r["place"], 0) + 1
                         s = places.setdefault(r["place"], [0.0, 0.0, 0])
                         s[0] += px / 1024 * n; s[1] += py / 1024 * n; s[2] += 1
-    g = _close([[1 if c else 0 for c in row] for row in cnt], n)
-    loops = [lp for lp in _loops(g, n) if _area(lp) >= 6]
-    loops = [_simplify_loop(lp, .85) for lp in loops]
-    loops = [lp for lp in loops if len(lp) >= 3]
+    loops = _grid_loops(zs.keys(), n, close=True)
+
+    # stacked passages: cells with two height levels at least STACK units apart (a tunnel under a bridge).
+    # The lower path is followed a few cells beyond the crossing so it reads as passing underneath.
+    STACK, EXT = 140, 7
+    levels = {c: _clusters(v) for c, v in zs.items()}
+    over = {}
+    for c, cl in levels.items():
+        for lo, hi in zip(cl, cl[1:]):
+            if hi[1] - lo[2] >= STACK:
+                over[c] = lo[0]
+                break
+    under, bridge_edges, overlap = set(), [], set()
+    if not lower:
+        for comp in _components(over):
+            if len(comp) < 3:
+                continue
+            seed = sum(over[c] for c in comp) / len(comp)
+            overlap.update(comp)
+            under.update(comp)
+            frontier, depth = list(comp), 0
+            while frontier and depth < EXT:
+                nxt = []
+                for i, j in frontier:
+                    for nb in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
+                        if nb in under or nb not in levels:
+                            continue
+                        if any(abs(m - seed) < 45 for m, *_ in levels[nb]):
+                            under.add(nb); nxt.append(nb)
+                frontier, depth = nxt, depth + 1
+        ext = under - overlap
+        for i, j in overlap:
+            # the bridge's sides: edges between a crossing cell and the open lower path next to it
+            if (i - 1, j) in ext: bridge_edges.append(((j, i), (j + 1, i)))
+            if (i + 1, j) in ext: bridge_edges.append(((j, i + 1), (j + 1, i + 1)))
+            if (i, j - 1) in ext: bridge_edges.append(((j, i), (j, i + 1)))
+            if (i, j + 1) in ext: bridge_edges.append(((j + 1, i), (j + 1, i + 1)))
+
+    # bombsites: cells where the site is the most common place name
+    sites = {}
+    for c, pc in place_cells.items():
+        top = max(pc, key=pc.get)
+        if top in ("BombsiteA", "BombsiteB"):
+            sites.setdefault(top[-1], []).append(c)
+    site_out = {}
+    for k, cells in sites.items():
+        big = max(_components(cells), key=len)
+        site_out[k] = {"loops": _grid_loops(big, n, min_area=4, close=True),
+                       "at": (sum(j for i, j in big) / len(big) + .5, sum(i for i, j in big) / len(big) + .5)}
+
     xs = [p[0] for lp in loops for p in lp]
     ys = [p[1] for lp in loops for p in lp]
-    box = (min(xs), min(ys), max(xs), max(ys))
     centroids = {k: (v[0] / v[2], v[1] / v[2]) for k, v in places.items() if v[2] >= 20}
-    return loops, box, centroids
+    return {
+        "loops": loops, "box": (min(xs), min(ys), max(xs), max(ys)), "centroids": centroids,
+        "under": _grid_loops(under, n, min_area=2), "bridge": _grid_loops(overlap, n, min_area=2),
+        "bridge_edges": _chain(bridge_edges), "sites": site_out,
+        "spawns": {k: centroids[p] for k, p in (("T", "TSpawn"), ("CT", "CTSpawn")) if p in centroids},
+    }
 
 
 # ---------- digest ----------
@@ -185,7 +305,7 @@ def digest(steam64):
                     deaths_by_map.setdefault(m["map"], []).append(
                         (float(r["victim_x"]), float(r["victim_y"]), float(r["victim_z"]), side.get((r["round"], steam64)), r["opening"] == "True", r["victim_place"]))
                 if r["attacker_steamid"] == steam64 and r["attacker_x"]:
-                    kills_by_map.setdefault(m["map"], []).append((float(r["attacker_x"]), float(r["attacker_y"]), float(r["attacker_z"])))
+                    kills_by_map.setdefault(m["map"], []).append((float(r["attacker_x"]), float(r["attacker_y"]), float(r["attacker_z"]), r["attacker_place"]))
         with open(os.path.join(folder, "engagements.csv"), encoding="utf-8") as f:
             pitch = []
             for r in csv.DictReader(f):
@@ -212,29 +332,28 @@ def digest(steam64):
         if len(deaths) < MAP_MIN_DEATHS or not ov:
             continue
         demos = [m["demo"] for m in index if m["map"] == map_name]
-        loops, (bx0, by0, bx1, by1), centroids = _floor(map_name, ov, demos)
+        fl = _floor(map_name, ov, demos)
+        (bx0, by0, bx1, by1), centroids = fl["box"], fl["centroids"]
         lower = (ov.get("vertical_sections") or {}).get("lower")
         pad = 2
         span = max(bx1 - bx0, by1 - by0) + 2 * pad
         ox, oy = (bx0 + bx1) / 2 - span / 2, (by0 + by1) / 2 - span / 2
         norm = lambda gx, gy: [round((gx - ox) / span * 1000), round((gy - oy) / span * 1000)]
+        nl = lambda lps: [[norm(x, y) for x, y in lp] for lp in lps]
         to_grid = lambda x, y: ((x - ov["pos_x"]) / ov["scale"] / 1024 * GRID, (ov["pos_y"] - y) / ov["scale"] / 1024 * GRID)
-        dpts, counts = [], {}
-        for x, y, z, s, op, place in deaths:
-            if lower and z < lower["z_max"]:
-                continue
-            dpts.append(norm(*to_grid(x, y)) + [1 if s == "CT" else 0, 1 if op else 0])
-            c = counts.setdefault(place, {"T": 0, "CT": 0})
-            if s in c:
-                c[s] += 1
-        kpts = [norm(*to_grid(x, y)) for x, y, z in kills_by_map.get(map_name, []) if not (lower and z < lower["z_max"])]
-        top = sorted(counts.items(), key=lambda kv: -(kv[1]["T"] + kv[1]["CT"]))
-        labels = [{"name": _place(p), "t": c["T"], "ct": c["CT"], "at": norm(*centroids[p])} for p, c in top if p in centroids][:4]
+        names = sorted(p for p in centroids)
+        pidx = lambda p: names.index(p) if p in centroids else -1
+        dpts = [norm(*to_grid(x, y)) + [1 if s == "CT" else 0, 1 if op else 0, pidx(place)]
+                for x, y, z, s, op, place in deaths if not (lower and z < lower["z_max"])]
+        kpts = [norm(*to_grid(x, y)) + [pidx(place)] for x, y, z, place in kills_by_map.get(map_name, []) if not (lower and z < lower["z_max"])]
         out["maps"].append({
             "map": map_name, "name": map_name.split("_", 1)[-1].capitalize(), "rounds": rounds_by_map.get(map_name, 0),
-            "matches": sum(1 for m in five if m["map"] == map_name),
-            "floor": [[norm(x, y) for x, y in lp] for lp in loops],
-            "deaths": dpts, "kills": kpts, "labels": labels,
+            "matches": sum(1 for m in five if m["map"] == map_name), "upper_only": bool(lower),
+            "floor": nl(fl["loops"]), "under": nl(fl["under"]), "bridge": nl(fl["bridge"]), "bridge_edges": nl(fl["bridge_edges"]),
+            "sites": {k: {"loops": nl(v["loops"]), "at": norm(*v["at"])} for k, v in fl["sites"].items()},
+            "spawns": {k: norm(*v) for k, v in fl["spawns"].items()},
+            "places": [{"name": _place(p), "at": norm(*centroids[p])} for p in names],
+            "deaths": dpts, "kills": kpts,
         })
     return out
 
@@ -246,4 +365,5 @@ if __name__ == "__main__":
     print(json.dumps({k: v for k, v in d.items() if k != "per_demo"}, indent=1))
     for m in maps:
         print(m["name"], m["matches"], "matches", len(m["deaths"]), "deaths", len(m["kills"]), "kills",
-              len(m["floor"]), "loops", sum(len(l) for l in m["floor"]), "pts", m["labels"])
+              len(m["floor"]), "loops", sum(len(l) for l in m["floor"]), "pts", len(m["under"]), "under", len(m["bridge_edges"]), "bridge edges",
+              list(m["sites"]), m["spawns"], len(m["places"]), "places")

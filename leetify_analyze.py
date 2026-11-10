@@ -8,6 +8,7 @@ Usage:
   python3 leetify_analyze.py fetch  [STEAM64]   # download profile, match list and new match details
   python3 leetify_analyze.py report [STEAM64] [all|matches|summary]
   python3 leetify_analyze.py debrief [STEAM64]  # bake the data into debrief/index.html
+  python3 leetify_analyze.py site [DIR]         # same page as a standalone HTML document in DIR (default _site), for GitHub Pages
 
 Data is stored in data/leetify/<steam64>/. LEETIFY_API_KEY (environment or .env) is optional
 and only raises the rate limit (https://leetify.com/app/developer).
@@ -252,6 +253,25 @@ def print_summary(rows):
                   f"preaim {st.mean(r['preaim'] for r in rs):4.1f}  head {st.mean(r['acc_head'] for r in rs) * 100:4.1f}%  util/round {st.mean(r['util_pr'] for r in rs):.2f}")
 
 
+SITE_HEAD = """<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+"""
+
+
+def build_site(steam64, out_dir):
+    """The debrief as a full HTML document (the Artifact version relies on the host's document skeleton)."""
+    build_debrief(steam64)
+    os.makedirs(out_dir, exist_ok=True)
+    page = open(os.path.join(ROOT, "debrief", "index.html"), encoding="utf-8").read()
+    with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(SITE_HEAD + page)
+    open(os.path.join(out_dir, ".nojekyll"), "w").close()
+    print(f"Site written to {os.path.relpath(out_dir, ROOT)}/index.html")
+
+
 def build_debrief(steam64):
     """Bake the player's rows (own stats + lobby averages, no other players' names) into debrief/template.html."""
     rows = build_rows(steam64)
@@ -274,7 +294,7 @@ def build_debrief(steam64):
 
 def main():
     args = sys.argv[1:]
-    if not args or args[0] not in ("fetch", "report", "debrief"):
+    if not args or args[0] not in ("fetch", "report", "debrief", "site"):
         sys.exit(__doc__)
     steam64 = next((a for a in args[1:] if a.isdigit() and len(a) == 17), DEFAULT_STEAM64)
     if args[0] == "fetch":
@@ -282,6 +302,10 @@ def main():
         return
     if args[0] == "debrief":
         build_debrief(steam64)
+        return
+    if args[0] == "site":
+        out = next((a for a in args[1:] if not (a.isdigit() and len(a) == 17)), "_site")
+        build_site(steam64, os.path.join(ROOT, out) if not os.path.isabs(out) else out)
         return
     section = next((a for a in args[1:] if a in ("all", "matches", "summary")), "all")
     rows = build_rows(steam64)

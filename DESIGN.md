@@ -354,7 +354,7 @@ Angles are derived, not listed: each page names its face and whether the board l
 - **Do** move exactly one page per gesture, and keep the order: turn or camera move, marker writing, magnets and figures, caption last.
 - **Do** encode every value as a marker mark (stroke, dashed line, tally, hatched box, check, cross, ring, arrow) in the three inks.
 - **Do** write "Skizze" on every scenario page; those positions are illustrative and not measured.
-- **Do** keep death maps measured: red marker crosses for deaths, a red ring around a cross for a lost opening duel, small ink rings for kills, a light floor fill with an ink-2 outline traced from player movement, callout names in bold sans with a board-coloured halo. No radar images.
+- **Do** keep death maps measured: a heat field (red ramp for deaths, graphite for kills, clipped to the floor) instead of single marks, ink crosses only for lost opening duels, a mid-grey floor (#d2d7d9) with ink walls, bombsites hatched with a circled marker letter, spawns and the three busiest callouts in bold sans with a board-coloured halo. A lower path under a bridge is darker (#a9b0b5) with dashed walls, the bridge over it keeps the floor colour with solid edges. A tap cycles alle Tode, als T, als CT, Kills and redraws the board. No radar images.
 - **Do** keep all map writing at the board's near edge on phone so side cameras stay clean.
 - **Do** compare only the owner's stats with lobby averages, and keep "Data Provided by Leetify" with the "View on Leetify" link.
 - **Do** give every effect page its own caption with the data, and let a tap or click replay it.

@@ -1,0 +1,50 @@
+# Builds the debrief and publishes it on GitHub Pages.
+# Runs on every push (e.g. when demo_analyze.py auto pushes new demo stats), every 6 hours and on demand.
+# Each run first pulls the latest matches from Leetify, so the page is current even without new demos.
+# The fetched Leetify data is only used for the build and is not committed back (no conflicts with local pushes).
+name: Debrief site
+
+on:
+  push:
+    branches: [claude/cito-api-setup-xvskwb]
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pull latest matches from Leetify
+        continue-on-error: true   # build from the committed data if Leetify is unreachable
+        env:
+          LEETIFY_API_KEY: ${{ secrets.LEETIFY_API_KEY }}
+        run: python3 leetify_analyze.py fetch
+      - name: Build page
+        run: python3 leetify_analyze.py site _site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
