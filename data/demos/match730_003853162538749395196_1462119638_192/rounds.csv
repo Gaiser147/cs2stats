@@ -1,0 +1,49 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198382673172,Zattocat,T,False,800,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.2,500.0
+1,76561198958312106,SHOOTA,CT,True,850,350,2,2,0,0,False,0,False,0,200,0,True,False,True,,,15.0,
+1,76561199257115106,Schrödinger =^·ω·^=,T,False,850,350,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,15.0,0.0
+1,76561199543882884,Hana prestani da seen-ujes,CT,True,850,350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,15.0,
+2,76561198382673172,Zattocat,T,False,2150,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,7.7,200.0
+2,76561198958312106,SHOOTA,CT,True,2850,2650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,19.8,0.0
+2,76561199257115106,Schrödinger =^·ω·^=,T,False,1700,650,1,1,0,0,True,1,False,0,100,0,False,False,True,2.0,False,23.9,0.0
+2,76561199543882884,Hana prestani da seen-ujes,CT,True,2650,2250,2,2,0,0,False,0,False,1,199,0,True,False,True,1.0,True,23.9,
+3,76561198382673172,Zattocat,T,False,2450,300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.9,500.0
+3,76561198958312106,SHOOTA,CT,True,1450,3500,1,1,0,0,False,0,False,0,100,0,True,False,True,,,14.9,
+3,76561199257115106,Schrödinger =^·ω·^=,T,False,1700,1550,0,0,0,0,True,1,False,0,43,0,False,False,False,2.0,False,14.9,0.0
+3,76561199543882884,Hana prestani da seen-ujes,CT,True,4250,7500,1,0,0,0,False,0,False,0,96,0,False,False,True,,,14.9,
+4,76561198382673172,Zattocat,T,True,2750,650,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.7,500.0
+4,76561198958312106,SHOOTA,CT,False,3400,7550,1,0,0,0,True,1,False,0,71,0,True,False,True,1.0,False,20.1,600.0
+4,76561199257115106,Schrödinger =^·ω·^=,T,True,4100,250,2,2,0,0,False,0,False,0,199,0,False,False,True,2.0,True,20.1,
+4,76561199543882884,Hana prestani da seen-ujes,CT,False,4250,11450,0,0,1,0,True,1,False,0,76,0,False,False,True,,,10.8,1000.0
+5,76561198382673172,Zattocat,T,False,2650,650,0,0,0,0,True,1,False,0,18,0,False,False,False,,,21.4,200.0
+5,76561198958312106,SHOOTA,CT,True,4050,4250,0,0,1,0,True,1,True,0,60,35,False,True,True,,,19.4,0.0
+5,76561199257115106,Schrödinger =^·ω·^=,T,False,5100,8100,1,1,0,0,True,1,False,0,82,0,True,False,True,1.0,False,23.1,500.0
+5,76561199543882884,Hana prestani da seen-ujes,CT,True,5200,3200,2,1,0,0,False,0,False,1,139,0,False,False,True,2.0,True,23.1,
+6,76561198382673172,Zattocat,T,False,2800,350,0,0,0,0,True,1,False,0,59,0,False,False,False,2.0,False,46.8,0.0
+6,76561198958312106,SHOOTA,CT,True,5400,4800,1,1,0,0,False,0,False,0,100,0,False,False,True,,,46.8,
+6,76561199257115106,Schrödinger =^·ω·^=,T,False,4200,2000,0,0,0,0,True,1,False,0,0,0,False,True,False,,,11.9,0.0
+6,76561199543882884,Hana prestani da seen-ujes,CT,True,5200,8350,1,1,0,0,False,0,False,0,100,0,True,False,True,,,46.8,
+7,76561198382673172,Zattocat,T,False,2650,500,0,0,0,0,True,1,False,0,51,0,False,False,False,2.0,False,14.4,400.0
+7,76561198958312106,SHOOTA,CT,True,6100,9600,1,0,0,0,False,0,False,0,95,38,False,False,True,,,14.4,
+7,76561199257115106,Schrödinger =^·ω·^=,T,False,4600,200,0,0,0,0,True,1,False,0,27,0,False,True,False,,,8.1,0.0
+7,76561199543882884,Hana prestani da seen-ujes,CT,True,5200,10100,1,0,0,0,False,0,False,0,100,6,True,False,True,,,14.4,
+8,76561198382673172,Zattocat,T,False,3100,800,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.9,200.0
+8,76561198958312106,SHOOTA,CT,True,6100,11850,1,1,0,0,False,0,False,0,100,0,False,False,True,,,23.1,
+8,76561199257115106,Schrödinger =^·ω·^=,T,False,3100,200,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,23.1,200.0
+8,76561199543882884,Hana prestani da seen-ujes,CT,True,5600,11800,1,1,0,0,False,0,False,0,100,0,True,False,True,,,23.1,
+9,76561198382673172,Zattocat,CT,True,200,1000,0,0,0,0,True,1,True,0,16,0,False,True,True,,,10.8,0.0
+9,76561198958312106,SHOOTA,T,False,850,350,1,1,0,0,True,1,False,0,100,0,True,False,True,,,11.8,0.0
+9,76561199257115106,Schrödinger =^·ω·^=,CT,True,200,1000,2,2,0,0,False,0,False,1,184,0,False,False,True,2.0,True,15.1,
+9,76561199543882884,Hana prestani da seen-ujes,T,False,850,350,0,0,0,0,True,1,False,0,19,0,False,False,False,1.0,False,15.1,0.0
+10,76561198382673172,Zattocat,CT,True,1250,2800,0,0,0,0,True,1,True,0,0,0,False,False,True,,,28.4,400.0
+10,76561198958312106,SHOOTA,T,False,700,1950,1,1,0,0,True,1,False,0,100,0,False,False,True,2.0,False,33.4,0.0
+10,76561199257115106,Schrödinger =^·ω·^=,CT,True,3650,1000,2,2,0,0,False,0,False,1,200,0,True,False,True,1.0,True,33.4,
+10,76561199543882884,Hana prestani da seen-ujes,T,False,700,1650,0,0,0,0,True,1,False,0,0,0,False,True,False,,,19.1,0.0
+11,76561198382673172,Zattocat,CT,False,3400,2450,0,0,0,0,True,1,True,0,20,0,False,True,True,,,8.8,800.0
+11,76561198958312106,SHOOTA,T,True,3900,850,1,1,0,0,True,1,True,0,99,0,True,False,True,,,9.1,0.0
+11,76561199257115106,Schrödinger =^·ω·^=,CT,False,4650,7250,1,0,0,0,True,1,False,1,77,10,False,False,True,2.0,False,11.5,500.0
+11,76561199543882884,Hana prestani da seen-ujes,T,True,3900,250,1,0,0,0,False,0,False,1,99,0,False,False,True,1.0,True,11.5,
+12,76561198382673172,Zattocat,CT,False,3400,1300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,7.9,800.0
+12,76561198958312106,SHOOTA,T,True,3900,200,0,0,1,0,True,1,True,0,26,0,False,False,True,,,9.2,0.0
+12,76561199257115106,Schrödinger =^·ω·^=,CT,False,5300,1150,1,0,0,0,True,1,False,0,100,0,False,False,True,2.0,False,10.2,0.0
+12,76561199543882884,Hana prestani da seen-ujes,T,True,5100,5800,2,0,0,0,False,0,False,1,170,0,True,False,True,1.0,True,10.2,

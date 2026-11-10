@@ -1,0 +1,191 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561197989695764,EM@IL ( MOSCOW ),T,False,900,300,2,1,0,0,True,1,False,0,173,0,False,False,True,4.0,False,54.8,0.0
+1,76561198065740044,Check-Mate,T,False,850,350,0,0,0,0,True,1,False,0,9,0,False,False,False,,,15.6,0.0
+1,76561198382673172,Zattocat,CT,True,600,700,1,1,0,0,True,1,False,0,126,0,True,False,True,,,23.7,0.0
+1,76561198658063440,STR8 KILLERZ,T,False,1000,200,0,0,1,0,True,1,False,0,27,0,False,True,True,,,10.1,500.0
+1,76561199191173651,Anne,T,False,850,350,0,0,0,0,True,1,False,0,52,0,False,False,False,,,36.8,0.0
+1,76561199231348567,XDanul,CT,True,850,350,2,1,0,0,False,0,False,0,151,0,False,False,True,,,54.8,
+1,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,200,1000,1,0,0,0,False,0,False,0,9,0,False,False,True,,,54.8,
+1,76561199542724787,🅨🅐🅡🅘🅚,CT,True,1150,350,1,1,1,0,False,0,False,0,150,0,False,False,True,,,54.8,
+1,76561199802563691,stole,CT,True,850,350,0,0,1,0,True,1,False,0,58,0,False,False,True,,,37.1,0.0
+1,76561199807424936,The Dark Night Sky,T,False,800,200,0,0,0,0,True,1,False,0,22,0,False,False,False,,,15.2,300.0
+2,76561197989695764,EM@IL ( MOSCOW ),T,False,2650,350,1,1,0,0,True,1,False,0,100,0,True,False,True,,,41.1,0.0
+2,76561198065740044,Check-Mate,T,False,2250,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,60.0,0.0
+2,76561198382673172,Zattocat,CT,True,3100,1950,2,1,0,0,False,0,False,0,196,0,False,False,True,,,66.3,
+2,76561198658063440,STR8 KILLERZ,T,False,1000,1300,0,0,0,1,True,1,False,0,23,0,False,False,False,,,39.6,300.0
+2,76561199191173651,Anne,T,False,2250,200,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,66.3,200.0
+2,76561199231348567,XDanul,CT,True,4100,950,0,0,0,0,True,1,True,0,0,0,False,True,True,,,37.9,0.0
+2,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,4100,3550,1,1,0,0,False,0,False,0,65,0,False,False,True,,,66.3,
+2,76561199542724787,🅨🅐🅡🅘🅚,CT,True,3000,2550,0,0,2,0,False,0,False,0,77,26,False,False,True,,,66.3,
+2,76561199802563691,stole,CT,True,3600,200,2,1,0,0,False,0,False,1,158,0,False,False,True,,,66.3,
+2,76561199807424936,The Dark Night Sky,T,False,2100,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,61.4,200.0
+3,76561197989695764,EM@IL ( MOSCOW ),T,True,2900,350,2,1,1,0,True,1,False,0,230,0,True,False,True,,,60.6,0.0
+3,76561198065740044,Check-Mate,T,True,2600,200,3,1,1,0,False,0,False,0,253,0,False,False,True,,,72.2,
+3,76561198382673172,Zattocat,CT,False,3500,10300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,32.8,300.0
+3,76561198658063440,STR8 KILLERZ,T,True,3600,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,53.5,0.0
+3,76561199191173651,Anne,T,True,2600,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,59.3,0.0
+3,76561199231348567,XDanul,CT,False,4000,550,0,0,0,0,True,1,False,0,50,0,False,False,False,,,23.7,600.0
+3,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,False,5950,5750,0,0,0,0,True,1,False,0,93,0,False,False,False,,,54.4,0.0
+3,76561199542724787,🅨🅐🅡🅘🅚,CT,False,4000,6550,3,0,0,0,True,1,False,0,227,3,False,False,True,4.0,False,72.2,300.0
+3,76561199802563691,stole,CT,False,5500,9750,0,0,1,0,True,1,False,0,68,0,False,True,True,,,17.8,700.0
+3,76561199807424936,The Dark Night Sky,T,True,1150,1400,0,0,0,0,False,0,False,0,12,0,False,False,True,,,72.2,
+4,76561197989695764,EM@IL ( MOSCOW ),T,True,3900,250,3,2,1,0,False,0,False,0,309,0,True,False,True,,,45.0,
+4,76561198065740044,Check-Mate,T,True,5100,6350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,45.0,
+4,76561198382673172,Zattocat,CT,False,3300,5450,0,0,0,0,True,1,False,0,2,0,False,False,False,4.0,False,45.0,200.0
+4,76561198658063440,STR8 KILLERZ,T,True,3050,1500,0,0,0,0,False,0,False,0,28,4,False,False,True,,,45.0,
+4,76561199191173651,Anne,T,True,3000,400,0,0,0,0,True,1,True,0,0,0,False,False,True,,,20.6,0.0
+4,76561199231348567,XDanul,CT,False,3400,500,0,0,0,0,True,1,False,0,46,0,False,False,False,,,16.8,800.0
+4,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,False,4100,600,0,0,0,0,True,1,False,0,21,0,False,False,False,,,37.8,0.0
+4,76561199542724787,🅨🅐🅡🅘🅚,CT,False,3900,3700,0,0,0,0,True,1,False,0,14,0,False,True,False,,,12.9,1300.0
+4,76561199802563691,stole,CT,False,3300,3300,1,1,0,0,True,1,False,0,106,0,False,False,True,,,22.8,700.0
+4,76561199807424936,The Dark Night Sky,T,True,3800,5150,2,0,0,0,False,0,False,1,154,0,False,False,True,,,45.0,
+5,76561197989695764,EM@IL ( MOSCOW ),T,True,4800,6950,2,1,0,0,False,0,False,1,199,0,False,False,True,,,56.9,
+5,76561198065740044,Check-Mate,T,True,5100,10050,0,0,0,0,True,1,True,0,0,0,False,False,True,,,32.2,1000.0
+5,76561198382673172,Zattocat,CT,False,4900,2700,0,0,0,0,True,1,False,0,0,0,False,False,False,3.0,False,56.9,300.0
+5,76561198658063440,STR8 KILLERZ,T,True,3700,4300,0,0,0,0,False,0,False,0,0,0,False,False,True,,,56.9,
+5,76561199191173651,Anne,T,True,3300,300,0,0,0,0,True,1,True,0,0,0,False,False,True,,,24.7,300.0
+5,76561199231348567,XDanul,CT,False,2600,1450,1,1,0,0,True,1,False,0,212,0,False,False,True,,,33.2,0.0
+5,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,False,1300,1250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,20.3,0.0
+5,76561199542724787,🅨🅐🅡🅘🅚,CT,False,3700,2150,0,0,0,0,True,1,False,0,0,0,False,True,False,,,17.1,1100.0
+5,76561199802563691,stole,CT,False,4800,4850,1,1,0,0,True,1,False,0,128,0,False,False,True,,,25.6,700.0
+5,76561199807424936,The Dark Night Sky,T,True,5300,10500,3,2,0,0,False,0,False,1,298,0,True,False,True,,,56.9,
+6,76561197989695764,EM@IL ( MOSCOW ),T,True,5200,11250,0,0,1,0,True,1,False,0,31,0,False,False,True,,,43.0,800.0
+6,76561198065740044,Check-Mate,T,True,4900,3450,1,1,0,0,True,1,False,0,126,0,True,False,True,,,18.5,1000.0
+6,76561198382673172,Zattocat,CT,False,3100,2300,0,0,1,0,True,1,False,0,43,0,False,False,True,,,31.6,0.0
+6,76561198658063440,STR8 KILLERZ,T,True,5100,7050,2,1,0,0,False,0,False,0,142,0,False,False,True,2.0,True,92.3,
+6,76561199191173651,Anne,T,True,3200,300,0,0,0,0,True,1,True,0,0,0,False,False,True,,,27.8,0.0
+6,76561199231348567,XDanul,CT,False,3300,1150,0,0,1,0,True,1,False,0,71,0,False,True,True,,,11.7,0.0
+6,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,False,2500,1450,0,0,0,0,True,1,False,0,0,0,False,False,False,1.0,False,92.3,400.0
+6,76561199542724787,🅨🅐🅡🅘🅚,CT,False,3700,1150,1,0,0,0,True,1,False,0,100,0,False,False,True,,,32.2,800.0
+6,76561199802563691,stole,CT,False,4050,4050,3,2,0,0,True,1,False,0,184,0,False,False,True,,,59.0,500.0
+6,76561199807424936,The Dark Night Sky,T,True,5200,12650,2,0,0,0,True,1,False,1,143,0,False,False,True,,,47.2,400.0
+7,76561197989695764,EM@IL ( MOSCOW ),T,False,4800,4950,1,0,0,0,True,1,False,0,98,0,False,False,True,,,42.3,600.0
+7,76561198065740044,Check-Mate,T,False,4900,2050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,28.8,1000.0
+7,76561198382673172,Zattocat,CT,True,3250,5000,0,0,1,0,True,1,True,0,51,0,False,False,True,,,40.9,800.0
+7,76561198658063440,STR8 KILLERZ,T,False,5600,9750,0,0,0,0,True,1,False,0,29,5,False,False,False,,,27.7,0.0
+7,76561199191173651,Anne,T,False,2900,600,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.2,0.0
+7,76561199231348567,XDanul,CT,True,4800,250,0,0,1,0,False,0,False,0,92,0,False,False,True,,,52.1,
+7,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,4100,1550,3,1,0,0,False,0,False,0,177,0,True,False,True,,,52.1,
+7,76561199542724787,🅨🅐🅡🅘🅚,CT,True,3900,1750,1,0,0,0,False,0,False,0,98,0,False,False,True,,,52.1,
+7,76561199802563691,stole,CT,True,4350,850,1,0,0,0,False,0,False,1,47,0,False,False,True,,,52.1,
+7,76561199807424936,The Dark Night Sky,T,False,5000,7150,0,0,0,0,True,1,False,0,66,36,False,False,False,4.0,False,52.1,0.0
+8,76561197989695764,EM@IL ( MOSCOW ),T,False,5100,1750,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,56.0,900.0
+8,76561198065740044,Check-Mate,T,False,3400,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.0,400.0
+8,76561198382673172,Zattocat,CT,True,5200,5800,1,0,1,0,False,0,False,1,117,42,False,False,True,,,56.0,
+8,76561198658063440,STR8 KILLERZ,T,False,4400,2650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,24.4,900.0
+8,76561199191173651,Anne,T,False,1700,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,30.5,0.0
+8,76561199231348567,XDanul,CT,True,5800,6950,0,0,0,0,False,0,False,0,0,0,False,False,True,,,56.0,
+8,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,4400,9900,2,1,0,0,True,1,True,0,102,0,True,False,True,,,25.5,500.0
+8,76561199542724787,🅨🅐🅡🅘🅚,CT,True,5200,9400,1,1,1,0,False,0,False,0,126,0,False,False,True,,,56.0,
+8,76561199802563691,stole,CT,True,5100,9900,1,0,1,0,False,0,False,0,151,0,False,False,True,,,56.0,
+8,76561199807424936,The Dark Night Sky,T,False,5000,3750,1,1,0,0,True,1,False,1,155,1,False,False,True,,,27.1,300.0
+9,76561197989695764,EM@IL ( MOSCOW ),T,False,3600,250,0,0,0,0,True,1,False,0,49,0,False,True,False,,,15.7,300.0
+9,76561198065740044,Check-Mate,T,False,2150,200,0,0,1,0,True,1,False,0,58,0,False,False,True,,,35.0,0.0
+9,76561198382673172,Zattocat,CT,True,5000,9500,2,0,0,0,False,0,False,0,111,0,True,False,True,,,96.3,
+9,76561198658063440,STR8 KILLERZ,T,False,4550,2200,3,0,0,0,False,0,False,0,157,4,False,False,True,4.0,False,96.3,
+9,76561199191173651,Anne,T,False,2050,350,0,0,1,0,True,1,False,0,74,0,False,False,True,,,49.0,0.0
+9,76561199231348567,XDanul,CT,True,5800,12200,1,0,1,0,True,1,False,0,187,1,False,False,True,,,60.6,700.0
+9,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,4400,6250,1,0,0,0,False,0,False,0,72,0,False,False,True,,,96.3,
+9,76561199542724787,🅨🅐🅡🅘🅚,CT,True,5200,12350,0,0,1,0,True,1,False,0,81,0,False,False,True,,,72.7,300.0
+9,76561199802563691,stole,CT,True,4600,13150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,44.2,700.0
+9,76561199807424936,The Dark Night Sky,T,False,5000,1150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,54.5,300.0
+10,76561197989695764,EM@IL ( MOSCOW ),T,False,2600,250,1,0,0,0,True,1,False,0,180,0,False,False,True,4.0,False,95.0,0.0
+10,76561198065740044,Check-Mate,T,False,2600,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,25.2,0.0
+10,76561198382673172,Zattocat,CT,True,5000,13750,1,0,0,0,False,0,False,0,113,20,False,False,True,,,95.0,
+10,76561198658063440,STR8 KILLERZ,T,False,4900,6150,0,0,0,0,True,1,False,0,6,6,False,False,False,,,57.5,0.0
+10,76561199191173651,Anne,T,False,2600,350,0,0,0,0,True,1,False,0,91,0,False,False,False,,,60.8,0.0
+10,76561199231348567,XDanul,CT,True,7350,4750,1,0,0,0,False,0,False,1,100,0,False,False,True,,,95.0,
+10,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,4400,14750,3,1,0,0,False,0,False,1,251,0,True,False,True,,,95.0,
+10,76561199542724787,🅨🅐🅡🅘🅚,CT,True,5200,7650,0,0,0,0,True,1,True,0,6,6,False,False,True,,,26.3,1100.0
+10,76561199802563691,stole,CT,True,5300,11050,0,0,0,0,True,1,True,0,22,0,False,False,True,,,90.5,400.0
+10,76561199807424936,The Dark Night Sky,T,False,3500,250,1,1,0,0,True,1,False,0,178,0,False,False,True,,,27.4,0.0
+11,76561197989695764,EM@IL ( MOSCOW ),T,True,3700,250,3,2,0,0,True,1,True,0,298,0,True,False,True,,,39.8,500.0
+11,76561198065740044,Check-Mate,T,True,3000,300,2,1,0,0,False,0,False,1,166,0,False,False,True,,,40.3,
+11,76561198382673172,Zattocat,CT,False,5200,17050,0,0,0,0,True,1,False,0,0,0,False,True,False,,,15.4,1100.0
+11,76561198658063440,STR8 KILLERZ,T,True,4750,500,0,0,1,1,True,1,False,0,27,0,False,False,True,,,31.8,0.0
+11,76561199191173651,Anne,T,True,3100,350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,40.3,
+11,76561199231348567,XDanul,CT,False,7550,15700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,21.7,1200.0
+11,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,False,4400,19200,2,1,0,0,True,1,False,0,115,0,False,False,True,4.0,False,40.3,300.0
+11,76561199542724787,🅨🅐🅡🅘🅚,CT,False,7050,4650,0,0,1,0,True,1,False,0,84,0,False,False,True,,,34.6,1100.0
+11,76561199802563691,stole,CT,False,4150,8350,0,0,0,0,True,1,False,0,87,0,False,False,False,,,22.7,700.0
+11,76561199807424936,The Dark Night Sky,T,True,3400,250,0,0,0,1,False,0,False,0,0,0,False,False,True,,,40.3,
+12,76561197989695764,EM@IL ( MOSCOW ),T,False,4100,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,25.1,200.0
+12,76561198065740044,Check-Mate,T,False,5600,6750,1,1,0,0,True,1,False,0,91,0,False,False,True,,,33.5,1000.0
+12,76561198382673172,Zattocat,CT,True,2300,12350,0,0,0,0,True,1,False,0,19,3,False,False,False,,,76.2,300.0
+12,76561198658063440,STR8 KILLERZ,T,False,3200,3500,1,1,0,0,False,0,False,0,81,6,False,False,True,,,101.9,
+12,76561199191173651,Anne,T,False,4400,3550,1,1,0,0,False,0,False,0,99,0,False,False,True,,,101.9,
+12,76561199231348567,XDanul,CT,True,5300,4750,1,0,0,0,False,0,False,0,123,25,True,False,True,,,101.9,
+12,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,CT,True,6500,9700,0,0,1,0,True,1,True,0,69,0,False,False,True,,,31.3,700.0
+12,76561199542724787,🅨🅐🅡🅘🅚,CT,True,5400,950,2,0,0,0,False,0,False,1,125,0,False,False,True,,,101.9,
+12,76561199802563691,stole,CT,True,8150,1700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,69.9,500.0
+12,76561199807424936,The Dark Night Sky,T,False,7050,8700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.9,400.0
+13,76561197989695764,EM@IL ( MOSCOW ),CT,False,1000,200,1,1,0,0,True,1,True,0,138,38,False,False,True,,,25.4,800.0
+13,76561198065740044,Check-Mate,CT,False,850,350,0,0,1,0,True,1,True,0,33,0,False,False,True,,,27.4,0.0
+13,76561198382673172,Zattocat,T,True,300,700,1,0,0,0,False,0,False,0,100,0,True,False,True,,,32.3,
+13,76561198658063440,STR8 KILLERZ,CT,False,1000,200,1,1,0,0,True,1,False,0,115,0,False,False,True,,,22.2,0.0
+13,76561199191173651,Anne,CT,False,600,1000,0,0,0,0,True,1,False,0,33,0,False,True,False,,,16.5,0.0
+13,76561199231348567,XDanul,T,True,850,350,2,1,0,0,False,0,False,2,169,0,False,False,True,,,32.3,
+13,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,True,200,1000,2,1,0,0,True,1,True,0,177,0,False,False,True,,,29.9,0.0
+13,76561199542724787,🅨🅐🅡🅘🅚,T,True,850,350,0,0,1,0,True,1,True,0,30,0,False,False,True,,,20.9,0.0
+13,76561199802563691,stole,T,True,850,350,0,0,0,0,True,1,False,0,21,0,False,False,False,,,16.9,0.0
+13,76561199807424936,The Dark Night Sky,CT,False,800,200,1,0,0,0,True,1,False,1,29,0,False,False,True,3.0,False,32.3,500.0
+14,76561197989695764,EM@IL ( MOSCOW ),CT,False,1050,1700,0,0,0,0,True,1,False,0,85,27,False,False,False,,,51.5,0.0
+14,76561198065740044,Check-Mate,CT,False,2250,350,0,0,0,0,True,1,True,0,0,0,False,False,True,,,46.9,0.0
+14,76561198382673172,Zattocat,T,True,3400,3100,0,0,0,0,False,0,False,0,0,0,False,False,True,,,57.5,
+14,76561198658063440,STR8 KILLERZ,CT,False,2450,300,0,0,0,0,True,1,False,0,111,0,False,False,False,4.0,False,57.5,200.0
+14,76561199191173651,Anne,CT,False,2650,200,1,1,0,0,True,1,False,1,99,0,False,False,True,,,50.8,200.0
+14,76561199231348567,XDanul,T,True,3800,1900,1,0,1,0,False,0,False,1,130,63,False,False,True,,,57.5,
+14,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,True,3900,900,1,0,1,0,False,0,False,0,60,0,False,False,True,,,57.5,
+14,76561199542724787,🅨🅐🅡🅘🅚,T,True,3200,350,1,0,1,0,True,1,True,0,152,0,False,False,True,,,49.5,0.0
+14,76561199802563691,stole,T,True,3250,300,2,2,0,0,False,0,False,0,141,0,True,False,True,,,57.5,
+14,76561199807424936,The Dark Night Sky,CT,False,2450,2550,0,0,0,0,True,1,False,0,0,0,False,True,False,,,37.0,0.0
+15,76561197989695764,EM@IL ( MOSCOW ),CT,True,4100,250,2,0,0,0,False,0,False,0,138,0,False,False,True,1.0,True,74.0,
+15,76561198065740044,Check-Mate,CT,True,2800,200,1,1,0,0,True,1,False,0,99,0,False,False,True,,,65.9,400.0
+15,76561198382673172,Zattocat,T,False,3400,5250,0,0,1,0,True,1,False,0,80,0,False,False,True,,,38.9,700.0
+15,76561198658063440,STR8 KILLERZ,CT,True,2750,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.6,0.0
+15,76561199191173651,Anne,CT,True,3200,250,0,0,1,0,True,1,False,0,59,0,False,False,True,,,57.6,0.0
+15,76561199231348567,XDanul,T,False,4400,5800,3,1,1,0,True,1,False,0,160,43,False,False,True,4.0,False,74.0,0.0
+15,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,False,3900,7900,0,0,0,0,True,1,False,0,0,0,False,True,False,,,22.1,0.0
+15,76561199542724787,🅨🅐🅡🅘🅚,T,False,3600,550,1,0,1,0,True,1,False,0,155,80,False,False,True,,,46.3,300.0
+15,76561199802563691,stole,T,False,3700,5350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,44.7,400.0
+15,76561199807424936,The Dark Night Sky,CT,True,2600,350,2,2,0,0,True,1,False,0,199,0,True,False,True,,,48.5,400.0
+16,76561197989695764,EM@IL ( MOSCOW ),CT,False,5600,8800,0,0,1,0,True,1,False,0,54,6,False,False,True,,,49.5,0.0
+16,76561198065740044,Check-Mate,CT,False,4600,250,0,0,0,0,True,1,False,0,75,0,False,False,False,,,47.7,300.0
+16,76561198382673172,Zattocat,T,True,3900,350,2,1,1,0,True,1,False,0,266,0,True,False,True,,,47.1,0.0
+16,76561198658063440,STR8 KILLERZ,CT,False,3900,350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.5,1300.0
+16,76561199191173651,Anne,CT,False,4100,200,1,0,0,0,True,1,False,1,86,0,False,False,True,2.0,False,64.2,800.0
+16,76561199231348567,XDanul,T,True,5100,4200,0,0,0,0,True,1,False,0,8,8,False,False,False,,,34.9,900.0
+16,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,True,3900,1900,1,1,0,0,False,0,False,0,100,0,False,False,True,,,64.2,
+16,76561199542724787,🅨🅐🅡🅘🅚,T,True,2400,350,2,1,0,0,False,0,False,0,122,0,False,False,True,,,64.2,
+16,76561199802563691,stole,T,True,3700,450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.9,400.0
+16,76561199807424936,The Dark Night Sky,CT,False,5100,200,2,0,0,0,True,1,True,0,168,0,False,False,True,,,43.7,0.0
+17,76561197989695764,EM@IL ( MOSCOW ),CT,False,5100,1350,0,0,1,0,True,1,False,0,0,0,False,False,True,,,33.4,700.0
+17,76561198065740044,Check-Mate,CT,False,2250,250,0,0,0,0,True,1,False,0,79,0,False,False,False,5.0,False,51.4,0.0
+17,76561198382673172,Zattocat,T,True,5100,250,0,0,0,0,False,0,False,0,5,5,False,False,True,,,51.4,
+17,76561198658063440,STR8 KILLERZ,CT,False,2100,500,0,0,0,0,True,1,False,0,14,0,False,False,False,,,26.0,0.0
+17,76561199191173651,Anne,CT,False,2850,200,0,0,0,0,True,1,False,0,21,0,False,False,False,,,48.7,0.0
+17,76561199231348567,XDanul,T,True,2900,300,0,0,1,0,False,0,False,0,72,0,False,False,True,,,51.4,
+17,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,True,6250,7350,1,0,0,0,False,0,False,0,100,0,False,False,True,,,51.4,
+17,76561199542724787,🅨🅐🅡🅘🅚,T,True,5400,8850,2,0,0,0,False,0,False,0,153,6,True,False,True,,,51.4,
+17,76561199802563691,stole,T,True,3450,200,2,1,0,0,False,0,False,0,127,0,False,False,True,,,51.4,
+17,76561199807424936,The Dark Night Sky,CT,False,2800,250,0,0,0,0,True,1,False,0,19,0,False,True,False,,,20.4,0.0
+18,76561197989695764,EM@IL ( MOSCOW ),CT,False,3750,200,0,0,1,0,True,1,False,0,129,0,False,False,True,4.0,False,68.8,0.0
+18,76561198065740044,Check-Mate,CT,False,2600,250,0,0,0,0,True,1,False,0,33,0,False,False,False,,,29.8,0.0
+18,76561198382673172,Zattocat,T,True,5100,7200,3,0,0,0,False,0,False,0,210,0,False,False,True,,,68.8,
+18,76561198658063440,STR8 KILLERZ,CT,False,2900,200,1,0,0,0,True,1,False,0,51,0,False,False,True,,,49.1,0.0
+18,76561199191173651,Anne,CT,False,2500,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,57.8,0.0
+18,76561199231348567,XDanul,T,True,2900,5650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,68.8,
+18,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,True,6250,11700,1,0,1,0,False,0,False,0,186,0,True,False,True,,,68.8,
+18,76561199542724787,🅨🅐🅡🅘🅚,T,True,5400,12150,1,0,0,0,False,0,False,0,71,1,False,False,True,,,68.8,
+18,76561199802563691,stole,T,True,4100,5650,0,0,1,0,True,1,False,0,29,0,False,False,True,,,31.6,700.0
+18,76561199807424936,The Dark Night Sky,CT,False,2600,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,21.6,0.0
+19,76561197989695764,EM@IL ( MOSCOW ),CT,False,3100,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.5,0.0
+19,76561198065740044,Check-Mate,CT,False,3100,300,0,0,0,0,True,1,False,0,110,0,False,False,False,5.0,False,50.8,500.0
+19,76561198382673172,Zattocat,T,True,5100,11100,0,0,1,0,False,0,False,0,86,0,False,False,True,,,50.8,
+19,76561198658063440,STR8 KILLERZ,CT,False,3750,200,0,0,0,0,True,1,False,0,49,0,False,False,False,,,45.6,0.0
+19,76561199191173651,Anne,CT,False,3100,3300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,34.8,0.0
+19,76561199231348567,XDanul,T,True,6550,3300,1,0,0,0,False,0,False,0,100,0,False,False,True,,,50.8,
+19,76561199447210816,☠ 𝕭𝕮/𝕾𝖊𝖗𝖌,T,True,7150,12950,3,0,1,0,False,0,False,0,224,0,True,False,True,,,50.8,
+19,76561199542724787,🅨🅐🅡🅘🅚,T,True,5400,15150,0,0,0,0,False,0,False,0,0,0,False,False,True,,,50.8,
+19,76561199802563691,stole,T,True,5000,5450,1,0,1,0,False,0,False,0,90,0,False,False,True,,,50.8,
+19,76561199807424936,The Dark Night Sky,CT,False,3200,1000,0,0,0,0,True,1,False,0,87,0,False,False,False,,,47.5,300.0

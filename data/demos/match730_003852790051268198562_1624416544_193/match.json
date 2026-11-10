@@ -1,0 +1,2219 @@
+{
+ "meta": {
+  "demo": "match730_003852790051268198562_1624416544_193.dem",
+  "map": "de_mirage",
+  "server": "Valve Counter-Strike 2 eu_east Server (srcds3018-vie1.193.228)",
+  "patch": "14196",
+  "match_id": "3852790051268198562",
+  "demo_mtime": "2026-11-10T00:19:40+00:00",
+  "rounds": 21,
+  "players": 10,
+  "mode": "5v5",
+  "leetify": {
+   "id": "d2686456-ba14-4771-91aa-021aaddd4b16",
+   "share_code": "CSGO-4M6Xq-XB4Bq-duQOL-qWKXp-QXpRP",
+   "finished_at": "2026-11-07T23:08:27.000Z",
+   "data_source": "matchmaking"
+  },
+  "analysed_at": "2026-11-10T00:31:27+00:00",
+  "tool": "demo_analyze.py (demoparser2)",
+  "tracked_player": "76561198382673172",
+  "score": {
+   "own": 13,
+   "enemy": 8,
+   "result": "win"
+  }
+ },
+ "players": {
+  "76561198069721683": {
+   "name": "1up | SkyZzo",
+   "rounds": 21,
+   "rounds_won": 8,
+   "kills": 25,
+   "deaths": 18,
+   "assists": 3,
+   "kd": 1.39,
+   "adr": 118.1,
+   "kast": 76.2,
+   "hs_pct": 40.0,
+   "rating_hltv1": 1.75,
+   "rating_hltv2_approx": 1.58,
+   "impact": 2.19,
+   "multikills": {
+    "2k": 2,
+    "3k": 3,
+    "4k": 2,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 4,
+    "deaths": 1,
+    "attempts": 5
+   },
+   "trades": {
+    "trade_kills": 1,
+    "traded_deaths": 3,
+    "deaths_not_traded": 15
+   },
+   "clutches": {
+    "attempts": 6,
+    "won": 1,
+    "by_vs": {
+     "1v1": {
+      "attempts": 1,
+      "won": 1
+     },
+     "1v2": {
+      "attempts": 1,
+      "won": 0
+     },
+     "1v3": {
+      "attempts": 2,
+      "won": 0
+     },
+     "1v4": {
+      "attempts": 2,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 3,
+    "avg_time_alive_s": 55.7
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 1,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 16.8,
+    "avg_time_in_round_s": 56.1
+   },
+   "aim": {
+    "shots": 283,
+    "hits": 80,
+    "accuracy": 0.283,
+    "head_accuracy": 0.15,
+    "first_shot_accuracy": 0.224,
+    "spray_accuracy": 0.328,
+    "counter_strafe_pct": 85.2,
+    "counter_strafe_first_shot_pct": 77.6,
+    "avg_speed_first_shot": 54.0,
+    "engagements": 48,
+    "crosshair_angle_median": 3.66,
+    "crosshair_yaw_median": 2.21,
+    "crosshair_pitch_median": 1.35,
+    "time_to_damage_median_ms": 390.0,
+    "time_to_shot_median_ms": 156.0,
+    "engagements_damaged_pct": 58.3
+   },
+   "utility": {
+    "thrown": {
+     "flash": 0,
+     "smoke": 2,
+     "he": 0,
+     "molotov": 0,
+     "decoy": 0
+    },
+    "damage": 0,
+    "he_damage": 0,
+    "fire_damage": 0,
+    "enemies_flashed": 0,
+    "enemy_blind_time_s": 0.0,
+    "teammates_flashed": 0,
+    "flash_assists": 0,
+    "enemies_per_flash": null,
+    "avg_utility_value_on_death": 217.0
+   },
+   "damage": {
+    "total": 2480,
+    "team_damage": 14,
+    "taken": 1883
+   },
+   "economy": {
+    "avg_equip_value": 3629.0
+   },
+   "bomb": {
+    "plants": 1,
+    "defuses": 1
+   },
+   "sides": {
+    "T": {
+     "rounds": 9,
+     "won": 2,
+     "kills": 10,
+     "deaths": 9,
+     "adr": 100.2,
+     "kast": 55.6,
+     "opening_kills": 1,
+     "opening_deaths": 1
+    },
+    "CT": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 15,
+     "deaths": 9,
+     "adr": 131.5,
+     "kast": 91.7,
+     "opening_kills": 3,
+     "opening_deaths": 0
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 7,
+     "headshots": 6,
+     "shots": 61,
+     "hits": 16,
+     "accuracy": 0.262
+    },
+    "awp": {
+     "kills": 4,
+     "headshots": 2,
+     "shots": 7,
+     "hits": 4,
+     "accuracy": 0.571
+    },
+    "hkp2000": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 17,
+     "hits": 6,
+     "accuracy": 0.353
+    },
+    "m4a1": {
+     "kills": 3,
+     "headshots": 2,
+     "shots": 44,
+     "hits": 11,
+     "accuracy": 0.25
+    },
+    "m4a1_silencer": {
+     "kills": 10,
+     "headshots": 0,
+     "shots": 129,
+     "hits": 42,
+     "accuracy": 0.326
+    }
+   },
+   "final_team": "T"
+  },
+  "76561198165375617": {
+   "name": "captain fluffy pants",
+   "rounds": 21,
+   "rounds_won": 8,
+   "kills": 11,
+   "deaths": 17,
+   "assists": 5,
+   "kd": 0.65,
+   "adr": 45.2,
+   "kast": 57.1,
+   "hs_pct": 18.2,
+   "rating_hltv1": 0.68,
+   "rating_hltv2_approx": 0.67,
+   "impact": 0.81,
+   "multikills": {
+    "2k": 0,
+    "3k": 1,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 1,
+    "deaths": 3,
+    "attempts": 4
+   },
+   "trades": {
+    "trade_kills": 5,
+    "traded_deaths": 0,
+    "deaths_not_traded": 17
+   },
+   "clutches": {
+    "attempts": 4,
+    "won": 0,
+    "by_vs": {
+     "1v2": {
+      "attempts": 2,
+      "won": 0
+     },
+     "1v3": {
+      "attempts": 1,
+      "won": 0
+     },
+     "1v5": {
+      "attempts": 1,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 4,
+    "avg_time_alive_s": 55.6
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 15.4,
+    "avg_time_in_round_s": 53.8
+   },
+   "aim": {
+    "shots": 237,
+    "hits": 44,
+    "accuracy": 0.186,
+    "head_accuracy": 0.068,
+    "first_shot_accuracy": 0.22,
+    "spray_accuracy": 0.161,
+    "counter_strafe_pct": 81.9,
+    "counter_strafe_first_shot_pct": 72.0,
+    "avg_speed_first_shot": 48.0,
+    "engagements": 42,
+    "crosshair_angle_median": 4.65,
+    "crosshair_yaw_median": 2.95,
+    "crosshair_pitch_median": 1.93,
+    "time_to_damage_median_ms": 446.0,
+    "time_to_shot_median_ms": 328.0,
+    "engagements_damaged_pct": 57.1
+   },
+   "utility": {
+    "thrown": {
+     "flash": 0,
+     "smoke": 0,
+     "he": 7,
+     "molotov": 4,
+     "decoy": 0
+    },
+    "damage": 1,
+    "he_damage": 1,
+    "fire_damage": 0,
+    "enemies_flashed": 0,
+    "enemy_blind_time_s": 0.0,
+    "teammates_flashed": 0,
+    "flash_assists": 0,
+    "enemies_per_flash": null,
+    "avg_utility_value_on_death": 182.0
+   },
+   "damage": {
+    "total": 949,
+    "team_damage": 53,
+    "taken": 1780
+   },
+   "economy": {
+    "avg_equip_value": 3550.0
+   },
+   "bomb": {
+    "plants": 0,
+    "defuses": 0
+   },
+   "sides": {
+    "T": {
+     "rounds": 9,
+     "won": 2,
+     "kills": 5,
+     "deaths": 8,
+     "adr": 40.1,
+     "kast": 44.4,
+     "opening_kills": 0,
+     "opening_deaths": 2
+    },
+    "CT": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 6,
+     "deaths": 9,
+     "adr": 49.0,
+     "kast": 66.7,
+     "opening_kills": 1,
+     "opening_deaths": 1
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 36,
+     "hits": 4,
+     "accuracy": 0.111
+    },
+    "famas": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 5,
+     "hits": 2,
+     "accuracy": 0.4
+    },
+    "glock": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 7,
+     "hits": 1,
+     "accuracy": 0.143
+    },
+    "m4a1_silencer": {
+     "kills": 4,
+     "headshots": 0,
+     "shots": 93,
+     "hits": 18,
+     "accuracy": 0.194
+    },
+    "mp5sd": {
+     "kills": 3,
+     "headshots": 0,
+     "shots": 43,
+     "hits": 10,
+     "accuracy": 0.233
+    },
+    "mp9": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 25,
+     "hits": 6,
+     "accuracy": 0.24
+    }
+   },
+   "final_team": "T"
+  },
+  "76561198382673172": {
+   "name": "Zattocat",
+   "rounds": 21,
+   "rounds_won": 13,
+   "kills": 14,
+   "deaths": 15,
+   "assists": 9,
+   "kd": 0.93,
+   "adr": 76.5,
+   "kast": 90.5,
+   "hs_pct": 21.4,
+   "rating_hltv1": 0.96,
+   "rating_hltv2_approx": 1.2,
+   "impact": 1.19,
+   "multikills": {
+    "2k": 3,
+    "3k": 1,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 0,
+    "deaths": 2,
+    "attempts": 2
+   },
+   "trades": {
+    "trade_kills": 3,
+    "traded_deaths": 5,
+    "deaths_not_traded": 10
+   },
+   "clutches": {
+    "attempts": 4,
+    "won": 1,
+    "by_vs": {
+     "1v2": {
+      "attempts": 1,
+      "won": 0
+     },
+     "1v3": {
+      "attempts": 2,
+      "won": 1
+     },
+     "1v4": {
+      "attempts": 1,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 6,
+    "avg_time_alive_s": 55.8
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 1,
+    "avg_distance": 11.9,
+    "avg_time_in_round_s": 58.1
+   },
+   "aim": {
+    "shots": 243,
+    "hits": 60,
+    "accuracy": 0.247,
+    "head_accuracy": 0.067,
+    "first_shot_accuracy": 0.341,
+    "spray_accuracy": 0.197,
+    "counter_strafe_pct": 77.4,
+    "counter_strafe_first_shot_pct": 63.4,
+    "avg_speed_first_shot": 66.7,
+    "engagements": 33,
+    "crosshair_angle_median": 3.73,
+    "crosshair_yaw_median": 2.34,
+    "crosshair_pitch_median": 1.66,
+    "time_to_damage_median_ms": 312.0,
+    "time_to_shot_median_ms": 312.0,
+    "engagements_damaged_pct": 78.8
+   },
+   "utility": {
+    "thrown": {
+     "flash": 15,
+     "smoke": 6,
+     "he": 9,
+     "molotov": 1,
+     "decoy": 0
+    },
+    "damage": 233,
+    "he_damage": 231,
+    "fire_damage": 0,
+    "enemies_flashed": 7,
+    "enemy_blind_time_s": 25.88,
+    "teammates_flashed": 3,
+    "flash_assists": 0,
+    "enemies_per_flash": 0.47,
+    "avg_utility_value_on_death": 400.0
+   },
+   "damage": {
+    "total": 1606,
+    "team_damage": 4,
+    "taken": 1417
+   },
+   "economy": {
+    "avg_equip_value": 3562.0
+   },
+   "bomb": {
+    "plants": 1,
+    "defuses": 0
+   },
+   "sides": {
+    "T": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 9,
+     "deaths": 10,
+     "adr": 91.7,
+     "kast": 91.7,
+     "opening_kills": 0,
+     "opening_deaths": 1
+    },
+    "CT": {
+     "rounds": 9,
+     "won": 7,
+     "kills": 5,
+     "deaths": 5,
+     "adr": 56.2,
+     "kast": 88.9,
+     "opening_kills": 0,
+     "opening_deaths": 1
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 3,
+     "headshots": 2,
+     "shots": 46,
+     "hits": 11,
+     "accuracy": 0.239
+    },
+    "awp": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 1,
+     "hits": 1,
+     "accuracy": 1.0
+    },
+    "cz75a": {
+     "kills": 2,
+     "headshots": 0,
+     "shots": 36,
+     "hits": 8,
+     "accuracy": 0.222
+    },
+    "hegrenade": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 0,
+     "hits": 0,
+     "accuracy": null
+    },
+    "mp7": {
+     "kills": 7,
+     "headshots": 1,
+     "shots": 139,
+     "hits": 38,
+     "accuracy": 0.273
+    }
+   },
+   "final_team": "CT"
+  },
+  "76561198627618790": {
+   "name": "buil dig",
+   "rounds": 21,
+   "rounds_won": 13,
+   "kills": 15,
+   "deaths": 16,
+   "assists": 7,
+   "kd": 0.94,
+   "adr": 85.4,
+   "kast": 85.7,
+   "hs_pct": 46.7,
+   "rating_hltv1": 1.01,
+   "rating_hltv2_approx": 1.21,
+   "impact": 1.25,
+   "multikills": {
+    "2k": 2,
+    "3k": 2,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 2,
+    "deaths": 4,
+    "attempts": 6
+   },
+   "trades": {
+    "trade_kills": 4,
+    "traded_deaths": 4,
+    "deaths_not_traded": 12
+   },
+   "clutches": {
+    "attempts": 2,
+    "won": 1,
+    "by_vs": {
+     "1v1": {
+      "attempts": 1,
+      "won": 1
+     },
+     "1v3": {
+      "attempts": 1,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 5,
+    "avg_time_alive_s": 51.2
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 23.7,
+    "avg_time_in_round_s": 52.4
+   },
+   "aim": {
+    "shots": 294,
+    "hits": 51,
+    "accuracy": 0.173,
+    "head_accuracy": 0.157,
+    "first_shot_accuracy": 0.225,
+    "spray_accuracy": 0.122,
+    "counter_strafe_pct": 70.4,
+    "counter_strafe_first_shot_pct": 66.2,
+    "avg_speed_first_shot": 77.5,
+    "engagements": 48,
+    "crosshair_angle_median": 3.29,
+    "crosshair_yaw_median": 2.23,
+    "crosshair_pitch_median": 1.56,
+    "time_to_damage_median_ms": 422.0,
+    "time_to_shot_median_ms": 258.0,
+    "engagements_damaged_pct": 56.2
+   },
+   "utility": {
+    "thrown": {
+     "flash": 25,
+     "smoke": 17,
+     "he": 8,
+     "molotov": 9,
+     "decoy": 0
+    },
+    "damage": 124,
+    "he_damage": 123,
+    "fire_damage": 0,
+    "enemies_flashed": 12,
+    "enemy_blind_time_s": 47.69,
+    "teammates_flashed": 3,
+    "flash_assists": 0,
+    "enemies_per_flash": 0.48,
+    "avg_utility_value_on_death": 0.0
+   },
+   "damage": {
+    "total": 1794,
+    "team_damage": 72,
+    "taken": 1701
+   },
+   "economy": {
+    "avg_equip_value": 3848.0
+   },
+   "bomb": {
+    "plants": 0,
+    "defuses": 1
+   },
+   "sides": {
+    "T": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 7,
+     "deaths": 11,
+     "adr": 76.8,
+     "kast": 83.3,
+     "opening_kills": 1,
+     "opening_deaths": 4
+    },
+    "CT": {
+     "rounds": 9,
+     "won": 7,
+     "kills": 8,
+     "deaths": 5,
+     "adr": 96.9,
+     "kast": 88.9,
+     "opening_kills": 1,
+     "opening_deaths": 0
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 8,
+     "headshots": 3,
+     "shots": 193,
+     "hits": 32,
+     "accuracy": 0.166
+    },
+    "awp": {
+     "kills": 4,
+     "headshots": 1,
+     "shots": 6,
+     "hits": 4,
+     "accuracy": 0.667
+    },
+    "galilar": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 10,
+     "hits": 3,
+     "accuracy": 0.3
+    },
+    "glock": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 4,
+     "hits": 2,
+     "accuracy": 0.5
+    },
+    "mp9": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 9,
+     "hits": 1,
+     "accuracy": 0.111
+    }
+   },
+   "final_team": "CT"
+  },
+  "76561198875217038": {
+   "name": "Ivan",
+   "rounds": 21,
+   "rounds_won": 13,
+   "kills": 17,
+   "deaths": 17,
+   "assists": 8,
+   "kd": 1.0,
+   "adr": 109.7,
+   "kast": 71.4,
+   "hs_pct": 52.9,
+   "rating_hltv1": 1.05,
+   "rating_hltv2_approx": 1.24,
+   "impact": 1.47,
+   "multikills": {
+    "2k": 2,
+    "3k": 2,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 2,
+    "deaths": 2,
+    "attempts": 4
+   },
+   "trades": {
+    "trade_kills": 3,
+    "traded_deaths": 2,
+    "deaths_not_traded": 15
+   },
+   "clutches": {
+    "attempts": 4,
+    "won": 3,
+    "by_vs": {
+     "1v1": {
+      "attempts": 3,
+      "won": 3
+     },
+     "1v5": {
+      "attempts": 1,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 4,
+    "avg_time_alive_s": 54.1
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 14.2,
+    "avg_time_in_round_s": 50.8
+   },
+   "aim": {
+    "shots": 270,
+    "hits": 62,
+    "accuracy": 0.23,
+    "head_accuracy": 0.161,
+    "first_shot_accuracy": 0.254,
+    "spray_accuracy": 0.204,
+    "counter_strafe_pct": 71.1,
+    "counter_strafe_first_shot_pct": 49.2,
+    "avg_speed_first_shot": 70.2,
+    "engagements": 56,
+    "crosshair_angle_median": 3.33,
+    "crosshair_yaw_median": 2.06,
+    "crosshair_pitch_median": 1.92,
+    "time_to_damage_median_ms": 344.0,
+    "time_to_shot_median_ms": 172.0,
+    "engagements_damaged_pct": 60.7
+   },
+   "utility": {
+    "thrown": {
+     "flash": 5,
+     "smoke": 3,
+     "he": 12,
+     "molotov": 5,
+     "decoy": 2
+    },
+    "damage": 254,
+    "he_damage": 254,
+    "fire_damage": 0,
+    "enemies_flashed": 5,
+    "enemy_blind_time_s": 21.09,
+    "teammates_flashed": 1,
+    "flash_assists": 0,
+    "enemies_per_flash": 1.0,
+    "avg_utility_value_on_death": 129.0
+   },
+   "damage": {
+    "total": 2303,
+    "team_damage": 6,
+    "taken": 1756
+   },
+   "economy": {
+    "avg_equip_value": 3469.0
+   },
+   "bomb": {
+    "plants": 1,
+    "defuses": 1
+   },
+   "sides": {
+    "T": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 6,
+     "deaths": 11,
+     "adr": 82.4,
+     "kast": 58.3,
+     "opening_kills": 0,
+     "opening_deaths": 1
+    },
+    "CT": {
+     "rounds": 9,
+     "won": 7,
+     "kills": 11,
+     "deaths": 6,
+     "adr": 146.0,
+     "kast": 88.9,
+     "opening_kills": 2,
+     "opening_deaths": 1
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 3,
+     "headshots": 3,
+     "shots": 61,
+     "hits": 16,
+     "accuracy": 0.262
+    },
+    "galilar": {
+     "kills": 3,
+     "headshots": 2,
+     "shots": 51,
+     "hits": 6,
+     "accuracy": 0.118
+    },
+    "m4a1": {
+     "kills": 8,
+     "headshots": 2,
+     "shots": 107,
+     "hits": 28,
+     "accuracy": 0.262
+    },
+    "mp9": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 9,
+     "hits": 1,
+     "accuracy": 0.111
+    },
+    "ssg08": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 8,
+     "hits": 2,
+     "accuracy": 0.25
+    },
+    "usp_silencer": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 7,
+     "hits": 1,
+     "accuracy": 0.143
+    }
+   },
+   "final_team": "CT"
+  },
+  "76561198930908320": {
+   "name": "adriann",
+   "rounds": 21,
+   "rounds_won": 13,
+   "kills": 15,
+   "deaths": 15,
+   "assists": 3,
+   "kd": 1.0,
+   "adr": 59.4,
+   "kast": 66.7,
+   "hs_pct": 33.3,
+   "rating_hltv1": 1.0,
+   "rating_hltv2_approx": 0.99,
+   "impact": 1.17,
+   "multikills": {
+    "2k": 3,
+    "3k": 1,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 2,
+    "deaths": 3,
+    "attempts": 5
+   },
+   "trades": {
+    "trade_kills": 4,
+    "traded_deaths": 5,
+    "deaths_not_traded": 10
+   },
+   "clutches": {
+    "attempts": 1,
+    "won": 1,
+    "by_vs": {
+     "1v1": {
+      "attempts": 1,
+      "won": 1
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 6,
+    "avg_time_alive_s": 51.2
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 19.7,
+    "avg_time_in_round_s": 49.4
+   },
+   "aim": {
+    "shots": 279,
+    "hits": 45,
+    "accuracy": 0.161,
+    "head_accuracy": 0.111,
+    "first_shot_accuracy": 0.169,
+    "spray_accuracy": 0.112,
+    "counter_strafe_pct": 76.7,
+    "counter_strafe_first_shot_pct": 62.3,
+    "avg_speed_first_shot": 74.6,
+    "engagements": 54,
+    "crosshair_angle_median": 4.33,
+    "crosshair_yaw_median": 2.85,
+    "crosshair_pitch_median": 1.21,
+    "time_to_damage_median_ms": 562.0,
+    "time_to_shot_median_ms": 250.0,
+    "engagements_damaged_pct": 50.0
+   },
+   "utility": {
+    "thrown": {
+     "flash": 11,
+     "smoke": 4,
+     "he": 1,
+     "molotov": 4,
+     "decoy": 0
+    },
+    "damage": 32,
+    "he_damage": 0,
+    "fire_damage": 32,
+    "enemies_flashed": 7,
+    "enemy_blind_time_s": 22.58,
+    "teammates_flashed": 0,
+    "flash_assists": 0,
+    "enemies_per_flash": 0.64,
+    "avg_utility_value_on_death": 287.0
+   },
+   "damage": {
+    "total": 1248,
+    "team_damage": 0,
+    "taken": 1684
+   },
+   "economy": {
+    "avg_equip_value": 3898.0
+   },
+   "bomb": {
+    "plants": 2,
+    "defuses": 0
+   },
+   "sides": {
+    "T": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 8,
+     "deaths": 9,
+     "adr": 57.1,
+     "kast": 66.7,
+     "opening_kills": 0,
+     "opening_deaths": 2
+    },
+    "CT": {
+     "rounds": 9,
+     "won": 7,
+     "kills": 7,
+     "deaths": 6,
+     "adr": 62.6,
+     "kast": 66.7,
+     "opening_kills": 2,
+     "opening_deaths": 1
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 80,
+     "hits": 11,
+     "accuracy": 0.138
+    },
+    "awp": {
+     "kills": 2,
+     "headshots": 0,
+     "shots": 4,
+     "hits": 3,
+     "accuracy": 0.75
+    },
+    "galilar": {
+     "kills": 4,
+     "headshots": 0,
+     "shots": 67,
+     "hits": 11,
+     "accuracy": 0.164
+    },
+    "glock": {
+     "kills": 2,
+     "headshots": 1,
+     "shots": 14,
+     "hits": 2,
+     "accuracy": 0.143
+    },
+    "m4a1": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 17,
+     "hits": 1,
+     "accuracy": 0.059
+    },
+    "m4a1_silencer": {
+     "kills": 4,
+     "headshots": 3,
+     "shots": 43,
+     "hits": 9,
+     "accuracy": 0.209
+    },
+    "usp_silencer": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 44,
+     "hits": 7,
+     "accuracy": 0.159
+    }
+   },
+   "final_team": "CT"
+  },
+  "76561199092886702": {
+   "name": "Abit",
+   "rounds": 21,
+   "rounds_won": 8,
+   "kills": 14,
+   "deaths": 15,
+   "assists": 5,
+   "kd": 0.93,
+   "adr": 70.3,
+   "kast": 81.0,
+   "hs_pct": 50.0,
+   "rating_hltv1": 0.9,
+   "rating_hltv2_approx": 1.1,
+   "impact": 1.11,
+   "multikills": {
+    "2k": 1,
+    "3k": 1,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 4,
+    "deaths": 2,
+    "attempts": 6
+   },
+   "trades": {
+    "trade_kills": 1,
+    "traded_deaths": 2,
+    "deaths_not_traded": 13
+   },
+   "clutches": {
+    "attempts": 4,
+    "won": 1,
+    "by_vs": {
+     "1v1": {
+      "attempts": 2,
+      "won": 1
+     },
+     "1v2": {
+      "attempts": 1,
+      "won": 0
+     },
+     "1v4": {
+      "attempts": 1,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 6,
+    "avg_time_alive_s": 54.9
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 1,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 16.3,
+    "avg_time_in_round_s": 45.0
+   },
+   "aim": {
+    "shots": 265,
+    "hits": 58,
+    "accuracy": 0.219,
+    "head_accuracy": 0.138,
+    "first_shot_accuracy": 0.309,
+    "spray_accuracy": 0.17,
+    "counter_strafe_pct": 79.6,
+    "counter_strafe_first_shot_pct": 73.5,
+    "avg_speed_first_shot": 47.2,
+    "engagements": 46,
+    "crosshair_angle_median": 3.39,
+    "crosshair_yaw_median": 2.52,
+    "crosshair_pitch_median": 1.66,
+    "time_to_damage_median_ms": 414.0,
+    "time_to_shot_median_ms": 344.0,
+    "engagements_damaged_pct": 60.9
+   },
+   "utility": {
+    "thrown": {
+     "flash": 11,
+     "smoke": 9,
+     "he": 7,
+     "molotov": 1,
+     "decoy": 0
+    },
+    "damage": 48,
+    "he_damage": 48,
+    "fire_damage": 0,
+    "enemies_flashed": 4,
+    "enemy_blind_time_s": 18.98,
+    "teammates_flashed": 1,
+    "flash_assists": 0,
+    "enemies_per_flash": 0.36,
+    "avg_utility_value_on_death": 153.0
+   },
+   "damage": {
+    "total": 1476,
+    "team_damage": 0,
+    "taken": 1651
+   },
+   "economy": {
+    "avg_equip_value": 3640.0
+   },
+   "bomb": {
+    "plants": 2,
+    "defuses": 0
+   },
+   "sides": {
+    "T": {
+     "rounds": 9,
+     "won": 2,
+     "kills": 3,
+     "deaths": 8,
+     "adr": 42.2,
+     "kast": 55.6,
+     "opening_kills": 0,
+     "opening_deaths": 1
+    },
+    "CT": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 11,
+     "deaths": 7,
+     "adr": 91.3,
+     "kast": 100.0,
+     "opening_kills": 4,
+     "opening_deaths": 1
+    }
+   },
+   "weapons": {
+    "glock": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 8,
+     "hits": 3,
+     "accuracy": 0.375
+    },
+    "m4a1_silencer": {
+     "kills": 10,
+     "headshots": 4,
+     "shots": 170,
+     "hits": 35,
+     "accuracy": 0.206
+    },
+    "mp5sd": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 15,
+     "hits": 6,
+     "accuracy": 0.4
+    },
+    "usp_silencer": {
+     "kills": 2,
+     "headshots": 1,
+     "shots": 36,
+     "hits": 8,
+     "accuracy": 0.222
+    }
+   },
+   "final_team": "T"
+  },
+  "76561199311127933": {
+   "name": "L.",
+   "rounds": 21,
+   "rounds_won": 8,
+   "kills": 7,
+   "deaths": 18,
+   "assists": 6,
+   "kd": 0.39,
+   "adr": 46.9,
+   "kast": 66.7,
+   "hs_pct": 71.4,
+   "rating_hltv1": 0.4,
+   "rating_hltv2_approx": 0.56,
+   "impact": 0.42,
+   "multikills": {
+    "2k": 0,
+    "3k": 0,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 0,
+    "deaths": 1,
+    "attempts": 1
+   },
+   "trades": {
+    "trade_kills": 1,
+    "traded_deaths": 4,
+    "deaths_not_traded": 14
+   },
+   "clutches": {
+    "attempts": 1,
+    "won": 0,
+    "by_vs": {
+     "1v4": {
+      "attempts": 1,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 3,
+    "avg_time_alive_s": 53.3
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 0,
+    "avg_distance": 10.6,
+    "avg_time_in_round_s": 61.7
+   },
+   "aim": {
+    "shots": 303,
+    "hits": 37,
+    "accuracy": 0.122,
+    "head_accuracy": 0.216,
+    "first_shot_accuracy": 0.09,
+    "spray_accuracy": 0.155,
+    "counter_strafe_pct": 63.9,
+    "counter_strafe_first_shot_pct": 59.7,
+    "avg_speed_first_shot": 90.3,
+    "engagements": 43,
+    "crosshair_angle_median": 3.85,
+    "crosshair_yaw_median": 2.03,
+    "crosshair_pitch_median": 1.37,
+    "time_to_damage_median_ms": 469.0,
+    "time_to_shot_median_ms": 172.0,
+    "engagements_damaged_pct": 46.5
+   },
+   "utility": {
+    "thrown": {
+     "flash": 7,
+     "smoke": 0,
+     "he": 8,
+     "molotov": 7,
+     "decoy": 0
+    },
+    "damage": 64,
+    "he_damage": 35,
+    "fire_damage": 29,
+    "enemies_flashed": 5,
+    "enemy_blind_time_s": 15.86,
+    "teammates_flashed": 3,
+    "flash_assists": 0,
+    "enemies_per_flash": 0.71,
+    "avg_utility_value_on_death": 117.0
+   },
+   "damage": {
+    "total": 985,
+    "team_damage": 1,
+    "taken": 1846
+   },
+   "economy": {
+    "avg_equip_value": 3152.0
+   },
+   "bomb": {
+    "plants": 0,
+    "defuses": 1
+   },
+   "sides": {
+    "T": {
+     "rounds": 9,
+     "won": 2,
+     "kills": 4,
+     "deaths": 8,
+     "adr": 55.1,
+     "kast": 55.6,
+     "opening_kills": 0,
+     "opening_deaths": 1
+    },
+    "CT": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 3,
+     "deaths": 10,
+     "adr": 40.8,
+     "kast": 75.0,
+     "opening_kills": 0,
+     "opening_deaths": 0
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 2,
+     "headshots": 2,
+     "shots": 49,
+     "hits": 7,
+     "accuracy": 0.143
+    },
+    "glock": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 44,
+     "hits": 6,
+     "accuracy": 0.136
+    },
+    "m4a1": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 67,
+     "hits": 10,
+     "accuracy": 0.149
+    },
+    "mp9": {
+     "kills": 2,
+     "headshots": 2,
+     "shots": 67,
+     "hits": 9,
+     "accuracy": 0.134
+    },
+    "sawedoff": {
+     "kills": 1,
+     "headshots": 1,
+     "shots": 7,
+     "hits": 3,
+     "accuracy": 0.429
+    }
+   },
+   "final_team": "T"
+  },
+  "76561199473618660": {
+   "name": "Outlet",
+   "rounds": 21,
+   "rounds_won": 13,
+   "kills": 23,
+   "deaths": 16,
+   "assists": 4,
+   "kd": 1.44,
+   "adr": 97.2,
+   "kast": 81.0,
+   "hs_pct": 43.5,
+   "rating_hltv1": 1.44,
+   "rating_hltv2_approx": 1.52,
+   "impact": 2.0,
+   "multikills": {
+    "2k": 3,
+    "3k": 3,
+    "4k": 0,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 2,
+    "deaths": 2,
+    "attempts": 4
+   },
+   "trades": {
+    "trade_kills": 6,
+    "traded_deaths": 6,
+    "deaths_not_traded": 10
+   },
+   "clutches": {
+    "attempts": 4,
+    "won": 1,
+    "by_vs": {
+     "1v1": {
+      "attempts": 1,
+      "won": 1
+     },
+     "1v3": {
+      "attempts": 3,
+      "won": 0
+     }
+    }
+   },
+   "survival": {
+    "rounds_survived": 5,
+    "avg_time_alive_s": 60.8
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 1,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 1,
+    "avg_distance": 17.8,
+    "avg_time_in_round_s": 46.2
+   },
+   "aim": {
+    "shots": 282,
+    "hits": 77,
+    "accuracy": 0.273,
+    "head_accuracy": 0.13,
+    "first_shot_accuracy": 0.299,
+    "spray_accuracy": 0.181,
+    "counter_strafe_pct": 87.9,
+    "counter_strafe_first_shot_pct": 83.1,
+    "avg_speed_first_shot": 31.6,
+    "engagements": 53,
+    "crosshair_angle_median": 2.77,
+    "crosshair_yaw_median": 1.77,
+    "crosshair_pitch_median": 1.77,
+    "time_to_damage_median_ms": 258.0,
+    "time_to_shot_median_ms": 156.0,
+    "engagements_damaged_pct": 67.9
+   },
+   "utility": {
+    "thrown": {
+     "flash": 5,
+     "smoke": 1,
+     "he": 1,
+     "molotov": 2,
+     "decoy": 0
+    },
+    "damage": 0,
+    "he_damage": 0,
+    "fire_damage": 0,
+    "enemies_flashed": 3,
+    "enemy_blind_time_s": 8.99,
+    "teammates_flashed": 1,
+    "flash_assists": 0,
+    "enemies_per_flash": 0.6,
+    "avg_utility_value_on_death": 0.0
+   },
+   "damage": {
+    "total": 2041,
+    "team_damage": 0,
+    "taken": 1683
+   },
+   "economy": {
+    "avg_equip_value": 3917.0
+   },
+   "bomb": {
+    "plants": 5,
+    "defuses": 0
+   },
+   "sides": {
+    "T": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 12,
+     "deaths": 9,
+     "adr": 93.5,
+     "kast": 66.7,
+     "opening_kills": 1,
+     "opening_deaths": 2
+    },
+    "CT": {
+     "rounds": 9,
+     "won": 7,
+     "kills": 11,
+     "deaths": 7,
+     "adr": 102.1,
+     "kast": 100.0,
+     "opening_kills": 1,
+     "opening_deaths": 0
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 13,
+     "headshots": 4,
+     "shots": 128,
+     "hits": 45,
+     "accuracy": 0.352
+    },
+    "famas": {
+     "kills": 3,
+     "headshots": 2,
+     "shots": 31,
+     "hits": 8,
+     "accuracy": 0.258
+    },
+    "glock": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 19,
+     "hits": 4,
+     "accuracy": 0.211
+    },
+    "m4a1_silencer": {
+     "kills": 4,
+     "headshots": 3,
+     "shots": 70,
+     "hits": 14,
+     "accuracy": 0.2
+    },
+    "usp_silencer": {
+     "kills": 2,
+     "headshots": 1,
+     "shots": 34,
+     "hits": 6,
+     "accuracy": 0.176
+    }
+   },
+   "final_team": "CT"
+  },
+  "76561199508520042": {
+   "name": "l.stachura",
+   "rounds": 21,
+   "rounds_won": 8,
+   "kills": 21,
+   "deaths": 16,
+   "assists": 7,
+   "kd": 1.31,
+   "adr": 112.0,
+   "kast": 81.0,
+   "hs_pct": 42.9,
+   "rating_hltv1": 1.31,
+   "rating_hltv2_approx": 1.5,
+   "impact": 1.86,
+   "multikills": {
+    "2k": 4,
+    "3k": 0,
+    "4k": 1,
+    "5k": 0
+   },
+   "opening": {
+    "kills": 4,
+    "deaths": 1,
+    "attempts": 5
+   },
+   "trades": {
+    "trade_kills": 4,
+    "traded_deaths": 3,
+    "deaths_not_traded": 13
+   },
+   "clutches": {
+    "attempts": 0,
+    "won": 0,
+    "by_vs": {}
+   },
+   "survival": {
+    "rounds_survived": 5,
+    "avg_time_alive_s": 53.9
+   },
+   "kills_detail": {
+    "wallbang": 0,
+    "through_smoke": 0,
+    "while_blind": 0,
+    "noscope": 0,
+    "in_air": 1,
+    "avg_distance": 12.2,
+    "avg_time_in_round_s": 43.7
+   },
+   "aim": {
+    "shots": 289,
+    "hits": 73,
+    "accuracy": 0.253,
+    "head_accuracy": 0.123,
+    "first_shot_accuracy": 0.304,
+    "spray_accuracy": 0.212,
+    "counter_strafe_pct": 77.5,
+    "counter_strafe_first_shot_pct": 57.1,
+    "avg_speed_first_shot": 82.9,
+    "engagements": 46,
+    "crosshair_angle_median": 4.67,
+    "crosshair_yaw_median": 2.62,
+    "crosshair_pitch_median": 2.62,
+    "time_to_damage_median_ms": 312.0,
+    "time_to_shot_median_ms": 109.0,
+    "engagements_damaged_pct": 67.4
+   },
+   "utility": {
+    "thrown": {
+     "flash": 3,
+     "smoke": 1,
+     "he": 1,
+     "molotov": 1,
+     "decoy": 1
+    },
+    "damage": 0,
+    "he_damage": 0,
+    "fire_damage": 0,
+    "enemies_flashed": 3,
+    "enemy_blind_time_s": 7.09,
+    "teammates_flashed": 1,
+    "flash_assists": 0,
+    "enemies_per_flash": 1.0,
+    "avg_utility_value_on_death": 75.0
+   },
+   "damage": {
+    "total": 2351,
+    "team_damage": 2,
+    "taken": 1832
+   },
+   "economy": {
+    "avg_equip_value": 3533.0
+   },
+   "bomb": {
+    "plants": 0,
+    "defuses": 1
+   },
+   "sides": {
+    "T": {
+     "rounds": 9,
+     "won": 2,
+     "kills": 7,
+     "deaths": 9,
+     "adr": 103.9,
+     "kast": 77.8,
+     "opening_kills": 2,
+     "opening_deaths": 1
+    },
+    "CT": {
+     "rounds": 12,
+     "won": 6,
+     "kills": 14,
+     "deaths": 7,
+     "adr": 118.0,
+     "kast": 83.3,
+     "opening_kills": 2,
+     "opening_deaths": 0
+    }
+   },
+   "weapons": {
+    "ak47": {
+     "kills": 9,
+     "headshots": 4,
+     "shots": 137,
+     "hits": 36,
+     "accuracy": 0.263
+    },
+    "awp": {
+     "kills": 3,
+     "headshots": 0,
+     "shots": 6,
+     "hits": 3,
+     "accuracy": 0.5
+    },
+    "m4a1": {
+     "kills": 4,
+     "headshots": 3,
+     "shots": 59,
+     "hits": 14,
+     "accuracy": 0.237
+    },
+    "m4a1_silencer": {
+     "kills": 1,
+     "headshots": 0,
+     "shots": 21,
+     "hits": 1,
+     "accuracy": 0.048
+    },
+    "mp9": {
+     "kills": 2,
+     "headshots": 2,
+     "shots": 34,
+     "hits": 9,
+     "accuracy": 0.265
+    },
+    "tec9": {
+     "kills": 2,
+     "headshots": 0,
+     "shots": 14,
+     "hits": 6,
+     "accuracy": 0.429
+    }
+   },
+   "final_team": "T"
+  }
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "start": 1761,
+   "freeze_end": 1762,
+   "buy_end": 3042,
+   "end": 5877,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 7604,
+   "T_equip": 480,
+   "CT_equip": 540,
+   "pistol": true,
+   "T_buy": "pistol",
+   "CT_buy": "pistol"
+  },
+  {
+   "round": 2,
+   "start": 5877,
+   "freeze_end": 7605,
+   "buy_end": 8886,
+   "end": 12794,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 14521,
+   "T_equip": 2810,
+   "CT_equip": 1440,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "eco"
+  },
+  {
+   "round": 3,
+   "start": 12794,
+   "freeze_end": 14522,
+   "buy_end": 15803,
+   "end": 17581,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 19308,
+   "T_equip": 4260,
+   "CT_equip": 4240,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "full"
+  },
+  {
+   "round": 4,
+   "start": 17581,
+   "freeze_end": 19309,
+   "buy_end": 20590,
+   "end": 21902,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 23629,
+   "T_equip": 4520,
+   "CT_equip": 3170,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "force"
+  },
+  {
+   "round": 5,
+   "start": 21902,
+   "freeze_end": 23630,
+   "buy_end": 24911,
+   "end": 28299,
+   "winner": "CT",
+   "reason": "bomb_defused",
+   "window_end": 30026,
+   "T_equip": 3440,
+   "CT_equip": 5100,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 6,
+   "start": 28299,
+   "freeze_end": 30027,
+   "buy_end": 31308,
+   "end": 37538,
+   "winner": "CT",
+   "reason": "bomb_defused",
+   "window_end": 39265,
+   "T_equip": 3480,
+   "CT_equip": 4950,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 7,
+   "start": 37538,
+   "freeze_end": 39266,
+   "buy_end": 40547,
+   "end": 44447,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 46174,
+   "T_equip": 3650,
+   "CT_equip": 5750,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 8,
+   "start": 44447,
+   "freeze_end": 46175,
+   "buy_end": 47456,
+   "end": 51576,
+   "winner": "T",
+   "reason": "bomb_exploded",
+   "window_end": 53303,
+   "T_equip": 4060,
+   "CT_equip": 4400,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "full"
+  },
+  {
+   "round": 9,
+   "start": 51576,
+   "freeze_end": 53304,
+   "buy_end": 54585,
+   "end": 59594,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 61321,
+   "T_equip": 3920,
+   "CT_equip": 4410,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "full"
+  },
+  {
+   "round": 10,
+   "start": 59594,
+   "freeze_end": 61322,
+   "buy_end": 62603,
+   "end": 65330,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 67057,
+   "T_equip": 2310,
+   "CT_equip": 4240,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 11,
+   "start": 65330,
+   "freeze_end": 67058,
+   "buy_end": 68339,
+   "end": 74377,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 76104,
+   "T_equip": 2260,
+   "CT_equip": 4830,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 12,
+   "start": 74377,
+   "freeze_end": 76105,
+   "buy_end": 77386,
+   "end": 80860,
+   "winner": "CT",
+   "reason": "bomb_defused",
+   "window_end": 83099,
+   "T_equip": 5040,
+   "CT_equip": 4330,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "full"
+  },
+  {
+   "round": 13,
+   "start": 80860,
+   "freeze_end": 83100,
+   "buy_end": 84381,
+   "end": 86787,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 88514,
+   "T_equip": 650,
+   "CT_equip": 800,
+   "pistol": true,
+   "T_buy": "pistol",
+   "CT_buy": "pistol"
+  },
+  {
+   "round": 14,
+   "start": 86787,
+   "freeze_end": 88515,
+   "buy_end": 89796,
+   "end": 91207,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 92934,
+   "T_equip": 3180,
+   "CT_equip": 1450,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "eco"
+  },
+  {
+   "round": 15,
+   "start": 91207,
+   "freeze_end": 92935,
+   "buy_end": 94216,
+   "end": 97278,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 99005,
+   "T_equip": 2300,
+   "CT_equip": 4860,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 16,
+   "start": 97278,
+   "freeze_end": 99006,
+   "buy_end": 100287,
+   "end": 102920,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 104647,
+   "T_equip": 2590,
+   "CT_equip": 5570,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 17,
+   "start": 102920,
+   "freeze_end": 104648,
+   "buy_end": 105929,
+   "end": 111337,
+   "winner": "T",
+   "reason": "ct_killed",
+   "window_end": 113064,
+   "T_equip": 3890,
+   "CT_equip": 5710,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "full"
+  },
+  {
+   "round": 18,
+   "start": 111337,
+   "freeze_end": 113065,
+   "buy_end": 114346,
+   "end": 120794,
+   "winner": "CT",
+   "reason": "bomb_defused",
+   "window_end": 122521,
+   "T_equip": 3480,
+   "CT_equip": 4440,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 19,
+   "start": 120794,
+   "freeze_end": 122522,
+   "buy_end": 123803,
+   "end": 127002,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 128729,
+   "T_equip": 2710,
+   "CT_equip": 4540,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 20,
+   "start": 127002,
+   "freeze_end": 128730,
+   "buy_end": 130011,
+   "end": 133497,
+   "winner": "CT",
+   "reason": "bomb_defused",
+   "window_end": 135224,
+   "T_equip": 2860,
+   "CT_equip": 5160,
+   "pistol": false,
+   "T_buy": "force",
+   "CT_buy": "full"
+  },
+  {
+   "round": 21,
+   "start": 133497,
+   "freeze_end": 135225,
+   "buy_end": 136506,
+   "end": 138357,
+   "winner": "CT",
+   "reason": "t_killed",
+   "window_end": 1000000000000,
+   "T_equip": 4460,
+   "CT_equip": 5750,
+   "pistol": false,
+   "T_buy": "full",
+   "CT_buy": "full"
+  }
+ ],
+ "clutches": [
+  {
+   "round": 1,
+   "steamid": "76561199092886702",
+   "vs": 4,
+   "won": false
+  },
+  {
+   "round": 2,
+   "steamid": "76561198165375617",
+   "vs": 2,
+   "won": false
+  },
+  {
+   "round": 2,
+   "steamid": "76561199473618660",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 3,
+   "steamid": "76561198165375617",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 4,
+   "steamid": "76561198875217038",
+   "vs": 5,
+   "won": false
+  },
+  {
+   "round": 5,
+   "steamid": "76561198382673172",
+   "vs": 4,
+   "won": false
+  },
+  {
+   "round": 6,
+   "steamid": "76561198382673172",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 7,
+   "steamid": "76561198069721683",
+   "vs": 4,
+   "won": false
+  },
+  {
+   "round": 7,
+   "steamid": "76561198930908320",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 8,
+   "steamid": "76561198382673172",
+   "vs": 3,
+   "won": true
+  },
+  {
+   "round": 8,
+   "steamid": "76561199092886702",
+   "vs": 1,
+   "won": false
+  },
+  {
+   "round": 9,
+   "steamid": "76561199473618660",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 9,
+   "steamid": "76561199092886702",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 10,
+   "steamid": "76561199473618660",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 11,
+   "steamid": "76561198069721683",
+   "vs": 2,
+   "won": false
+  },
+  {
+   "round": 11,
+   "steamid": "76561198875217038",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 12,
+   "steamid": "76561198627618790",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 13,
+   "steamid": "76561199473618660",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 14,
+   "steamid": "76561198069721683",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 15,
+   "steamid": "76561198165375617",
+   "vs": 5,
+   "won": false
+  },
+  {
+   "round": 16,
+   "steamid": "76561199092886702",
+   "vs": 2,
+   "won": false
+  },
+  {
+   "round": 17,
+   "steamid": "76561198382673172",
+   "vs": 2,
+   "won": false
+  },
+  {
+   "round": 17,
+   "steamid": "76561198069721683",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 18,
+   "steamid": "76561198069721683",
+   "vs": 4,
+   "won": false
+  },
+  {
+   "round": 18,
+   "steamid": "76561198627618790",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 19,
+   "steamid": "76561198165375617",
+   "vs": 2,
+   "won": false
+  },
+  {
+   "round": 19,
+   "steamid": "76561198875217038",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 20,
+   "steamid": "76561198069721683",
+   "vs": 3,
+   "won": false
+  },
+  {
+   "round": 20,
+   "steamid": "76561198875217038",
+   "vs": 1,
+   "won": true
+  },
+  {
+   "round": 21,
+   "steamid": "76561199311127933",
+   "vs": 4,
+   "won": false
+  }
+ ]
+}

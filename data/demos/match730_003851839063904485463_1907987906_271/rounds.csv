@@ -1,0 +1,108 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198015564152,VOytaZ.skins,CT,True,900,300,0,0,0,0,False,0,False,0,0,0,False,False,True,,,58.3,
+1,76561198067554429,Растя́па,T,False,600,400,0,0,0,0,True,1,False,0,0,0,False,True,False,,,21.5,0.0
+1,76561198382673172,Zattocat,T,False,900,1000,0,0,1,0,True,1,False,0,131,80,False,False,True,4.0,False,58.3,0.0
+1,76561198444913985,prodsirius,CT,True,200,1000,1,1,0,0,False,0,False,0,100,0,False,False,True,,,58.3,
+1,76561198769313541,Mehmmed Ousman Abujan,CT,True,850,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,29.5,0.0
+1,76561198793667903,scoby Jew,CT,True,200,1000,1,0,0,0,False,0,False,0,100,0,True,False,True,,,58.3,
+1,76561198893199261,koll,T,False,850,1000,0,0,0,0,True,1,False,0,117,0,False,False,False,,,31.8,0.0
+1,76561199185385467,ZaseBalent67,T,False,850,1000,1,0,0,0,True,1,False,0,30,0,False,False,True,,,50.1,0.0
+1,76561199336020275,beng,T,False,200,1000,0,0,0,0,True,1,False,0,20,0,False,False,False,,,34.7,0.0
+1,76561199652624725,lvl 100 Talahon,CT,True,700,300,3,3,0,0,False,0,False,0,300,0,False,False,True,,,58.3,
+2,76561198015564152,VOytaZ.skins,CT,True,3150,1600,2,0,0,0,False,0,False,0,111,0,False,False,True,,,55.6,
+2,76561198067554429,Растя́па,T,False,2000,500,1,1,0,0,True,1,False,0,100,0,True,False,True,,,14.1,0.0
+2,76561198382673172,Zattocat,T,False,1950,450,0,0,1,0,True,1,False,0,55,0,False,False,True,,,13.6,0.0
+2,76561198444913985,prodsirius,CT,True,4550,850,1,1,1,0,False,0,False,1,153,0,False,False,True,,,55.6,
+2,76561198769313541,Mehmmed Ousman Abujan,CT,True,4100,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.3,0.0
+2,76561198793667903,scoby Jew,CT,True,5100,250,2,1,0,0,True,1,False,0,200,0,False,False,True,,,30.4,300.0
+2,76561198893199261,koll,T,False,1200,1250,0,0,0,0,True,1,True,0,18,0,False,False,True,,,29.2,0.0
+2,76561199185385467,ZaseBalent67,T,False,2250,500,1,0,0,0,True,1,False,0,75,0,False,False,True,2.0,False,55.6,0.0
+2,76561199336020275,beng,T,False,2900,1900,1,0,0,0,True,1,False,1,114,0,False,False,True,,,52.8,0.0
+2,76561199652624725,lvl 100 Talahon,CT,True,5000,1550,0,0,1,0,True,1,True,0,33,0,False,True,True,,,12.9,0.0
+3,76561198015564152,VOytaZ.skins,CT,False,4550,6800,0,0,0,0,True,1,False,0,104,4,False,False,False,2.0,False,77.7,0.0
+3,76561198067554429,Растя́па,T,True,3200,200,4,2,0,0,False,0,False,1,214,0,True,False,True,,,77.7,
+3,76561198382673172,Zattocat,T,True,2400,1850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,29.3,0.0
+3,76561198444913985,prodsirius,CT,False,4550,7150,2,0,0,0,True,1,False,0,106,0,False,False,True,,,52.3,0.0
+3,76561198769313541,Mehmmed Ousman Abujan,CT,False,2650,1100,0,0,1,0,True,1,False,0,81,0,False,False,True,,,23.5,0.0
+3,76561198793667903,scoby Jew,CT,False,4100,200,0,0,1,0,True,1,False,0,80,0,False,True,True,,,20.9,0.0
+3,76561198893199261,koll,T,True,3000,3650,0,0,1,0,True,1,True,0,92,0,False,False,True,,,30.5,0.0
+3,76561199185385467,ZaseBalent67,T,True,2250,1750,1,0,0,0,True,1,False,0,47,0,False,False,True,,,42.0,0.0
+3,76561199336020275,beng,T,True,2700,200,0,0,2,0,False,0,False,0,141,0,False,False,True,,,77.7,
+3,76561199652624725,lvl 100 Talahon,CT,False,3300,1200,1,0,0,0,True,1,False,0,19,0,False,False,True,,,33.6,0.0
+4,76561198015564152,VOytaZ.skins,CT,False,4400,1200,0,0,1,0,True,1,False,0,193,0,False,False,True,4.0,False,75.3,1000.0
+4,76561198067554429,Растя́па,T,True,3550,6400,2,0,0,0,True,1,False,0,194,0,False,False,True,,,21.2,0.0
+4,76561198382673172,Zattocat,T,True,2900,750,1,0,0,0,False,0,False,0,43,0,False,False,True,,,75.3,
+4,76561198444913985,prodsirius,CT,False,5300,300,1,0,0,0,True,1,False,1,56,0,False,False,True,,,66.2,400.0
+4,76561198769313541,Mehmmed Ousman Abujan,CT,False,2250,600,0,0,0,0,True,1,True,0,0,0,False,False,True,,,20.4,0.0
+4,76561198793667903,scoby Jew,CT,False,1100,650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,18.8,0.0
+4,76561198893199261,koll,T,True,3000,1050,0,0,0,0,False,0,False,0,21,0,False,False,True,,,75.3,
+4,76561199185385467,ZaseBalent67,T,True,3900,1950,0,0,1,0,False,0,False,0,56,0,False,False,True,,,75.3,
+4,76561199336020275,beng,T,True,5300,6900,2,1,0,0,False,0,False,0,178,0,True,False,True,,,75.3,
+4,76561199652624725,lvl 100 Talahon,CT,False,2900,350,0,0,0,0,True,1,False,0,60,0,False,True,False,,,18.3,300.0
+5,76561198015564152,VOytaZ.skins,CT,False,1500,1850,0,0,0,0,True,1,False,0,90,15,False,False,False,4.0,False,56.2,300.0
+5,76561198067554429,Растя́па,T,True,4150,3650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,56.2,
+5,76561198382673172,Zattocat,T,True,3100,5700,1,1,0,0,False,0,False,0,109,0,False,False,True,,,56.2,
+5,76561198444913985,prodsirius,CT,False,2450,300,0,0,0,0,True,1,False,0,59,0,False,True,False,,,31.6,0.0
+5,76561198769313541,Mehmmed Ousman Abujan,CT,False,2450,300,0,0,0,0,True,1,False,0,29,0,False,False,False,,,35.4,0.0
+5,76561198793667903,scoby Jew,CT,False,2200,600,1,1,0,0,True,1,False,0,100,0,False,False,True,,,39.8,0.0
+5,76561198893199261,koll,T,True,3600,6200,0,0,1,0,False,0,False,0,72,0,False,False,True,,,56.2,
+5,76561199185385467,ZaseBalent67,T,True,4100,8850,4,0,0,0,False,0,False,1,243,0,True,False,True,,,56.2,
+5,76561199336020275,beng,T,True,5300,9800,0,0,1,0,True,1,True,0,72,0,False,False,True,,,37.3,0.0
+5,76561199652624725,lvl 100 Talahon,CT,False,1700,600,0,0,0,0,True,1,False,0,0,0,False,False,False,,,46.8,0.0
+6,76561198015564152,VOytaZ.skins,CT,False,3450,1050,1,1,0,0,True,1,False,0,73,2,False,False,True,4.0,False,54.9,200.0
+6,76561198067554429,Растя́па,T,True,3550,10000,2,1,0,0,False,0,False,1,198,0,False,False,True,,,54.9,
+6,76561198382673172,Zattocat,T,True,3500,8750,0,0,1,0,True,1,True,0,77,0,False,True,True,,,32.7,600.0
+6,76561198444913985,prodsirius,CT,False,2550,400,0,0,1,0,True,1,False,0,47,0,False,False,True,,,46.8,400.0
+6,76561198769313541,Mehmmed Ousman Abujan,CT,False,2450,500,0,0,0,0,True,1,False,0,85,0,False,False,False,,,51.2,300.0
+6,76561198793667903,scoby Jew,CT,False,3550,300,1,0,0,0,True,1,False,0,36,0,True,False,True,,,33.3,500.0
+6,76561198893199261,koll,T,True,3800,8050,1,0,0,0,True,1,True,1,44,0,False,False,True,,,52.8,1100.0
+6,76561199185385467,ZaseBalent67,T,True,3900,12200,2,1,0,0,False,0,False,0,176,0,False,False,True,,,54.9,
+6,76561199336020275,beng,T,True,5950,2650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,54.9,
+6,76561199652624725,lvl 100 Talahon,CT,False,2900,350,0,0,1,0,True,1,False,0,63,0,False,False,True,,,37.4,0.0
+7,76561198015564152,VOytaZ.skins,CT,False,3450,1100,0,0,0,0,True,1,False,0,45,0,False,False,False,,,41.8,600.0
+7,76561198067554429,Растя́па,T,True,3750,13800,0,0,0,0,True,1,True,0,0,0,False,False,True,,,37.6,200.0
+7,76561198382673172,Zattocat,T,True,4900,4050,1,1,1,0,False,0,False,0,173,30,True,False,True,,,63.9,
+7,76561198444913985,prodsirius,CT,False,3350,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,31.3,200.0
+7,76561198769313541,Mehmmed Ousman Abujan,CT,False,2850,1250,0,0,0,0,True,1,False,0,55,0,False,False,False,,,44.8,0.0
+7,76561198793667903,scoby Jew,CT,False,3450,450,0,0,0,0,True,1,False,0,38,0,False,False,False,4.0,False,63.9,0.0
+7,76561198893199261,koll,T,True,4500,3950,1,0,0,0,False,0,False,1,106,6,False,False,True,,,63.9,
+7,76561199185385467,ZaseBalent67,T,True,4400,16300,1,0,0,0,False,0,False,0,99,0,False,False,True,,,63.9,
+7,76561199336020275,beng,T,True,5950,11400,2,0,0,0,False,0,False,0,117,0,False,False,True,,,63.9,
+7,76561199652624725,lvl 100 Talahon,CT,False,3350,200,1,1,0,0,True,1,False,0,100,0,False,False,True,,,41.4,0.0
+8,76561198015564152,VOytaZ.skins,CT,False,1500,3250,1,0,0,0,True,1,False,0,100,0,True,False,True,,,39.0,800.0
+8,76561198067554429,Растя́па,T,True,3850,9600,1,0,0,0,True,1,False,0,50,0,False,False,True,,,50.0,0.0
+8,76561198382673172,Zattocat,T,True,5100,9600,1,1,0,0,False,0,False,0,6,0,False,False,True,,,69.2,
+8,76561198444913985,prodsirius,CT,False,3650,250,0,0,1,0,True,1,False,0,96,0,False,False,True,,,33.2,0.0
+8,76561198769313541,Mehmmed Ousman Abujan,CT,False,4300,600,0,0,0,0,True,1,False,0,54,0,False,False,False,,,52.0,200.0
+8,76561198793667903,scoby Jew,CT,False,3600,300,0,0,1,0,True,1,False,0,0,0,False,False,True,,,32.8,0.0
+8,76561198893199261,koll,T,True,4900,10550,2,0,1,0,False,0,False,0,249,50,False,False,True,,,69.2,
+8,76561199185385467,ZaseBalent67,T,True,4100,19300,0,0,0,0,False,0,False,0,0,0,False,False,True,,,69.2,
+8,76561199336020275,beng,T,True,6150,14600,0,0,0,0,True,1,False,0,0,0,False,True,False,,,29.5,0.0
+8,76561199652624725,lvl 100 Talahon,CT,False,3650,2250,1,0,0,0,True,1,False,0,4,0,False,False,True,3.0,False,69.2,0.0
+9,76561198015564152,VOytaZ.skins,CT,False,4400,2850,1,1,1,0,True,1,False,0,203,19,False,False,True,3.0,False,72.1,300.0
+9,76561198067554429,Растя́па,T,True,3850,9250,1,0,1,0,True,1,False,0,137,0,False,False,True,,,32.1,300.0
+9,76561198382673172,Zattocat,T,True,5100,12700,1,1,0,0,False,0,False,0,66,0,False,False,True,,,72.1,
+9,76561198444913985,prodsirius,CT,False,3750,200,0,0,0,0,True,1,True,0,30,0,False,False,True,,,31.2,0.0
+9,76561198769313541,Mehmmed Ousman Abujan,CT,False,4100,200,1,0,0,0,True,1,False,1,16,0,False,False,True,,,41.9,0.0
+9,76561198793667903,scoby Jew,CT,False,3100,900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,19.2,0.0
+9,76561198893199261,koll,T,True,4900,12900,1,0,1,0,True,1,False,0,93,0,False,False,True,,,53.2,0.0
+9,76561199185385467,ZaseBalent67,T,True,4300,19650,0,0,0,0,True,1,False,0,0,0,False,True,False,,,9.8,0.0
+9,76561199336020275,beng,T,True,4100,7950,0,0,0,0,False,0,False,0,0,0,False,False,True,,,72.1,
+9,76561199652624725,lvl 100 Talahon,CT,False,6350,600,1,0,0,0,True,1,False,0,100,0,True,False,True,,,19.2,0.0
+10,76561198015564152,VOytaZ.skins,CT,False,4400,2500,1,0,0,0,True,1,False,0,56,0,False,False,True,5.0,False,53.9,500.0
+10,76561198067554429,Растя́па,T,True,4150,8600,1,0,0,0,True,1,True,0,15,1,True,False,True,,,52.4,300.0
+10,76561198382673172,Zattocat,T,True,5100,15350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,53.9,
+10,76561198444913985,prodsirius,CT,False,3150,3750,0,0,1,0,True,1,False,0,43,0,False,False,True,,,37.7,0.0
+10,76561198769313541,Mehmmed Ousman Abujan,CT,False,3100,4050,0,0,0,0,True,1,False,0,26,0,False,True,False,,,33.9,0.0
+10,76561198893199261,koll,T,True,4700,7800,1,1,1,0,False,0,False,1,126,51,False,False,True,,,53.9,
+10,76561199185385467,ZaseBalent67,T,True,3900,12500,0,0,0,0,False,0,False,0,0,0,False,False,True,,,53.9,
+10,76561199336020275,beng,T,True,4800,15050,1,0,0,0,False,0,False,0,71,0,False,False,True,,,53.9,
+10,76561199652624725,lvl 100 Talahon,CT,False,4100,4250,0,0,1,0,True,1,False,0,0,0,False,False,True,,,4.7,0.0
+11,76561198015564152,VOytaZ.skins,CT,False,4100,2350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,6.5,
+11,76561198067554429,Растя́па,T,True,4150,7950,0,0,0,0,False,0,False,0,0,0,False,False,True,,,6.5,
+11,76561198382673172,Zattocat,T,True,5100,18050,0,0,0,0,False,0,False,0,0,0,False,False,True,,,6.5,
+11,76561198444913985,prodsirius,CT,False,4150,300,0,0,0,0,False,0,False,0,0,0,False,False,True,4.0,False,6.5,
+11,76561198769313541,Mehmmed Ousman Abujan,CT,False,6200,1300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,0.6,1200.0
+11,76561198893199261,koll,T,True,5300,13850,0,0,0,0,False,0,False,0,0,0,False,False,True,1.0,True,6.5,
+11,76561199185385467,ZaseBalent67,T,True,3900,19200,0,0,0,0,False,0,False,0,0,0,False,False,True,,,6.5,
+11,76561199336020275,beng,T,True,4400,18350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,6.5,

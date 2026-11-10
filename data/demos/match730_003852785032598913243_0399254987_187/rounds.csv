@@ -1,0 +1,171 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198382673172,Zattocat,T,False,500,500,0,0,0,0,True,1,False,0,22,0,False,False,False,,,21.3,0.0
+1,76561198711936135,Aza,CT,True,850,350,2,2,0,0,True,1,True,0,154,0,False,False,True,,,33.9,0.0
+1,76561198849740065,SLIDE 寄生獣,T,False,850,350,1,1,0,0,True,1,False,0,110,0,False,False,True,4.0,False,36.1,0.0
+1,76561199089385913,JOEL,CT,True,200,1000,1,1,0,0,False,0,False,0,113,0,False,False,True,,,36.1,
+1,76561199122419700,L_auge,T,False,850,1000,1,1,0,0,True,1,False,1,25,0,False,False,True,,,30.3,0.0
+1,76561199146634055,OCEAN&,T,False,850,350,0,0,1,0,True,1,True,0,72,0,False,True,True,,,20.3,0.0
+1,76561199282317002,mrgalgxy,T,False,300,1000,0,0,0,0,True,1,False,0,0,0,False,False,False,,,26.1,0.0
+1,76561199376588816,LewSha,CT,True,900,300,1,0,1,0,False,0,False,1,129,0,False,False,True,,,36.1,
+1,76561199832046718,ВЫХОД,CT,True,700,1000,0,0,0,0,False,0,False,0,0,0,False,False,True,,,36.1,
+1,76561199873007308,MJPython,CT,True,850,350,1,0,0,0,True,1,False,0,84,0,True,False,True,,,21.0,0.0
+2,76561198382673172,Zattocat,T,True,2250,350,2,0,0,0,False,0,False,1,143,0,False,False,True,,,79.1,
+2,76561198711936135,Aza,CT,False,1500,2950,0,0,0,0,True,1,False,0,0,0,False,True,False,,,27.4,0.0
+2,76561198849740065,SLIDE 寄生獣,T,True,1600,2550,0,0,1,0,True,1,True,0,52,0,False,False,True,,,37.2,0.0
+2,76561199089385913,JOEL,CT,False,200,4800,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,79.1,300.0
+2,76561199122419700,L_auge,T,True,1350,1200,1,1,0,0,True,1,False,0,100,0,False,False,True,,,40.7,0.0
+2,76561199146634055,OCEAN&,T,True,2250,200,1,1,0,0,False,0,False,1,98,0,False,False,True,,,79.1,
+2,76561199282317002,mrgalgxy,T,True,2000,2600,1,0,0,0,True,1,True,0,98,0,True,False,True,,,44.0,0.0
+2,76561199376588816,LewSha,CT,False,2600,3300,1,0,0,0,True,1,False,0,185,0,False,False,True,,,39.0,50.0
+2,76561199832046718,ВЫХОД,CT,False,3350,1850,2,1,0,0,True,1,False,0,194,0,False,False,True,,,48.7,500.0
+2,76561199873007308,MJPython,CT,False,3700,4150,0,0,0,0,True,1,False,0,5,5,False,False,False,,,31.8,600.0
+3,76561198382673172,Zattocat,T,False,3000,5950,0,0,0,0,True,1,True,0,0,0,False,False,True,,,17.3,400.0
+3,76561198711936135,Aza,CT,True,2600,2100,1,1,0,0,True,1,False,0,99,0,False,False,True,,,22.0,0.0
+3,76561198849740065,SLIDE 寄生獣,T,False,3900,2100,2,1,0,0,True,1,False,0,198,0,True,False,True,,,38.0,0.0
+3,76561199089385913,JOEL,CT,True,6250,300,2,1,1,0,True,1,True,1,226,0,False,False,True,,,53.8,0.0
+3,76561199122419700,L_auge,T,False,2250,2700,1,0,0,0,True,1,False,1,55,0,False,False,True,,,34.5,200.0
+3,76561199146634055,OCEAN&,T,False,3800,7650,1,0,0,0,True,1,False,0,33,0,False,False,True,2.0,False,57.0,0.0
+3,76561199282317002,mrgalgxy,T,False,2900,1650,0,0,1,0,True,1,False,0,88,0,False,False,True,,,32.1,0.0
+3,76561199376588816,LewSha,CT,True,4600,250,2,2,1,0,False,0,False,1,144,0,False,False,True,1.0,True,63.3,
+3,76561199832046718,ВЫХОД,CT,True,3850,450,0,0,0,0,True,1,True,0,0,0,False,False,True,,,35.3,300.0
+3,76561199873007308,MJPython,CT,True,1200,1200,0,0,1,0,True,1,False,0,28,0,False,True,True,,,16.1,0.0
+4,76561198382673172,Zattocat,T,False,4400,1500,0,0,0,0,True,1,False,0,0,0,False,False,False,3.0,False,37.5,500.0
+4,76561198711936135,Aza,CT,True,2600,4050,2,0,0,0,False,0,False,0,134,0,False,False,True,,,37.5,
+4,76561198849740065,SLIDE 寄生獣,T,False,3900,1000,0,0,0,0,True,1,False,0,0,0,False,True,False,,,19.6,0.0
+4,76561199089385913,JOEL,CT,True,500,4450,0,0,1,0,True,1,True,0,51,0,False,False,True,,,34.4,0.0
+4,76561199122419700,L_auge,T,False,3900,1600,2,1,0,0,True,1,False,0,200,0,False,False,True,,,34.9,0.0
+4,76561199146634055,OCEAN&,T,False,3900,2950,0,0,0,0,True,1,False,0,0,0,False,False,False,,,30.6,0.0
+4,76561199282317002,mrgalgxy,T,False,2900,3650,0,0,0,0,True,1,False,0,0,0,False,False,False,,,25.1,0.0
+4,76561199376588816,LewSha,CT,True,5600,8700,1,1,1,0,True,1,False,0,178,0,True,False,True,,,28.8,1300.0
+4,76561199832046718,ВЫХОД,CT,True,4100,300,1,0,0,0,False,0,False,1,21,0,False,False,True,,,37.5,
+4,76561199873007308,MJPython,CT,True,3700,1450,1,0,0,0,False,0,False,0,113,0,False,False,True,,,37.5,
+5,76561198382673172,Zattocat,T,False,2800,800,0,0,0,1,True,1,False,0,0,0,False,False,False,,,39.0,0.0
+5,76561198711936135,Aza,CT,True,3900,11800,0,0,1,0,True,1,False,0,26,0,False,False,True,,,26.9,0.0
+5,76561198849740065,SLIDE 寄生獣,T,False,2600,500,1,0,0,0,True,1,False,0,98,0,False,False,True,2.0,False,63.5,0.0
+5,76561199089385913,JOEL,CT,True,5800,1850,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.6,1100.0
+5,76561199122419700,L_auge,T,False,1700,2400,3,3,0,0,True,1,False,0,279,0,True,False,True,,,43.5,0.0
+5,76561199146634055,OCEAN&,T,False,3900,1150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,42.7,0.0
+5,76561199282317002,mrgalgxy,T,False,1600,1450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,36.2,0.0
+5,76561199376588816,LewSha,CT,True,5400,3000,1,0,0,0,True,1,False,0,72,0,False,False,True,,,53.9,0.0
+5,76561199832046718,ВЫХОД,CT,True,5350,6550,4,3,0,0,False,0,False,0,398,28,False,False,True,1.0,True,63.5,
+5,76561199873007308,MJPython,CT,True,3600,8150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.7,0.0
+6,76561198382673172,Zattocat,T,True,3000,400,1,0,0,0,True,1,True,0,86,0,True,False,True,,,50.7,200.0
+6,76561198711936135,Aza,CT,False,2600,9200,0,0,1,0,True,1,False,0,68,0,False,True,True,,,16.5,0.0
+6,76561198849740065,SLIDE 寄生獣,T,True,3000,400,1,1,0,0,False,0,False,0,78,0,False,False,True,1.0,True,65.7,
+6,76561199089385913,JOEL,CT,False,4400,1150,1,1,0,0,True,1,False,0,57,0,False,False,True,,,52.8,0.0
+6,76561199122419700,L_auge,T,True,3000,2900,0,0,0,0,True,1,True,0,22,0,False,False,True,,,27.8,0.0
+6,76561199146634055,OCEAN&,T,True,2900,850,2,1,0,0,True,1,False,2,199,0,False,False,True,,,60.5,0.0
+6,76561199282317002,mrgalgxy,T,True,2000,2050,1,0,0,0,True,1,True,0,99,0,False,False,True,,,26.3,0.0
+6,76561199376588816,LewSha,CT,False,5400,1400,1,0,1,0,True,1,False,0,124,49,False,False,True,2.0,False,65.7,800.0
+6,76561199832046718,ВЫХОД,CT,False,5350,11300,2,1,1,0,True,1,False,1,145,0,False,False,True,,,30.2,550.0
+6,76561199873007308,MJPython,CT,False,3700,8650,0,0,1,0,True,1,True,0,29,0,False,False,True,,,25.0,600.0
+7,76561198382673172,Zattocat,T,False,4100,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,51.0,0.0
+7,76561198711936135,Aza,CT,True,2600,8400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,67.0,0.0
+7,76561198849740065,SLIDE 寄生獣,T,False,4400,7550,1,0,0,0,True,1,False,0,99,0,False,False,True,2.0,False,76.4,0.0
+7,76561199089385913,JOEL,CT,True,200,3050,0,0,2,0,True,1,False,0,100,0,False,False,True,,,56.6,0.0
+7,76561199122419700,L_auge,T,False,4100,2450,2,1,0,0,True,1,False,0,167,0,False,False,True,,,67.2,0.0
+7,76561199146634055,OCEAN&,T,False,3900,1300,0,0,1,0,True,1,False,0,33,0,False,False,True,,,51.4,0.0
+7,76561199282317002,mrgalgxy,T,False,5450,650,0,0,0,0,True,1,False,0,0,0,False,True,False,,,49.4,0.0
+7,76561199376588816,LewSha,CT,True,3150,350,0,0,0,0,True,1,True,0,0,0,False,False,True,,,66.7,0.0
+7,76561199832046718,ВЫХОД,CT,True,5800,3550,5,1,0,0,False,0,False,1,394,0,True,False,True,,,76.4,
+7,76561199873007308,MJPython,CT,True,3700,3750,0,0,0,0,False,0,False,0,0,0,False,False,True,,,76.4,
+8,76561198382673172,Zattocat,T,False,1700,550,1,1,0,0,True,1,False,0,164,0,False,False,True,5.0,False,50.3,0.0
+8,76561198711936135,Aza,CT,True,7350,4750,2,1,1,0,False,0,False,0,199,0,True,False,True,,,50.3,
+8,76561198849740065,SLIDE 寄生獣,T,False,3900,2150,0,0,0,0,True,1,False,0,25,0,False,True,False,,,21.4,0.0
+8,76561199089385913,JOEL,CT,True,5400,1350,2,1,1,0,False,0,False,1,181,19,False,False,True,,,50.3,
+8,76561199122419700,L_auge,T,False,2250,2500,0,0,0,0,True,1,False,0,56,0,False,False,False,,,32.2,0.0
+8,76561199146634055,OCEAN&,T,False,3000,400,0,0,0,0,True,1,False,0,62,0,False,False,False,,,26.2,0.0
+8,76561199282317002,mrgalgxy,T,False,2200,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,39.9,0.0
+8,76561199376588816,LewSha,CT,True,5600,1350,1,0,0,0,False,0,False,0,98,21,False,False,True,,,50.3,
+8,76561199832046718,ВЫХОД,CT,True,6000,11450,0,0,0,0,True,1,True,0,0,0,False,False,True,,,49.3,1000.0
+8,76561199873007308,MJPython,CT,True,3900,8250,0,0,0,0,False,0,False,0,0,0,False,False,True,,,50.3,
+9,76561198382673172,Zattocat,T,False,2500,950,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.3,0.0
+9,76561198711936135,Aza,CT,True,7750,15550,1,0,0,0,False,0,False,0,100,0,False,False,True,,,28.7,
+9,76561198849740065,SLIDE 寄生獣,T,False,3000,1750,0,0,0,0,True,1,False,0,84,0,False,True,False,,,13.4,0.0
+9,76561199089385913,JOEL,CT,True,5800,8400,2,1,0,0,False,0,False,0,199,0,True,False,True,,,28.7,
+9,76561199122419700,L_auge,T,False,3900,1200,0,0,0,0,True,1,False,0,54,0,False,False,False,5.0,False,28.7,0.0
+9,76561199146634055,OCEAN&,T,False,500,2300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.4,0.0
+9,76561199282317002,mrgalgxy,T,False,2000,850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,18.8,0.0
+9,76561199376588816,LewSha,CT,True,5600,8350,1,0,0,0,False,0,False,0,98,0,False,False,True,,,28.7,
+9,76561199832046718,ВЫХОД,CT,True,4400,6450,0,0,0,0,False,0,False,0,0,0,False,False,True,,,28.7,
+9,76561199873007308,MJPython,CT,True,4100,10400,1,0,0,0,False,0,False,0,98,37,False,False,True,,,28.7,
+10,76561198382673172,Zattocat,T,False,3000,1050,0,0,0,0,True,1,False,0,17,0,False,False,False,,,21.6,200.0
+10,76561198711936135,Aza,CT,True,7750,19150,0,0,0,0,False,0,False,0,0,0,False,False,True,,,49.8,
+10,76561198849740065,SLIDE 寄生獣,T,False,3000,1850,2,0,0,0,False,0,False,0,154,0,True,False,True,3.0,False,49.8,
+10,76561199089385913,JOEL,CT,True,5600,11050,0,0,1,0,True,1,False,0,61,0,False,False,True,,,16.5,1000.0
+10,76561199122419700,L_auge,T,False,2250,2050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,40.7,0.0
+10,76561199146634055,OCEAN&,T,False,3900,1500,1,0,1,0,True,1,False,0,126,0,False,False,True,,,28.6,0.0
+10,76561199282317002,mrgalgxy,T,False,2000,3750,0,0,0,0,True,1,False,0,0,0,False,False,False,,,42.1,0.0
+10,76561199376588816,LewSha,CT,True,5400,13050,2,1,0,0,False,0,False,0,198,0,False,False,True,,,49.8,
+10,76561199832046718,ВЫХОД,CT,True,4700,13150,2,0,0,0,True,1,False,0,137,0,False,False,True,,,51.8,1300.0
+10,76561199873007308,MJPython,CT,True,3900,13700,0,0,0,0,True,1,False,0,10,10,False,True,False,,,12.1,800.0
+11,76561198382673172,Zattocat,T,False,2900,2350,0,0,1,0,True,1,False,0,49,0,False,False,True,,,43.8,400.0
+11,76561198711936135,Aza,CT,True,7850,22350,4,0,0,0,False,0,False,0,280,0,True,False,True,,,45.9,
+11,76561198849740065,SLIDE 寄生獣,T,False,3000,9250,0,0,0,0,True,1,False,0,21,0,False,True,False,,,12.6,0.0
+11,76561199089385913,JOEL,CT,True,7650,2700,0,0,0,0,False,0,False,0,0,0,False,False,True,,,45.9,
+11,76561199122419700,L_auge,T,False,3900,2350,1,1,0,0,True,1,False,0,75,0,False,False,True,4.0,False,45.9,0.0
+11,76561199146634055,OCEAN&,T,False,3900,2100,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.1,0.0
+11,76561199282317002,mrgalgxy,T,False,5150,1500,0,0,0,0,True,1,False,0,0,0,False,False,False,,,43.8,0.0
+11,76561199376588816,LewSha,CT,True,5600,16350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,45.9,
+11,76561199832046718,ВЫХОД,CT,True,4200,9850,0,0,2,0,True,1,False,0,116,0,False,False,True,,,39.5,1300.0
+11,76561199873007308,MJPython,CT,True,3700,11000,1,1,0,0,False,0,False,0,99,1,False,False,True,,,45.9,
+12,76561198382673172,Zattocat,T,True,5100,850,1,1,0,0,True,1,True,0,100,0,False,False,True,,,78.8,500.0
+12,76561198711936135,Aza,CT,False,8150,13800,0,0,0,0,True,1,False,0,0,0,False,False,False,,,38.4,1100.0
+12,76561198849740065,SLIDE 寄生獣,T,True,5950,4100,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.3,0.0
+12,76561199089385913,JOEL,CT,False,7850,13850,1,1,0,0,True,1,False,0,100,0,True,False,True,,,39.1,1300.0
+12,76561199122419700,L_auge,T,True,5700,350,0,0,2,0,False,0,False,0,72,18,False,False,True,,,79.2,
+12,76561199146634055,OCEAN&,T,True,3900,1800,1,1,0,0,True,1,False,0,100,0,False,False,True,,,19.8,0.0
+12,76561199282317002,mrgalgxy,T,True,3100,1800,3,3,0,0,False,0,False,1,193,0,False,False,True,,,79.2,
+12,76561199376588816,LewSha,CT,False,5800,5850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,12.9,1300.0
+12,76561199832046718,ВЫХОД,CT,False,8400,250,1,0,0,0,True,1,False,0,100,0,False,False,True,,,54.8,1300.0
+12,76561199873007308,MJPython,CT,False,4400,16750,1,0,0,0,True,1,False,0,97,0,False,False,True,3.0,False,79.2,0.0
+13,76561198382673172,Zattocat,CT,False,600,1000,0,0,0,0,True,1,False,0,0,0,False,False,False,1.0,False,53.9,400.0
+13,76561198711936135,Aza,T,True,850,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.8,0.0
+13,76561198849740065,SLIDE 寄生獣,CT,False,850,350,2,2,0,0,True,1,False,0,200,0,True,False,True,,,45.1,0.0
+13,76561199089385913,JOEL,T,True,850,350,1,0,0,0,True,1,False,0,99,0,False,False,True,,,36.8,0.0
+13,76561199122419700,L_auge,CT,False,850,350,1,0,0,0,True,1,False,1,62,0,False,False,True,,,49.1,0.0
+13,76561199146634055,OCEAN&,CT,False,850,350,1,0,1,0,True,1,True,0,152,0,False,False,True,,,35.8,0.0
+13,76561199282317002,mrgalgxy,CT,False,300,700,0,0,1,0,True,1,False,0,0,0,False,False,True,,,29.3,0.0
+13,76561199376588816,LewSha,T,True,900,300,4,2,0,0,False,0,False,0,296,0,False,False,True,3.0,True,53.9,
+13,76561199832046718,ВЫХОД,T,True,750,250,0,0,1,0,True,1,False,0,53,0,False,True,True,,,17.9,0.0
+13,76561199873007308,MJPython,T,True,550,500,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.6,0.0
+14,76561198382673172,Zattocat,CT,False,1600,1300,1,0,0,0,True,1,False,1,77,0,False,False,True,,,31.4,0.0
+14,76561198711936135,Aza,T,True,2500,1300,2,2,0,0,False,0,False,0,198,0,False,False,True,,,36.7,
+14,76561198849740065,SLIDE 寄生獣,CT,False,2600,650,2,0,0,0,True,1,False,0,190,0,False,False,True,2.0,False,36.7,0.0
+14,76561199089385913,JOEL,T,True,3000,1100,1,0,0,0,False,0,False,1,99,0,False,False,True,,,36.7,
+14,76561199122419700,L_auge,CT,False,1350,1400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,16.0,0.0
+14,76561199146634055,OCEAN&,CT,False,700,2050,0,0,1,0,True,1,False,0,40,0,False,True,True,,,16.0,0.0
+14,76561199282317002,mrgalgxy,CT,False,1900,1100,0,0,0,0,True,1,True,0,20,0,False,False,True,,,27.4,0.0
+14,76561199376588816,LewSha,T,True,3200,3950,1,1,0,0,True,1,False,0,99,0,True,False,True,,,31.2,300.0
+14,76561199832046718,ВЫХОД,T,True,1750,1950,0,0,0,0,True,1,False,0,0,0,False,False,False,,,28.8,250.0
+14,76561199873007308,MJPython,T,True,3600,350,1,1,0,0,True,1,True,0,99,0,False,False,True,,,30.8,300.0
+15,76561198382673172,Zattocat,CT,True,3000,1350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,36.8,0.0
+15,76561198711936135,Aza,T,False,3000,8250,0,0,0,0,True,1,True,0,0,0,False,False,True,,,16.1,500.0
+15,76561198849740065,SLIDE 寄生獣,CT,True,4100,500,0,0,0,0,False,0,False,0,0,0,False,False,True,,,54.6,
+15,76561199089385913,JOEL,T,False,3000,7450,3,1,0,0,True,1,False,2,308,0,False,False,True,,,42.2,0.0
+15,76561199122419700,L_auge,CT,True,2650,1500,1,0,1,0,True,1,False,0,185,0,False,False,True,,,20.8,0.0
+15,76561199146634055,OCEAN&,CT,True,4100,700,3,0,0,0,False,0,False,1,208,0,True,False,True,,,54.6,
+15,76561199282317002,mrgalgxy,CT,True,3100,750,1,1,0,0,True,1,True,0,100,0,False,False,True,,,39.8,0.0
+15,76561199376588816,LewSha,T,False,3100,4650,0,0,0,0,True,1,False,0,28,0,False,True,False,,,14.4,1200.0
+15,76561199832046718,ВЫХОД,T,False,1050,4150,0,0,0,0,True,1,True,0,0,0,False,False,True,,,39.6,400.0
+15,76561199873007308,MJPython,T,False,3600,800,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,54.6,300.0
+16,76561198382673172,Zattocat,CT,False,2600,2450,2,0,0,0,True,1,False,1,188,0,False,False,True,2.0,False,56.3,0.0
+16,76561198711936135,Aza,T,True,1700,5850,0,0,0,0,True,1,True,0,24,0,False,False,True,,,27.7,500.0
+16,76561198849740065,SLIDE 寄生獣,CT,False,4100,7900,1,0,0,0,True,1,True,0,98,0,False,False,True,,,28.5,0.0
+16,76561199089385913,JOEL,T,True,6950,200,2,1,0,0,False,0,False,0,117,0,False,False,True,1.0,True,56.3,
+16,76561199122419700,L_auge,CT,False,3450,2650,1,0,0,0,True,1,False,0,99,0,True,False,True,,,33.4,0.0
+16,76561199146634055,OCEAN&,CT,False,5600,7500,0,0,0,0,True,1,False,0,49,49,False,False,False,,,14.8,800.0
+16,76561199282317002,mrgalgxy,CT,False,200,4550,0,0,1,0,True,1,False,0,34,0,False,False,True,,,27.2,0.0
+16,76561199376588816,LewSha,T,True,5100,450,2,0,1,0,True,1,False,0,225,1,False,False,True,,,40.3,500.0
+16,76561199832046718,ВЫХОД,T,True,4600,5550,1,1,0,0,True,1,False,1,75,0,False,False,True,,,29.8,700.0
+16,76561199873007308,MJPython,T,True,1500,700,0,0,1,0,True,1,False,0,54,0,False,True,True,,,14.5,0.0
+17,76561198382673172,Zattocat,CT,False,2500,2650,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,60.4,300.0
+17,76561198711936135,Aza,T,True,5300,6200,0,0,0,0,True,1,True,0,0,0,False,False,True,,,28.0,500.0
+17,76561198849740065,SLIDE 寄生獣,CT,False,5950,650,1,0,0,0,True,1,False,0,100,0,False,False,True,,,29.5,0.0
+17,76561199089385913,JOEL,T,True,5100,5500,0,0,0,0,False,0,False,0,0,0,False,False,True,,,60.4,
+17,76561199122419700,L_auge,CT,False,3150,2100,0,0,0,0,True,1,False,0,45,0,False,True,False,,,20.9,0.0
+17,76561199146634055,OCEAN&,CT,False,4500,1400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,25.6,0.0
+17,76561199282317002,mrgalgxy,CT,False,5750,1900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,50.8,800.0
+17,76561199376588816,LewSha,T,True,4200,300,1,1,0,0,False,0,False,0,99,0,True,False,True,,,60.4,
+17,76561199832046718,ВЫХОД,T,True,2900,2000,2,2,0,0,False,0,False,1,200,0,False,False,True,,,60.4,
+17,76561199873007308,MJPython,T,True,3600,550,2,2,0,0,False,0,False,0,196,0,False,False,True,,,60.4,

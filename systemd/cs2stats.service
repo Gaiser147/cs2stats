@@ -1,0 +1,10 @@
+[Unit]
+Description=CS2 stats: download new matchmaking demos, analyse them and push to GitHub
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/cs2stats
+ExecStart=%h/cs2stats/.venv/bin/python %h/cs2stats/demo_analyze.py auto
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=1h

@@ -1,0 +1,195 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198082951038,Patience~,T,True,900,300,0,0,0,0,True,1,False,0,22,0,False,False,False,,,39.9,0.0
+1,76561198186516407,✞Kniv Knivsson✞,CT,False,1000,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.4,400.0
+1,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,False,900,300,0,0,0,0,True,1,False,0,28,0,False,False,False,,,68.7,0.0
+1,76561198224597632,Master Baiter,CT,False,850,350,3,1,0,0,True,1,False,0,229,0,False,False,True,1.0,False,75.3,0.0
+1,76561198382673172,Zattocat,T,True,300,1000,0,0,0,0,True,1,False,0,0,0,False,False,False,,,23.9,0.0
+1,76561198618681421,Serega,T,True,850,350,1,1,0,0,True,1,False,0,100,0,False,False,True,,,45.2,0.0
+1,76561199062792647,weedsm0k3r.exe,T,True,850,350,3,3,1,0,True,1,False,0,251,0,False,False,True,2.0,True,79.1,0.0
+1,76561199257115106,Schrödinger =^·ω·^=,T,True,850,350,1,1,0,0,True,1,False,0,122,0,True,False,True,,,65.9,0.0
+1,76561199439006197,chesnuj,CT,False,900,300,1,1,1,0,True,1,False,0,137,37,False,False,True,,,40.0,0.0
+1,76561199835968022,Sladkiy,CT,False,500,700,0,0,0,0,True,1,False,0,24,24,False,False,False,,,27.5,0.0
+2,76561198082951038,Patience~,T,False,3500,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,15.8,300.0
+2,76561198186516407,✞Kniv Knivsson✞,CT,True,1100,1450,0,0,0,0,False,0,False,0,0,0,False,False,True,,,35.1,
+2,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,True,2450,200,0,0,0,0,True,1,False,0,26,0,False,False,False,,,18.7,0.0
+2,76561198224597632,Master Baiter,CT,True,3400,400,2,1,0,0,False,0,False,1,114,0,False,False,True,,,35.1,
+2,76561198382673172,Zattocat,T,False,3400,750,0,0,0,0,True,1,True,0,0,0,False,False,True,,,18.6,800.0
+2,76561198618681421,Serega,T,False,3900,200,1,1,0,0,True,1,True,1,74,0,False,False,True,,,25.4,0.0
+2,76561199062792647,weedsm0k3r.exe,T,False,4400,300,2,2,1,0,True,1,False,1,226,0,False,False,True,,,33.1,500.0
+2,76561199257115106,Schrödinger =^·ω·^=,T,False,4200,200,0,0,0,0,True,1,False,0,12,0,False,False,False,2.0,False,35.1,300.0
+2,76561199439006197,chesnuj,CT,True,2750,200,1,0,1,0,True,1,True,0,81,0,False,False,True,,,23.0,300.0
+2,76561199835968022,Sladkiy,CT,True,2750,300,2,1,2,0,True,1,True,1,274,25,True,False,True,,,30.2,0.0
+3,76561198082951038,Patience~,T,True,1200,450,4,0,0,0,False,0,False,0,397,0,False,False,True,,,54.8,
+3,76561198186516407,✞Kniv Knivsson✞,CT,False,5200,1450,0,0,0,0,True,1,False,0,6,0,False,False,False,3.0,False,54.8,0.0
+3,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,False,3650,250,0,0,0,0,True,1,False,0,7,7,False,True,False,,,19.3,0.0
+3,76561198224597632,Master Baiter,CT,False,5600,7300,0,0,1,0,True,1,False,0,115,115,False,False,True,,,22.9,200.0
+3,76561198382673172,Zattocat,T,True,2150,400,0,0,0,0,False,0,False,0,0,0,False,False,True,,,54.8,
+3,76561198618681421,Serega,T,True,1700,900,1,1,0,0,False,0,False,0,100,0,True,False,True,,,54.8,
+3,76561199062792647,weedsm0k3r.exe,T,True,2000,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,32.4,300.0
+3,76561199257115106,Schrödinger =^·ω·^=,T,True,1350,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,35.8,0.0
+3,76561199439006197,chesnuj,CT,False,4100,400,0,0,0,0,True,1,False,0,46,0,False,False,False,,,32.1,0.0
+3,76561199835968022,Sladkiy,CT,False,4600,3700,1,0,0,0,True,1,False,0,77,0,False,False,True,,,40.8,200.0
+4,76561198082951038,Patience~,T,True,5600,5600,2,1,0,1,False,0,False,0,183,0,False,False,True,,,35.6,
+4,76561198186516407,✞Kniv Knivsson✞,CT,False,600,1250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,17.2,0.0
+4,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,False,850,1750,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.7,0.0
+4,76561198224597632,Master Baiter,CT,False,2500,2900,0,0,0,0,True,1,False,0,133,44,False,False,False,,,15.0,0.0
+4,76561198382673172,Zattocat,T,True,2800,3650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,35.6,
+4,76561198618681421,Serega,T,True,5400,7650,1,0,0,0,False,0,False,0,117,17,False,False,True,,,35.6,
+4,76561199062792647,weedsm0k3r.exe,T,True,3500,250,2,1,0,0,False,0,False,0,199,0,True,False,True,,,35.6,
+4,76561199257115106,Schrödinger =^·ω·^=,T,True,3400,1800,0,0,0,0,False,0,False,0,0,0,False,False,True,,,35.6,
+4,76561199439006197,chesnuj,CT,False,600,1300,0,0,0,0,True,1,False,0,0,0,False,False,False,5.0,False,35.6,0.0
+4,76561199835968022,Sladkiy,CT,False,200,2100,0,0,0,0,True,1,False,0,34,0,False,False,False,,,14.0,0.0
+5,76561198082951038,Patience~,T,False,5600,9850,1,0,0,0,True,1,False,0,100,0,False,False,True,,,59.5,0.0
+5,76561198186516407,✞Kniv Knivsson✞,CT,True,800,2350,3,1,0,0,False,0,False,1,182,0,False,False,True,2.0,True,63.9,
+5,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,True,3650,200,1,0,1,0,True,1,False,1,61,57,False,False,True,,,51.2,0.0
+5,76561198224597632,Master Baiter,CT,True,4100,400,0,0,0,0,True,1,False,0,24,0,False,False,False,,,34.0,0.0
+5,76561198382673172,Zattocat,T,False,3400,6850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,29.6,600.0
+5,76561198618681421,Serega,T,False,5500,10700,1,1,0,0,True,1,False,0,105,5,False,False,True,,,43.9,700.0
+5,76561199062792647,weedsm0k3r.exe,T,False,4200,5650,1,0,0,0,True,1,False,0,100,0,True,False,True,,,30.6,300.0
+5,76561199257115106,Schrödinger =^·ω·^=,T,False,5400,3950,1,1,0,0,True,1,False,0,100,0,False,False,True,1.0,False,63.9,300.0
+5,76561199439006197,chesnuj,CT,True,3150,950,1,1,1,0,True,1,True,0,136,0,False,False,True,,,57.2,0.0
+5,76561199835968022,Sladkiy,CT,True,2750,1450,0,0,1,0,True,1,True,0,91,79,False,True,True,,,27.8,0.0
+6,76561198082951038,Patience~,T,True,5000,2250,1,0,0,0,False,0,False,0,100,0,False,False,True,,,37.6,
+6,76561198186516407,✞Kniv Knivsson✞,CT,False,5600,5250,0,0,1,0,True,1,False,0,48,48,False,False,True,,,29.9,0.0
+6,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,False,3950,250,0,0,0,0,True,1,False,0,19,0,False,True,False,,,17.3,800.0
+6,76561198224597632,Master Baiter,CT,False,5200,1600,2,0,0,0,True,1,False,0,157,29,False,False,True,2.0,False,37.6,200.0
+6,76561198382673172,Zattocat,T,True,3400,2650,0,0,1,0,True,1,True,0,94,0,False,False,True,,,20.8,800.0
+6,76561198618681421,Serega,T,True,5950,2050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.7,0.0
+6,76561199062792647,weedsm0k3r.exe,T,True,4100,250,2,2,0,0,True,1,False,1,103,0,True,False,True,,,29.0,0.0
+6,76561199257115106,Schrödinger =^·ω·^=,T,True,1700,1050,2,2,0,0,False,0,False,0,200,0,False,False,True,,,37.6,
+6,76561199439006197,chesnuj,CT,False,3150,1100,1,0,0,0,True,1,False,0,62,0,False,False,True,,,21.8,0.0
+6,76561199835968022,Sladkiy,CT,False,4600,550,0,0,1,0,True,1,False,0,99,0,False,False,True,,,36.5,400.0
+7,76561198082951038,Patience~,T,True,5100,7650,3,2,0,0,False,0,False,0,299,0,False,False,True,3.0,True,85.2,
+7,76561198186516407,✞Kniv Knivsson✞,CT,False,800,2700,1,0,0,0,True,1,False,0,101,1,False,False,True,,,52.7,0.0
+7,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,False,850,1800,0,0,0,0,True,1,False,0,27,0,False,False,False,1.0,False,85.2,0.0
+7,76561198224597632,Master Baiter,CT,False,3750,200,0,0,1,0,True,1,False,0,79,0,False,False,True,,,12.6,0.0
+7,76561198382673172,Zattocat,T,True,4700,1400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,39.0,300.0
+7,76561198618681421,Serega,T,True,6350,3900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,37.5,400.0
+7,76561199062792647,weedsm0k3r.exe,T,True,4100,200,1,1,0,0,True,1,False,0,100,0,True,False,True,,,11.1,0.0
+7,76561199257115106,Schrödinger =^·ω·^=,T,True,5600,9300,1,1,0,0,True,1,False,0,100,0,False,False,True,,,49.3,500.0
+7,76561199439006197,chesnuj,CT,False,3900,700,3,0,0,0,True,1,False,1,159,0,False,False,True,,,76.5,0.0
+7,76561199835968022,Sladkiy,CT,False,2100,200,0,0,1,0,True,1,True,0,87,0,False,True,True,,,10.9,0.0
+8,76561198082951038,Patience~,T,False,5100,5850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,18.5,1200.0
+8,76561198186516407,✞Kniv Knivsson✞,CT,True,5000,300,0,0,0,0,True,1,True,0,23,0,False,False,True,,,64.7,0.0
+8,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,True,3750,350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,9.6,300.0
+8,76561198224597632,Master Baiter,CT,True,1700,600,2,0,0,0,False,0,False,1,176,0,False,False,True,,,79.4,
+8,76561198382673172,Zattocat,T,False,3400,1450,0,0,0,0,True,1,True,0,0,0,False,False,True,,,39.2,600.0
+8,76561198618681421,Serega,T,False,5950,1400,2,0,0,0,True,1,False,1,241,0,False,False,True,,,69.1,300.0
+8,76561199062792647,weedsm0k3r.exe,T,False,5100,1650,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,79.4,1000.0
+8,76561199257115106,Schrödinger =^·ω·^=,T,False,5100,2550,1,1,0,0,True,1,False,0,100,0,True,False,True,,,51.7,1200.0
+8,76561199439006197,chesnuj,CT,True,2450,1750,1,1,0,0,False,0,False,0,97,0,False,False,True,,,79.4,
+8,76561199835968022,Sladkiy,CT,True,300,400,1,0,0,0,True,1,False,0,100,0,False,False,True,,,41.7,0.0
+9,76561198186516407,✞Kniv Knivsson✞,CT,True,700,3300,1,0,0,0,True,1,False,0,100,0,False,False,True,,,20.6,0.0
+9,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,True,3750,300,1,0,1,0,False,0,False,0,133,26,False,False,True,,,38.6,
+9,76561198224597632,Master Baiter,CT,True,7650,8050,0,0,0,0,False,0,False,0,0,0,False,False,True,,,38.6,
+9,76561198382673172,Zattocat,T,False,2750,300,0,0,0,0,True,1,False,0,18,0,False,False,False,4.0,False,38.6,500.0
+9,76561198618681421,Serega,T,False,700,3000,1,0,0,0,True,1,False,1,22,0,False,False,True,,,34.5,300.0
+9,76561199062792647,weedsm0k3r.exe,T,False,700,3050,0,0,0,0,True,1,False,0,0,0,False,True,False,,,17.1,0.0
+9,76561199257115106,Schrödinger =^·ω·^=,T,False,4200,4250,0,0,1,0,True,1,True,0,77,0,False,False,True,,,19.2,300.0
+9,76561199439006197,chesnuj,CT,True,5600,8450,0,0,1,0,False,0,False,0,76,76,False,False,True,,,38.6,
+9,76561199835968022,Sladkiy,CT,True,5800,3100,2,1,0,0,False,0,False,0,87,0,True,False,True,,,38.6,
+10,76561198186516407,✞Kniv Knivsson✞,CT,True,6650,200,1,0,0,0,False,0,False,0,100,0,False,False,True,,,75.1,
+10,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,True,5000,7250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,38.1,0.0
+10,76561198224597632,Master Baiter,CT,True,8150,10100,0,0,0,0,False,0,False,0,0,0,False,False,True,,,75.1,
+10,76561198382673172,Zattocat,T,False,1850,350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,22.4,300.0
+10,76561198618681421,Serega,T,False,4400,300,0,0,0,0,True,1,False,0,0,0,False,False,False,3.0,False,75.1,0.0
+10,76561199062792647,weedsm0k3r.exe,T,False,3900,350,1,1,0,0,True,1,False,0,152,0,False,False,True,,,63.5,0.0
+10,76561199257115106,Schrödinger =^·ω·^=,T,False,1700,450,1,0,0,0,True,1,False,0,100,0,False,False,True,,,34.9,0.0
+10,76561199439006197,chesnuj,CT,True,5600,11000,2,0,0,0,True,1,True,1,198,18,True,False,True,,,34.0,1000.0
+10,76561199835968022,Sladkiy,CT,True,5800,12350,1,1,0,0,False,0,False,0,99,0,False,False,True,,,75.1,
+11,76561198186516407,✞Kniv Knivsson✞,CT,True,7850,9000,0,0,0,0,False,0,False,0,0,0,False,False,True,,,38.3,
+11,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,True,5200,1700,0,0,0,0,False,0,False,0,20,20,False,False,True,,,38.3,
+11,76561198224597632,Master Baiter,CT,True,8150,13750,3,0,0,0,False,0,False,0,213,0,False,False,True,,,38.3,
+11,76561198382673172,Zattocat,T,False,3050,900,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,38.3,200.0
+11,76561198618681421,Serega,T,False,3400,500,0,0,0,0,True,1,False,0,25,1,False,False,False,,,36.2,0.0
+11,76561199062792647,weedsm0k3r.exe,T,False,3900,350,1,1,0,0,True,1,False,0,123,0,True,False,True,,,25.1,0.0
+11,76561199257115106,Schrödinger =^·ω·^=,T,False,4100,250,0,0,0,0,True,1,False,0,52,0,False,False,False,,,28.0,200.0
+11,76561199439006197,chesnuj,CT,True,5600,8250,0,0,0,0,True,1,False,0,20,20,False,True,False,,,18.3,500.0
+11,76561199835968022,Sladkiy,CT,True,5800,11200,1,0,1,0,False,0,False,0,142,0,False,False,True,,,38.3,
+12,76561198082951038,Patience~,T,True,5100,3150,3,2,0,0,False,0,False,2,240,1,False,False,True,2.0,True,89.9,
+12,76561198186516407,✞Kniv Knivsson✞,CT,False,8050,13450,1,0,0,0,True,1,False,0,100,0,False,False,True,,,32.9,400.0
+12,76561198194381569,ПО[Ж]Е[Ж]НИК,CT,False,5200,9050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,23.7,300.0
+12,76561198224597632,Master Baiter,CT,False,7850,17700,2,0,0,0,True,1,False,0,200,0,False,False,True,,,86.7,400.0
+12,76561198382673172,Zattocat,T,True,3400,600,1,0,0,0,True,1,True,0,99,0,False,False,True,,,86.4,0.0
+12,76561198618681421,Serega,T,True,2900,700,1,0,0,0,True,1,False,0,46,0,False,False,True,,,64.0,200.0
+12,76561199062792647,weedsm0k3r.exe,T,True,5100,1350,0,0,1,0,True,1,True,0,59,0,False,False,True,,,31.8,1000.0
+12,76561199257115106,Schrödinger =^·ω·^=,T,True,5600,1450,0,0,1,0,True,1,False,0,54,0,False,True,True,,,23.2,500.0
+12,76561199439006197,chesnuj,CT,False,5800,6100,1,0,0,0,True,1,False,0,99,0,True,False,True,,,37.8,1100.0
+12,76561199835968022,Sladkiy,CT,False,5800,14900,0,0,0,0,True,1,False,0,0,0,False,False,False,1.0,False,89.9,800.0
+13,76561198082951038,Patience~,CT,True,900,300,1,1,1,0,False,0,False,0,144,0,False,False,True,,,70.0,
+13,76561198186516407,✞Kniv Knivsson✞,T,False,200,1000,1,1,0,0,True,1,False,0,154,0,False,False,True,,,51.8,0.0
+13,76561198194381569,ПО[Ж]Е[Ж]НИК,T,False,850,300,0,0,1,0,True,1,False,0,54,0,False,False,True,2.0,False,64.0,0.0
+13,76561198224597632,Master Baiter,T,False,850,350,1,1,0,0,True,1,False,1,55,0,False,False,True,,,17.9,0.0
+13,76561198382673172,Zattocat,CT,True,600,600,0,0,0,0,True,1,False,0,0,0,False,True,False,,,11.1,400.0
+13,76561198618681421,Serega,CT,True,850,350,1,1,0,0,True,1,True,0,123,0,False,False,True,,,13.0,0.0
+13,76561199062792647,weedsm0k3r.exe,CT,True,900,300,3,2,0,0,False,0,False,1,221,0,False,False,True,,,70.0,
+13,76561199257115106,Schrödinger =^·ω·^=,CT,True,850,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,34.1,0.0
+13,76561199439006197,chesnuj,T,False,700,500,1,0,0,0,True,1,False,0,29,29,True,False,True,,,58.7,0.0
+13,76561199835968022,Sladkiy,T,False,500,700,0,0,1,0,True,1,True,0,71,71,False,False,True,,,11.6,0.0
+14,76561198082951038,Patience~,CT,False,3550,1650,1,1,0,0,True,1,False,0,151,0,False,False,True,5.0,False,47.8,300.0
+14,76561198186516407,✞Kniv Knivsson✞,T,True,2100,2100,0,0,0,0,True,1,False,0,0,0,False,False,False,,,38.5,0.0
+14,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,2750,250,1,0,0,0,False,0,False,0,40,0,False,False,True,,,47.8,
+14,76561198224597632,Master Baiter,T,True,3000,350,1,0,0,0,False,0,False,0,100,0,False,False,True,,,47.8,
+14,76561198382673172,Zattocat,CT,False,3400,4350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,20.3,300.0
+14,76561198618681421,Serega,CT,False,4400,200,0,0,0,0,True,1,False,0,68,0,False,True,False,,,12.6,0.0
+14,76561199062792647,weedsm0k3r.exe,CT,False,5800,1050,0,0,0,0,True,1,False,0,71,0,False,False,False,,,21.5,700.0
+14,76561199257115106,Schrödinger =^·ω·^=,CT,False,4100,1200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,13.6,0.0
+14,76561199439006197,chesnuj,T,True,4400,1050,2,1,2,0,False,0,False,0,330,0,True,False,True,,,47.8,
+14,76561199835968022,Sladkiy,T,True,3150,250,1,0,0,0,False,0,False,0,10,0,False,False,True,,,47.8,
+15,76561198082951038,Patience~,CT,False,1000,2050,0,0,0,0,True,1,False,0,5,5,False,False,False,,,45.7,0.0
+15,76561198186516407,✞Kniv Knivsson✞,T,True,4600,750,0,0,0,0,True,1,False,0,0,0,False,False,False,,,30.6,0.0
+15,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,3450,4700,2,2,0,0,False,0,False,0,163,14,True,False,True,,,47.0,
+15,76561198224597632,Master Baiter,T,True,5300,6600,1,0,1,0,False,0,False,0,128,30,False,False,True,,,47.0,
+15,76561198382673172,Zattocat,CT,False,1750,850,0,0,0,0,True,1,False,0,46,0,False,True,False,,,25.9,200.0
+15,76561199062792647,weedsm0k3r.exe,CT,False,800,1000,1,1,0,0,True,1,False,0,100,0,False,False,True,,,42.8,0.0
+15,76561199257115106,Schrödinger =^·ω·^=,CT,False,1350,300,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,47.0,0.0
+15,76561199439006197,chesnuj,T,True,5300,7900,0,0,0,0,False,0,False,0,0,0,False,False,True,,,47.0,
+15,76561199835968022,Sladkiy,T,True,5300,7400,1,1,0,0,False,0,False,0,100,0,False,False,True,,,47.0,
+16,76561198082951038,Patience~,CT,False,3950,250,1,0,0,0,True,1,True,0,99,0,True,False,True,,,13.1,0.0
+16,76561198186516407,✞Kniv Knivsson✞,T,True,4200,300,2,0,0,0,False,0,False,0,104,0,False,False,True,,,49.4,
+16,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,3450,7500,0,0,0,0,True,1,True,0,0,0,False,True,True,,,12.7,700.0
+16,76561198224597632,Master Baiter,T,True,5800,9850,1,0,1,0,True,1,False,1,152,12,False,False,True,,,17.8,500.0
+16,76561198382673172,Zattocat,CT,False,2800,200,0,0,0,0,True,1,False,0,72,0,False,False,False,,,15.0,200.0
+16,76561199062792647,weedsm0k3r.exe,CT,False,3450,3250,1,1,0,1,True,1,False,1,99,0,False,False,True,,,22.9,500.0
+16,76561199257115106,Schrödinger =^·ω·^=,CT,False,1700,550,0,0,0,0,True,1,False,0,12,0,False,False,False,3.0,False,49.4,0.0
+16,76561199439006197,chesnuj,T,True,5800,10850,0,0,0,0,False,0,False,0,0,0,False,False,True,,,49.4,
+16,76561199835968022,Sladkiy,T,True,5600,10050,1,0,0,0,False,0,False,0,133,48,False,False,True,,,49.4,
+17,76561198082951038,Patience~,CT,False,4050,200,0,0,0,0,True,1,False,0,22,0,False,False,False,,,34.4,0.0
+17,76561198186516407,✞Kniv Knivsson✞,T,True,4200,7850,2,1,0,0,False,0,False,0,113,0,True,False,True,,,102.1,
+17,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,4900,3800,0,0,2,0,True,1,False,0,172,31,False,False,True,,,44.1,0.0
+17,76561198224597632,Master Baiter,T,True,5100,3900,0,0,0,0,False,0,False,0,0,0,False,False,True,,,102.1,
+17,76561198382673172,Zattocat,CT,False,3050,850,0,0,0,0,True,1,False,0,17,0,False,True,False,,,28.6,800.0
+17,76561199062792647,weedsm0k3r.exe,CT,False,4250,250,1,1,2,0,True,1,False,0,232,0,False,False,True,,,63.4,200.0
+17,76561199257115106,Schrödinger =^·ω·^=,CT,False,4050,3400,2,0,0,0,False,0,False,0,60,0,False,False,True,2.0,False,102.1,
+17,76561199439006197,chesnuj,T,True,5800,13500,0,0,0,0,True,1,False,0,71,0,False,False,False,,,49.0,0.0
+17,76561199835968022,Sladkiy,T,True,5600,12400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,50.9,0.0
+18,76561198082951038,Patience~,CT,False,3150,300,1,1,0,0,False,0,False,0,103,0,False,False,True,,,88.1,
+18,76561198186516407,✞Kniv Knivsson✞,T,True,5100,10100,0,0,1,0,True,1,False,0,107,54,False,False,True,,,42.4,0.0
+18,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,4900,2600,0,0,0,0,True,1,True,0,1,1,False,True,True,,,30.3,0.0
+18,76561198224597632,Master Baiter,T,True,5100,10300,1,0,0,0,False,0,False,0,100,0,False,False,True,,,88.1,
+18,76561198382673172,Zattocat,CT,False,2950,3250,0,0,0,0,True,1,False,0,24,0,False,False,False,,,54.6,600.0
+18,76561198618681421,Serega,CT,False,200,9150,0,0,0,0,False,0,False,0,0,0,False,False,True,,,88.1,
+18,76561199062792647,weedsm0k3r.exe,CT,False,3550,1350,0,0,0,0,True,1,False,0,59,1,False,False,False,,,33.5,0.0
+18,76561199257115106,Schrödinger =^·ω·^=,CT,False,5800,4800,1,1,0,0,True,1,False,0,109,10,True,False,True,,,31.3,0.0
+18,76561199439006197,chesnuj,T,True,5100,7300,0,0,1,0,False,0,False,0,76,10,False,False,True,,,88.1,
+18,76561199835968022,Sladkiy,T,True,5100,6800,2,1,0,0,False,0,False,1,79,0,False,False,True,,,88.1,
+19,76561198082951038,Patience~,CT,False,3750,2450,1,0,0,0,True,1,False,0,114,55,True,False,True,,,68.3,0.0
+19,76561198186516407,✞Kniv Knivsson✞,T,True,6950,2950,2,0,0,0,True,1,False,0,196,0,False,False,True,,,58.0,400.0
+19,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,4900,1400,0,0,0,0,True,1,False,0,3,3,False,True,False,,,18.9,0.0
+19,76561198224597632,Master Baiter,T,True,5100,13700,0,0,1,0,True,1,False,0,87,0,False,False,True,,,19.7,500.0
+19,76561198382673172,Zattocat,CT,False,4900,2850,0,0,0,0,True,1,False,0,3,3,False,False,False,,,19.4,800.0
+19,76561198618681421,Serega,CT,False,4900,2150,0,0,0,0,True,1,False,0,12,12,False,False,False,,,25.7,0.0
+19,76561199062792647,weedsm0k3r.exe,CT,False,5800,1050,2,2,0,0,True,1,False,0,134,0,False,False,True,2.0,False,76.9,300.0
+19,76561199257115106,Schrödinger =^·ω·^=,CT,False,5800,2150,0,0,1,0,True,1,False,0,65,0,False,False,True,,,33.4,1100.0
+19,76561199439006197,chesnuj,T,True,5100,13600,2,2,0,0,False,0,False,0,200,0,False,False,True,,,76.9,
+19,76561199835968022,Sladkiy,T,True,3900,14600,1,0,0,0,False,0,False,0,12,0,False,False,True,,,76.9,
+20,76561198082951038,Patience~,CT,False,4300,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,76.7,0.0
+20,76561198186516407,✞Kniv Knivsson✞,T,True,4700,1900,1,0,0,0,False,0,False,0,113,13,False,False,True,,,101.9,
+20,76561198194381569,ПО[Ж]Е[Ж]НИК,T,True,4600,250,0,0,1,0,True,1,False,0,83,83,False,False,True,,,59.5,0.0
+20,76561198224597632,Master Baiter,T,True,5100,7850,2,1,0,0,True,1,False,0,81,0,True,False,True,,,87.3,200.0
+20,76561198382673172,Zattocat,CT,False,3400,4000,1,0,0,0,True,1,False,0,100,0,False,False,True,3.0,False,101.9,0.0
+20,76561198618681421,Serega,CT,False,5600,300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,53.9,0.0
+20,76561199062792647,weedsm0k3r.exe,CT,False,5200,200,1,0,0,0,True,1,False,0,100,0,False,False,True,,,74.2,300.0
+20,76561199257115106,Schrödinger =^·ω·^=,CT,False,5600,700,1,0,0,0,True,1,False,0,100,0,False,False,True,,,76.2,0.0
+20,76561199439006197,chesnuj,T,True,5100,17450,0,0,1,0,True,1,False,0,27,0,False,False,True,,,54.2,900.0
+20,76561199835968022,Sladkiy,T,True,5100,17850,2,1,0,0,False,0,False,0,194,0,False,False,True,,,101.9,

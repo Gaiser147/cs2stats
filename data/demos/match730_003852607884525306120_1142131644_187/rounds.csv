@@ -1,0 +1,221 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198164686512,LiplessOrc,CT,True,600,1000,1,0,1,0,True,1,False,0,134,0,False,False,True,,,27.9,300.0
+1,76561198382673172,Zattocat,T,False,700,300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,15.5,0.0
+1,76561198616623297,xVUDEx,T,False,850,350,0,0,0,0,True,1,False,0,12,0,False,False,False,,,17.8,0.0
+1,76561198623372721,Halo,CT,True,850,350,0,0,0,0,True,1,False,0,16,0,False,False,False,,,25.2,0.0
+1,76561198805479519,SOOS,T,False,850,350,1,1,0,0,True,1,False,0,65,0,False,False,True,,,36.1,0.0
+1,76561199003520213,Stefano,CT,True,850,350,1,0,0,0,False,0,False,0,29,0,False,False,True,,,46.7,
+1,76561199111841194,Silver Sniffer,T,False,850,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,32.5,0.0
+1,76561199385469439,cheff1rr,CT,True,850,350,2,2,0,0,False,0,False,0,187,0,False,False,True,,,46.7,
+1,76561199501118432,YYoykk,CT,True,850,350,1,1,0,0,True,1,False,0,129,0,True,False,True,,,30.6,0.0
+1,76561199858155731,Zfunkeemonkee,T,False,850,1000,2,1,0,0,True,1,False,0,205,0,False,False,True,2.0,False,38.8,0.0
+2,76561198164686512,LiplessOrc,CT,True,3500,1150,0,0,0,0,True,1,True,0,0,0,False,False,True,,,32.4,500.0
+2,76561198382673172,Zattocat,T,False,1900,2150,1,0,0,0,True,1,False,0,22,0,False,False,True,2.0,False,78.0,0.0
+2,76561198616623297,xVUDEx,T,False,2600,450,0,0,1,0,True,1,False,0,199,0,False,False,True,,,40.9,0.0
+2,76561198623372721,Halo,CT,True,4100,200,2,2,0,0,False,0,False,0,106,0,False,False,True,1.0,True,84.7,
+2,76561198805479519,SOOS,T,False,1200,2450,0,0,0,0,True,1,True,0,14,0,False,False,True,,,22.9,0.0
+2,76561199003520213,Stefano,CT,True,4700,1150,1,0,0,0,True,1,False,1,122,0,False,False,True,,,54.5,0.0
+2,76561199111841194,Silver Sniffer,T,False,1700,1150,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.5,0.0
+2,76561199385469439,cheff1rr,CT,True,1800,4700,0,0,1,0,True,1,False,0,36,0,False,False,True,,,23.8,300.0
+2,76561199501118432,YYoykk,CT,True,4300,300,2,1,0,0,True,1,False,0,230,0,True,False,True,,,23.3,200.0
+2,76561199858155731,Zfunkeemonkee,T,False,2250,3450,2,0,1,0,True,1,False,1,187,0,False,False,True,,,35.2,0.0
+3,76561198164686512,LiplessOrc,CT,True,4800,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,39.3,300.0
+3,76561198382673172,Zattocat,T,False,4700,500,1,0,0,0,True,1,False,0,118,0,False,False,True,,,46.1,300.0
+3,76561198616623297,xVUDEx,T,False,3000,1250,0,0,1,0,True,1,False,0,77,0,False,False,True,2.0,False,108.0,300.0
+3,76561198623372721,Halo,CT,True,4500,8500,2,1,1,0,True,1,False,0,256,0,True,False,True,,,36.2,0.0
+3,76561198805479519,SOOS,T,False,4200,1450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,29.5,0.0
+3,76561199003520213,Stefano,CT,True,4100,350,2,1,0,0,False,0,False,0,108,0,False,False,True,,,108.0,
+3,76561199111841194,Silver Sniffer,T,False,2200,1950,2,1,0,0,True,1,False,0,148,0,False,False,True,,,102.6,0.0
+3,76561199385469439,cheff1rr,CT,True,5500,2500,1,0,0,0,False,0,False,0,99,0,False,False,True,,,108.0,
+3,76561199501118432,YYoykk,CT,True,4500,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,21.1,0.0
+3,76561199858155731,Zfunkeemonkee,T,False,4500,1300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,15.0,400.0
+4,76561198164686512,LiplessOrc,CT,True,3800,200,1,0,0,0,False,0,False,0,42,0,False,False,True,,,39.6,
+4,76561198382673172,Zattocat,T,False,3050,850,1,0,0,0,True,1,False,0,67,0,False,False,True,,,32.9,800.0
+4,76561198616623297,xVUDEx,T,False,3900,450,0,0,1,0,True,1,False,0,61,0,False,False,True,,,25.6,0.0
+4,76561198623372721,Halo,CT,True,5300,300,1,0,1,0,True,1,False,1,155,0,False,False,True,,,45.6,800.0
+4,76561198805479519,SOOS,T,False,2550,2000,0,0,1,0,True,1,False,0,31,0,False,False,True,,,17.5,0.0
+4,76561199003520213,Stefano,CT,True,5800,8350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,39.6,
+4,76561199111841194,Silver Sniffer,T,False,4400,1250,1,0,0,0,True,1,False,0,124,0,False,False,True,3.0,False,39.6,0.0
+4,76561199385469439,cheff1rr,CT,True,5100,11200,1,1,0,0,True,1,False,0,94,0,False,False,True,,,30.9,800.0
+4,76561199501118432,YYoykk,CT,True,5300,1650,2,1,0,0,True,1,True,0,197,0,True,False,True,,,30.2,300.0
+4,76561199858155731,Zfunkeemonkee,T,False,4000,4200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.8,0.0
+5,76561198164686512,LiplessOrc,CT,False,5300,9100,2,2,0,0,True,1,False,0,122,0,False,False,True,,,57.4,600.0
+5,76561198382673172,Zattocat,T,True,4350,400,1,1,0,0,False,0,False,0,100,0,False,False,True,,,76.2,
+5,76561198616623297,xVUDEx,T,True,3000,1050,3,2,0,0,False,0,False,1,204,0,False,False,True,,,76.2,
+5,76561198623372721,Halo,CT,False,4100,200,0,0,1,0,True,1,False,0,78,0,False,True,True,,,16.1,0.0
+5,76561198805479519,SOOS,T,True,3300,2300,1,1,0,0,True,1,False,0,99,0,True,False,True,,,45.1,0.0
+5,76561199003520213,Stefano,CT,False,5800,10250,0,0,0,0,True,1,False,0,0,0,False,False,False,3.0,False,76.2,1300.0
+5,76561199111841194,Silver Sniffer,T,True,4400,750,0,0,0,0,False,0,False,0,0,0,False,False,True,,,76.2,
+5,76561199385469439,cheff1rr,CT,False,5300,5200,0,0,0,0,True,1,False,0,28,0,False,False,False,,,59.7,800.0
+5,76561199501118432,YYoykk,CT,False,5300,5750,0,0,0,0,True,1,False,0,0,0,False,False,False,,,23.6,800.0
+5,76561199858155731,Zfunkeemonkee,T,True,3550,3600,0,0,1,0,True,1,True,0,94,0,False,False,True,,,55.6,0.0
+6,76561198164686512,LiplessOrc,CT,False,4750,1550,0,0,0,0,True,1,False,0,0,0,False,False,False,,,14.2,800.0
+6,76561198382673172,Zattocat,T,True,4900,6000,0,0,0,0,False,0,False,0,0,0,False,False,True,,,66.9,
+6,76561198616623297,xVUDEx,T,True,4900,8250,0,0,2,0,True,1,False,0,104,0,False,True,True,,,25.8,700.0
+6,76561198623372721,Halo,CT,False,3450,1500,1,0,0,0,True,1,False,0,145,0,True,False,True,,,55.8,300.0
+6,76561198805479519,SOOS,T,True,3300,2750,0,0,1,0,False,0,False,0,52,0,False,False,True,,,66.9,
+6,76561199003520213,Stefano,CT,False,6950,6950,0,0,0,0,True,1,False,0,1,1,False,False,False,4.0,False,66.9,300.0
+6,76561199111841194,Silver Sniffer,T,True,4700,7300,2,2,0,0,False,0,False,0,132,0,False,False,True,,,66.9,
+6,76561199385469439,cheff1rr,CT,False,3700,3200,0,0,0,0,True,1,False,0,158,22,False,False,False,,,47.2,500.0
+6,76561199501118432,YYoykk,CT,False,200,2150,0,0,0,0,True,1,False,0,15,0,False,False,False,,,50.7,300.0
+6,76561199858155731,Zfunkeemonkee,T,True,2850,1450,2,1,0,0,False,0,False,0,110,0,False,False,True,,,66.9,
+7,76561198164686512,LiplessOrc,CT,True,3500,2100,1,0,0,0,True,1,False,1,32,0,False,False,True,,,42.6,200.0
+7,76561198382673172,Zattocat,T,False,4900,9450,1,1,0,0,True,1,False,1,67,0,False,False,True,,,63.2,0.0
+7,76561198616623297,xVUDEx,T,False,3900,3600,0,0,1,0,True,1,True,0,116,0,False,False,True,,,37.2,0.0
+7,76561198623372721,Halo,CT,True,2850,800,0,0,1,0,True,1,True,0,65,0,False,True,True,,,24.8,0.0
+7,76561198805479519,SOOS,T,False,3300,7850,1,0,0,0,True,1,False,0,98,0,True,False,True,,,25.7,0.0
+7,76561199003520213,Stefano,CT,True,900,2150,0,0,0,0,False,0,False,0,16,0,False,False,True,,,145.8,
+7,76561199111841194,Silver Sniffer,T,False,6750,12150,1,0,0,0,True,1,False,0,100,0,False,False,True,2.0,False,143.9,0.0
+7,76561199385469439,cheff1rr,CT,True,2550,2800,2,1,1,0,False,0,False,0,253,0,False,False,True,,,145.8,
+7,76561199501118432,YYoykk,CT,True,4100,200,2,0,0,0,True,1,False,0,129,0,False,False,True,,,38.7,0.0
+7,76561199858155731,Zfunkeemonkee,T,False,5400,7250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,30.6,600.0
+8,76561198164686512,LiplessOrc,CT,True,3350,1100,1,0,0,0,False,0,False,0,99,0,False,False,True,,,39.0,
+8,76561198382673172,Zattocat,T,False,4700,3850,0,0,0,0,True,1,False,0,0,0,False,False,False,5.0,False,39.0,800.0
+8,76561198616623297,xVUDEx,T,False,3900,2900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,20.1,0.0
+8,76561198623372721,Halo,CT,True,4500,250,0,0,0,0,False,0,False,0,0,0,False,False,True,,,39.0,
+8,76561198805479519,SOOS,T,False,3300,5250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,11.3,0.0
+8,76561199003520213,Stefano,CT,True,5600,6300,0,0,0,0,False,0,False,0,0,0,False,False,True,,,39.0,
+8,76561199111841194,Silver Sniffer,T,False,4600,5100,0,0,0,0,True,1,False,0,0,0,False,False,False,,,20.0,0.0
+8,76561199385469439,cheff1rr,CT,True,6450,11700,3,0,0,0,False,0,False,0,300,0,True,False,True,,,39.0,
+8,76561199501118432,YYoykk,CT,True,4500,250,1,1,0,0,False,0,False,0,100,0,False,False,True,,,39.0,
+8,76561199858155731,Zfunkeemonkee,T,False,4800,2550,0,0,0,0,True,1,False,0,1,1,False,False,False,,,22.0,400.0
+9,76561198164686512,LiplessOrc,CT,True,3650,8050,1,1,0,0,True,1,False,0,99,0,True,False,True,,,17.5,800.0
+9,76561198382673172,Zattocat,T,False,4700,2250,0,0,0,0,True,1,False,0,81,0,False,False,False,,,24.6,800.0
+9,76561198616623297,xVUDEx,T,False,3900,2100,2,1,0,0,True,1,False,1,168,0,False,False,True,,,35.4,0.0
+9,76561198623372721,Halo,CT,True,4700,8250,1,0,0,0,True,1,True,0,80,0,False,False,True,,,31.2,0.0
+9,76561198805479519,SOOS,T,False,3700,4650,0,0,1,0,True,1,False,0,22,0,False,False,True,,,24.7,400.0
+9,76561199003520213,Stefano,CT,True,5600,12100,2,0,0,0,False,0,False,1,125,0,False,False,True,,,57.5,
+9,76561199111841194,Silver Sniffer,T,False,4600,3900,0,0,0,1,True,1,True,0,0,0,False,True,True,,,17.2,0.0
+9,76561199385469439,cheff1rr,CT,True,7200,14850,0,0,0,0,False,0,False,0,15,0,False,False,True,,,57.5,
+9,76561199501118432,YYoykk,CT,True,5600,6200,1,0,1,0,False,0,False,0,121,59,False,False,True,,,57.5,
+9,76561199858155731,Zfunkeemonkee,T,False,3050,1700,0,0,0,0,True,1,False,0,36,0,False,False,False,3.0,False,54.7,400.0
+10,76561198164686512,LiplessOrc,CT,False,5800,3650,0,0,0,0,True,1,False,0,85,0,False,False,False,,,16.2,1300.0
+10,76561198382673172,Zattocat,T,True,4700,1750,0,0,1,0,True,1,True,0,54,0,False,False,True,,,17.5,800.0
+10,76561198616623297,xVUDEx,T,True,3900,3000,2,1,1,0,True,1,False,1,179,0,False,False,True,,,49.3,300.0
+10,76561198623372721,Halo,CT,False,5500,2700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,40.7,1000.0
+10,76561198805479519,SOOS,T,True,2550,6300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.3,300.0
+10,76561199003520213,Stefano,CT,False,5800,15850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,57.1,1000.0
+10,76561199111841194,Silver Sniffer,T,True,4600,3200,1,1,0,0,False,0,False,0,100,0,False,False,True,,,64.4,
+10,76561199385469439,cheff1rr,CT,False,7200,18900,1,1,0,0,True,1,False,0,100,0,False,False,True,2.0,False,64.4,500.0
+10,76561199501118432,YYoykk,CT,False,5800,9800,2,1,0,0,True,1,False,0,199,0,True,False,True,,,22.4,1300.0
+10,76561199858155731,Zfunkeemonkee,T,True,5400,600,2,1,0,0,False,0,False,0,165,0,False,False,True,,,64.4,
+11,76561198164686512,LiplessOrc,CT,False,5000,400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.3,500.0
+11,76561198382673172,Zattocat,T,True,4700,500,0,0,0,1,True,1,False,0,0,0,False,False,False,,,95.7,0.0
+11,76561198616623297,xVUDEx,T,True,3900,3150,0,0,0,0,True,1,True,0,0,0,False,False,True,,,52.1,300.0
+11,76561198623372721,Halo,CT,False,4100,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.1,0.0
+11,76561198805479519,SOOS,T,True,3300,6450,2,1,0,0,False,0,False,0,191,0,False,False,True,,,114.8,
+11,76561199003520213,Stefano,CT,False,7650,4750,1,0,0,0,True,1,False,0,100,0,False,False,True,2.0,False,114.8,500.0
+11,76561199111841194,Silver Sniffer,T,True,6850,12250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,20.3,200.0
+11,76561199385469439,cheff1rr,CT,False,7150,6950,2,1,0,0,True,1,False,0,278,0,True,False,True,,,54.5,800.0
+11,76561199501118432,YYoykk,CT,False,5300,2050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,96.5,800.0
+11,76561199858155731,Zfunkeemonkee,T,True,5400,7850,3,1,0,0,False,0,False,1,299,0,False,False,True,,,114.8,
+12,76561198164686512,LiplessOrc,CT,False,2450,200,2,1,0,0,True,1,False,0,142,0,False,False,True,4.0,False,66.5,300.0
+12,76561198382673172,Zattocat,T,True,2200,2750,0,0,0,0,False,0,False,0,0,0,False,False,True,,,66.5,
+12,76561198616623297,xVUDEx,T,True,5100,1500,0,0,1,0,True,1,False,0,79,0,False,False,True,,,45.8,900.0
+12,76561198623372721,Halo,CT,False,300,2100,0,0,0,0,True,1,False,0,23,0,False,False,False,,,20.4,0.0
+12,76561198805479519,SOOS,T,True,6550,15850,1,0,0,0,True,1,False,0,100,0,True,False,True,,,15.5,300.0
+12,76561199003520213,Stefano,CT,False,6850,250,1,0,0,0,True,1,False,1,100,0,False,False,True,,,34.9,500.0
+12,76561199111841194,Silver Sniffer,T,True,7150,2300,2,1,0,0,False,0,False,0,146,0,False,False,True,,,66.5,
+12,76561199385469439,cheff1rr,CT,False,7850,2750,0,0,0,0,True,1,True,0,0,0,False,True,True,,,11.0,1300.0
+12,76561199501118432,YYoykk,CT,False,4100,200,0,0,1,0,True,1,False,0,50,0,False,False,True,,,12.6,0.0
+12,76561199858155731,Zfunkeemonkee,T,True,5400,10250,2,1,1,0,True,1,False,0,173,0,False,False,True,,,52.4,0.0
+13,76561198164686512,LiplessOrc,T,False,200,1000,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.0,0.0
+13,76561198382673172,Zattocat,CT,True,700,300,1,1,0,0,True,1,True,1,100,0,False,False,True,,,19.4,400.0
+13,76561198616623297,xVUDEx,CT,True,850,350,0,0,0,0,True,1,True,0,0,0,False,True,True,,,15.3,0.0
+13,76561198623372721,Halo,T,False,800,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,25.3,500.0
+13,76561198805479519,SOOS,CT,True,200,1000,1,1,0,0,False,0,False,0,100,0,False,False,True,,,56.2,
+13,76561199003520213,Stefano,T,False,800,700,1,1,0,0,True,1,False,1,66,0,False,False,True,,,22.3,200.0
+13,76561199111841194,Silver Sniffer,CT,True,850,350,1,1,0,0,False,0,False,0,41,0,False,False,True,,,56.2,
+13,76561199385469439,cheff1rr,T,False,850,350,1,1,1,0,True,1,True,0,112,0,True,False,True,,,17.1,0.0
+13,76561199501118432,YYoykk,T,False,500,500,0,0,0,0,True,1,False,0,75,0,False,False,False,3.0,False,56.2,400.0
+13,76561199858155731,Zfunkeemonkee,CT,True,850,350,2,2,1,0,False,0,False,1,238,0,False,False,True,,,56.2,
+14,76561198164686512,LiplessOrc,T,False,2900,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,29.3,0.0
+14,76561198382673172,Zattocat,CT,True,3200,1400,0,0,0,0,False,0,False,0,0,0,False,False,True,,,41.0,
+14,76561198616623297,xVUDEx,CT,True,2450,1600,0,0,1,0,True,1,False,0,82,0,False,False,True,,,21.1,0.0
+14,76561198623372721,Halo,T,False,700,1400,2,1,0,0,True,1,False,2,67,0,False,False,True,3.0,False,41.0,0.0
+14,76561198805479519,SOOS,CT,True,1500,3500,1,0,0,0,False,0,False,1,134,0,False,False,True,,,41.0,
+14,76561199003520213,Stefano,T,False,2250,2400,1,1,1,0,True,1,True,0,140,0,False,False,True,,,32.9,0.0
+14,76561199111841194,Silver Sniffer,CT,True,4300,1100,3,1,0,0,True,1,True,0,178,0,False,False,True,,,36.7,0.0
+14,76561199385469439,cheff1rr,T,False,1150,1400,0,0,1,0,True,1,True,0,75,0,False,False,True,,,34.2,0.0
+14,76561199501118432,YYoykk,T,False,200,2400,0,0,0,0,True,1,True,0,11,0,False,True,True,,,18.3,0.0
+14,76561199858155731,Zfunkeemonkee,CT,True,5000,950,1,1,0,0,True,1,False,0,99,0,True,False,True,,,22.6,0.0
+15,76561198164686512,LiplessOrc,T,True,2500,300,0,0,0,0,True,1,True,0,12,0,False,False,True,,,75.0,0.0
+15,76561198382673172,Zattocat,CT,False,3400,7000,0,0,0,0,True,1,False,0,57,0,False,False,False,,,38.8,0.0
+15,76561198616623297,xVUDEx,CT,False,4100,1200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.4,0.0
+15,76561198623372721,Halo,T,True,4400,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,25.0,500.0
+15,76561198805479519,SOOS,CT,False,4800,11100,0,0,0,0,True,1,False,0,24,0,False,False,False,,,42.3,300.0
+15,76561199003520213,Stefano,T,True,3300,1550,1,0,1,0,True,1,False,0,120,0,False,False,True,,,32.6,0.0
+15,76561199111841194,Silver Sniffer,CT,False,4100,750,4,1,0,0,True,1,False,1,396,0,True,False,True,2.0,False,79.8,0.0
+15,76561199385469439,cheff1rr,T,True,1500,2300,0,0,0,0,True,1,False,0,16,0,False,False,False,,,26.5,0.0
+15,76561199501118432,YYoykk,T,True,4700,4800,4,1,0,0,True,1,False,1,312,0,False,False,True,1.0,True,84.9,800.0
+15,76561199858155731,Zfunkeemonkee,CT,False,3750,350,0,0,0,0,True,1,True,0,0,0,False,False,True,,,29.0,0.0
+16,76561198164686512,LiplessOrc,T,False,3800,250,1,0,0,0,True,1,False,1,60,0,False,False,True,3.0,False,51.8,800.0
+16,76561198382673172,Zattocat,CT,True,2000,5850,1,0,0,0,False,0,False,0,99,0,False,False,True,,,51.8,
+16,76561198616623297,xVUDEx,CT,True,1700,1150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.5,0.0
+16,76561198623372721,Halo,T,False,3300,350,1,0,0,0,True,1,False,0,162,0,False,False,True,,,34.8,0.0
+16,76561198805479519,SOOS,CT,True,4100,8550,0,0,0,0,True,1,True,0,0,0,False,False,True,,,33.9,0.0
+16,76561199003520213,Stefano,T,False,3750,250,0,0,0,0,True,1,False,0,26,0,False,False,False,,,28.4,200.0
+16,76561199111841194,Silver Sniffer,CT,True,4100,2600,3,3,0,0,True,1,False,1,300,0,True,False,True,,,43.8,300.0
+16,76561199385469439,cheff1rr,T,False,2900,2850,0,0,0,0,True,1,True,0,99,0,False,False,True,,,40.0,0.0
+16,76561199501118432,YYoykk,T,False,4700,250,0,0,1,0,True,1,False,0,27,0,False,True,True,,,14.6,800.0
+16,76561199858155731,Zfunkeemonkee,CT,True,1300,1000,1,0,0,0,False,0,False,0,98,0,False,False,True,,,51.8,
+17,76561198164686512,LiplessOrc,T,False,2000,450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,26.3,400.0
+17,76561198382673172,Zattocat,CT,True,2000,9650,1,0,0,0,True,1,False,0,28,0,False,False,True,,,37.5,800.0
+17,76561198616623297,xVUDEx,CT,True,4100,750,0,0,1,0,True,1,False,0,44,0,False,True,True,,,17.9,0.0
+17,76561198623372721,Halo,T,False,2250,500,2,1,0,0,True,1,False,2,251,0,False,False,True,2.0,False,66.5,500.0
+17,76561198805479519,SOOS,CT,True,4400,3950,3,0,0,0,False,0,False,0,181,0,False,False,True,,,66.5,
+17,76561199003520213,Stefano,T,False,2100,2150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,60.3,0.0
+17,76561199111841194,Silver Sniffer,CT,True,5100,2200,1,1,1,0,True,1,False,0,175,0,False,False,True,,,24.7,500.0
+17,76561199385469439,cheff1rr,T,False,2550,2400,0,0,0,0,True,1,True,0,0,0,False,False,True,,,22.7,300.0
+17,76561199501118432,YYoykk,T,False,4200,850,1,0,1,0,True,1,True,0,159,0,True,False,True,,,36.6,0.0
+17,76561199858155731,Zfunkeemonkee,CT,True,5000,7600,0,0,1,0,False,0,False,0,54,0,False,False,True,,,66.5,
+18,76561198164686512,LiplessOrc,T,False,1700,1150,1,0,0,0,True,1,False,0,97,0,False,False,True,2.0,False,117.4,400.0
+18,76561198382673172,Zattocat,CT,True,4900,7550,4,2,0,0,False,0,False,0,171,0,False,False,True,,,115.0,
+18,76561198616623297,xVUDEx,CT,True,4100,350,0,0,1,0,True,1,False,0,59,0,False,False,True,,,67.8,300.0
+18,76561198623372721,Halo,T,False,3800,200,1,0,0,0,True,1,False,0,100,0,True,False,True,,,21.7,1300.0
+18,76561198805479519,SOOS,CT,True,4400,9350,1,0,1,0,True,1,False,1,107,0,False,False,True,,,52.7,300.0
+18,76561199003520213,Stefano,T,False,2600,2650,0,0,0,0,True,1,False,0,14,0,False,False,False,,,44.9,300.0
+18,76561199111841194,Silver Sniffer,CT,True,5000,1200,0,0,2,0,False,0,False,0,151,0,False,False,True,,,115.0,
+18,76561199385469439,cheff1rr,T,False,3850,1150,1,0,0,0,True,1,False,0,99,0,False,False,True,,,82.5,800.0
+18,76561199501118432,YYoykk,T,False,3500,250,0,0,0,0,True,1,False,0,27,0,False,False,False,,,43.5,300.0
+18,76561199858155731,Zfunkeemonkee,CT,True,6000,10150,0,0,0,0,True,1,True,0,0,0,False,True,True,,,19.3,700.0
+19,76561198164686512,LiplessOrc,T,True,1400,250,0,0,0,0,True,1,True,0,10,0,False,True,True,,,25.7,200.0
+19,76561198382673172,Zattocat,CT,False,4600,16050,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,116.5,700.0
+19,76561198616623297,xVUDEx,CT,False,2100,2150,0,0,0,0,True,1,False,0,32,0,False,False,False,,,39.1,500.0
+19,76561198623372721,Halo,T,True,3300,300,0,0,0,0,True,1,True,0,22,0,False,False,True,,,49.0,300.0
+19,76561198805479519,SOOS,CT,False,4400,4750,2,0,0,0,True,1,False,0,195,0,False,False,True,,,52.1,300.0
+19,76561199003520213,Stefano,T,True,3000,350,2,1,0,0,False,0,False,0,173,0,False,False,True,,,116.5,
+19,76561199111841194,Silver Sniffer,CT,False,5800,9100,1,1,0,0,True,1,False,0,150,0,True,False,True,,,29.1,1300.0
+19,76561199385469439,cheff1rr,T,True,3050,1700,3,1,0,0,False,0,False,2,219,2,False,False,True,,,116.5,
+19,76561199501118432,YYoykk,T,True,3000,350,0,0,1,0,True,1,False,0,69,0,False,False,True,,,38.5,0.0
+19,76561199858155731,Zfunkeemonkee,CT,False,5900,2950,0,0,0,0,True,1,False,0,26,0,False,False,False,,,65.8,1300.0
+20,76561198164686512,LiplessOrc,T,False,3500,200,2,1,0,0,True,1,False,0,125,0,False,False,True,,,52.7,500.0
+20,76561198382673172,Zattocat,CT,True,4900,13200,1,0,0,0,True,1,False,0,98,0,False,False,True,,,60.7,300.0
+20,76561198616623297,xVUDEx,CT,True,2850,1450,1,1,0,0,True,1,False,0,113,0,True,False,True,,,29.5,400.0
+20,76561198623372721,Halo,T,False,3500,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.7,500.0
+20,76561198805479519,SOOS,CT,True,4400,2700,1,1,1,0,True,1,True,0,151,0,False,False,True,,,50.3,300.0
+20,76561199003520213,Stefano,T,False,5300,7200,0,0,0,0,True,1,False,0,25,0,False,True,False,,,14.8,700.0
+20,76561199111841194,Silver Sniffer,CT,True,5950,200,1,0,0,0,False,0,False,1,5,0,False,False,True,,,126.5,
+20,76561199385469439,cheff1rr,T,False,5100,9850,1,1,2,0,True,1,False,0,98,20,False,False,True,3.0,False,113.0,600.0
+20,76561199501118432,YYoykk,T,False,3500,300,0,0,1,0,True,1,False,0,151,0,False,False,True,,,30.8,200.0
+20,76561199858155731,Zfunkeemonkee,CT,True,4400,300,1,1,0,0,False,0,False,0,94,0,False,False,True,,,126.5,
+21,76561198164686512,LiplessOrc,T,False,3700,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,42.6,500.0
+21,76561198382673172,Zattocat,CT,True,4900,12550,3,1,1,0,False,0,False,0,313,0,False,False,True,1.0,True,85.8,
+21,76561198616623297,xVUDEx,CT,True,4100,1900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,26.3,0.0
+21,76561198623372721,Halo,T,False,3000,450,1,1,0,0,True,1,False,0,100,0,False,False,True,,,28.6,0.0
+21,76561198805479519,SOOS,CT,True,4400,2550,0,0,0,0,True,1,False,0,0,0,False,True,False,,,17.3,300.0
+21,76561199003520213,Stefano,T,False,4500,3600,2,1,0,0,True,1,False,0,220,0,False,False,True,2.0,False,85.8,300.0
+21,76561199111841194,Silver Sniffer,CT,True,6650,8450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,23.0,0.0
+21,76561199385469439,cheff1rr,T,False,4750,4800,0,0,0,0,True,1,False,0,26,0,False,False,False,,,29.2,200.0
+21,76561199501118432,YYoykk,T,False,3200,300,1,1,0,0,True,1,False,0,101,0,True,False,True,,,23.0,200.0
+21,76561199858155731,Zfunkeemonkee,CT,True,6000,6000,2,1,0,0,True,1,False,0,147,2,False,False,True,,,72.0,1200.0
+22,76561198164686512,LiplessOrc,T,False,3200,200,1,0,0,0,True,1,False,0,100,0,False,False,True,,,56.4,200.0
+22,76561198382673172,Zattocat,CT,True,4400,16450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,25.5,500.0
+22,76561198616623297,xVUDEx,CT,True,5300,300,2,0,0,0,False,0,False,0,196,0,False,False,True,,,86.9,
+22,76561198623372721,Halo,T,False,3200,650,0,0,0,0,True,1,False,0,72,0,False,False,False,,,33.4,0.0
+22,76561198805479519,SOOS,CT,True,4400,6050,1,1,0,0,False,0,False,0,99,0,False,False,True,,,86.9,
+22,76561199003520213,Stefano,T,False,4600,5500,0,0,0,0,True,1,False,0,78,0,False,False,False,3.0,False,86.9,400.0
+22,76561199111841194,Silver Sniffer,CT,True,5950,450,0,0,0,0,True,1,False,0,0,0,False,True,False,,,17.9,0.0
+22,76561199385469439,cheff1rr,T,False,7450,250,1,1,1,0,True,1,False,0,100,0,True,False,True,,,40.5,900.0
+22,76561199501118432,YYoykk,T,False,3500,200,0,0,0,0,True,1,False,0,90,0,False,False,False,,,24.8,500.0
+22,76561199858155731,Zfunkeemonkee,CT,True,5100,6200,2,1,0,0,False,0,False,0,145,1,False,False,True,,,86.9,

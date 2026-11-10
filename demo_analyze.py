@@ -13,6 +13,12 @@ Usage:
   python3 demo_analyze.py analyze DEMO [--steamid ID] [--force]   # one demo, even if done before
   python3 demo_analyze.py report  [--steamid ID]                  # summary of all analysed demos
   python3 demo_analyze.py push                                    # commit + push data/demos/
+  python3 demo_analyze.py auto   [--steamid ID] [--no-push]
+      Fully automatic: update the Leetify match list, ask the CS2 game coordinator (through the
+      running Steam client, via tools/boiler/bin/boiler-writter) for the demo link of every recent
+      matchmaking match without demo stats, download, analyse, then commit and push. CS2 must be
+      closed (only one program per account can talk to the game coordinator), Steam must run.
+      Valve keeps demos for about a month; older matches are marked unavailable and skipped.
 
 Output per demo in data/demos/<demo name>/:
   match.json        metadata, score, per-player stats (all players), per-round summary
@@ -27,6 +33,12 @@ data/demos/index.json lists all analysed demos with the main numbers of the trac
 Requires: pip install demoparser2 pandas (see requirements.txt).
 """
 import argparse
+import bz2
+import re
+import shutil
+import urllib.error
+import urllib.request
+import zipfile
 import datetime as dt
 import json
 import math
@@ -44,6 +56,13 @@ OUT = os.path.join(ROOT, "data", "demos")
 DEFAULT_STEAM64 = "76561198382673172"
 REPLAYS = os.path.expanduser(
     "~/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/replays")
+CACHE = os.path.expanduser("~/.cache/cs2stats")
+DEMO_CACHE = os.path.join(CACHE, "demos")
+STATE = os.path.join(CACHE, "auto_state.json")
+BOILER = os.path.join(ROOT, "tools", "boiler", "bin", "boiler-writter")
+BOILER_RELEASE = ("https://github.com/akiver/boiler-writter/releases/download/v1.7.0/"
+                  "boiler-writter-linux-1.7.0.zip")
+DEMO_MAX_AGE_DAYS = 30
 TICK = 64
 TRADE_WINDOW = 5 * TICK          # a death counts as traded if the killer dies within 5 s
 BURST_GAP = 16                   # shots less than 0.25 s apart belong to the same burst
@@ -90,12 +109,19 @@ def ratio(a, b, digits=3):
 SHARE_ALPHABET = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefhijkmnopqrstuvwxyz23456789"
 
 
-def sharecode_ids(code):
+def decode_sharecode(code):
+    """Share code -> (match id, outcome/reservation id, token). The outcome id is the number in
+    the demo file name (match730_<outcome>_<tv port>_<server>.dem)."""
     n = 0
     for ch in reversed(code.removeprefix("CSGO-").replace("-", "")):
         n = n * 57 + SHARE_ALPHABET.index(ch)
     b = n.to_bytes(18, "big")
-    return {int.from_bytes(b[0:8], "little"), int.from_bytes(b[8:16], "little")}
+    return (int.from_bytes(b[0:8], "little"), int.from_bytes(b[8:16], "little"),
+            int.from_bytes(b[16:18], "little"))
+
+
+def sharecode_ids(code):
+    return set(decode_sharecode(code)[:2])
 
 
 def find_leetify_match(match_id, steam64):
@@ -156,10 +182,15 @@ def analyze(demo_path, steam64):
         prev_end = end
     if not rounds:
         raise RuntimeError("no completed rounds found")
-    round_ends = np.array([x["end"] for x in rounds])
+    # Events after round_end (bomb explosion, exit frags) still belong to that round: a round's
+    # window runs until the next round's freeze time ends, the last one until the demo ends.
+    for a, b in zip(rounds, rounds[1:]):
+        a["window_end"] = b["freeze_end"] - 1
+    rounds[-1]["window_end"] = 10 ** 12
+    window_ends = np.array([x["window_end"] for x in rounds])
 
     def round_of(tick):
-        i = int(np.searchsorted(round_ends, tick, side="left"))
+        i = int(np.searchsorted(window_ends, tick, side="left"))
         return i + 1 if i < len(rounds) and tick > rounds[i]["start"] else None
 
     # --- ticks (every tick, every player) ---
@@ -341,10 +372,14 @@ def analyze(demo_path, steam64):
                                                      "time_to_damage_ms", "time_to_shot_ms"])
 
     # --- grenades and flashes ---
-    blind = ev("player_blind", player=["team_num"])
+    blind = ev("player_blind", player=["team_num"]) if "player_blind" in names else pd.DataFrame()
+    if blind.empty:
+        blind = pd.DataFrame(columns=["tick", "attacker_steamid", "user_steamid", "attacker_team_num",
+                                      "user_team_num", "blind_duration"])
     blind = norm_ids(blind, ["attacker_steamid", "user_steamid"])
     blind["round"] = blind.tick.map(round_of)
-    blind = blind[blind["round"].notna() & blind.attacker_steamid.notna()]
+    blind = blind[blind["round"].notna() & blind.attacker_steamid.notna()].copy()
+    blind["blind_duration"] = blind.blind_duration.astype(float)
     blind["enemy"] = blind.attacker_team_num != blind.user_team_num
     blind["self"] = blind.attacker_steamid == blind.user_steamid
     gren_rows = []
@@ -367,7 +402,8 @@ def analyze(demo_path, steam64):
                 item["enemy_blind_s"] = r(b[b.enemy].blind_duration.sum(), 2)
                 item["teammates_blinded"] = int((~b.enemy & (b.blind_duration >= 1.1)).sum())
             gren_rows.append(item)
-    grenades = pd.DataFrame(gren_rows)
+    grenades = pd.DataFrame(gren_rows, columns=["round", "tick", "steamid", "type", "x", "y", "z",
+                                                "enemies_blinded", "enemy_blind_s", "teammates_blinded"])
 
     # unused utility at death
     inv_ticks = sorted({int(t) - 1 for t in kills.tick})
@@ -409,8 +445,10 @@ def analyze(demo_path, steam64):
                 continue
             team = side[(rd, s)]
             mk = rk[(rk.attacker_steamid == s) & rk.enemy_kill]
-            died = rk[rk.user_steamid == s]
-            assists = rk[(rk.assister_steamid == s) & rk.enemy_kill & (rk.attacker_steamid != s)]
+            # "world" suicides after the round ended (kill command, team switch) do not count, as on Leetify
+            died = rk[(rk.user_steamid == s) & ~(rk.suicide & (rk.weapon == "world") & (rk.tick > x["end"]))]
+            assists_all = rk[(rk.assister_steamid == s) & rk.enemy_kill & (rk.attacker_steamid != s)]
+            assists = assists_all[assists_all.assistedflash != True]   # flash assists counted separately
             dmg = hurt[(hurt["round"] == rd) & (hurt.attacker_steamid == s) & hurt.enemy]
             death_tick = int(died.tick.iloc[0]) if len(died) else None
             traded = bool(len(died) and died.traded.iloc[0])
@@ -420,8 +458,8 @@ def analyze(demo_path, steam64):
                 "round": rd, "steamid": s, "name": names_by_id[s], "side": "T" if team == 2 else "CT",
                 "won": x["winner"] == team, "equip_value": eq[0], "money_start": eq[1],
                 "kills": len(mk), "headshots": int(mk.headshot.sum()), "assists": len(assists),
-                "flash_assists": int((assists.assistedflash == True).sum()),
-                "died": bool(len(died)), "traded_death": traded,
+                "flash_assists": int((assists_all.assistedflash == True).sum()),
+                "died": bool(len(died)), "deaths": len(died), "traded_death": traded,
                 "trade_kills": int(mk.trade_kill.sum()), "damage": int(dmg.damage.sum()),
                 "utility_damage": int(dmg[dmg.utility].damage.sum()),
                 "opening_kill": bool(mk.opening.any()), "opening_death": bool(len(died) and died.opening.iloc[0]),
@@ -460,13 +498,14 @@ def analyze(demo_path, steam64):
         nr = len(pr)
         if not nr:
             continue
-        K, D, A = int(pr.kills.sum()), int(pr.died.sum()), int(pr.assists.sum())
+        K, D, A = int(pr.kills.sum()), int(pr.deaths.sum()), int(pr.assists.sum())
         mk = kills[(kills.attacker_steamid == s) & kills.enemy_kill]
         multi = pr.kills.value_counts().to_dict()
         kpr, dpr, apr = K / nr, D / nr, A / nr
         adr = pr.damage.sum() / nr
         kast = pr.kast.mean() * 100
-        surv = (nr - D) / nr
+        survived = int((~pr.died).sum())
+        surv = survived / nr
         rmk = sum(multi.get(i, 0) * i * i for i in range(1, 6)) / nr
         rating1 = (kpr / 0.679 + 0.7 * surv / 0.317 + rmk / 1.277) / 2.7
         impact = 2.13 * kpr + 0.42 * apr - 0.41
@@ -490,7 +529,7 @@ def analyze(demo_path, steam64):
             q = pr[pr.side == sd]
             if len(q):
                 sides[sd] = {"rounds": len(q), "won": int(q.won.sum()), "kills": int(q.kills.sum()),
-                             "deaths": int(q.died.sum()), "adr": r(q.damage.mean()),
+                             "deaths": int(q.deaths.sum()), "adr": r(q.damage.mean()),
                              "kast": r(q.kast.mean() * 100),
                              "opening_kills": int(q.opening_kill.sum()),
                              "opening_deaths": int(q.opening_death.sum())}
@@ -515,7 +554,7 @@ def analyze(demo_path, steam64):
                          "by_vs": {f"1v{n}": {"attempts": sum(1 for c in cl if c["vs"] == n),
                                               "won": sum(1 for c in cl if c["vs"] == n and c["won"])}
                                    for n in sorted({c["vs"] for c in cl})}},
-            "survival": {"rounds_survived": nr - D, "avg_time_alive_s": r(pr.survival_s.mean())},
+            "survival": {"rounds_survived": survived, "avg_time_alive_s": r(pr.survival_s.mean())},
             "kills_detail": {
                 "wallbang": int((mk.penetrated > 0).sum()), "through_smoke": int(mk.thrusmoke.sum()),
                 "while_blind": int(mk.attackerblind.sum()), "noscope": int(mk.noscope.sum()),
@@ -691,8 +730,8 @@ def git(*args):
     return subprocess.run(["git", "-C", ROOT, *args], check=True, capture_output=True, text=True).stdout
 
 
-def push(message):
-    git("add", "data/demos")
+def push(message, extra=()):
+    git("add", "data/demos", *extra)
     if not git("diff", "--cached", "--name-only").strip():
         print("nothing new to push")
         return
@@ -715,15 +754,188 @@ def report(steam64):
               f"strafe {it['counter_strafe_pct']}%")
 
 
+# ---------- automatic download (Leetify share codes -> game coordinator -> Valve replay server) ----------
+
+BOILER_CODES = {1: "fatal error", 2: "invalid arguments", 3: "game coordinator communication failure",
+                4: "already connected to the game coordinator (is CS2 running?)",
+                5: "Steam restart required", 6: "Steam not running or not logged in",
+                7: "Steam user not logged in (offline mode?)", 8: "match not found (demo expired?)",
+                9: "could not write output file"}
+
+
+def cs2_running():
+    return subprocess.run(["pgrep", "-f", "linuxsteamrt64/cs2"], capture_output=True).returncode == 0
+
+
+def load_state():
+    try:
+        return json.load(open(STATE, encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"unavailable": {}}
+
+
+def save_state(state):
+    os.makedirs(CACHE, exist_ok=True)
+    with open(STATE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=1)
+
+
+def install_boiler():
+    """Download the boiler-writter release (from CS Demo Manager's author) into tools/boiler/."""
+    print(f"downloading boiler-writter from {BOILER_RELEASE}")
+    os.makedirs(CACHE, exist_ok=True)
+    zpath = os.path.join(CACHE, "boiler-writter.zip")
+    with urllib.request.urlopen(BOILER_RELEASE, timeout=60) as r, open(zpath, "wb") as f:
+        shutil.copyfileobj(r, f)
+    with zipfile.ZipFile(zpath) as z:
+        z.extractall(os.path.join(ROOT, "tools", "boiler"))
+    os.remove(zpath)
+    os.chmod(BOILER, 0o755)
+
+
+def demo_url(code):
+    """Ask the game coordinator for the replay URL of one match. Returns (url, error)."""
+    match_id, outcome_id, token = decode_sharecode(code)
+    out = os.path.join(CACHE, "matchlist.bin")
+    os.makedirs(CACHE, exist_ok=True)
+    if os.path.exists(out):
+        os.remove(out)
+    bindir = os.path.dirname(BOILER)
+    env = dict(os.environ, LD_LIBRARY_PATH=bindir)
+    try:
+        p = subprocess.run([BOILER, out, str(match_id), str(outcome_id), str(token)], cwd=bindir, env=env,
+                           capture_output=True, text=True, timeout=90)
+    except subprocess.TimeoutExpired:
+        return None, "boiler-writter timed out"
+    if p.returncode != 0:
+        return None, BOILER_CODES.get(p.returncode, f"boiler-writter exit {p.returncode}")
+    urls = re.findall(rb"https?://replay\d+\.valve\.net/730/\d+_\d+\.dem\.bz2", open(out, "rb").read())
+    if not urls:
+        return None, "no demo link in the match info"
+    return urls[-1].decode(), None
+
+
+def download_demo(url):
+    """Download and unpack a .dem.bz2; returns the local .dem path named like CS2 names its demos."""
+    m = re.search(r"replay(\d+)\.valve\.net/730/(\d+)_(\d+)\.dem\.bz2", url)
+    name = f"match730_{m.group(2)}_{m.group(3)}_{m.group(1)}.dem"
+    os.makedirs(DEMO_CACHE, exist_ok=True)
+    path = os.path.join(DEMO_CACHE, name)
+    if os.path.exists(path):
+        return path
+    tmp = path + ".part"
+    req = urllib.request.Request(url, headers={"User-Agent": "cs2stats"})
+    with urllib.request.urlopen(req, timeout=60) as r, open(tmp, "wb") as f:
+        shutil.copyfileobj(bz2.BZ2File(r), f, 1 << 20)
+    os.replace(tmp, path)
+    return path
+
+
+def analysed_ids():
+    ids = set()
+    for name in os.listdir(OUT) if os.path.isdir(OUT) else []:
+        parts = name.split("_")
+        if name.startswith("match730_") and len(parts) > 1 and parts[1].isdigit():
+            ids.add(int(parts[1]))
+    return ids
+
+
+def auto(steam64, push_after=True):
+    import leetify_analyze
+    try:
+        leetify_analyze.fetch(steam64)
+    except Exception as e:
+        print(f"Leetify update failed ({e}); using the stored match list", file=sys.stderr)
+    hist_path = os.path.join(ROOT, "data", "leetify", steam64, "history.json")
+    history = json.load(open(hist_path, encoding="utf-8")) if os.path.exists(hist_path) else []
+    state = load_state()
+    done_ids = analysed_ids()
+    now = dt.datetime.now(dt.timezone.utc)
+    todo = []
+    for m in history:
+        code = m.get("data_source_match_id") or ""
+        if not code.startswith("CSGO-") or code in state["unavailable"]:
+            continue
+        try:
+            finished = dt.datetime.fromisoformat(m["finished_at"].replace("Z", "+00:00"))
+        except (KeyError, ValueError):
+            continue
+        if decode_sharecode(code)[1] in done_ids:
+            continue
+        if (now - finished).days > DEMO_MAX_AGE_DAYS:
+            continue
+        todo.append((finished, code, m))
+    todo.sort()
+    analysed = []
+    if todo and not os.path.exists(BOILER):
+        install_boiler()
+    for finished, code, m in todo:
+        label = f"{m.get('map_name')} {finished:%Y-%m-%d %H:%M}"
+        if cs2_running():
+            print("CS2 is running; demo download postponed to the next run")
+            break
+        url, err = demo_url(code)
+        if err:
+            print(f"{label}: {err}")
+            if "not found" in err or "no demo link" in err:
+                state["unavailable"][code] = {"reason": err, "checked": now.isoformat(timespec="seconds")}
+                continue
+            break   # Steam/GC problem: try again next run
+        try:
+            print(f"{label}: downloading {url}")
+            path = download_demo(url)
+        except urllib.error.HTTPError as e:
+            print(f"{label}: download failed (HTTP {e.code})")
+            if e.code in (403, 404):
+                state["unavailable"][code] = {"reason": f"HTTP {e.code}", "checked": now.isoformat(timespec="seconds")}
+            continue
+        except Exception as e:
+            print(f"{label}: download failed ({e})")
+            continue
+        try:
+            res = analyze(path, steam64)
+        except Exception as e:
+            print(f"{label}: analysis failed ({e})", file=sys.stderr)
+            continue
+        save(res, path)
+        print_summary(res, steam64)
+        analysed.append(res["meta"])
+    save_state(state)
+    prune_cache()
+    update_index(steam64)
+    if not todo:
+        print("no new matches with downloadable demos")
+    if push_after:
+        label = ", ".join(f"{m['map']} {((m.get('leetify') or {}).get('finished_at') or m['demo_mtime'])[:10]}"
+                          for m in analysed)
+        # Leetify data only when new matches came in (profile.json alone changes on every fetch)
+        changed = [l[3:] for l in git("status", "--porcelain", "data/leetify").splitlines()]
+        extra = ["data/leetify"] if any(not c.endswith("profile.json") for c in changed) else []
+        push(f"Demo stats: {label}" if analysed else "Leetify data update", extra=extra)
+
+
+def prune_cache(days=DEMO_MAX_AGE_DAYS):
+    if not os.path.isdir(DEMO_CACHE):
+        return
+    cutoff = dt.datetime.now().timestamp() - days * 86400
+    for f in os.listdir(DEMO_CACHE):
+        p = os.path.join(DEMO_CACHE, f)
+        if os.path.getmtime(p) < cutoff:
+            os.remove(p)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("command", choices=["sync", "analyze", "report", "push"])
+    ap.add_argument("command", choices=["sync", "analyze", "report", "push", "auto"])
     ap.add_argument("paths", nargs="*")
     ap.add_argument("--steamid", default=DEFAULT_STEAM64)
     ap.add_argument("--push", action="store_true", help="commit and push data/demos/ after sync")
+    ap.add_argument("--no-push", action="store_true", help="auto: do not commit and push")
     ap.add_argument("--force", action="store_true", help="re-analyse demos that were analysed before")
     a = ap.parse_args()
 
+    if a.command == "auto":
+        return auto(a.steamid, push_after=not a.no_push)
     if a.command == "report":
         return report(a.steamid)
     if a.command == "push":

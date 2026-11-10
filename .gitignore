@@ -4,3 +4,4 @@ __pycache__/
 .impeccable/hook.cache.json
 .venv/
 *.dem
+tools/boiler/

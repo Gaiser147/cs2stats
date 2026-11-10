@@ -1,0 +1,181 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561197988181968,+BoNuS^-,CT,True,850,350,1,1,1,0,False,0,False,0,170,0,False,False,True,,,68.1,
+1,76561198059360012,Slaik,T,False,850,350,0,0,1,0,True,1,True,0,141,0,False,False,True,,,48.8,0.0
+1,76561198382673172,Zattocat,CT,True,700,300,1,0,0,0,True,1,False,0,85,0,False,False,True,,,51.4,0.0
+1,76561198631279797,NoXcho,T,False,850,350,0,0,0,0,True,1,False,0,14,0,False,False,False,,,44.1,0.0
+1,76561198982797147,БАБУЛИК,CT,True,850,350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,18.6,0.0
+1,76561199001406923,AstaLavisTa,T,False,850,350,1,0,0,0,True,1,False,1,51,0,False,False,True,,,40.9,0.0
+1,76561199010569405,puryaew228,T,False,850,350,2,0,0,0,True,1,False,1,180,0,True,False,True,3.0,False,62.1,0.0
+1,76561199404907727,JAKE AB,CT,True,850,350,1,1,0,0,True,1,False,0,113,0,False,False,True,,,26.6,0.0
+1,76561199554681442,бомберКИСОК228,CT,True,1000,200,2,1,0,0,False,0,False,0,127,0,False,False,True,,,68.1,
+1,76561199847732882,V4NYAPLAY,T,False,200,1000,0,0,1,0,True,1,True,0,30,0,False,False,True,,,22.9,0.0
+2,76561197988181968,+BoNuS^-,CT,True,4700,850,0,0,0,0,True,1,False,0,0,0,False,False,False,,,44.6,0.0
+2,76561198059360012,Slaik,T,False,2550,1350,1,1,1,0,True,1,False,0,188,0,False,False,True,3.0,False,86.2,0.0
+2,76561198382673172,Zattocat,CT,True,2800,3150,1,0,1,0,False,0,False,0,139,0,False,False,True,,,99.5,
+2,76561198631279797,NoXcho,T,False,1700,1450,1,0,0,0,True,1,False,0,100,0,False,False,True,,,39.3,0.0
+2,76561198982797147,БАБУЛИК,CT,True,4100,200,2,0,0,0,False,0,False,0,73,0,False,False,True,,,99.5,
+2,76561199001406923,AstaLavisTa,T,False,1550,2650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,13.1,0.0
+2,76561199010569405,puryaew228,T,False,2250,1400,1,0,0,0,True,1,False,1,64,0,False,False,True,,,42.8,0.0
+2,76561199404907727,JAKE AB,CT,True,4100,500,0,0,1,0,True,1,False,0,83,0,False,False,True,,,32.2,0.0
+2,76561199554681442,бомберКИСОК228,CT,True,5050,700,2,0,0,0,True,1,False,0,163,0,True,False,True,,,13.5,0.0
+2,76561199847732882,V4NYAPLAY,T,False,2250,1450,0,0,1,0,True,1,True,0,35,0,False,True,True,,,12.4,0.0
+3,76561197988181968,+BoNuS^-,CT,False,3600,550,2,0,0,0,False,0,False,0,98,0,False,False,True,2.0,False,98.1,
+3,76561198059360012,Slaik,T,True,4600,1150,0,0,0,0,True,1,False,0,0,0,False,False,False,1.0,True,98.4,0.0
+3,76561198382673172,Zattocat,CT,False,3400,8000,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.3,800.0
+3,76561198631279797,NoXcho,T,True,4400,550,2,0,0,0,True,1,False,0,172,0,True,False,True,,,67.6,0.0
+3,76561198982797147,БАБУЛИК,CT,False,5800,6100,2,1,0,0,True,1,False,0,198,0,False,False,True,,,77.6,1000.0
+3,76561199001406923,AstaLavisTa,T,True,5100,750,2,0,0,0,True,1,False,1,174,4,False,False,True,,,84.6,0.0
+3,76561199010569405,puryaew228,T,True,4600,300,0,0,0,1,True,1,False,0,0,0,False,False,False,,,50.0,500.0
+3,76561199404907727,JAKE AB,CT,False,4100,350,0,0,1,0,True,1,False,0,96,0,False,False,True,,,21.9,0.0
+3,76561199554681442,бомберКИСОК228,CT,False,4500,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,20.9,0.0
+3,76561199847732882,V4NYAPLAY,T,True,3900,750,0,0,2,0,True,1,True,0,87,0,False,False,True,,,77.5,0.0
+4,76561197988181968,+BoNuS^-,CT,False,3600,4950,1,0,0,0,True,1,False,0,175,0,False,False,True,5.0,False,86.1,300.0
+4,76561198059360012,Slaik,T,True,4800,350,2,1,0,0,False,0,False,0,133,0,False,False,True,,,86.1,
+4,76561198382673172,Zattocat,CT,False,4900,2550,0,0,0,0,True,1,False,0,0,0,False,False,False,,,38.8,800.0
+4,76561198631279797,NoXcho,T,True,4500,350,1,0,1,0,False,0,False,0,132,0,True,False,True,,,86.1,
+4,76561198982797147,БАБУЛИК,CT,False,4450,200,0,0,1,0,True,1,False,0,78,1,False,False,True,,,40.3,0.0
+4,76561199001406923,AstaLavisTa,T,True,4700,350,1,0,0,0,True,1,False,0,65,0,False,False,True,,,65.9,0.0
+4,76561199010569405,puryaew228,T,True,3800,200,1,0,1,0,False,0,False,0,149,0,False,False,True,,,86.1,
+4,76561199404907727,JAKE AB,CT,False,1600,600,0,0,0,0,True,1,False,0,17,0,False,True,False,,,32.9,0.0
+4,76561199554681442,бомберКИСОК228,CT,False,1700,200,0,0,0,0,True,1,False,0,21,0,False,False,False,,,48.4,0.0
+4,76561199847732882,V4NYAPLAY,T,True,3200,1250,0,0,0,0,False,0,False,0,11,0,False,False,True,,,86.1,
+5,76561197988181968,+BoNuS^-,CT,False,4700,200,0,0,0,0,True,1,False,0,1,1,False,False,False,,,38.0,300.0
+5,76561198059360012,Slaik,T,True,5100,8000,3,1,0,0,True,1,False,0,207,0,True,False,True,,,56.2,0.0
+5,76561198382673172,Zattocat,CT,False,3000,1700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,43.7,0.0
+5,76561198631279797,NoXcho,T,True,4800,6700,1,0,2,0,False,0,False,0,86,46,False,False,True,,,80.1,
+5,76561198982797147,БАБУЛИК,CT,False,800,1650,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.7,300.0
+5,76561199001406923,AstaLavisTa,T,True,2000,3900,0,0,0,0,True,1,True,0,0,0,False,False,True,,,44.8,0.0
+5,76561199010569405,puryaew228,T,True,4700,3650,1,0,0,0,False,0,False,1,100,0,False,False,True,,,80.1,
+5,76561199404907727,JAKE AB,CT,False,2500,250,2,0,0,0,True,1,False,0,195,0,False,False,True,4.0,False,80.1,0.0
+5,76561199554681442,бомберКИСОК228,CT,False,2100,250,1,0,0,0,True,1,False,0,98,0,False,False,True,,,45.5,600.0
+5,76561199847732882,V4NYAPLAY,T,True,3200,7500,0,0,1,0,True,1,False,0,103,0,False,False,True,,,57.9,300.0
+6,76561197988181968,+BoNuS^-,CT,False,200,2750,0,0,0,0,True,1,False,0,33,0,False,False,False,,,36.8,0.0
+6,76561198059360012,Slaik,T,True,5000,3150,0,0,2,0,True,1,False,0,110,0,False,True,True,,,17.8,900.0
+6,76561198382673172,Zattocat,CT,False,3400,1050,0,0,1,0,True,1,False,0,30,0,False,False,True,,,63.7,0.0
+6,76561198631279797,NoXcho,T,True,4800,9950,0,0,1,0,True,1,True,0,27,0,False,False,True,,,64.5,400.0
+6,76561198982797147,БАБУЛИК,CT,False,3750,350,2,0,1,0,True,1,False,0,154,0,True,False,True,2.0,False,79.4,0.0
+6,76561199001406923,AstaLavisTa,T,True,5100,2250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.0,700.0
+6,76561199010569405,puryaew228,T,True,5100,7200,3,0,0,0,False,0,False,2,263,0,False,False,True,1.0,True,79.4,
+6,76561199404907727,JAKE AB,CT,False,4600,200,0,0,0,0,True,1,False,0,57,57,False,False,False,,,49.8,200.0
+6,76561199554681442,бомберКИСОК228,CT,False,3150,450,2,1,1,0,True,1,False,0,180,0,False,False,True,,,67.6,0.0
+6,76561199847732882,V4NYAPLAY,T,True,3900,4050,2,0,0,0,True,1,True,0,93,0,False,False,True,,,78.8,0.0
+7,76561197988181968,+BoNuS^-,CT,False,5100,950,0,0,1,0,True,1,False,0,58,0,False,False,True,,,31.0,600.0
+7,76561198059360012,Slaik,T,True,3700,2900,2,0,0,0,True,1,False,0,194,0,False,False,True,,,89.5,0.0
+7,76561198382673172,Zattocat,CT,False,2850,1500,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.8,0.0
+7,76561198631279797,NoXcho,T,True,6850,2550,1,0,0,0,True,1,True,0,100,0,False,False,True,,,31.5,900.0
+7,76561198982797147,БАБУЛИК,CT,False,4000,250,1,0,0,0,True,1,False,0,99,0,False,False,True,,,36.5,500.0
+7,76561199001406923,AstaLavisTa,T,True,5100,600,0,0,0,0,True,1,False,0,0,0,False,True,False,,,22.9,300.0
+7,76561199010569405,puryaew228,T,True,5100,10600,2,1,0,0,True,1,False,1,199,0,False,False,True,1.0,True,101.8,900.0
+7,76561199404907727,JAKE AB,CT,False,3300,200,2,0,0,0,True,1,False,1,55,0,False,False,True,3.0,False,100.3,300.0
+7,76561199554681442,бомберКИСОК228,CT,False,4400,250,1,0,1,0,True,1,True,0,182,0,True,False,True,,,86.7,300.0
+7,76561199847732882,V4NYAPLAY,T,True,6450,1650,0,0,0,0,True,1,False,0,0,0,False,False,False,,,92.5,500.0
+8,76561197988181968,+BoNuS^-,CT,False,4600,200,1,0,0,0,False,0,False,0,98,0,False,False,True,3.0,False,104.9,
+8,76561198059360012,Slaik,T,True,4800,2150,2,1,0,0,False,0,False,1,196,0,False,False,True,1.0,True,104.9,
+8,76561198382673172,Zattocat,CT,False,4500,5150,0,0,0,0,True,1,False,0,86,0,False,True,False,,,25.7,0.0
+8,76561198631279797,NoXcho,T,True,5800,300,0,0,0,0,True,1,True,0,0,0,False,False,True,,,77.0,0.0
+8,76561198982797147,БАБУЛИК,CT,False,4150,250,2,0,0,0,True,1,False,0,198,0,False,False,True,,,81.1,0.0
+8,76561199001406923,AstaLavisTa,T,True,3700,350,1,1,0,0,True,1,False,0,102,48,False,False,True,,,35.3,0.0
+8,76561199010569405,puryaew228,T,True,5100,5150,1,0,0,0,True,1,False,0,99,0,True,False,True,,,105.8,500.0
+8,76561199404907727,JAKE AB,CT,False,4150,500,0,0,0,0,True,1,False,0,0,0,False,False,False,,,31.5,0.0
+8,76561199554681442,бомберКИСОК228,CT,False,4150,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,30.2,50.0
+8,76561199847732882,V4NYAPLAY,T,True,3900,5200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,104.4,0.0
+9,76561197988181968,+BoNuS^-,CT,True,5200,4400,0,0,0,0,True,1,False,0,25,0,False,True,False,,,30.0,500.0
+9,76561198059360012,Slaik,T,False,5000,8500,2,1,0,0,True,1,False,0,115,0,True,False,True,3.0,False,92.0,400.0
+9,76561198382673172,Zattocat,CT,True,5300,2650,3,0,0,0,False,0,False,0,224,12,False,False,True,,,96.6,
+9,76561198631279797,NoXcho,T,False,6850,1900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,35.9,900.0
+9,76561198982797147,БАБУЛИК,CT,True,4150,500,1,0,1,0,True,1,False,0,146,0,False,False,True,,,59.2,0.0
+9,76561199001406923,AstaLavisTa,T,False,4100,250,0,0,1,0,True,1,False,0,143,0,False,False,True,,,58.3,0.0
+9,76561199010569405,puryaew228,T,False,7150,2000,1,0,0,0,True,1,False,0,100,0,False,False,True,,,58.0,1000.0
+9,76561199404907727,JAKE AB,CT,True,4100,200,0,0,1,0,True,1,True,0,27,0,False,False,True,,,56.3,0.0
+9,76561199554681442,бомберКИСОК228,CT,True,3650,400,1,0,0,0,False,0,False,1,71,0,False,False,True,,,96.6,
+9,76561199847732882,V4NYAPLAY,T,False,3900,1300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,53.5,0.0
+10,76561197988181968,+BoNuS^-,CT,False,3300,950,1,0,0,0,True,1,False,0,56,0,False,False,True,3.0,False,87.1,0.0
+10,76561198059360012,Slaik,T,True,4600,1250,1,1,1,0,True,1,False,0,125,0,True,False,True,,,20.3,500.0
+10,76561198382673172,Zattocat,CT,False,5300,9750,0,0,0,0,True,1,False,0,11,11,False,False,False,,,22.2,300.0
+10,76561198631279797,NoXcho,T,True,3900,200,3,1,0,0,False,0,False,0,272,0,False,False,True,,,87.1,
+10,76561198982797147,БАБУЛИК,CT,False,4500,250,0,0,0,0,True,1,True,0,0,0,False,True,True,,,18.9,0.0
+10,76561199001406923,AstaLavisTa,T,True,1200,1250,1,0,0,0,False,0,False,0,89,0,False,False,True,,,87.1,
+10,76561199010569405,puryaew228,T,True,4100,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,59.7,200.0
+10,76561199404907727,JAKE AB,CT,False,3950,200,1,0,0,0,True,1,False,1,99,0,False,False,True,,,28.6,0.0
+10,76561199554681442,бомберКИСОК228,CT,False,7550,10800,1,1,1,0,True,1,False,0,142,42,False,False,True,,,70.7,800.0
+10,76561199847732882,V4NYAPLAY,T,True,2250,3300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,74.5,0.0
+11,76561197988181968,+BoNuS^-,CT,True,4100,400,1,0,0,0,True,1,False,0,82,0,False,False,True,,,87.2,300.0
+11,76561198059360012,Slaik,T,False,4400,600,1,1,0,0,True,1,False,0,127,0,False,False,True,,,51.9,0.0
+11,76561198382673172,Zattocat,CT,True,4900,8500,0,0,2,0,True,1,True,0,129,75,False,False,True,,,48.6,300.0
+11,76561198631279797,NoXcho,T,False,5000,6300,2,0,1,0,True,1,False,0,190,36,False,False,True,2.0,False,115.7,300.0
+11,76561198982797147,БАБУЛИК,CT,True,3150,350,1,1,0,0,True,1,False,0,111,0,False,False,True,,,38.9,0.0
+11,76561199001406923,AstaLavisTa,T,False,7150,10550,1,0,0,0,True,1,False,0,81,42,True,False,True,,,48.2,600.0
+11,76561199010569405,puryaew228,T,False,3400,250,0,0,0,0,True,1,False,0,56,0,False,False,False,,,30.8,400.0
+11,76561199404907727,JAKE AB,CT,True,3400,350,3,0,0,0,False,0,False,1,138,0,False,False,True,1.0,True,115.0,
+11,76561199554681442,бомберКИСОК228,CT,True,5800,1800,0,0,0,0,True,1,False,0,37,0,False,True,False,,,11.3,800.0
+11,76561199847732882,V4NYAPLAY,T,False,3200,1500,0,0,0,0,True,1,False,0,0,0,False,False,False,,,28.1,0.0
+12,76561197988181968,+BoNuS^-,CT,False,4100,300,1,0,0,0,True,1,False,0,120,0,False,False,True,1.0,False,89.7,0.0
+12,76561198059360012,Slaik,T,True,2050,250,3,1,0,0,False,0,False,0,297,34,False,False,True,2.0,True,89.7,
+12,76561198382673172,Zattocat,CT,False,3400,7300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.0,300.0
+12,76561198631279797,NoXcho,T,True,3000,200,1,0,0,0,True,1,False,0,100,0,False,False,True,,,47.9,0.0
+12,76561198982797147,БАБУЛИК,CT,False,4100,250,1,1,0,0,True,1,False,0,156,0,False,False,True,,,35.4,0.0
+12,76561199001406923,AstaLavisTa,T,True,6250,250,1,0,0,0,True,1,False,0,100,0,True,False,True,,,40.8,0.0
+12,76561199010569405,puryaew228,T,True,1300,350,0,0,0,0,True,1,False,0,1,0,False,False,False,,,25.6,0.0
+12,76561199404907727,JAKE AB,CT,False,5400,5950,1,0,0,0,True,1,False,0,100,0,False,False,True,,,47.9,700.0
+12,76561199554681442,бомберКИСОК228,CT,False,5300,200,1,0,0,0,True,1,False,0,98,0,False,False,True,,,53.3,300.0
+12,76561199847732882,V4NYAPLAY,T,True,2900,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,32.6,0.0
+13,76561197988181968,+BoNuS^-,T,False,850,350,1,0,0,0,True,1,False,1,52,0,False,False,True,3.0,False,40.7,0.0
+13,76561198059360012,Slaik,CT,True,850,350,3,1,0,0,False,0,False,0,247,0,False,False,True,,,55.6,
+13,76561198382673172,Zattocat,T,False,300,700,0,0,0,0,True,1,False,0,30,0,False,False,False,,,26.7,0.0
+13,76561198631279797,NoXcho,CT,True,900,300,0,0,0,0,False,0,False,0,0,0,False,False,True,,,55.6,
+13,76561198982797147,БАБУЛИК,T,False,800,200,1,1,0,0,True,1,False,0,85,20,False,False,True,,,40.6,0.0
+13,76561199001406923,AstaLavisTa,CT,True,850,350,0,0,2,0,True,1,False,0,79,0,False,False,True,,,22.3,0.0
+13,76561199010569405,puryaew228,CT,True,850,350,1,0,0,0,False,0,False,0,70,0,False,False,True,,,55.6,
+13,76561199404907727,JAKE AB,T,False,850,350,0,0,2,0,True,1,False,0,116,0,False,False,True,,,33.6,0.0
+13,76561199554681442,бомберКИСОК228,T,False,1000,200,0,0,0,0,True,1,True,0,0,0,False,True,True,,,15.4,600.0
+13,76561199847732882,V4NYAPLAY,CT,True,200,1000,1,1,0,0,True,1,False,0,100,0,True,False,True,,,18.3,0.0
+14,76561197988181968,+BoNuS^-,T,False,3000,650,0,0,0,0,True,1,False,0,72,0,False,False,False,,,25.2,0.0
+14,76561198059360012,Slaik,CT,True,4850,2250,2,0,0,0,False,0,False,0,198,20,False,False,True,,,64.2,
+14,76561198382673172,Zattocat,T,False,2650,1150,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,64.2,0.0
+14,76561198631279797,NoXcho,CT,True,4000,1000,0,0,1,0,True,1,True,0,31,0,False,True,True,,,19.6,250.0
+14,76561198982797147,БАБУЛИК,T,False,2900,300,1,1,0,0,True,1,False,0,100,0,True,False,True,,,23.5,0.0
+14,76561199001406923,AstaLavisTa,CT,True,3950,350,2,0,0,0,False,0,False,1,166,0,False,False,True,,,64.2,
+14,76561199010569405,puryaew228,CT,True,5400,1000,0,0,0,0,False,0,False,0,0,0,False,False,True,,,64.2,
+14,76561199404907727,JAKE AB,T,False,2000,1050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,62.4,0.0
+14,76561199554681442,бомберКИСОК228,T,False,2650,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,19.7,400.0
+14,76561199847732882,V4NYAPLAY,CT,True,2900,2350,1,1,0,0,False,0,False,0,100,0,False,False,True,,,64.2,
+15,76561197988181968,+BoNuS^-,T,False,3000,250,0,0,0,0,True,1,False,0,22,0,False,False,False,,,43.8,0.0
+15,76561198059360012,Slaik,CT,True,5350,8350,2,0,0,0,False,0,False,0,145,0,False,False,True,,,83.3,
+15,76561198382673172,Zattocat,T,False,200,3150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,41.7,0.0
+15,76561198631279797,NoXcho,CT,True,2600,1400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,54.3,0.0
+15,76561198982797147,БАБУЛИК,T,False,2900,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,28.8,0.0
+15,76561199001406923,AstaLavisTa,CT,True,4850,5050,1,1,1,0,False,0,False,0,154,54,True,False,True,,,83.3,
+15,76561199010569405,puryaew228,CT,True,5900,7850,2,1,0,0,False,0,False,0,200,0,False,False,True,,,83.3,
+15,76561199404907727,JAKE AB,T,False,3400,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,26.5,300.0
+15,76561199554681442,бомберКИСОК228,T,False,2000,650,1,1,0,0,True,1,False,0,100,0,False,False,True,5.0,False,83.3,0.0
+15,76561199847732882,V4NYAPLAY,CT,True,3000,7950,0,0,0,0,False,0,False,0,0,0,False,False,True,,,83.3,
+16,76561197988181968,+BoNuS^-,T,True,3000,700,0,0,1,0,True,1,True,0,44,0,False,False,True,,,36.6,0.0
+16,76561198059360012,Slaik,CT,False,5350,11450,2,0,0,0,True,1,False,0,86,0,False,False,True,,,107.5,200.0
+16,76561198382673172,Zattocat,T,True,4400,1850,2,0,0,0,True,1,False,1,80,0,False,False,True,,,90.5,300.0
+16,76561198631279797,NoXcho,CT,False,4000,2900,1,0,0,0,True,1,True,1,36,0,False,False,True,,,86.1,0.0
+16,76561198982797147,БАБУЛИК,T,True,3100,300,1,1,1,0,True,1,False,0,169,0,True,False,True,,,36.0,0.0
+16,76561199001406923,AstaLavisTa,CT,False,5600,10300,0,0,1,0,True,1,True,0,62,10,False,True,True,,,33.7,500.0
+16,76561199010569405,puryaew228,CT,False,5700,11300,1,0,0,0,True,1,False,0,100,0,False,False,True,,,37.3,500.0
+16,76561199404907727,JAKE AB,T,True,2900,450,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,True,95.9,0.0
+16,76561199554681442,бомберКИСОК228,T,True,3800,450,0,0,1,0,True,1,False,0,44,0,False,False,True,,,86.9,0.0
+16,76561199847732882,V4NYAPLAY,CT,False,6450,7200,1,0,1,0,True,1,False,1,148,0,False,False,True,,,107.7,500.0
+17,76561197988181968,+BoNuS^-,T,False,2950,1100,0,0,1,0,True,1,True,0,44,0,False,False,True,,,47.0,1000.0
+17,76561198059360012,Slaik,CT,True,5800,4250,2,0,0,0,True,1,False,1,195,0,True,False,True,1.0,True,60.6,0.0
+17,76561198382673172,Zattocat,T,False,4700,1450,0,0,1,0,True,1,False,0,84,0,False,False,True,,,31.8,500.0
+17,76561198631279797,NoXcho,CT,True,4800,250,1,0,0,0,True,1,True,0,93,0,False,False,True,,,49.1,500.0
+17,76561198982797147,БАБУЛИК,T,False,4100,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,29.8,200.0
+17,76561199001406923,AstaLavisTa,CT,True,5800,1450,0,0,1,0,True,1,False,0,50,0,False,False,True,,,32.6,700.0
+17,76561199010569405,puryaew228,CT,True,7650,600,1,0,0,0,True,1,False,0,100,0,False,False,True,,,38.0,1300.0
+17,76561199404907727,JAKE AB,T,False,3900,550,1,0,1,0,True,1,False,1,187,0,False,False,True,,,50.9,0.0
+17,76561199554681442,бомберКИСОК228,T,False,3550,1050,4,0,0,0,False,0,False,0,181,0,False,False,True,2.0,False,59.8,
+17,76561199847732882,V4NYAPLAY,CT,True,6150,400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,56.4,0.0
+18,76561197988181968,+BoNuS^-,T,False,4100,200,1,0,0,0,True,1,False,0,72,0,False,False,True,,,50.8,0.0
+18,76561198059360012,Slaik,CT,True,7200,1850,1,0,0,0,False,0,False,0,1,0,False,False,True,,,74.4,
+18,76561198382673172,Zattocat,T,False,4450,250,1,0,0,0,True,1,False,0,134,0,False,False,True,,,47.3,200.0
+18,76561198631279797,NoXcho,CT,True,4100,350,3,0,0,0,False,0,False,0,265,0,False,False,True,,,74.4,
+18,76561198982797147,БАБУЛИК,T,False,3200,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,42.7,0.0
+18,76561199001406923,AstaLavisTa,CT,True,5100,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.2,0.0
+18,76561199010569405,puryaew228,CT,True,4300,300,1,0,2,0,True,1,False,0,226,0,True,False,True,,,40.6,200.0
+18,76561199404907727,JAKE AB,T,False,4100,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.4,200.0
+18,76561199554681442,бомберКИСОК228,T,False,5200,8650,0,0,1,0,True,1,False,0,26,0,False,False,True,3.0,False,74.4,500.0
+18,76561199847732882,V4NYAPLAY,CT,True,2900,1400,0,0,0,0,False,0,False,0,0,0,False,False,True,,,74.4,

@@ -2,6 +2,195 @@
  "steamid": "76561198382673172",
  "matches": [
   {
+   "demo": "match730_003848818529369326137_0604169190_388",
+   "map": "de_mirage",
+   "mode": "5v5",
+   "rounds": 17,
+   "date": "2026-10-17T13:37:20.000Z",
+   "score": {
+    "own": 4,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "5ff8301a-f547-4cd3-aa8d-3a57da14df4f",
+   "rating_hltv1": 0.86,
+   "adr": 75.0,
+   "kast": 64.7,
+   "kills": 14,
+   "deaths": 17,
+   "crosshair_angle_median": 4.05,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 88.5
+  },
+  {
+   "demo": "match730_003851839063904485463_1907987906_271",
+   "map": "cs_office",
+   "mode": "5v5",
+   "rounds": 11,
+   "date": "2026-11-02T20:30:07.000Z",
+   "score": {
+    "own": 9,
+    "enemy": 2,
+    "result": "win"
+   },
+   "leetify_id": "f0e2d641-d924-42a2-8105-db758dfc47ab",
+   "rating_hltv1": 0.9,
+   "adr": 60.0,
+   "kast": 90.9,
+   "kills": 5,
+   "deaths": 4,
+   "crosshair_angle_median": 3.44,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 85.3
+  },
+  {
+   "demo": "match730_003851843038896717881_0524270117_378",
+   "map": "cs_office",
+   "mode": "5v5",
+   "rounds": 19,
+   "date": "2026-11-02T20:48:04.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 6,
+    "result": "win"
+   },
+   "leetify_id": "1dcb649a-7821-48c4-a99f-098a8ac2360d",
+   "rating_hltv1": 1.14,
+   "adr": 80.3,
+   "kast": 73.7,
+   "kills": 13,
+   "deaths": 10,
+   "crosshair_angle_median": 5.6,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 82.4
+  },
+  {
+   "demo": "match730_003851848815627731075_0212358270_183",
+   "map": "de_anubis",
+   "mode": "5v5",
+   "rounds": 17,
+   "date": "2026-11-02T21:32:40.000Z",
+   "score": {
+    "own": 4,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "91a05f81-a7d1-4204-8d73-183e581dda60",
+   "rating_hltv1": 0.34,
+   "adr": 38.4,
+   "kast": 47.1,
+   "kills": 5,
+   "deaths": 15,
+   "crosshair_angle_median": 3.3,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 84.3
+  },
+  {
+   "demo": "match730_003852226371170336940_1062018569_378",
+   "map": "de_inferno",
+   "mode": "5v5",
+   "rounds": 24,
+   "date": "2026-11-04T22:07:06.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 11,
+    "result": "win"
+   },
+   "leetify_id": "a3fe55b0-8a4d-45a9-91d6-9a3824f97191",
+   "rating_hltv1": 0.67,
+   "adr": 54.4,
+   "kast": 66.7,
+   "kills": 14,
+   "deaths": 20,
+   "crosshair_angle_median": 4.86,
+   "time_to_damage_median_ms": 328.0,
+   "counter_strafe_pct": 86.4
+  },
+  {
+   "demo": "match730_003852399917913866389_2056496608_441",
+   "map": "de_inferno",
+   "mode": "5v5",
+   "rounds": 22,
+   "date": "2026-11-05T20:36:43.000Z",
+   "score": {
+    "own": 9,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "1a1416df-b1bd-4075-a7df-205c88fa8430",
+   "rating_hltv1": 1.01,
+   "adr": 79.6,
+   "kast": 59.1,
+   "kills": 15,
+   "deaths": 18,
+   "crosshair_angle_median": 4.68,
+   "time_to_damage_median_ms": 281.0,
+   "counter_strafe_pct": 70.2
+  },
+  {
+   "demo": "match730_003852406645980135768_1513142990_193",
+   "map": "de_mirage",
+   "mode": "5v5",
+   "rounds": 20,
+   "date": "2026-11-05T21:34:35.000Z",
+   "score": {
+    "own": 7,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "04817275-c262-47a6-87e9-9c0b555b183a",
+   "rating_hltv1": 0.76,
+   "adr": 66.0,
+   "kast": 55.0,
+   "kills": 11,
+   "deaths": 17,
+   "crosshair_angle_median": 3.33,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 86.3
+  },
+  {
+   "demo": "match730_003852415345436393590_0206578999_187",
+   "map": "de_dust2",
+   "mode": "5v5",
+   "rounds": 16,
+   "date": "2026-11-05T22:49:27.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 3,
+    "result": "win"
+   },
+   "leetify_id": "9d5bb8e4-1b85-447b-8e40-25b39fda8b94",
+   "rating_hltv1": 0.84,
+   "adr": 58.2,
+   "kast": 62.5,
+   "kills": 8,
+   "deaths": 12,
+   "crosshair_angle_median": 2.5,
+   "time_to_damage_median_ms": 141.0,
+   "counter_strafe_pct": 91.1
+  },
+  {
+   "demo": "match730_003852419036960784394_0012085711_444",
+   "map": "de_mirage",
+   "mode": "5v5",
+   "rounds": 17,
+   "date": "2026-11-05T23:20:36.000Z",
+   "score": {
+    "own": 4,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "23e3c7f0-10ea-4332-b3f5-445460adbe2b",
+   "rating_hltv1": 0.51,
+   "adr": 45.8,
+   "kast": 52.9,
+   "kills": 8,
+   "deaths": 16,
+   "crosshair_angle_median": 4.47,
+   "time_to_damage_median_ms": 352.0,
+   "counter_strafe_pct": 73.8
+  },
+  {
    "demo": "match730_003852423005510566029_0867963918_186",
    "map": "de_overpass",
    "mode": "wingman",
@@ -21,6 +210,426 @@
    "crosshair_angle_median": 2.71,
    "time_to_damage_median_ms": 398.0,
    "counter_strafe_pct": 79.4
+  },
+  {
+   "demo": "match730_003852584184895766990_1580649820_190",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 13,
+   "date": "2026-11-06T20:57:01.000Z",
+   "score": {
+    "own": 4,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "cdf71569-6b6c-4f4b-856c-31f87536c5ef",
+   "rating_hltv1": 0.49,
+   "adr": 62.6,
+   "kast": 38.5,
+   "kills": 4,
+   "deaths": 10,
+   "crosshair_angle_median": 2.41,
+   "time_to_damage_median_ms": 320.0,
+   "counter_strafe_pct": 86.2
+  },
+  {
+   "demo": "match730_003852586300167160245_1300365792_444",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 11,
+   "date": "2026-11-06T21:11:01.000Z",
+   "score": {
+    "own": 9,
+    "enemy": 2,
+    "result": "win"
+   },
+   "leetify_id": "edce2fef-b3e1-4d4b-ad0e-825e01bb9f90",
+   "rating_hltv1": 0.67,
+   "adr": 32.0,
+   "kast": 81.8,
+   "kills": 2,
+   "deaths": 4,
+   "crosshair_angle_median": 8.41,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 91.3
+  },
+  {
+   "demo": "match730_003852588177067868352_1588373041_378",
+   "map": "de_inferno",
+   "mode": "wingman",
+   "rounds": 13,
+   "date": "2026-11-06T21:26:23.000Z",
+   "score": {
+    "own": 4,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "d230453e-a539-42fc-88f4-74500144c60c",
+   "rating_hltv1": 0.79,
+   "adr": 63.4,
+   "kast": 53.8,
+   "kills": 8,
+   "deaths": 10,
+   "crosshair_angle_median": 4.21,
+   "time_to_damage_median_ms": 453.0,
+   "counter_strafe_pct": 84.2
+  },
+  {
+   "demo": "match730_003852607884525306120_1142131644_187",
+   "map": "de_nuke",
+   "mode": "5v5",
+   "rounds": 22,
+   "date": "2026-11-06T23:34:26.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 9,
+    "result": "win"
+   },
+   "leetify_id": "743f499e-7d91-475d-9ff2-81c55372b84c",
+   "rating_hltv1": 1.11,
+   "adr": 62.5,
+   "kast": 68.2,
+   "kills": 16,
+   "deaths": 15,
+   "crosshair_angle_median": 3.79,
+   "time_to_damage_median_ms": 320.0,
+   "counter_strafe_pct": 86.6
+  },
+  {
+   "demo": "match730_003852611148700450818_0131671927_187",
+   "map": "de_mirage",
+   "mode": "5v5",
+   "rounds": 15,
+   "date": "2026-11-07T00:13:19.000Z",
+   "score": {
+    "own": 2,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "e11f92a9-8b57-46d9-ac9f-8b8f7aee6a07",
+   "rating_hltv1": 0.48,
+   "adr": 62.9,
+   "kast": 73.3,
+   "kills": 7,
+   "deaths": 14,
+   "crosshair_angle_median": 3.33,
+   "time_to_damage_median_ms": 242.0,
+   "counter_strafe_pct": 85.5
+  },
+  {
+   "demo": "match730_003852716373251719331_1866823619_445",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 11,
+   "date": "2026-11-07T14:03:06.000Z",
+   "score": {
+    "own": 2,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "00ce65a2-fed4-4533-82a7-9928b54c6e10",
+   "rating_hltv1": 0.58,
+   "adr": 74.1,
+   "kast": 45.5,
+   "kills": 5,
+   "deaths": 9,
+   "crosshair_angle_median": 8.35,
+   "time_to_damage_median_ms": 297.0,
+   "counter_strafe_pct": 77.4
+  },
+  {
+   "demo": "match730_003852741848850235600_0767953808_443",
+   "map": "de_cache",
+   "mode": "5v5",
+   "rounds": 18,
+   "date": "2026-11-07T16:56:10.000Z",
+   "score": {
+    "own": 5,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "cbc00c53-7384-4c6e-ab09-b00788fdfd52",
+   "rating_hltv1": 0.59,
+   "adr": 57.3,
+   "kast": 44.4,
+   "kills": 8,
+   "deaths": 16,
+   "crosshair_angle_median": 3.91,
+   "time_to_damage_median_ms": 398.0,
+   "counter_strafe_pct": 76.5
+  },
+  {
+   "demo": "match730_003852785032598913243_0399254987_187",
+   "map": "de_nuke",
+   "mode": "5v5",
+   "rounds": 17,
+   "date": "2026-11-07T22:42:16.000Z",
+   "score": {
+    "own": 4,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "d48fd378-9392-49d8-b0c1-5931a24a8b88",
+   "rating_hltv1": 0.51,
+   "adr": 49.8,
+   "kast": 47.1,
+   "kills": 8,
+   "deaths": 16,
+   "crosshair_angle_median": 5.12,
+   "time_to_damage_median_ms": 438.0,
+   "counter_strafe_pct": 78.9
+  },
+  {
+   "demo": "match730_003852790051268198562_1624416544_193",
+   "map": "de_mirage",
+   "mode": "5v5",
+   "rounds": 21,
+   "date": "2026-11-07T23:08:27.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 8,
+    "result": "win"
+   },
+   "leetify_id": "d2686456-ba14-4771-91aa-021aaddd4b16",
+   "rating_hltv1": 0.96,
+   "adr": 76.5,
+   "kast": 90.5,
+   "kills": 14,
+   "deaths": 15,
+   "crosshair_angle_median": 3.73,
+   "time_to_damage_median_ms": 312.0,
+   "counter_strafe_pct": 77.4
+  },
+  {
+   "demo": "match730_003852907520771228033_1389133093_196",
+   "map": "de_inferno",
+   "mode": "wingman",
+   "rounds": 11,
+   "date": "2026-11-08T14:47:03.000Z",
+   "score": {
+    "own": 2,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "366e7d9b-7289-4362-a165-dee09044c116",
+   "rating_hltv1": 0.63,
+   "adr": 63.6,
+   "kast": 27.3,
+   "kills": 5,
+   "deaths": 9,
+   "crosshair_angle_median": 14.21,
+   "time_to_damage_median_ms": 344.0,
+   "counter_strafe_pct": 80.5
+  },
+  {
+   "demo": "match730_003852910632475033942_1444286965_443",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 10,
+   "date": "2026-11-08T15:12:34.000Z",
+   "score": {
+    "own": 9,
+    "enemy": 1,
+    "result": "win"
+   },
+   "leetify_id": "72e03013-9c3e-4bdf-9a28-e234d8aefe1b",
+   "rating_hltv1": 1.11,
+   "adr": 63.5,
+   "kast": 90.0,
+   "kills": 6,
+   "deaths": 4,
+   "crosshair_angle_median": 1.92,
+   "time_to_damage_median_ms": 375.0,
+   "counter_strafe_pct": 71.7
+  },
+  {
+   "demo": "match730_003852913286764822918_1250606845_186",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 16,
+   "date": "2026-11-08T15:23:02.000Z",
+   "score": {
+    "own": 9,
+    "enemy": 7,
+    "result": "win"
+   },
+   "leetify_id": "01e926e0-08fe-4151-ae06-269fe1005298",
+   "rating_hltv1": 0.81,
+   "adr": 60.6,
+   "kast": 56.2,
+   "kills": 9,
+   "deaths": 10,
+   "crosshair_angle_median": 7.45,
+   "time_to_damage_median_ms": 469.0,
+   "counter_strafe_pct": 86.2
+  },
+  {
+   "demo": "match730_003852952607190417852_1911015131_187",
+   "map": "de_anubis",
+   "mode": "5v5",
+   "rounds": 23,
+   "date": "2026-11-08T20:06:58.000Z",
+   "score": {
+    "own": 10,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "10ef5a9a-2881-4629-a2c3-cda2849b1b18",
+   "rating_hltv1": 1.36,
+   "adr": 99.2,
+   "kast": 73.9,
+   "kills": 22,
+   "deaths": 18,
+   "crosshair_angle_median": 3.03,
+   "time_to_damage_median_ms": 375.0,
+   "counter_strafe_pct": 73.2
+  },
+  {
+   "demo": "match730_003852968891558920473_1273514793_445",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 12,
+   "date": "2026-11-08T22:43:17.000Z",
+   "score": {
+    "own": 3,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "73fada72-0025-41b8-8d52-615047de75f2",
+   "rating_hltv1": 0.53,
+   "adr": 51.2,
+   "kast": 33.3,
+   "kills": 5,
+   "deaths": 10,
+   "crosshair_angle_median": 4.11,
+   "time_to_damage_median_ms": 188.0,
+   "counter_strafe_pct": 66.7
+  },
+  {
+   "demo": "match730_003852970654642995397_2106605081_192",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 16,
+   "date": "2026-11-08T22:55:04.000Z",
+   "score": {
+    "own": 8,
+    "enemy": 8,
+    "result": "draw"
+   },
+   "leetify_id": "180e9984-1023-4436-894d-8081642a4cd6",
+   "rating_hltv1": 0.78,
+   "adr": 80.9,
+   "kast": 68.8,
+   "kills": 10,
+   "deaths": 11,
+   "crosshair_angle_median": 4.98,
+   "time_to_damage_median_ms": 234.0,
+   "counter_strafe_pct": 67.1
+  },
+  {
+   "demo": "match730_003852973117806739705_0805525591_187",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 11,
+   "date": "2026-11-08T23:18:47.000Z",
+   "score": {
+    "own": 2,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "d62ef04b-2839-498d-826c-877359e56f5a",
+   "rating_hltv1": 0.38,
+   "adr": 52.1,
+   "kast": 54.5,
+   "kills": 4,
+   "deaths": 10,
+   "crosshair_angle_median": 3.26,
+   "time_to_damage_median_ms": 469.0,
+   "counter_strafe_pct": 65.1
+  },
+  {
+   "demo": "match730_003853148818476368064_1599718186_190",
+   "map": "de_anubis",
+   "mode": "5v5",
+   "rounds": 22,
+   "date": "2026-11-09T21:32:39.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 9,
+    "result": "win"
+   },
+   "leetify_id": "4807195e-adf9-4e57-b5e9-559580d090d9",
+   "rating_hltv1": 0.77,
+   "adr": 36.3,
+   "kast": 63.6,
+   "kills": 9,
+   "deaths": 12,
+   "crosshair_angle_median": 3.72,
+   "time_to_damage_median_ms": 188.0,
+   "counter_strafe_pct": 83.8
+  },
+  {
+   "demo": "match730_003853156547270017096_1054725854_187",
+   "map": "de_anubis",
+   "mode": "5v5",
+   "rounds": 20,
+   "date": "2026-11-09T22:39:09.000Z",
+   "score": {
+    "own": 7,
+    "enemy": 13,
+    "result": "loss"
+   },
+   "leetify_id": "19194ebb-3bf3-4427-9cf4-10ce97e17a26",
+   "rating_hltv1": 0.17,
+   "adr": 23.6,
+   "kast": 35.0,
+   "kills": 2,
+   "deaths": 18,
+   "crosshair_angle_median": 2.88,
+   "time_to_damage_median_ms": 250.0,
+   "counter_strafe_pct": 80.0
+  },
+  {
+   "demo": "match730_003853160971086332042_1005119654_186",
+   "map": "de_dust2",
+   "mode": "5v5",
+   "rounds": 21,
+   "date": "2026-11-09T23:11:30.000Z",
+   "score": {
+    "own": 13,
+    "enemy": 8,
+    "result": "win"
+   },
+   "leetify_id": "4962a5ef-a8f7-45c4-83d1-e9f155ba751a",
+   "rating_hltv1": 0.64,
+   "adr": 77.0,
+   "kast": 66.7,
+   "kills": 11,
+   "deaths": 18,
+   "crosshair_angle_median": 3.45,
+   "time_to_damage_median_ms": 156.0,
+   "counter_strafe_pct": 79.1
+  },
+  {
+   "demo": "match730_003853162538749395196_1462119638_192",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 12,
+   "date": "2026-11-09T23:48:41.000Z",
+   "score": {
+    "own": 3,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "6b64391f-e863-47e9-ae4f-3758d6fa4cb3",
+   "rating_hltv1": 0.0,
+   "adr": 13.7,
+   "kast": 25.0,
+   "kills": 0,
+   "deaths": 12,
+   "crosshair_angle_median": 6.16,
+   "time_to_damage_median_ms": 454.0,
+   "counter_strafe_pct": 76.5
   }
  ]
 }

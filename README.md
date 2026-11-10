@@ -8,6 +8,7 @@ Personal CS2 stats from the [Leetify Public CS API](https://api-public-docs.cs-p
 | --- | --- |
 | `node leetify-stats.mjs <SteamID64 or profile URL>` | Profile overview: ranks (Premier, FACEIT, Competitive), Leetify ratings, aim and utility stats, last 10 matches. |
 | `python3 leetify_analyze.py fetch [SteamID64]` | Downloads profile, match history and details of new matches to `data/leetify/<SteamID64>/`. |
+| `python3 demo_analyze.py auto` | Fully automatic: updates the Leetify match list, fetches the demo of every matchmaking match from the last 30 days that has no demo stats yet, analyses it and pushes. |
 | `python3 demo_analyze.py sync --push` | Analyses every new CS2 demo in the replays folder with [demoparser2](https://github.com/LaihoE/demoparser), writes the stats to `data/demos/` and pushes them to GitHub. |
 | `python3 demo_analyze.py analyze <demo.dem>` | Analyses one demo (any path), also again if it was analysed before. |
 | `python3 demo_analyze.py report` | One line per analysed demo: score, K/D, ADR, KAST, rating, crosshair angle, time to damage, counter-strafing. |
@@ -21,6 +22,18 @@ Leetify sends ratings as fractions (0.0512); the scripts multiply them by 100 to
 
 Setup once: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`, then run the script with `.venv/bin/python demo_analyze.py ...`.
 Demos come from CS2 (Watch → Your Matches → download); they land in `~/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/replays/`, which `sync` reads by default. The `.dem` files themselves are not committed.
+
+### Automatic download
+
+`auto` turns each Leetify match's share code into match ID, outcome ID and token, asks the CS2 game coordinator for the replay link through the running Steam client with [boiler-writter](https://github.com/akiver/boiler-writter) (from the CS Demo Manager author, downloaded to `tools/boiler/` on first use), downloads the `.dem.bz2` from Valve's replay server to `~/.cache/cs2stats/demos/` and analyses it. Requirements: Steam running and logged in, **CS2 closed** (only one program per account can talk to the game coordinator; `auto` waits for the next run while CS2 is open). Valve keeps demos for about a month; matches whose demo is gone are remembered in `~/.cache/cs2stats/auto_state.json` and skipped.
+
+Run it every 2 hours with a systemd user timer:
+
+```
+mkdir -p ~/.config/systemd/user && cp systemd/cs2stats.* ~/.config/systemd/user/
+systemctl --user daemon-reload && systemctl --user enable --now cs2stats.timer
+journalctl --user -u cs2stats.service    # log of the runs
+```
 
 Per demo, `data/demos/<demo name>/` holds:
 
@@ -36,7 +49,7 @@ Per demo, `data/demos/<demo name>/` holds:
 
 `data/demos/index.json` lists all analysed demos with the tracked player's main numbers.
 
-Aim definitions differ from Leetify: a sighting starts when the server marks the enemy as spotted by the player (the radar spot, which needs the enemy in view), so crosshair angle and time to damage come out lower than Leetify's preaim and reaction time. Compare them across your own demos, not with Leetify numbers. Accuracy, damage and K/D/A match Leetify.
+Aim definitions differ from Leetify: a sighting starts when the server marks the enemy as spotted by the player (the radar spot, which needs the enemy in view), so crosshair angle and time to damage come out lower than Leetify's preaim and reaction time. Compare them across your own demos, not with Leetify numbers. Kills match Leetify in every match; deaths in 224 of 228 player rows (bomb deaths count, "world" suicides after the round do not); ADR within 1.5. Assists are the game's own and can differ from Leetify's by one; flash assists are counted separately.
 
 ## Data
 

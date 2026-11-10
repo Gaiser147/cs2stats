@@ -1,0 +1,221 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198226266756,Tr1ck,T,True,850,350,2,0,1,0,False,0,False,1,230,0,False,False,True,,,86.0,
+1,76561198357705398,Maverick,CT,False,900,300,0,0,0,0,True,1,False,0,44,0,False,False,False,2.0,False,86.0,300.0
+1,76561198382673172,Zattocat,CT,False,400,800,0,0,1,0,True,1,False,0,58,0,False,False,True,,,32.2,0.0
+1,76561199094091368,#grrrrrr понедельник,T,True,200,1000,0,0,0,0,True,1,False,0,20,0,False,True,False,,,15.8,0.0
+1,76561199139430220,Gregory,CT,False,200,1000,1,0,0,0,True,1,False,0,92,0,False,False,True,,,64.4,0.0
+1,76561199225367782,antrowhy,T,True,200,1000,2,1,0,0,False,0,False,1,127,0,False,False,True,,,86.0,
+1,76561199400476375,sashavis2020,CT,False,850,350,1,0,0,0,True,1,False,0,37,0,False,False,True,,,27.5,0.0
+1,76561199469690272,Ytka_vs,T,True,600,400,0,0,0,0,True,1,True,0,0,0,False,False,True,,,27.2,0.0
+1,76561199542133052,(AMOGUS)   СAIN,CT,False,900,300,1,1,1,0,True,1,False,0,216,0,True,False,True,,,31.5,0.0
+1,76561199566553184,M@Z@H@KER,T,True,800,200,1,1,0,0,True,1,True,0,119,0,False,False,True,,,61.0,300.0
+2,76561198226266756,Tr1ck,T,True,4400,1250,1,0,0,0,False,0,False,1,73,0,False,False,True,,,36.9,
+2,76561198357705398,Maverick,CT,False,2200,350,1,1,0,0,True,1,False,0,69,0,False,False,True,2.0,False,36.9,300.0
+2,76561198382673172,Zattocat,CT,False,2650,400,0,0,0,0,True,1,False,0,0,0,False,False,False,,,36.0,400.0
+2,76561199094091368,#grrrrrr понедельник,T,True,4100,350,1,1,1,0,True,1,True,1,61,0,False,False,True,,,34.4,200.0
+2,76561199139430220,Gregory,CT,False,200,3350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.1,0.0
+2,76561199225367782,antrowhy,T,True,2450,3100,0,0,0,0,True,1,True,0,0,0,False,False,True,,,16.1,0.0
+2,76561199400476375,sashavis2020,CT,False,2400,500,0,0,1,0,True,1,False,0,110,0,False,False,True,,,30.9,0.0
+2,76561199469690272,Ytka_vs,T,True,3550,300,1,1,0,0,True,1,False,0,100,0,False,False,True,,,31.3,0.0
+2,76561199542133052,(AMOGUS)   СAIN,CT,False,2500,350,1,0,0,0,True,1,False,0,99,0,False,False,True,,,16.9,300.0
+2,76561199566553184,M@Z@H@KER,T,True,3500,450,2,2,1,0,False,0,False,0,265,0,True,False,True,,,36.9,
+3,76561198226266756,Tr1ck,T,False,5100,7250,0,0,0,0,True,1,False,0,101,47,False,False,False,3.0,False,89.3,0.0
+3,76561198357705398,Maverick,CT,True,2900,500,0,0,2,0,False,0,False,0,101,0,False,False,True,,,89.3,
+3,76561198382673172,Zattocat,CT,True,2750,400,1,0,0,0,False,0,False,0,98,0,False,False,True,,,89.3,
+3,76561199094091368,#grrrrrr понедельник,T,False,3400,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.4,0.0
+3,76561199139430220,Gregory,CT,True,4950,1150,1,0,0,0,True,1,False,0,100,0,False,False,True,,,53.1,0.0
+3,76561199225367782,antrowhy,T,False,3900,3800,1,0,0,0,True,1,False,0,92,0,False,False,True,,,59.6,0.0
+3,76561199400476375,sashavis2020,CT,True,2900,350,2,0,0,0,False,0,False,0,98,0,False,False,True,,,89.3,
+3,76561199469690272,Ytka_vs,T,False,3550,500,0,0,1,0,True,1,True,0,75,0,False,False,True,,,51.5,0.0
+3,76561199542133052,(AMOGUS)   СAIN,CT,True,3200,200,1,1,0,0,True,1,False,0,100,0,True,False,True,,,43.5,0.0
+3,76561199566553184,M@Z@H@KER,T,False,4200,6900,1,1,0,0,True,1,False,1,67,0,False,False,True,,,87.6,0.0
+4,76561198226266756,Tr1ck,T,True,4600,250,1,1,1,0,False,0,False,0,152,0,False,False,True,,,94.9,
+4,76561198357705398,Maverick,CT,False,5600,6800,0,0,1,0,True,1,False,0,68,0,False,False,True,,,32.3,300.0
+4,76561198382673172,Zattocat,CT,False,3100,8250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,22.0,500.0
+4,76561199094091368,#grrrrrr понедельник,T,True,700,900,1,1,0,0,False,0,False,1,47,0,False,False,True,,,94.9,
+4,76561199139430220,Gregory,CT,False,4950,4750,2,0,0,0,False,0,False,0,132,0,True,False,True,3.0,False,94.9,
+4,76561199225367782,antrowhy,T,True,2750,2950,0,0,0,0,True,1,True,0,0,0,False,False,True,,,31.0,0.0
+4,76561199400476375,sashavis2020,CT,False,5000,7050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,38.0,1100.0
+4,76561199469690272,Ytka_vs,T,True,1900,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,13.5,0.0
+4,76561199542133052,(AMOGUS)   СAIN,CT,False,3900,300,1,0,0,0,True,1,False,0,205,0,False,False,True,,,32.5,300.0
+4,76561199566553184,M@Z@H@KER,T,True,5100,400,2,2,0,0,True,1,False,0,200,0,False,False,True,,,93.2,300.0
+5,76561198226266756,Tr1ck,T,False,5100,6550,1,1,0,0,True,1,False,0,99,0,False,False,True,,,33.3,1000.0
+5,76561198357705398,Maverick,CT,True,4500,450,4,1,0,0,False,0,False,1,270,0,False,False,True,,,49.8,
+5,76561198382673172,Zattocat,CT,True,3050,4600,0,0,0,0,False,0,False,0,0,0,False,False,True,,,49.8,
+5,76561199094091368,#grrrrrr понедельник,T,False,5600,6000,0,0,0,0,True,1,False,0,26,0,False,False,False,,,25.9,1200.0
+5,76561199139430220,Gregory,CT,True,4950,11750,0,0,0,0,False,0,False,0,0,0,False,False,True,,,49.8,
+5,76561199225367782,antrowhy,T,False,4400,2250,0,0,0,0,True,1,False,0,0,0,False,False,False,4.0,False,49.8,700.0
+5,76561199400476375,sashavis2020,CT,True,4500,1100,0,0,2,0,True,1,True,0,126,0,False,False,True,,,31.5,0.0
+5,76561199469690272,Ytka_vs,T,False,3550,350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.9,300.0
+5,76561199542133052,(AMOGUS)   СAIN,CT,True,2650,200,1,1,0,0,False,0,False,0,98,0,True,False,True,,,49.8,
+5,76561199566553184,M@Z@H@KER,T,False,4400,300,0,0,0,0,True,1,False,0,78,0,False,True,False,,,19.4,500.0
+6,76561198226266756,Tr1ck,T,False,4400,350,1,1,0,0,True,1,False,0,100,0,False,False,True,,,55.1,0.0
+6,76561198357705398,Maverick,CT,True,5600,8550,0,0,0,0,False,0,False,0,0,0,False,False,True,,,59.9,
+6,76561198382673172,Zattocat,CT,True,3600,6950,0,0,0,0,True,1,False,0,0,0,False,False,False,,,27.1,1000.0
+6,76561199094091368,#grrrrrr понедельник,T,False,3900,500,0,0,0,0,True,1,False,0,79,19,False,False,False,4.0,False,59.9,700.0
+6,76561199139430220,Gregory,CT,True,4950,15250,2,0,0,0,False,0,False,0,200,0,False,False,True,,,59.9,
+6,76561199225367782,antrowhy,T,False,2750,1100,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.7,0.0
+6,76561199400476375,sashavis2020,CT,True,3700,1100,3,0,0,0,False,0,False,0,247,0,True,False,True,,,59.9,
+6,76561199469690272,Ytka_vs,T,False,600,1750,0,0,0,0,True,1,False,0,0,0,False,False,False,,,42.5,0.0
+6,76561199542133052,(AMOGUS)   СAIN,CT,True,5600,6900,0,0,1,0,False,0,False,0,51,8,False,False,True,,,59.9,
+6,76561199566553184,M@Z@H@KER,T,False,1200,1700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,36.2,0.0
+7,76561198226266756,Tr1ck,T,False,2550,200,0,0,1,0,True,1,False,0,86,27,False,False,True,,,51.3,300.0
+7,76561198357705398,Maverick,CT,True,5800,11650,1,0,1,0,True,1,True,0,201,27,False,False,True,,,52.3,0.0
+7,76561198382673172,Zattocat,CT,True,4700,3200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,35.1,0.0
+7,76561199094091368,#grrrrrr понедельник,T,False,1900,500,0,0,1,0,True,1,False,0,89,0,False,False,True,,,52.3,500.0
+7,76561199139430220,Gregory,CT,True,4950,18950,0,0,0,0,True,1,False,0,0,0,False,False,False,,,100.7,0.0
+7,76561199225367782,antrowhy,T,False,2750,450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,37.9,300.0
+7,76561199400476375,sashavis2020,CT,True,4600,6500,4,2,0,0,False,0,False,1,251,0,False,False,True,1.0,True,111.3,
+7,76561199469690272,Ytka_vs,T,False,2900,350,3,0,0,0,True,1,False,0,176,0,True,False,True,,,53.2,0.0
+7,76561199542133052,(AMOGUS)   СAIN,CT,True,5500,10100,0,0,1,0,True,1,True,0,43,0,False,False,True,,,51.5,0.0
+7,76561199566553184,M@Z@H@KER,T,False,3600,200,1,1,0,0,True,1,False,0,100,0,False,False,True,2.0,False,111.3,300.0
+8,76561198226266756,Tr1ck,T,False,2400,200,3,0,0,0,True,1,False,0,332,0,False,False,True,4.0,False,65.1,500.0
+8,76561198357705398,Maverick,CT,True,6200,4750,3,0,0,0,True,1,False,0,316,0,False,False,True,,,51.7,1000.0
+8,76561198382673172,Zattocat,CT,True,4900,2000,2,0,0,0,False,0,False,0,114,4,False,False,True,1.0,True,65.1,
+8,76561199094091368,#grrrrrr понедельник,T,False,2900,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,39.6,0.0
+8,76561199139430220,Gregory,CT,True,4950,11450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,58.8,300.0
+8,76561199225367782,antrowhy,T,False,2750,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,42.6,0.0
+8,76561199400476375,sashavis2020,CT,True,4600,11900,0,0,1,0,True,1,False,0,65,0,False,True,True,,,31.4,1300.0
+8,76561199469690272,Ytka_vs,T,False,3400,450,0,0,0,0,True,1,False,0,0,0,False,False,False,,,44.0,200.0
+8,76561199542133052,(AMOGUS)   СAIN,CT,True,4600,4700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,56.7,300.0
+8,76561199566553184,M@Z@H@KER,T,False,2250,850,1,0,0,0,True,1,False,0,130,0,True,False,True,,,38.6,0.0
+9,76561198226266756,Tr1ck,T,False,3900,300,1,1,0,0,True,1,False,0,152,0,False,False,True,,,56.4,0.0
+9,76561198357705398,Maverick,CT,True,6200,3150,0,0,1,1,False,0,False,0,68,0,False,False,True,,,62.2,
+9,76561198382673172,Zattocat,CT,True,5300,10550,2,0,0,0,False,0,False,0,132,0,False,False,True,,,62.2,
+9,76561199094091368,#grrrrrr понедельник,T,False,3100,200,1,0,0,0,True,1,False,1,100,0,False,False,True,3.0,False,58.7,500.0
+9,76561199139430220,Gregory,CT,True,4950,10200,2,0,0,0,True,1,False,0,200,0,True,False,True,,,24.0,0.0
+9,76561199225367782,antrowhy,T,False,3200,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.6,0.0
+9,76561199400476375,sashavis2020,CT,True,7500,4200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,28.7,1300.0
+9,76561199469690272,Ytka_vs,T,False,3200,650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,20.7,300.0
+9,76561199542133052,(AMOGUS)   СAIN,CT,True,5350,3050,1,1,0,0,False,0,False,0,99,0,False,False,True,,,62.2,
+9,76561199566553184,M@Z@H@KER,T,False,4300,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,38.9,400.0
+10,76561198226266756,Tr1ck,T,False,4600,200,0,0,0,0,True,1,False,0,27,0,False,False,False,2.0,False,43.1,0.0
+10,76561198357705398,Maverick,CT,True,5600,10300,1,1,1,0,True,1,False,0,188,0,False,False,True,,,18.7,500.0
+10,76561198382673172,Zattocat,CT,True,5700,14250,0,0,0,0,False,0,False,0,0,0,False,False,True,,,43.1,
+10,76561199094091368,#grrrrrr понедельник,T,False,4800,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,14.6,900.0
+10,76561199139430220,Gregory,CT,True,4950,14150,1,1,0,0,True,1,True,0,100,0,False,False,True,,,32.3,0.0
+10,76561199225367782,antrowhy,T,False,3950,450,0,0,1,0,True,1,True,0,45,0,False,False,True,,,16.1,0.0
+10,76561199400476375,sashavis2020,CT,True,4600,3550,3,0,0,0,False,0,False,1,162,0,False,False,True,,,43.1,
+10,76561199469690272,Ytka_vs,T,False,4200,350,2,0,0,0,True,1,False,1,154,0,False,False,True,,,36.5,0.0
+10,76561199542133052,(AMOGUS)   СAIN,CT,True,5800,11000,0,0,1,0,True,1,False,0,48,0,False,True,True,,,13.6,1000.0
+10,76561199566553184,M@Z@H@KER,T,False,4200,250,1,0,0,0,True,1,False,0,150,0,True,False,True,,,37.8,500.0
+11,76561198226266756,Tr1ck,T,False,3550,250,1,1,0,0,True,1,False,0,73,0,False,False,True,,,52.5,0.0
+11,76561198357705398,Maverick,CT,True,6200,3700,0,0,1,0,True,1,False,0,36,9,False,False,True,,,36.7,0.0
+11,76561198382673172,Zattocat,CT,True,5500,14700,1,1,0,0,False,0,False,0,100,0,False,False,True,,,95.6,
+11,76561199094091368,#grrrrrr понедельник,T,False,3600,200,0,0,1,0,True,1,False,0,29,2,False,False,True,,,44.9,0.0
+11,76561199139430220,Gregory,CT,True,4950,11450,1,0,0,0,True,1,False,0,52,0,True,False,True,,,73.4,0.0
+11,76561199225367782,antrowhy,T,False,3200,850,1,0,0,0,True,1,False,0,74,0,False,False,True,2.0,False,95.6,0.0
+11,76561199400476375,sashavis2020,CT,True,4600,12350,3,3,0,0,False,0,False,0,235,0,False,False,True,,,95.6,
+11,76561199469690272,Ytka_vs,T,False,3900,650,0,0,0,0,True,1,False,0,25,0,False,True,False,,,20.8,0.0
+11,76561199542133052,(AMOGUS)   СAIN,CT,True,5800,4300,0,0,2,0,True,1,False,0,75,48,False,False,True,,,45.7,200.0
+11,76561199566553184,M@Z@H@KER,T,False,3900,250,1,0,0,0,True,1,False,0,186,0,False,False,True,,,78.8,0.0
+12,76561198226266756,Tr1ck,T,True,3950,200,0,0,0,0,True,1,True,0,0,0,False,False,True,,,42.9,0.0
+12,76561198357705398,Maverick,CT,False,7150,250,0,0,1,0,True,1,True,0,59,0,False,False,True,,,27.2,0.0
+12,76561198382673172,Zattocat,CT,False,5100,17350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.8,200.0
+12,76561199094091368,#grrrrrr понедельник,T,True,1900,1900,1,1,0,0,False,0,False,1,99,0,False,False,True,,,79.3,
+12,76561199139430220,Gregory,CT,False,4950,15050,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,79.3,0.0
+12,76561199225367782,antrowhy,T,True,3700,1050,0,0,0,0,True,1,False,0,0,0,False,True,False,,,11.9,200.0
+12,76561199400476375,sashavis2020,CT,False,4600,14550,1,0,0,0,True,1,False,0,163,0,False,False,True,,,43.9,1300.0
+12,76561199469690272,Ytka_vs,T,True,3400,650,2,1,0,0,False,0,False,0,116,0,False,False,True,,,79.3,
+12,76561199542133052,(AMOGUS)   СAIN,CT,False,5800,2200,2,1,0,1,True,1,False,1,144,4,True,False,True,,,49.2,0.0
+12,76561199566553184,M@Z@H@KER,T,True,3900,250,2,1,1,0,True,1,False,0,280,0,False,False,True,,,31.8,0.0
+13,76561198226266756,Tr1ck,CT,True,850,350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,22.1,
+13,76561198357705398,Maverick,T,False,850,1000,0,0,1,0,True,1,False,0,95,0,False,False,True,,,15.4,0.0
+13,76561198382673172,Zattocat,T,False,700,300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,20.4,0.0
+13,76561199094091368,#grrrrrr понедельник,CT,True,200,1000,1,0,2,0,False,0,False,0,186,0,False,False,True,,,22.1,
+13,76561199139430220,Gregory,T,False,200,1000,0,0,0,0,True,1,True,0,0,0,False,False,True,,,14.6,0.0
+13,76561199225367782,antrowhy,CT,True,300,700,0,0,0,0,True,1,True,0,18,0,False,True,True,,,12.0,0.0
+13,76561199400476375,sashavis2020,T,False,300,700,1,1,0,0,True,1,False,0,100,0,True,False,True,,,15.5,0.0
+13,76561199469690272,Ytka_vs,CT,True,850,350,3,3,0,0,False,0,False,1,216,0,False,False,True,,,22.1,
+13,76561199542133052,(AMOGUS)   СAIN,T,False,900,300,1,0,0,0,True,1,False,1,33,2,False,False,True,3.0,False,22.1,0.0
+13,76561199566553184,M@Z@H@KER,CT,True,400,800,1,1,1,1,True,1,False,0,76,0,False,False,True,,,15.3,0.0
+14,76561198226266756,Tr1ck,CT,True,4500,850,0,0,1,0,True,1,False,0,29,0,False,False,True,,,17.9,0.0
+14,76561198357705398,Maverick,T,False,2800,300,0,0,0,0,True,1,False,0,66,0,False,False,False,4.0,False,42.7,0.0
+14,76561198382673172,Zattocat,T,False,2100,300,0,0,0,0,True,1,False,0,26,0,False,False,False,,,37.4,0.0
+14,76561199094091368,#grrrrrr понедельник,CT,True,4800,200,1,0,0,0,False,0,False,0,103,61,False,False,True,,,42.7,
+14,76561199139430220,Gregory,T,False,2200,900,0,0,0,0,True,1,False,0,33,0,False,False,False,,,26.1,0.0
+14,76561199225367782,antrowhy,CT,True,3800,600,1,1,0,0,False,0,False,0,100,0,True,False,True,,,42.7,
+14,76561199400476375,sashavis2020,T,False,2900,200,1,1,0,0,True,1,False,0,100,0,False,False,True,,,35.8,0.0
+14,76561199469690272,Ytka_vs,CT,True,5300,950,3,2,0,0,False,0,False,0,260,0,False,False,True,,,42.7,
+14,76561199542133052,(AMOGUS)   СAIN,T,False,2500,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,16.1,300.0
+14,76561199566553184,M@Z@H@KER,CT,True,4600,200,0,0,0,0,False,0,False,0,0,0,False,False,True,,,42.7,
+15,76561198226266756,Tr1ck,CT,True,3550,350,4,0,0,0,True,1,True,0,395,0,True,False,True,,,23.8,0.0
+15,76561198357705398,Maverick,T,False,2400,500,0,0,0,0,True,1,True,0,0,0,False,False,True,,,18.9,700.0
+15,76561198382673172,Zattocat,T,False,2700,200,1,0,0,0,True,1,False,1,74,0,False,False,True,5.0,False,24.1,800.0
+15,76561199094091368,#grrrrrr понедельник,CT,True,4600,4650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,24.1,
+15,76561199139430220,Gregory,T,False,700,2600,0,0,0,0,True,1,True,0,0,0,False,False,True,,,19.9,0.0
+15,76561199225367782,antrowhy,CT,True,4100,6700,0,0,0,0,False,0,False,0,0,0,False,False,True,,,24.1,
+15,76561199400476375,sashavis2020,T,False,2700,400,0,0,0,0,True,1,False,0,24,0,False,True,False,,,16.0,300.0
+15,76561199469690272,Ytka_vs,CT,True,5800,8650,1,0,0,0,False,0,False,1,100,0,False,False,True,,,24.1,
+15,76561199542133052,(AMOGUS)   СAIN,T,False,2900,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,16.6,300.0
+15,76561199566553184,M@Z@H@KER,CT,True,5800,6900,0,0,0,0,False,0,False,0,0,0,False,False,True,,,24.1,
+16,76561198226266756,Tr1ck,CT,True,5000,250,1,0,2,0,False,0,False,0,216,0,True,False,True,,,45.5,
+16,76561198357705398,Maverick,T,False,1200,2400,0,0,0,0,True,1,False,0,34,0,False,False,False,,,43.1,0.0
+16,76561198382673172,Zattocat,T,False,3050,850,1,0,0,0,True,1,False,0,98,25,False,False,True,,,43.4,0.0
+16,76561199094091368,#grrrrrr понедельник,CT,True,4600,7650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,45.5,
+16,76561199139430220,Gregory,T,False,700,5500,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.8,0.0
+16,76561199225367782,antrowhy,CT,True,4300,10200,4,0,0,0,False,0,False,0,242,0,False,False,True,,,45.5,
+16,76561199400476375,sashavis2020,T,False,3200,300,0,0,0,0,True,1,False,0,81,0,False,False,False,4.0,False,45.5,0.0
+16,76561199469690272,Ytka_vs,CT,True,5800,12950,0,0,0,0,True,1,False,0,36,0,False,False,False,,,25.2,1300.0
+16,76561199542133052,(AMOGUS)   СAIN,T,False,3050,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,44.3,0.0
+16,76561199566553184,M@Z@H@KER,CT,True,5800,11600,0,0,0,0,False,0,False,0,0,0,False,False,True,,,45.5,
+17,76561198226266756,Tr1ck,CT,False,5500,7950,0,0,1,0,True,1,False,0,46,0,False,False,True,,,51.7,200.0
+17,76561198357705398,Maverick,T,True,4500,1500,3,2,0,0,False,0,False,0,299,0,True,False,True,,,55.0,
+17,76561198382673172,Zattocat,T,True,3400,1650,0,0,0,0,False,0,False,0,0,0,False,False,True,,,55.0,
+17,76561199094091368,#grrrrrr понедельник,CT,False,4600,9850,0,0,0,0,True,1,False,0,0,0,False,True,False,,,17.5,1000.0
+17,76561199139430220,Gregory,T,True,4950,3450,1,0,0,0,False,0,False,1,51,0,False,False,True,,,55.0,
+17,76561199225367782,antrowhy,CT,False,4300,14800,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.0,500.0
+17,76561199400476375,sashavis2020,T,True,3550,350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,55.0,
+17,76561199469690272,Ytka_vs,CT,False,5800,5250,1,0,0,0,True,1,False,0,52,1,False,False,True,5.0,False,55.0,500.0
+17,76561199542133052,(AMOGUS)   СAIN,T,True,3600,250,1,0,1,0,True,1,True,0,145,0,False,False,True,,,53.8,800.0
+17,76561199566553184,M@Z@H@KER,CT,False,5800,15100,0,0,0,0,True,1,False,0,75,0,False,False,False,,,42.0,1300.0
+18,76561198226266756,Tr1ck,CT,True,4700,300,2,0,0,0,False,0,False,1,148,10,False,False,True,1.0,True,92.8,
+18,76561198357705398,Maverick,T,False,5100,8750,0,0,0,1,True,1,False,0,3,3,False,False,False,,,55.2,0.0
+18,76561198382673172,Zattocat,T,False,3600,7900,0,0,0,0,True,1,False,0,0,0,False,False,False,,,47.0,700.0
+18,76561199094091368,#grrrrrr понедельник,CT,True,4600,3300,0,0,0,0,True,1,True,0,29,29,False,False,True,,,83.0,500.0
+18,76561199139430220,Gregory,T,False,5450,12350,0,0,0,0,True,1,False,0,0,0,False,False,False,,,22.0,500.0
+18,76561199225367782,antrowhy,CT,True,3700,8750,0,0,1,0,True,1,False,0,72,0,False,False,True,,,14.8,300.0
+18,76561199400476375,sashavis2020,T,False,4850,6650,1,1,1,0,True,1,False,0,188,0,True,False,True,,,68.9,800.0
+18,76561199469690272,Ytka_vs,CT,True,5100,2100,3,3,0,0,True,1,True,0,224,0,False,False,True,,,79.2,800.0
+18,76561199542133052,(AMOGUS)   СAIN,T,False,3800,200,3,1,0,0,True,1,False,0,228,25,False,False,True,3.0,False,84.1,200.0
+18,76561199566553184,M@Z@H@KER,CT,True,5800,5350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.7,1300.0
+19,76561198226266756,Tr1ck,CT,False,5800,7950,1,0,0,0,True,1,False,1,140,0,False,False,True,,,40.0,1100.0
+19,76561198357705398,Maverick,T,True,5100,3350,0,0,1,0,True,1,False,0,87,0,False,False,True,,,35.8,300.0
+19,76561198382673172,Zattocat,T,True,4700,3700,1,0,0,0,False,0,False,0,99,0,False,False,True,,,85.4,
+19,76561199094091368,#grrrrrr понедельник,CT,False,4600,2650,1,1,0,0,True,1,False,0,100,0,False,False,True,2.0,False,85.4,700.0
+19,76561199139430220,Gregory,T,True,4950,10600,0,0,0,0,True,1,False,0,0,0,False,False,False,,,37.2,0.0
+19,76561199225367782,antrowhy,CT,False,3800,8700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,76.4,300.0
+19,76561199400476375,sashavis2020,T,True,6900,200,3,0,0,0,False,0,False,0,213,0,False,False,True,,,85.4,
+19,76561199469690272,Ytka_vs,CT,False,5200,1750,1,1,0,0,True,1,False,0,27,0,False,False,True,,,77.3,600.0
+19,76561199542133052,(AMOGUS)   СAIN,T,True,4600,200,1,1,0,0,True,1,False,0,100,0,True,False,True,,,34.6,300.0
+19,76561199566553184,M@Z@H@KER,CT,False,5800,3500,0,0,1,0,True,1,True,0,73,73,False,True,True,,,29.8,500.0
+20,76561198226266756,Tr1ck,CT,False,5500,200,0,0,0,0,True,1,False,0,94,0,False,False,False,4.0,False,82.7,500.0
+20,76561198357705398,Maverick,T,True,5100,1700,1,0,0,0,False,0,False,0,99,0,False,False,True,,,82.7,
+20,76561198382673172,Zattocat,T,True,5200,12150,0,0,0,0,False,0,False,0,0,0,False,False,True,,,82.7,
+20,76561199094091368,#grrrrrr понедельник,CT,False,4200,500,0,0,0,0,True,1,False,0,32,0,False,False,False,,,69.2,800.0
+20,76561199139430220,Gregory,T,True,4950,4350,3,0,1,0,False,0,False,0,369,0,True,False,True,,,82.7,
+20,76561199225367782,antrowhy,CT,False,3700,6750,0,0,0,0,True,1,False,0,0,0,False,False,False,,,71.6,500.0
+20,76561199400476375,sashavis2020,T,True,7400,9750,1,0,0,0,False,0,False,1,3,0,False,False,True,,,82.7,
+20,76561199469690272,Ytka_vs,CT,False,5100,1600,0,0,0,0,True,1,False,0,0,0,False,True,False,,,25.2,1000.0
+20,76561199542133052,(AMOGUS)   СAIN,T,True,3700,250,0,0,0,0,True,1,True,0,21,0,False,False,True,,,51.4,200.0
+20,76561199566553184,M@Z@H@KER,CT,False,5000,250,1,0,0,0,True,1,False,0,98,0,False,False,True,,,52.5,200.0
+21,76561198226266756,Tr1ck,CT,False,1900,250,1,1,1,0,True,1,False,0,133,0,True,False,True,,,28.5,0.0
+21,76561198357705398,Maverick,T,True,5300,8650,2,1,0,0,False,0,False,2,56,0,False,False,True,1.0,True,61.6,
+21,76561198382673172,Zattocat,T,True,5100,15100,0,0,0,0,True,1,True,0,0,0,False,False,True,,,41.9,800.0
+21,76561199094091368,#grrrrrr понедельник,CT,False,2250,400,1,0,0,0,True,1,False,0,12,0,False,False,True,2.0,False,61.6,1100.0
+21,76561199139430220,Gregory,T,True,5450,13150,0,0,0,0,True,1,False,0,0,0,False,True,False,,,10.7,500.0
+21,76561199225367782,antrowhy,CT,False,5400,600,1,0,0,0,True,1,False,0,123,0,False,False,True,,,43.0,500.0
+21,76561199400476375,sashavis2020,T,True,7400,14200,3,0,1,0,True,1,True,1,355,0,False,False,True,,,60.9,900.0
+21,76561199469690272,Ytka_vs,CT,False,3400,350,1,0,0,0,True,1,False,0,100,0,False,False,True,,,56.8,0.0
+21,76561199542133052,(AMOGUS)   СAIN,T,True,3400,300,0,0,1,0,True,1,True,0,86,0,False,False,True,,,54.0,0.0
+21,76561199566553184,M@Z@H@KER,CT,False,1200,1500,0,0,0,0,True,1,False,0,30,0,False,False,False,,,46.1,0.0
+22,76561198226266756,Tr1ck,CT,False,3150,200,0,0,0,0,True,1,False,0,71,0,False,False,False,,,21.1,0.0
+22,76561198357705398,Maverick,T,True,5300,11400,2,1,0,0,False,0,False,0,199,0,False,False,True,,,52.6,
+22,76561198382673172,Zattocat,T,True,4750,9100,0,0,0,0,False,0,False,0,0,0,False,False,True,,,52.6,
+22,76561199094091368,#grrrrrr понедельник,CT,False,3550,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.0,50.0
+22,76561199139430220,Gregory,T,True,4950,11150,1,0,0,0,False,0,False,0,100,0,False,False,True,,,52.6,
+22,76561199225367782,antrowhy,CT,False,4750,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,44.9,50.0
+22,76561199400476375,sashavis2020,T,True,7400,3950,2,0,0,0,False,0,False,0,177,0,True,False,True,,,52.6,
+22,76561199469690272,Ytka_vs,CT,False,3100,350,0,0,0,0,True,1,False,0,0,0,False,False,False,5.0,False,52.6,0.0
+22,76561199542133052,(AMOGUS)   СAIN,T,True,3400,350,0,0,0,0,False,0,False,0,22,0,False,False,True,,,52.6,
+22,76561199566553184,M@Z@H@KER,CT,False,4100,200,0,0,0,0,True,1,False,0,52,0,False,False,False,,,41.6,0.0

@@ -1,0 +1,171 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198219443931,Michau17,T,True,500,700,0,0,1,0,True,1,False,0,92,50,False,False,True,,,31.9,0.0
+1,76561198382673172,Zattocat,CT,False,200,1000,1,1,0,0,True,1,False,0,100,0,False,False,True,,,49.3,0.0
+1,76561198737287983,Bread,T,True,300,700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,25.7,0.0
+1,76561198752759987,rango14,CT,False,850,350,1,0,0,0,True,1,False,0,62,0,True,False,True,,,20.6,0.0
+1,76561199393682763,SKADI MILANO,CT,False,850,350,0,0,1,0,True,1,True,0,69,0,False,False,True,,,20.3,0.0
+1,76561199504702228,LilGaum's,T,True,850,350,4,2,0,0,True,1,False,1,304,0,False,False,True,3.0,True,67.6,0.0
+1,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,800,200,0,0,0,0,True,1,False,0,23,0,False,False,False,,,46.5,0.0
+1,76561199568680509,RKLPITPIT,T,True,200,1000,1,1,0,0,True,1,False,0,100,0,False,False,True,,,24.0,0.0
+1,76561199585930887,morpheus,T,True,200,1000,0,0,0,0,True,1,True,0,0,0,False,True,True,,,16.8,0.0
+1,76561199764939588,Король Артур,CT,False,500,700,2,1,0,0,True,1,False,1,199,0,False,False,True,1.0,False,62.0,0.0
+2,76561198219443931,Michau17,T,True,2800,1350,2,1,0,0,False,0,False,2,173,0,False,False,True,,,50.5,
+2,76561198382673172,Zattocat,CT,False,2150,1500,2,0,0,0,True,1,False,2,212,0,False,False,True,3.0,False,50.5,0.0
+2,76561198737287983,Bread,T,True,3900,250,1,0,0,0,True,1,False,0,15,0,False,False,True,,,44.9,0.0
+2,76561198752759987,rango14,CT,False,200,2800,0,0,1,0,True,1,True,0,55,0,False,False,True,,,45.6,0.0
+2,76561199393682763,SKADI MILANO,CT,False,700,1800,1,0,0,0,True,1,False,0,6,0,False,False,True,,,23.4,0.0
+2,76561199504702228,LilGaum's,T,True,5000,300,1,1,2,0,False,0,False,0,210,0,True,False,True,,,50.5,
+2,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,2150,800,0,0,0,0,True,1,True,0,0,0,False,False,True,,,42.0,0.0
+2,76561199568680509,RKLPITPIT,T,True,2100,2650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,21.5,0.0
+2,76561199585930887,morpheus,T,True,4100,350,1,0,1,0,True,1,True,0,100,0,False,False,True,,,46.9,200.0
+2,76561199764939588,Король Артур,CT,False,200,3450,0,0,0,0,True,1,False,0,16,0,False,True,False,,,12.7,0.0
+3,76561198219443931,Michau17,T,True,4900,8250,0,0,1,0,True,1,True,0,60,0,False,False,True,,,22.6,800.0
+3,76561198382673172,Zattocat,CT,False,4100,1350,2,1,0,0,True,1,False,1,146,0,False,False,True,,,27.5,0.0
+3,76561198737287983,Bread,T,True,3150,1000,0,0,1,0,True,1,True,0,91,0,False,False,True,,,24.1,0.0
+3,76561198752759987,rango14,CT,False,2600,2950,1,1,1,0,True,1,True,0,154,0,False,False,True,,,24.0,0.0
+3,76561199393682763,SKADI MILANO,CT,False,3200,1650,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,41.9,0.0
+3,76561199504702228,LilGaum's,T,True,5000,7000,2,0,0,0,False,0,False,1,118,0,True,False,True,,,41.9,
+3,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,2650,700,0,0,0,0,True,1,False,0,0,0,False,True,False,,,10.6,0.0
+3,76561199568680509,RKLPITPIT,T,True,5100,1000,1,0,0,0,True,1,True,1,98,0,False,False,True,,,25.2,900.0
+3,76561199585930887,morpheus,T,True,3900,200,2,1,0,0,False,0,False,0,128,0,False,False,True,,,41.9,
+3,76561199764939588,Король Артур,CT,False,5950,250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,28.1,0.0
+4,76561198219443931,Michau17,T,True,4700,3100,0,0,0,0,True,1,True,0,0,0,False,True,True,,,18.9,800.0
+4,76561198382673172,Zattocat,CT,False,4100,1100,1,0,0,0,True,1,False,0,100,0,True,False,True,,,21.3,0.0
+4,76561198737287983,Bread,T,True,5950,3250,1,0,0,0,True,1,False,0,100,0,False,False,True,,,31.2,0.0
+4,76561198752759987,rango14,CT,False,4100,2700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,21.4,0.0
+4,76561199393682763,SKADI MILANO,CT,False,2000,2700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,47.2,0.0
+4,76561199504702228,LilGaum's,T,True,5000,8500,0,0,1,0,False,0,False,0,71,45,False,False,True,,,51.8,
+4,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,3400,350,0,0,0,0,True,1,False,0,52,0,False,False,False,3.0,False,51.8,0.0
+4,76561199568680509,RKLPITPIT,T,True,4400,350,3,1,0,0,False,0,False,1,228,0,False,False,True,,,51.8,
+4,76561199585930887,morpheus,T,True,4600,7750,1,0,0,0,False,0,False,0,99,0,False,False,True,,,51.8,
+4,76561199764939588,Король Артур,CT,False,1150,2150,1,1,0,0,True,1,False,0,100,0,False,False,True,,,42.9,0.0
+5,76561198219443931,Michau17,T,False,5100,1450,1,1,1,0,True,1,True,0,153,0,False,False,True,,,58.3,1200.0
+5,76561198382673172,Zattocat,CT,True,4100,1000,0,0,0,0,True,1,False,0,0,0,False,True,False,,,12.7,0.0
+5,76561198737287983,Bread,T,False,5950,850,1,0,0,0,True,1,False,0,100,0,True,False,True,,,42.6,0.0
+5,76561198752759987,rango14,CT,True,4300,2100,2,1,1,0,True,1,True,0,261,0,False,False,True,,,59.1,200.0
+5,76561199393682763,SKADI MILANO,CT,True,4400,2000,3,1,0,0,False,0,False,2,167,0,False,False,True,1.0,True,78.4,
+5,76561199504702228,LilGaum's,T,False,5000,7950,0,0,0,0,True,1,False,0,27,0,False,False,False,,,51.3,0.0
+5,76561199565368578,𝓕𝓻𝓮𝓭,CT,True,3700,350,0,0,1,0,True,1,True,0,31,0,False,False,True,,,51.8,0.0
+5,76561199568680509,RKLPITPIT,T,False,5100,7900,1,0,0,0,True,1,False,1,20,0,False,False,True,2.0,False,61.7,300.0
+5,76561199585930887,morpheus,T,False,5000,11400,1,0,0,0,True,1,False,0,187,0,False,False,True,,,53.7,700.0
+5,76561199764939588,Король Артур,CT,True,5950,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,21.4,0.0
+6,76561198219443931,Michau17,T,False,2800,1150,0,0,0,0,True,1,False,0,0,0,False,False,False,,,24.7,200.0
+6,76561198382673172,Zattocat,CT,True,4100,850,0,0,0,0,True,1,False,0,0,0,False,True,False,,,19.5,0.0
+6,76561198737287983,Bread,T,False,2600,550,0,0,0,0,True,1,True,0,22,0,False,False,True,,,21.4,0.0
+6,76561198752759987,rango14,CT,True,4600,2050,0,0,0,0,False,0,False,0,2,0,False,False,True,,,31.1,
+6,76561199393682763,SKADI MILANO,CT,True,7050,10750,1,0,0,0,False,0,False,0,59,0,False,False,True,,,31.1,
+6,76561199504702228,LilGaum's,T,False,5000,1750,0,0,0,0,True,1,False,0,34,0,False,False,False,3.0,False,31.1,0.0
+6,76561199565368578,𝓕𝓻𝓮𝓭,CT,True,3850,450,1,0,2,0,True,1,False,0,182,47,False,False,True,,,22.4,0.0
+6,76561199568680509,RKLPITPIT,T,False,5100,1300,0,0,0,0,True,1,False,0,0,0,False,False,False,,,25.0,1200.0
+6,76561199585930887,morpheus,T,False,6450,3050,2,0,0,0,True,1,False,1,178,0,True,False,True,,,28.4,500.0
+6,76561199764939588,Король Артур,CT,True,2650,2750,3,1,0,0,False,0,False,0,246,1,False,False,True,,,31.1,
+7,76561198219443931,Michau17,T,True,2600,650,0,0,0,0,True,1,True,0,22,0,False,False,True,,,36.6,0.0
+7,76561198382673172,Zattocat,CT,False,4100,450,2,0,0,0,True,1,True,1,143,0,False,False,True,,,40.6,0.0
+7,76561198737287983,Bread,T,True,200,2450,1,0,0,0,True,1,False,1,54,0,False,False,True,,,41.5,0.0
+7,76561198752759987,rango14,CT,False,5000,9750,1,0,1,0,True,1,False,1,153,0,False,False,True,3.0,False,47.3,300.0
+7,76561199393682763,SKADI MILANO,CT,False,7250,14350,0,0,0,0,True,1,False,0,82,0,False,False,False,,,25.6,600.0
+7,76561199504702228,LilGaum's,T,True,3550,300,2,1,0,0,False,0,False,0,200,0,False,False,True,,,47.3,
+7,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,3100,1650,0,0,0,0,True,1,True,0,0,0,False,False,True,,,36.4,200.0
+7,76561199568680509,RKLPITPIT,T,True,3150,250,1,0,0,0,True,1,True,0,121,0,False,False,True,,,38.7,0.0
+7,76561199585930887,morpheus,T,True,4600,750,1,1,0,0,False,0,False,0,100,0,True,False,True,,,47.3,
+7,76561199764939588,Король Артур,CT,False,4900,11050,0,0,0,0,True,1,False,0,14,14,False,True,False,,,12.8,0.0
+8,76561198219443931,Michau17,T,False,2600,1500,0,0,0,0,True,1,True,0,0,0,False,False,True,,,43.4,0.0
+8,76561198382673172,Zattocat,CT,True,2150,1650,0,0,1,0,True,1,False,0,68,0,False,False,True,,,17.4,0.0
+8,76561198737287983,Bread,T,False,5950,250,0,0,0,0,True,1,False,0,0,0,False,True,False,,,11.8,0.0
+8,76561198752759987,rango14,CT,True,4600,3700,1,0,1,0,True,1,True,0,172,0,False,False,True,,,46.7,500.0
+8,76561199393682763,SKADI MILANO,CT,True,6550,4000,3,2,0,0,False,0,False,1,224,0,True,False,True,,,61.3,
+8,76561199504702228,LilGaum's,T,False,4900,6100,1,0,0,0,True,1,False,0,99,0,False,False,True,2.0,False,61.3,0.0
+8,76561199565368578,𝓕𝓻𝓮𝓭,CT,True,2350,2050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,20.0,200.0
+8,76561199568680509,RKLPITPIT,T,False,3800,200,2,0,0,0,True,1,False,1,141,30,False,False,True,,,48.3,700.0
+8,76561199585930887,morpheus,T,False,4600,8700,0,0,1,0,True,1,False,0,70,0,False,False,True,,,32.2,700.0
+8,76561199764939588,Король Артур,CT,True,6500,3400,1,0,0,0,False,0,False,0,31,0,False,False,True,,,61.3,
+9,76561198219443931,Michau17,T,True,2500,600,0,0,0,0,False,0,False,0,0,0,False,False,True,,,74.9,
+9,76561198382673172,Zattocat,CT,False,4100,1250,0,0,0,0,True,1,False,0,0,0,False,False,False,,,39.9,0.0
+9,76561198737287983,Bread,T,True,700,950,0,0,1,0,True,1,False,0,62,0,False,False,True,,,34.9,0.0
+9,76561198752759987,rango14,CT,False,4100,3600,1,0,0,0,True,1,False,0,94,0,False,False,True,,,55.1,0.0
+9,76561199393682763,SKADI MILANO,CT,False,7250,12250,0,0,0,0,False,0,False,0,0,0,False,False,True,4.0,False,74.9,
+9,76561199504702228,LilGaum's,T,True,4100,250,0,0,0,0,False,0,False,0,0,0,False,False,True,,,74.9,
+9,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,5000,750,0,0,0,0,True,1,False,0,0,0,False,True,False,,,17.1,200.0
+9,76561199568680509,RKLPITPIT,T,True,200,2200,0,0,0,1,False,0,False,0,0,0,False,False,True,,,74.9,
+9,76561199585930887,morpheus,T,True,4950,950,4,1,0,0,False,0,False,0,337,0,True,False,True,,,74.9,
+9,76561199764939588,Король Артур,CT,False,7200,13600,0,0,0,0,True,1,False,0,5,5,False,False,False,,,48.9,0.0
+10,76561198219443931,Michau17,T,True,4900,7200,0,0,0,0,False,0,False,0,0,0,False,False,True,,,70.2,
+10,76561198382673172,Zattocat,CT,False,3000,400,1,0,0,0,True,1,False,1,47,0,False,False,True,,,37.2,500.0
+10,76561198737287983,Bread,T,True,3900,750,0,0,0,0,True,1,True,0,0,0,False,True,True,,,13.7,0.0
+10,76561198752759987,rango14,CT,False,4300,1750,0,0,1,0,True,1,True,0,54,0,False,False,True,,,26.2,200.0
+10,76561199393682763,SKADI MILANO,CT,False,6750,13400,0,0,0,0,False,0,False,0,0,0,False,False,True,3.0,False,70.2,
+10,76561199504702228,LilGaum's,T,True,5000,6650,0,0,0,0,False,0,False,0,39,39,False,False,True,,,70.2,
+10,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,2200,700,0,0,0,0,True,1,True,0,0,0,False,False,True,,,23.9,0.0
+10,76561199568680509,RKLPITPIT,T,True,5300,6400,2,1,0,0,True,1,False,0,225,0,False,False,True,,,27.1,1000.0
+10,76561199585930887,morpheus,T,True,6650,7900,2,0,0,0,False,0,False,1,175,0,False,False,True,,,70.2,
+10,76561199764939588,Король Артур,CT,False,3150,5900,1,0,0,0,True,1,False,0,99,0,True,False,True,,,14.6,0.0
+11,76561198219443931,Michau17,T,True,5300,11100,1,0,1,0,True,1,True,0,132,0,False,False,True,,,51.6,1200.0
+11,76561198382673172,Zattocat,CT,False,2500,3500,2,0,0,0,True,1,False,0,145,0,False,False,True,2.0,False,54.7,0.0
+11,76561198737287983,Bread,T,True,3900,550,0,0,1,0,True,1,False,0,61,0,False,True,True,,,12.6,0.0
+11,76561198752759987,rango14,CT,False,4100,350,1,0,0,0,True,1,False,0,172,0,False,False,True,,,42.3,400.0
+11,76561199393682763,SKADI MILANO,CT,False,7250,15000,0,0,0,0,True,1,False,0,0,0,False,False,False,,,17.1,1100.0
+11,76561199504702228,LilGaum's,T,True,4900,9450,1,0,0,0,True,1,False,0,65,22,False,False,True,,,39.4,0.0
+11,76561199565368578,𝓕𝓻𝓮𝓭,CT,False,3050,350,0,0,0,0,True,1,False,0,20,0,False,False,False,,,22.2,0.0
+11,76561199568680509,RKLPITPIT,T,True,5100,2700,0,0,0,0,True,1,False,0,0,0,False,False,False,,,32.6,1000.0
+11,76561199585930887,morpheus,T,True,7150,12800,3,0,0,0,False,0,False,1,240,0,False,False,True,1.0,True,54.7,
+11,76561199764939588,Король Артур,CT,False,3050,5850,1,1,1,0,True,1,False,0,129,0,True,False,True,,,24.1,0.0
+12,76561198219443931,Michau17,T,False,5100,5050,0,0,0,0,True,1,False,0,0,0,False,True,False,,,29.8,800.0
+12,76561198382673172,Zattocat,CT,True,4100,1600,1,0,0,0,True,1,True,0,101,0,False,False,True,,,42.5,300.0
+12,76561198737287983,Bread,T,False,3000,1000,0,0,0,0,True,1,False,0,0,0,False,False,False,,,33.7,0.0
+12,76561198752759987,rango14,CT,True,3500,450,0,0,0,0,False,0,False,0,0,0,False,False,True,,,42.7,
+12,76561199393682763,SKADI MILANO,CT,True,7950,1300,3,0,1,0,False,0,False,1,231,96,False,False,True,,,42.7,
+12,76561199504702228,LilGaum's,T,False,7250,2050,0,0,0,0,True,1,False,0,25,0,False,False,False,,,36.4,300.0
+12,76561199565368578,𝓕𝓻𝓮𝓭,CT,True,1950,1700,1,1,2,1,False,0,False,0,135,0,True,False,True,,,42.7,
+12,76561199568680509,RKLPITPIT,T,False,5100,1050,0,0,1,0,True,1,False,0,135,47,False,False,True,,,31.5,800.0
+12,76561199585930887,morpheus,T,False,7150,16200,1,0,0,0,True,1,False,0,11,0,False,False,True,5.0,False,42.7,700.0
+12,76561199764939588,Король Артур,CT,True,4800,4950,0,0,0,0,False,0,False,0,0,0,False,False,True,,,42.7,
+13,76561198219443931,Michau17,CT,True,850,350,2,2,0,0,True,1,False,0,228,0,True,False,True,,,18.2,0.0
+13,76561198382673172,Zattocat,T,False,500,500,0,0,0,0,True,1,True,0,0,0,False,True,True,,,14.9,0.0
+13,76561198737287983,Bread,CT,True,300,700,1,0,1,0,False,0,False,0,98,0,False,False,True,,,54.3,
+13,76561198752759987,rango14,T,False,850,350,0,0,0,0,True,1,True,0,11,0,False,False,True,,,16.8,0.0
+13,76561199393682763,SKADI MILANO,T,False,300,700,0,0,0,0,True,1,False,0,14,0,False,False,False,,,38.7,0.0
+13,76561199504702228,LilGaum's,CT,True,1000,700,0,0,0,0,False,0,False,0,0,0,False,False,True,,,54.3,
+13,76561199565368578,𝓕𝓻𝓮𝓭,T,False,800,200,0,0,0,0,True,1,False,0,47,0,False,False,False,4.0,False,41.6,0.0
+13,76561199568680509,RKLPITPIT,CT,True,200,1000,0,0,0,0,False,0,False,0,28,0,False,False,True,,,54.3,
+13,76561199585930887,morpheus,CT,True,850,350,2,1,1,0,False,0,False,0,142,0,False,False,True,,,54.3,
+13,76561199764939588,Король Артур,T,False,300,700,1,1,0,0,True,1,False,1,172,0,False,False,True,,,29.8,0.0
+14,76561198219443931,Michau17,CT,True,2800,2100,0,0,0,0,False,0,False,0,0,0,False,False,True,,,44.5,
+14,76561198382673172,Zattocat,T,False,1900,1300,0,0,0,0,True,1,False,0,24,0,False,False,False,,,17.4,0.0
+14,76561198737287983,Bread,CT,True,900,4550,2,1,1,0,False,0,False,1,277,39,False,False,True,,,44.5,
+14,76561198752759987,rango14,T,False,2100,1150,0,0,1,0,True,1,False,0,41,0,False,False,True,,,29.1,0.0
+14,76561199393682763,SKADI MILANO,T,False,1650,2050,1,1,0,0,True,1,False,0,49,0,False,False,True,,,33.0,0.0
+14,76561199504702228,LilGaum's,CT,True,3950,200,1,1,1,0,True,1,True,0,113,0,True,False,True,,,32.7,0.0
+14,76561199565368578,𝓕𝓻𝓮𝓭,T,False,2300,600,1,1,0,0,True,1,False,0,120,0,False,False,True,4.0,False,44.5,300.0
+14,76561199568680509,RKLPITPIT,CT,True,1850,3300,0,0,1,0,True,1,True,0,60,2,False,False,True,,,43.0,0.0
+14,76561199585930887,morpheus,CT,True,4700,850,2,1,0,0,False,0,False,1,46,0,False,False,True,,,44.5,
+14,76561199764939588,Король Артур,T,False,2450,1250,0,0,0,0,True,1,False,0,67,0,False,True,False,,,16.2,0.0
+15,76561198219443931,Michau17,CT,True,3900,7100,1,0,0,0,False,0,False,1,108,0,False,False,True,,,62.9,
+15,76561198382673172,Zattocat,T,False,3550,350,2,0,0,0,True,1,False,0,104,0,False,False,True,2.0,False,62.9,0.0
+15,76561198737287983,Bread,CT,True,4500,11150,1,0,0,0,True,1,False,0,39,0,False,False,True,,,55.9,0.0
+15,76561198752759987,rango14,T,False,3000,350,1,0,0,0,True,1,False,0,100,0,False,False,True,,,58.3,0.0
+15,76561199393682763,SKADI MILANO,T,False,3200,2050,0,0,2,0,True,1,False,0,227,0,False,False,True,,,46.3,0.0
+15,76561199504702228,LilGaum's,CT,True,3950,250,0,0,1,0,True,1,False,0,47,0,False,False,True,,,40.3,0.0
+15,76561199565368578,𝓕𝓻𝓮𝓭,T,False,3300,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,47.2,400.0
+15,76561199568680509,RKLPITPIT,CT,True,5800,1100,1,1,0,0,True,1,True,0,100,0,False,False,True,,,57.4,800.0
+15,76561199585930887,morpheus,CT,True,5200,8900,2,1,0,0,False,0,False,0,198,0,True,False,True,,,62.9,
+15,76561199764939588,Король Артур,T,False,3850,300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.0,0.0
+16,76561198219443931,Michau17,CT,True,5400,12550,1,1,1,0,True,1,False,0,148,0,False,False,True,,,27.6,1300.0
+16,76561198382673172,Zattocat,T,False,3550,500,0,0,0,0,True,1,False,0,0,0,False,False,False,,,36.5,0.0
+16,76561198737287983,Bread,CT,True,6050,5900,1,0,0,0,False,0,False,0,73,0,False,False,True,,,104.9,
+16,76561198752759987,rango14,T,False,3300,450,1,0,0,0,True,1,False,0,120,0,False,False,True,3.0,False,95.0,300.0
+16,76561199393682763,SKADI MILANO,T,False,4900,250,1,0,0,0,True,1,False,1,64,10,False,False,True,,,40.4,300.0
+16,76561199504702228,LilGaum's,CT,True,3750,200,1,0,1,0,True,1,False,0,78,0,False,False,True,,,55.2,300.0
+16,76561199565368578,𝓕𝓻𝓮𝓭,T,False,2500,3100,1,1,0,0,True,1,False,0,100,0,True,False,True,,,12.2,300.0
+16,76561199568680509,RKLPITPIT,CT,True,4900,200,2,2,0,0,False,0,False,1,198,0,False,False,True,,,104.9,
+16,76561199585930887,morpheus,CT,True,5500,12100,0,0,0,0,True,1,True,0,0,0,False,True,True,,,10.6,700.0
+16,76561199764939588,Король Артур,T,False,2750,350,0,0,1,0,True,1,True,0,44,0,False,False,True,,,25.1,500.0
+17,76561198219443931,Michau17,CT,True,5800,6100,1,0,0,0,False,0,False,0,100,0,False,False,True,,,48.7,
+17,76561198382673172,Zattocat,T,False,3550,1150,0,0,0,0,True,1,False,0,85,0,False,False,False,,,24.8,0.0
+17,76561198737287983,Bread,CT,True,6050,15300,2,1,0,0,False,0,False,0,174,0,False,False,True,,,48.7,
+17,76561198752759987,rango14,T,False,3900,1350,0,0,1,0,True,1,False,0,26,0,False,False,True,,,26.0,0.0
+17,76561199393682763,SKADI MILANO,T,False,6250,200,1,0,0,0,True,1,False,0,74,0,False,False,True,5.0,False,48.7,0.0
+17,76561199504702228,LilGaum's,CT,True,4100,350,1,0,1,0,True,1,False,0,125,0,False,False,True,,,39.2,200.0
+17,76561199565368578,𝓕𝓻𝓮𝓭,T,False,4950,350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.0,0.0
+17,76561199568680509,RKLPITPIT,CT,True,5700,9350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,48.7,
+17,76561199585930887,morpheus,CT,True,7350,4100,1,0,0,0,False,0,False,0,100,0,True,False,True,,,48.7,
+17,76561199764939588,Король Артур,T,False,6350,200,0,0,0,0,True,1,False,0,0,0,False,False,False,,,11.0,400.0
