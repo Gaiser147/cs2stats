@@ -1,0 +1,65 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198379570553,ORANDŽUTAN,T,False,500,500,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.5,0.0
+1,76561198382673172,Zattocat,CT,True,400,800,0,0,0,0,True,1,False,0,16,0,False,False,False,,,26.5,200.0
+1,76561198813139475,mates,T,False,850,350,1,1,0,0,True,1,False,0,133,0,False,False,True,2.0,False,39.3,0.0
+1,76561199257115106,Schrödinger =^·ω·^=,CT,True,850,350,2,2,0,0,False,0,False,0,183,0,True,False,True,1.0,True,39.3,
+2,76561198379570553,ORANDŽUTAN,T,False,700,1800,1,1,0,0,True,1,False,1,73,0,False,False,True,2.0,False,16.1,0.0
+2,76561198382673172,Zattocat,CT,True,1150,2500,1,0,0,0,False,0,False,0,63,0,False,False,True,1.0,True,16.1,
+2,76561198813139475,mates,T,False,2550,300,0,0,1,0,True,1,True,0,26,0,False,True,True,,,7.7,0.0
+2,76561199257115106,Schrödinger =^·ω·^=,CT,True,3850,1200,1,1,1,0,True,1,False,0,133,21,True,False,True,,,8.4,200.0
+3,76561198379570553,ORANDŽUTAN,T,False,4400,300,1,1,0,0,True,1,False,0,99,0,False,False,True,2.0,False,63.4,0.0
+3,76561198382673172,Zattocat,CT,True,3900,6050,0,0,1,0,True,1,False,0,46,0,False,False,True,,,44.9,300.0
+3,76561198813139475,mates,T,False,2550,2600,0,0,0,0,True,1,False,0,45,0,False,True,False,,,11.3,300.0
+3,76561199257115106,Schrödinger =^·ω·^=,CT,True,3450,550,2,0,0,0,False,0,False,0,152,0,True,False,True,1.0,True,63.4,
+4,76561198379570553,ORANDŽUTAN,T,False,700,2500,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.7,0.0
+4,76561198382673172,Zattocat,CT,True,4600,4950,0,0,0,0,False,0,False,0,12,12,False,False,True,,,28.6,
+4,76561198813139475,mates,T,False,500,2850,0,0,0,0,True,1,False,0,91,0,False,False,False,2.0,False,28.6,0.0
+4,76561199257115106,Schrödinger =^·ω·^=,CT,True,5600,6000,2,1,0,0,False,0,False,0,186,0,True,False,True,,,28.6,
+5,76561198379570553,ORANDŽUTAN,T,False,3250,2350,0,0,0,0,True,1,False,0,0,0,False,True,False,,,19.7,300.0
+5,76561198382673172,Zattocat,CT,True,5100,7900,0,0,1,0,False,0,False,0,59,59,False,False,True,,,31.7,
+5,76561198813139475,mates,T,False,3450,2000,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,34.2,700.0
+5,76561199257115106,Schrödinger =^·ω·^=,CT,True,5600,9150,2,0,0,0,False,0,False,0,139,22,True,False,True,,,31.7,
+6,76561198379570553,ORANDŽUTAN,T,False,3950,2500,0,0,0,0,True,1,False,0,25,25,False,False,False,2.0,False,36.4,500.0
+6,76561198382673172,Zattocat,CT,True,4900,11000,0,0,1,0,False,0,False,0,28,28,False,False,True,,,45.2,
+6,76561198813139475,mates,T,False,5100,900,0,0,0,0,True,1,False,0,26,0,False,True,False,,,13.5,1200.0
+6,76561199257115106,Schrödinger =^·ω·^=,CT,True,5600,12000,2,0,0,0,False,0,False,0,167,19,True,False,True,,,45.2,
+7,76561198379570553,ORANDŽUTAN,T,True,6450,350,1,1,0,0,False,0,False,0,99,0,False,False,True,,,29.7,
+7,76561198382673172,Zattocat,CT,False,4900,11900,0,0,0,0,True,1,False,0,53,3,False,False,False,2.0,False,29.7,500.0
+7,76561198813139475,mates,T,True,4700,4700,1,1,0,0,False,0,False,0,100,0,True,False,True,,,29.7,
+7,76561199257115106,Schrödinger =^·ω·^=,CT,False,6100,10050,0,0,0,0,True,1,False,0,33,0,False,True,False,,,19.0,500.0
+8,76561198379570553,ORANDŽUTAN,T,True,7150,8550,1,0,0,0,False,0,False,0,100,0,False,False,True,,,15.2,
+8,76561198382673172,Zattocat,CT,False,4100,4300,0,0,0,0,True,1,False,0,32,0,False,False,False,2.0,False,15.2,300.0
+8,76561198813139475,mates,T,True,4900,7250,1,1,0,0,False,0,False,0,99,0,True,False,True,,,15.2,
+8,76561199257115106,Schrödinger =^·ω·^=,CT,False,7700,250,0,0,0,0,True,1,False,0,63,0,False,True,False,,,11.3,300.0
+9,76561198379570553,ORANDŽUTAN,CT,True,1000,200,0,0,1,0,False,0,False,0,53,53,False,False,True,,,34.1,
+9,76561198382673172,Zattocat,T,False,800,200,0,0,0,0,True,1,False,0,0,0,False,True,False,,,7.9,500.0
+9,76561198813139475,mates,CT,True,850,350,2,2,0,0,False,0,False,0,146,0,True,False,True,,,34.1,
+9,76561199257115106,Schrödinger =^·ω·^=,T,False,850,350,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,34.1,0.0
+10,76561198379570553,ORANDŽUTAN,CT,True,2800,250,1,0,0,0,False,0,False,0,112,54,False,False,True,,,8.7,
+10,76561198382673172,Zattocat,T,False,1900,500,0,0,0,0,True,1,False,0,32,0,False,False,False,2.0,False,8.7,0.0
+10,76561198813139475,mates,CT,True,3050,1600,1,1,0,0,False,0,False,0,80,0,True,False,True,,,8.7,
+10,76561199257115106,Schrödinger =^·ω·^=,T,False,1700,650,0,0,0,0,True,1,False,0,0,0,False,True,False,,,8.0,0.0
+11,76561198379570553,ORANDŽUTAN,CT,True,5150,2050,1,0,0,0,False,0,False,0,118,18,False,False,True,,,28.6,
+11,76561198382673172,Zattocat,T,False,2100,900,0,0,0,0,True,1,False,0,34,0,False,False,False,2.0,False,28.6,200.0
+11,76561198813139475,mates,CT,True,3850,7750,1,0,0,0,False,0,False,0,81,0,True,False,True,,,28.6,
+11,76561199257115106,Schrödinger =^·ω·^=,T,False,2750,200,0,0,0,0,True,1,False,0,72,0,False,True,False,,,7.0,0.0
+12,76561198379570553,ORANDŽUTAN,CT,True,5650,6650,2,1,0,0,False,0,False,0,194,0,False,False,True,2.0,True,51.1,
+12,76561198382673172,Zattocat,T,False,2800,3500,0,0,0,0,True,1,False,0,42,0,False,False,False,1.0,False,51.1,200.0
+12,76561198813139475,mates,CT,True,4450,10550,0,0,0,0,True,1,False,0,1,1,False,True,False,,,43.5,700.0
+12,76561199257115106,Schrödinger =^·ω·^=,T,False,2000,800,1,1,0,0,True,1,False,0,137,0,True,False,True,,,49.8,500.0
+13,76561198379570553,ORANDŽUTAN,CT,True,5650,8350,1,0,1,0,False,0,False,0,142,0,False,False,True,,,41.5,
+13,76561198382673172,Zattocat,T,False,3600,1400,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,41.5,300.0
+13,76561198813139475,mates,CT,True,3550,4850,1,1,0,0,False,0,False,0,54,0,True,False,True,,,41.5,
+13,76561199257115106,Schrödinger =^·ω·^=,T,False,4600,300,0,0,0,0,True,1,False,0,0,0,False,True,False,,,40.8,300.0
+14,76561198379570553,ORANDŽUTAN,CT,True,5650,11600,1,1,0,0,False,0,False,0,95,0,False,False,True,1.0,True,64.5,
+14,76561198382673172,Zattocat,T,False,2100,1700,1,0,0,0,True,1,False,0,86,0,False,False,True,2.0,False,64.5,700.0
+14,76561198813139475,mates,CT,True,3950,10550,1,1,0,0,True,1,False,0,97,0,True,False,True,,,32.0,1000.0
+14,76561199257115106,Schrödinger =^·ω·^=,T,False,2300,2500,0,0,0,0,True,1,False,0,12,0,False,True,False,,,15.9,0.0
+15,76561198379570553,ORANDŽUTAN,CT,False,5650,12050,0,0,0,0,True,1,False,0,63,0,False,False,False,2.0,False,39.2,0.0
+15,76561198382673172,Zattocat,T,True,4350,1350,0,0,0,0,False,0,False,0,0,0,False,False,True,,,39.2,
+15,76561198813139475,mates,CT,False,3950,4450,0,0,0,0,True,1,False,0,22,0,False,True,False,,,24.3,1300.0
+15,76561199257115106,Schrödinger =^·ω·^=,T,True,4500,300,2,2,0,0,False,0,False,0,200,0,True,False,True,,,39.2,
+16,76561198379570553,ORANDŽUTAN,CT,True,6300,1900,0,0,1,0,True,1,True,0,92,4,False,True,True,,,12.0,500.0
+16,76561198382673172,Zattocat,T,False,4700,6550,0,0,0,0,True,1,False,0,0,0,False,False,False,1.0,False,27.0,300.0
+16,76561198813139475,mates,CT,True,5200,3100,2,0,0,0,False,0,False,1,107,0,False,False,True,2.0,True,27.0,
+16,76561199257115106,Schrödinger =^·ω·^=,T,False,5100,6750,1,1,0,0,True,1,False,0,100,0,True,False,True,,,13.9,700.0

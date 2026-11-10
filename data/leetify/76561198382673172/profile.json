@@ -1,7 +1,7 @@
 {
  "privacy_mode": "public",
  "winrate": 0.4815,
- "total_matches": 42,
+ "total_matches": 43,
  "first_match_date": "2026-08-31T00:29:31.000Z",
  "name": "Zattocat",
  "bans": [],
@@ -86,6 +86,25 @@
   "utility_on_death_avg": 367.8249
  },
  "recent_matches": [
+  {
+   "id": "e3820f60-65d9-4ffb-a166-3a3605778e77",
+   "finished_at": "2026-11-09T23:57:56.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "loss",
+   "rank": 3,
+   "rank_type": 7,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.15,
+   "score": [
+    7,
+    9
+   ],
+   "preaim": 11.32,
+   "reaction_time_ms": 516,
+   "accuracy_enemy_spotted": 36.51,
+   "accuracy_head": 0,
+   "spray_accuracy": 0
+  },
   {
    "id": "6b64391f-e863-47e9-ae4f-3758d6fa4cb3",
    "finished_at": "2026-11-09T23:48:41.000Z",

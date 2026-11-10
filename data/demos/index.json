@@ -630,6 +630,27 @@
    "crosshair_angle_median": 6.16,
    "time_to_damage_median_ms": 454.0,
    "counter_strafe_pct": 76.5
+  },
+  {
+   "demo": "match730_003853164529466736802_1475009650_444",
+   "map": "de_nuke",
+   "mode": "wingman",
+   "rounds": 16,
+   "date": "2026-11-09T23:57:56.000Z",
+   "score": {
+    "own": 7,
+    "enemy": 9,
+    "result": "loss"
+   },
+   "leetify_id": "e3820f60-65d9-4ffb-a166-3a3605778e77",
+   "rating_hltv1": 0.36,
+   "adr": 31.4,
+   "kast": 43.8,
+   "kills": 2,
+   "deaths": 11,
+   "crosshair_angle_median": 6.95,
+   "time_to_damage_median_ms": 336.0,
+   "counter_strafe_pct": 70.3
   }
  ]
 }
