@@ -31,14 +31,15 @@ Read on a phone between sessions or before playing; sometimes shown to friends. 
 - Data per match for all ten players: rating, ADR, K/D/A, accuracy (enemy spotted, head, spray), preaim in degrees, reaction time, counter-strafing, utility thrown, utility value held on death, flashes (enemies/teammates blinded, flash-to-kill), trades (chances, attempts, successes), multi-kills, rounds survived. Profile: Premier, Competitive per map, Leetify sub-ratings (aim, positioning, utility, clutch, opening), CT/T opening duel rates.
 - Demos (own parser, `demo_analyze.py`, 5v5 since 2026-10-17): positions of every kill, death, shot and sighting, movement every 0.5 s, crosshair offset split into horizontal and vertical, time to damage, counter-strafing, opening duels per side, KAST. Only these pages show measured positions (death maps); the scenario sketches stay labelled "Skizze".
 - Demo aim numbers use a tighter sighting definition than Leetify's preaim and reaction time; they are only compared with the lobby of the same demos.
-- Floor plans on death maps are traced from all players' movement in the demos, not from Valve radar images.
+- Floor plans on map pages come from each map's navigation mesh (walkable polygons with height, via the awpy-data releases, stored as coordinates in `data/maps/geometry/`). No Valve radar images or textures.
+- What the page shows is decided by the data at build time: chapters (Fadenkreuz, Granaten, erstes Duell) appear only when the player is clearly behind the lobby and in order of the gap; grenade replays only for the grenade types that lag; the two most relevant maps (often and recently played, lost on) get map pages, every other map appears in an overview.
 - Small sample (43 Leetify matches and 18 5v5 demos as of 2026-11-10); claims must be worded as tendencies.
 - Leetify attribution required ("Data Provided by Leetify", "View on Leetify" link).
 - Shared page shows only the owner's stats and lobby averages, never other players' names or Steam IDs.
 
 ## Brand Commitments
 
-German UI copy. No Valve game assets (character models, maps, logos) are extracted or redistributed; player figures are original CT/T-style models built for this page. Minimal interface: no top bars or menus, the graphics carry the page.
+German UI copy. No Valve artwork (character models, radar images, textures, logos) is extracted or redistributed; map floor plans are drawn from nav-mesh coordinates only; player figures are original CT/T-style models built for this page. Minimal interface: no top bars or menus, the graphics carry the page.
 
 ## Evidence on Hand
 

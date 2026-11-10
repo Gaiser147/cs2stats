@@ -314,26 +314,19 @@ Room-coloured sheet over the board with a grab handle, an underlined Archivo 600
 No visible navigation. Keyboard users get two skip buttons (previous/next page), off-screen until focused, then a 2px ink pill on board white. Focus everywhere is a 2px ink outline, offset 3px, radius 4px.
 
 ### State table
-| # | Angle θ | Face | Page | Camera | Adds |
-|---|---|---|---|---|---|
-| 0 | 0 | front | title | face | intro ease-in, title written |
-| 1 | π/2 | back | map1 (preaim) | top | magnets |
-| 2 | π/2 | back | map1 | side | wall, figures, 3D aim/lobby rays |
-| 3 | π/2 | back | map1 | ego | crosshair flick, own figure hidden |
-| 4 | π | back | aimH (crosshair height vs. side, demos) | face | figure to scale, offset boxes |
-| 5 | 2π | front | gut (mechanics vs. lobby, demos) | face | |
-| 6 | 3π | back | util1 (utility on death, flashes) | face | |
-| 7 | 4π | front | util2 (grenades per match) | face | |
-| 8–11 | 7π/2 | front | utilmap | util | flash, HE, molotov, smoke |
-| 12 | 9π/2 | back | deaths0 (most-played map) | top | measured deaths, opening deaths, kills |
-| 13 | 11π/2 | front | deaths1 (second map) | top | |
-| 14 | 13π/2 | back | map2 (opening duel) | top | magnets |
-| 15 | 13π/2 | back | map2 | side | walls, you, entry, CT |
-| 16 | 6π | front | erg (ADR, rank, KAST) | face | |
-| 17 | 7π | back | plan (four tracks to targets) | face | |
+| # | Block | Page | Camera | Adds |
+|---|---|---|---|---|
+| 0 | title | title | face | intro ease-in, chapter list from the data |
+| 1–2 | Erstes Duell (score 0.46) | map2 | top, side | magnets, walls, you, entry, CT |
+| 3–6 | Granaten (0.39) | util1, util2, utilmap HE, utilmap molotov | face, util | only grenades behind the lobby |
+| 7–11 | Fadenkreuz (0.36) | map1 A/B/C, aimH, gut | top, side, ego, face | |
+| 12 | maps | mapsAll | face | every map ranked, focus marked |
+| 13–14 | focus maps | deaths0 (Anubis), deaths1 (Nuke) | top | print, heat, tap modes |
+| 15 | summary | erg | face | |
+| 16 | plan | plan | face | four goals, open ones by chapter rank |
 | then | | | drills sheet | | slides up |
 
-Angles are derived, not listed: each page names its face and whether the board lies flat, and the pivot takes the nearest matching angle (forward on a tie). Without demo data the demo pages drop out and the sequence falls back to the original 14 states. Transitions between a flat and an upright page that are not the top view route the camera through that map's top view, with the rotation in the matching half.
+The sequence is assembled at load from blocks (title, chapters by score, maps overview, focus maps, summary, plan); the table shows the sequence for the data of 2026-11-10. Angles are derived, not listed: each page names its face and whether the board lies flat, and the pivot takes the nearest matching angle (forward on a tie). Without demo data the demo pages drop out and the sequence falls back to the original 14 states. Transitions between a flat and an upright page that are not the top view route the camera through that map's top view, with the rotation in the matching half.
 
 ### Motion grammar
 - Board turn 1.35 s; same-page camera move 0.45 s; other camera moves 1.05 s; in-out cubic.
@@ -354,7 +347,8 @@ Angles are derived, not listed: each page names its face and whether the board l
 - **Do** move exactly one page per gesture, and keep the order: turn or camera move, marker writing, magnets and figures, caption last.
 - **Do** encode every value as a marker mark (stroke, dashed line, tally, hatched box, check, cross, ring, arrow) in the three inks.
 - **Do** write "Skizze" on every scenario page; those positions are illustrative and not measured.
-- **Do** keep death maps measured: a heat field (red ramp for deaths, graphite for kills, clipped to the floor) instead of single marks, ink crosses only for lost opening duels, a mid-grey floor (#d2d7d9) with ink walls, bombsites hatched with a circled marker letter, spawns and the three busiest callouts in bold sans with a board-coloured halo. A lower path under a bridge is darker (#a9b0b5) with dashed walls, the bridge over it keeps the floor colour with solid edges. A tap cycles alle Tode, als T, als CT, Kills and redraws the board. No radar images.
+- **Do** show focus maps as a printed floor plan taped to the board: nav-mesh polygons drawn in height bands (grey ramp #868e95 low to #dee2e4 high, faint band edges, ink outer walls), bombsites hatched, the paper with a soft shadow and two tape strips. Marker work on top: a heat field (red ramp for deaths, graphite for kills, clipped to the floor), ink crosses only for lost opening duels, circled bombsite letters, spawns, the three busiest callouts of the mode in bold red, other callouts small where they fit. Maps with two radar levels (Nuke) get two panels, labelled oben and unten. A tap cycles alle Tode, als T, als CT, Kills.
+- **Do** let the data choose the pages: chapters by their gap to the lobby, grenade pages only where the player lags, focus maps by relevance; a maps overview ranks every map.
 - **Do** keep all map writing at the board's near edge on phone so side cameras stay clean.
 - **Do** compare only the owner's stats with lobby averages, and keep "Data Provided by Leetify" with the "View on Leetify" link.
 - **Do** give every effect page its own caption with the data, and let a tap or click replay it.

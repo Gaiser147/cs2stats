@@ -195,6 +195,25 @@ const DX = DM ? (() => {
     lastPitch: pitchRs.length ? pitchRs.reduce((s, r) => s + r.pitch * r.rounds, 0) / pitchRs.reduce((s, r) => s + r.rounds, 0) : null };
 })() : null;
 const heightFirst = DX && DX.heightGap > DX.sideGap + .1;
+// ---------------- relevance: what this debrief shows, decided from the data at build time ----------------
+// every chapter scores how far you are behind your own lobby (0 = level, 0.3 = 30 % worse); chapters under RELEVANT drop out,
+// the rest are shown in order of their score. Maps: the build ranks them (often and recently played, lost on) and bakes floor plans
+// only for the focus maps.
+const RANK = DM && DM.ranking ? DM.ranking : [];
+const FOCUS = DMAPS.length ? DMAPS.map(m => m.name) : RANK.slice(0, 2).map(r => r.name);
+const focusTxt = FOCUS.length ? FOCUS.join(' und ') : 'deine Haupt-Maps';
+const worse = (me, lob, lower) => !lob ? 0 : lower ? (me - lob) / lob : (lob - me) / lob;
+const NADE = { flash: worse(S.flPr, S.lFlPr), he: worse(S.hePr, S.lHePr), molly: worse(S.moPr, S.lMoPr), smoke: worse(S.smPr, S.lSmPr) };
+const RELEVANT = .08;
+const CHAPTERS = [
+  { id: 'aim', name: 'Fadenkreuz', score: Math.max(worse(S.pre, S.lPre, true), DX ? worse(DX.me.pitch, DX.lob.pitch, true) : 0, worse(S.head, S.lHead)) },
+  { id: 'util', name: 'Granaten', score: .7 * Math.max(worse(S.uod, S.lUod, true), ...Object.values(NADE)) },
+  { id: 'open', name: 'Erstes Duell', score: DX ? worse(DX.weak.me, DX.weak.lob) : worse(Math.min(tOpen, ctOpen) / 100, .5) },
+].sort((a, b) => b.score - a.score);
+const SHOWN = CHAPTERS.filter(c => c.score >= RELEVANT);
+const chRank = id => { const i = CHAPTERS.findIndex(c => c.id === id); return SHOWN.some(c => c.id === id) ? i : 9 + i; };
+// a grenade gets its own animated page only where you are clearly behind (flash also when you blind your own team more)
+const nadeShown = k => NADE[k] > .1 || (k === 'flash' && S.frPer > S.lFrPer * 1.15);
 // death maps: one tap cycles what the heat shows
 const DMODES = [['all', 'alle Tode'], ['T', 'als T'], ['CT', 'als CT'], ['kills', 'Kills']];
 const DMODE = DMAPS.map(() => 0);
@@ -204,13 +223,25 @@ function topPlaces(mp, m) {
   modePts(mp, m).forEach(d => { const pi = kills ? d[2] : d[4]; if (pi < 0) return; const c = cnt[pi] || (cnt[pi] = { n: 0, t: 0, ct: 0 }); c.n++; if (!kills) { if (d[2]) c.ct++; else c.t++; } });
   return Object.entries(cnt).sort((a, b) => b[1].n - a[1].n).map(([pi, c]) => ({ ...mp.places[pi], ...c }));
 }
+function mapReason(r) {
+  if (!r || r.matches == null) return '';
+  const bits = [`${r.w} von ${r.matches} gewonnen`];
+  if (r.l_adr - r.adr >= 3) bits.push(`${de(r.l_adr - r.adr, 0)} ADR unter der Lobby`);
+  return bits.join(', ');
+}
+function mapsCap() {
+  if (!RANK.length) return null;
+  const f = RANK.filter(r => r.focus);
+  return ['Deine Maps', `Sortiert nach Relevanz: wie oft und wie kürzlich du die Map gespielt hast, und wie viel Schaden und Siege dir dort auf die Lobby fehlen. ${f.length ? `Die nächsten Seiten zeigen ${f.map(r => `<b>${r.name}</b> (${mapReason(r)})`).join(' und ')}.` : ''} Andere Maps rücken nach, sobald sie in neuen Matches wichtiger werden.`];
+}
 function deathCap(mp, m) {
   const kind = DMODES[m][0], pts = modePts(mp, m), top = topPlaces(mp, m)[0];
   const again = `<span class="again">${matchMedia('(pointer: coarse)').matches ? 'Tippe' : 'Klicke'} auf die Tafel zum Umschalten: ${DMODES.map(d => d[1]).join(', ')}.</span>`;
   if (kind === 'kills') return [`${mp.name}: wo du triffst`, `${pts.length} Kills in ${mp.matches} Matches.${top ? ` Die meisten bei <b>${top.name}</b> (${top.n}). Von dort aus holst du deine Kills; such diese Position öfter.` : ''} ${again}`];
   const opens = pts.filter(d => d[3]).length, side = kind === 'all' ? (top && top.ct > top.t ? 'CT' : 'T') : kind, who = kind === 'all' ? '' : ` als ${kind}`;
   const tip = side === 'CT' ? 'Wechsle dort nach einem Kontakt die Position, statt denselben Winkel noch einmal zu zeigen.' : 'Geh dort nicht als Erster hinein, und wirf vorher, was du dabei hast.';
-  return [`${mp.name}: wo du${who} fällst`, `${pts.length} Tode${who} in ${mp.matches} Matches, gemessen in deinen Demos. ${top ? `Am dichtesten bei <b class="fix">${top.name}</b> (${top.n}${kind === 'all' ? `, davon ${top[side.toLowerCase()]} als ${side}` : ''}). ${tip}` : ''} Kreuze: ${opens}-mal das erste Duell der Runde verloren. ${again}`];
+  const why = kind === 'all' ? mapReason(RANK.find(r => r.focus && r.name === mp.name)) : '';
+  return [`${mp.name}: wo du${who} fällst`, `${why ? `Fokus-Map: ${why}. ` : ''}${pts.length} Tode${who} in ${mp.matches} Matches, gemessen in deinen Demos. ${top ? `Am dichtesten bei <b class="fix">${top.name}</b> (${top.n}${kind === 'all' ? `, davon ${top[side.toLowerCase()]} als ${side}` : ''}). ${tip}` : ''} Kreuze: ${opens}-mal das erste Duell der Runde verloren. ${again}`];
 }
 
 const de = (v, d = 1) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', ',');
@@ -223,57 +254,57 @@ const cmp = (a, b) => a >= b ? 'mehr als' : 'weniger als';
 
 const TASKS = [
   { t: 'Fadenkreuz vorplatzieren', all: S.pre, last: L5 && L5.pre, goal: S.lPre, lower: true, fmt: v => de(v) + '°', worst: 18, best: 8,
-    drill: 'Vor jeder Session 10 bis 15 Minuten eine Prefire-Map für Mirage und Inferno. Das Fadenkreuz steht immer auf Kopfhöhe an der nächsten Kante, an der ein Gegner auftauchen kann.' },
+    drill: `Vor jeder Session 10 bis 15 Minuten eine Prefire-Map für ${focusTxt}. Das Fadenkreuz steht immer auf Kopfhöhe an der nächsten Kante, an der ein Gegner auftauchen kann.`, ch: 'aim' },
   { t: 'Granaten werfen, bevor du fällst', all: S.uod, last: L5 && L5.uod, goal: S.lUod, lower: true, fmt: v => '$' + de(v, 0), worst: 500, best: 150,
-    drill: 'Lerne für Mirage und Inferno pro Seite zwei feste Smokes und eine Pop-Flash. Bevor du in einen Kontakt gehst, wirfst du, was du dabei hast.' },
+    drill: `Lerne für ${focusTxt} pro Seite zwei feste Smokes und eine Pop-Flash. Bevor du in einen Kontakt gehst, wirfst du, was du dabei hast.`, ch: 'util' },
   { t: 'Öfter flashen', all: S.flPr, last: L5 && L5.flPr, goal: S.lFlPr, lower: false, fmt: v => de(v, 2) + '/Rd', worst: 0, best: .35,
-    drill: 'Kaufe in jeder Vollkauf-Runde eine Flash. Wirf sie über deinen eigenen Peek oder sag sie für den Entry an.' },
+    drill: 'Kaufe in jeder Vollkauf-Runde eine Flash. Wirf sie über deinen eigenen Peek oder sag sie für den Entry an.', ch: 'util' },
   { t: 'Als Zweiter rein, eng traden', all: S.tk, last: L5 && L5.tk, goal: S.lTk, lower: false, fmt: v => pc(v), worst: .2, best: .7,
-    drill: 'Auf T-Seite gehst du nicht als Erster, sondern direkt hinter dem Entry, so nah, dass du seinen Gegner sofort siehst.' },
+    drill: 'Auf T-Seite gehst du nicht als Erster, sondern direkt hinter dem Entry, so nah, dass du seinen Gegner sofort siehst.', ch: 'open' },
   ...(DX ? [
     { t: 'Kopfhöhe halten', all: DX.me.pitch, last: DX.lastPitch, goal: DX.lob.pitch, lower: true, fmt: v => de(v) + '°', worst: 3.2, best: 1, demo: true,
-      drill: 'Im Deathmatch nur auf Kopfhöhe zielen, auch beim Laufen. Auf Treppen, Rampen und an Kisten verrutscht die Höhe am leichtesten: Dort das Fadenkreuz vor dem Peek bewusst anheben oder absenken.' },
+      drill: 'Im Deathmatch nur auf Kopfhöhe zielen, auch beim Laufen. Auf Treppen, Rampen und an Kisten verrutscht die Höhe am leichtesten: Dort das Fadenkreuz vor dem Peek bewusst anheben oder absenken.', ch: 'aim' },
     { t: `Erstes Duell als ${DX.weak.s}`, all: DX.weak.me, last: DX.weak.last[1] ? rate(DX.weak.last) : null, goal: DX.weak.lob, lower: false, fmt: v => pc(v), worst: .1, best: .7, demo: true,
-      drill: DX.weak.s === 'CT' ? 'Als CT in den ersten Sekunden nicht peeken. Halte einen Winkel, den ein Teammate traden kann, und wechsle nach dem ersten Kontakt die Position, statt denselben Winkel noch einmal zu zeigen.' : 'Als T nicht als Erster in einen Winkel laufen, den du nicht geflasht oder gesmoked hast. Lass dem Entry den Vortritt und trade ihn.' },
+      drill: DX.weak.s === 'CT' ? 'Als CT in den ersten Sekunden nicht peeken. Halte einen Winkel, den ein Teammate traden kann, und wechsle nach dem ersten Kontakt die Position, statt denselben Winkel noch einmal zu zeigen.' : 'Als T nicht als Erster in einen Winkel laufen, den du nicht geflasht oder gesmoked hast. Lass dem Entry den Vortritt und trade ihn.', ch: 'open' },
   ] : []),
 ].map(t => ({ ...t, done: t.last != null && (t.lower ? t.last <= t.goal : t.last >= t.goal) }));
 // the board has room for four goals: open ones first, in priority order
-const BOARD_TASKS = [...TASKS.filter(t => !t.done), ...TASKS.filter(t => t.done)].slice(0, 4);
+const byRank = (a, b) => chRank(a.ch) - chRank(b.ch);
+const TASK_ORDER = [...TASKS.filter(t => !t.done).sort(byRank), ...TASKS.filter(t => t.done)];
+const BOARD_TASKS = TASK_ORDER.slice(0, 4);
 
 // ---------------- captions, one per board state ----------------
 const COARSE = matchMedia('(pointer: coarse)').matches;
 const AGAIN = `<span class="again">${COARSE ? 'Tippe' : 'Klicke'} auf die Tafel, um es nochmal zu sehen.</span>`;
-const CAPS = [
-  null,
-  ['A · Draufsicht', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>.`],
-  ['B · Seitenansicht', `Von deinen Treffern gehen <b>${pc(S.head, 1)}</b> an den Kopf, in deiner Lobby <span class="lobby">${pc(S.lHead, 1)}</span>. Halte das Fadenkreuz schon vor dem Peek auf Kopfhöhe an der Kante.`],
-  ['C · Ego-Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
-  ...(DX ? [
-    [heightFirst ? 'Höhe statt Seite' : 'Höhe und Seite', `Aus ${DM.n} Demos: Beim ersten Sichtkontakt liegt dein Fadenkreuz senkrecht <b class="${DX.me.pitch > DX.lob.pitch ? 'fix' : ''}">${de(DX.me.pitch)}°</b> neben dem Kopf, in der Lobby <span class="lobby">${de(DX.lob.pitch)}°</span>. Waagerecht sind es ${de(DX.me.yaw)}° gegen <span class="lobby">${de(DX.lob.yaw)}°</span>. ${heightFirst ? 'Seitlich bist du also fast so gut wie deine Lobby, die Höhe macht den Unterschied.' : ''} Nur <b>${pc(DX.me.head, 1)}</b> deiner Schüsse treffen den Kopf, in der Lobby <span class="lobby">${pc(DX.lob.head, 1)}</span>. Die Demos messen den Abstand, nicht ob du zu hoch oder zu tief zielst.`],
-    (() => {
+const CAP = {
+  title: null,
+  map1A: ['A · Draufsicht', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>.`],
+  map1B: ['B · Seitenansicht', `Von deinen Treffern gehen <b>${pc(S.head, 1)}</b> an den Kopf, in deiner Lobby <span class="lobby">${pc(S.lHead, 1)}</span>. Halte das Fadenkreuz schon vor dem Peek auf Kopfhöhe an der Kante.`],
+  map1C: ['C · Ego-Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
+  ...(DX ? {
+    aimH: [heightFirst ? 'Höhe statt Seite' : 'Höhe und Seite', `Aus ${DM.n} Demos: Beim ersten Sichtkontakt liegt dein Fadenkreuz senkrecht <b class="${DX.me.pitch > DX.lob.pitch ? 'fix' : ''}">${de(DX.me.pitch)}°</b> neben dem Kopf, in der Lobby <span class="lobby">${de(DX.lob.pitch)}°</span>. Waagerecht sind es ${de(DX.me.yaw)}° gegen <span class="lobby">${de(DX.lob.yaw)}°</span>. ${heightFirst ? 'Seitlich bist du also fast so gut wie deine Lobby, die Höhe macht den Unterschied.' : ''} Nur <b>${pc(DX.me.head, 1)}</b> deiner Schüsse treffen den Kopf, in der Lobby <span class="lobby">${pc(DX.lob.head, 1)}</span>. Die Demos messen den Abstand, nicht ob du zu hoch oder zu tief zielst.`],
+    gut: (() => {
       const g = [DX.me.ttd < DX.lob.ttd, DX.me.cs > DX.lob.cs, DX.me.fsa > DX.lob.fsa].filter(Boolean).length;
       return [g >= 2 ? 'Das sitzt' : 'Die Technik', `Vom ersten Sichtkontakt bis zum ersten Schaden brauchst du <b>${de(DX.me.ttd, 0)} ms</b>, deine Lobby <span class="lobby">${de(DX.lob.ttd, 0)} ms</span>. <b>${de(DX.me.cs, 0)} %</b> deiner Schüsse gibst du aus dem Stand ab (Lobby <span class="lobby">${de(DX.lob.cs, 0)} %</span>), und dein erster Schuss trifft <b>${pc(DX.me.fsa)}</b>, Lobby <span class="lobby">${pc(DX.lob.fsa)}</span>. ${g >= 2 ? 'Mechanisch musst du nichts umbauen. Was fehlt, ist der Startpunkt des Fadenkreuzes.' : ''}`];
     })(),
-  ] : []),
-  ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Auf den nächsten Seiten: welche Granaten fehlen.`],
-  ['Match für Match', L5 ? `Im Herbst gab es Matches fast ohne Utility. In deinen letzten ${LAST.length} Matches wirfst du <b>${de(L5.util, 2)}</b> Granaten pro Runde, deine Lobby <span class="lobby">${de(L5.lUtil, 2)}</span>.` : 'Geworfene Granaten pro Runde.'],
-  ['Flash', `Du wirfst <b class="${S.flPr < S.lFlPr ? 'fix' : ''}">${de(S.flPr, 2)}</b> Flashes pro Runde, ein Spieler deiner Lobby <span class="lobby">${de(S.lFlPr, 2)}</span>. Wenn du flashst, blendest du <b>${de(S.foePer, 2)}</b> Gegner pro Flash, die Lobby <span class="lobby">${de(S.lFoePer, 2)}</span>. ${S.flPr < S.lFlPr ? (S.foePer >= S.lFoePer ? 'Deine Flashes sind gut, es sind nur zu wenige.' : 'Du flashst zu selten und blendest zu wenige Gegner.') : `Du flashst inzwischen öfter als deine Lobby. Achte noch auf dein Team: <b class="${S.frPer > S.lFrPer ? 'fix' : ''}">${de(S.frPer, 2)}</b> geblendete Teammates pro Flash, Lobby <span class="lobby">${de(S.lFrPer, 2)}</span>.`} ${AGAIN}`],
-  ['HE-Granate', `${S.he} HE in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lHePr)}</span>, ${S.hePr < S.lHePr ? 'also mehr als du' : 'also weniger als du'}. Wirf sie dorthin, wo ein Gegner stehen muss, bevor du peekst, statt sie mit ins Grab zu nehmen. ${AGAIN}`],
-  ['Molotov', `${S.mo} Molotovs in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lMoPr)}</span>. Ein Molotov in die Ecke zwingt den CT aus seiner Position, bevor du reingehst. ${AGAIN}`],
-  ['Smoke', `Smokes wirfst du ${S.smPr >= S.lSmPr ? 'sogar etwas mehr als' : 'weniger als'} deine Lobby: <b>${S.sm}</b> gegen <span class="lobby">${lobN(S.lSmPr)}</span>. Eine Smoke nimmt dem CT die Sicht auf den Eingang. ${S.smPr >= S.lSmPr ? 'Das machst du schon richtig.' : 'Lerne pro Seite zwei feste Smokes für Mirage und Inferno.'} ${AGAIN}`],
-  ...DMAPS.map((mp, i) => deathCap(mp, DMODE[i])),
-  ['Das erste Duell', `Laut Leetify gewinnst du auf T-Seite <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %.${DX ? ` In deinen Demos: als ${DX.weak.s} <b class="fix">${DX.weak.n[0]} von ${DX.weak.n[1]}</b> (${pc(DX.weak.me)}), die Lobby gewinnt <span class="lobby">${pc(DX.weak.lob)}</span>.` : ''} Wer zuerst fällt, lässt sein Team zu viert.`],
-  ['So soll es aussehen', `Direkt hinter dem Entry. Du versuchst es in <b>${pc(S.tkAtt / Math.max(1, S.tkOpp))}</b> der Fälle zu traden, es klappt aber nur in <b class="fix">${pc(S.tk)}</b>, in deiner Lobby in <span class="lobby">${pc(S.lTk)}</span>. Die Skizze zeigt keine gemessenen Positionen.`],
-  ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. ${S.surv >= S.lSurv * .97 ? `Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.` : `Dazu überlebst du seltener als deine Lobby: ${pc(S.surv)} gegen ${pc(S.lSurv)} der Runden.`}${DX ? ` In ${pc(DX.me.kast / 100)} deiner Runden trägst du etwas bei (Kill, Assist, Überleben oder Trade), die Lobby in <span class="lobby">${pc(DX.lob.kast / 100)}</span>.` : ''}${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
-  ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Das Kreuz zeigt deine letzten ${LAST.length} Matches${DX ? ' (bei den Demo-Zielen die letzten ' + DX.nLast + ' Demos)' : ''}, der Kreis alle. ${COARSE ? 'Noch einmal wischen' : 'Noch einmal scrollen'} für die Übungen.`],
-];
+  } : {}),
+  util1: ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Auf den nächsten Seiten: welche Granaten fehlen.`],
+  util2: ['Match für Match', L5 ? `Im Herbst gab es Matches fast ohne Utility. In deinen letzten ${LAST.length} Matches wirfst du <b>${de(L5.util, 2)}</b> Granaten pro Runde, deine Lobby <span class="lobby">${de(L5.lUtil, 2)}</span>.` : 'Geworfene Granaten pro Runde.'],
+  flash: ['Flash', `Du wirfst <b class="${S.flPr < S.lFlPr ? 'fix' : ''}">${de(S.flPr, 2)}</b> Flashes pro Runde, ein Spieler deiner Lobby <span class="lobby">${de(S.lFlPr, 2)}</span>. Wenn du flashst, blendest du <b>${de(S.foePer, 2)}</b> Gegner pro Flash, die Lobby <span class="lobby">${de(S.lFoePer, 2)}</span>. ${S.flPr < S.lFlPr ? (S.foePer >= S.lFoePer ? 'Deine Flashes sind gut, es sind nur zu wenige.' : 'Du flashst zu selten und blendest zu wenige Gegner.') : `Du flashst inzwischen öfter als deine Lobby. Achte noch auf dein Team: <b class="${S.frPer > S.lFrPer ? 'fix' : ''}">${de(S.frPer, 2)}</b> geblendete Teammates pro Flash, Lobby <span class="lobby">${de(S.lFrPer, 2)}</span>.`} ${AGAIN}`],
+  he: ['HE-Granate', `${S.he} HE in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lHePr)}</span>, ${S.hePr < S.lHePr ? 'also mehr als du' : 'also weniger als du'}. Wirf sie dorthin, wo ein Gegner stehen muss, bevor du peekst, statt sie mit ins Grab zu nehmen. ${AGAIN}`],
+  molly: ['Molotov', `${S.mo} Molotovs in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lMoPr)}</span>. Ein Molotov in die Ecke zwingt den CT aus seiner Position, bevor du reingehst. ${AGAIN}`],
+  smoke: ['Smoke', `Smokes wirfst du ${S.smPr >= S.lSmPr ? 'sogar etwas mehr als' : 'weniger als'} deine Lobby: <b>${S.sm}</b> gegen <span class="lobby">${lobN(S.lSmPr)}</span>. Eine Smoke nimmt dem CT die Sicht auf den Eingang. ${S.smPr >= S.lSmPr ? 'Das machst du schon richtig.' : `Lerne pro Seite zwei feste Smokes für ${focusTxt}.`} ${AGAIN}`],
+  map2top: ['Das erste Duell', `Laut Leetify gewinnst du auf T-Seite <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %.${DX ? ` In deinen Demos: als ${DX.weak.s} <b class="fix">${DX.weak.n[0]} von ${DX.weak.n[1]}</b> (${pc(DX.weak.me)}), die Lobby gewinnt <span class="lobby">${pc(DX.weak.lob)}</span>.` : ''} Wer zuerst fällt, lässt sein Team zu viert.`],
+  map2side: ['So soll es aussehen', `Direkt hinter dem Entry. Du versuchst es in <b>${pc(S.tkAtt / Math.max(1, S.tkOpp))}</b> der Fälle zu traden, es klappt aber nur in <b class="fix">${pc(S.tk)}</b>, in deiner Lobby in <span class="lobby">${pc(S.lTk)}</span>. Die Skizze zeigt keine gemessenen Positionen.`],
+  erg: ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. ${S.surv >= S.lSurv * .97 ? `Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.` : `Dazu überlebst du seltener als deine Lobby: ${pc(S.surv)} gegen ${pc(S.lSurv)} der Runden.`}${DX ? ` In ${pc(DX.me.kast / 100)} deiner Runden trägst du etwas bei (Kill, Assist, Überleben oder Trade), die Lobby in <span class="lobby">${pc(DX.lob.kast / 100)}</span>.` : ''}${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
+  mapsAll: mapsCap(),
+  plan: ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Das Kreuz zeigt deine letzten ${LAST.length} Matches${DX ? ' (bei den Demo-Zielen die letzten ' + DX.nLast + ' Demos)' : ''}, der Kreis alle. ${COARSE ? 'Noch einmal wischen' : 'Noch einmal scrollen'} für die Übungen.`],
+};
 const capsEl = document.getElementById('caps');
 const capHTML = c => `<h2>${c[0]}</h2><p>${c[1]}</p>`;
-CAPS.forEach(c => { const el = document.createElement('div'); el.className = 'cap'; if (c) el.innerHTML = capHTML(c); capsEl.appendChild(el); });
-const capEls = [...capsEl.children];
 document.getElementById('f-stand').textContent = `Stand ${dt(last)} · ${M.length} Matches seit ${dt(first)}${DM ? ` · ${DM.n} eigene Demos (${dt(DM.first)} bis ${dt(DM.last)}, ${DM.rounds} Runden)` : ''} · Durchschnitte nach Runden gewichtet, nur 5v5.`;
 document.getElementById('f-link').href = `https://leetify.com/app/profile/${D.steam64}`;
-document.getElementById('drills').innerHTML = [...TASKS.filter(t => !t.done), ...TASKS.filter(t => t.done)].map(t => `<div class="drill"><h3>${t.t}</h3><p>${t.drill}</p>
+document.getElementById('drills').innerHTML = TASK_ORDER.map(t => `<div class="drill"><h3>${t.t}</h3><p>${t.drill}</p>
   <span class="state">${t.demo ? `Alle ${DM.n} Demos` : 'Alle Matches'} ${t.fmt(t.all)}${t.last != null ? ` · letzte ${t.demo ? DX.nLast + ' Demos' : LAST.length}: ${t.fmt(t.last)}` : ''} · Ziel (Lobby) ${t.fmt(t.goal)} · ${t.done ? '<b class="ok">geschafft</b>' : 'noch nicht geschafft'}</span></div>`).join('');
 document.getElementById('flashText').textContent = S.flPr < S.lFlPr ? `Du wirfst ${de(S.flPr, 2)} Flashes pro Runde, deine Lobby ${de(S.lFlPr, 2)}. Eine Flash vor jedem Peek.` : `Du flashst jetzt öfter als deine Lobby (${de(S.flPr, 2)} gegen ${de(S.lFlPr, 2)} pro Runde). Wirf sie über die Kante, nicht in dein Team.`;
 
@@ -346,6 +377,7 @@ const AIM = rot2(TOE, S.pre * DEG), LOB = rot2(TOE, S.lPre * DEG);
 function wallsOf(m, seed) { m.walls.forEach((w, i) => { const a = toPx(m, w[0], w[1]), b = toPx(m, w[2], w[3]); stroke([[a[0], a[1]], [b[0], a[1]], [b[0], b[1]], [a[0], b[1]], [a[0], a[1]]], C.ink, 3, seed + i, 1.2, true); }); }
 
 const L = land;
+const TITLE_SUB = [...SHOWN.map(c => c.name), ...(DMAPS.length ? [FOCUS.join(', ')] : [])].join(' · ') || 'Überblick';
 const PAGES = {};
 PAGES.title = () => {
   const rowsT = [['Premier', (P0.ranks && P0.ranks.premier || 0).toLocaleString('de-DE')], ['Winrate', pc(P0.winrate || 0)], ['Leetify-Rating', sg(P0.ranks && P0.ranks.leetify || 0)]];
@@ -353,7 +385,7 @@ PAGES.title = () => {
     tx(P0.name || 'Zattocat', 64, 186, 84); tx('Debrief', 68, 254, 52, C.blue);
     tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 70, 302, 19, C.ink2, 'sans'); tx(DM ? `Daten: Leetify + ${DM.n} eigene Demos` : 'Daten: Leetify', 70, 328, 19, C.ink2, 'sans');
     ln(64, 364, 400, 364, C.ink, 3, 3);
-    tx('Wo du Runden verlierst:', 68, 424, 30); tx(DM ? 'Fadenkreuz · Granaten · Todeszonen · Duelle' : 'Fadenkreuz · Granaten · erstes Duell', 70, 462, 19, C.ink2, 'sans');
+    tx('Wo du Runden verlierst:', 68, 424, 30); tx(TITLE_SUB, 70, 462, 19, C.ink2, 'sans');
     rowsT.forEach(([k, v], i) => { const y = 200 + i * 104; tx(k, 500, y, 22); tx(v, 790, y + 4, 44, C.ink, 'hand', 'right'); ln(500, y + 24, 790, y + 24, C.rule, 1.6, 40 + i); });
     return;
   }
@@ -361,7 +393,7 @@ PAGES.title = () => {
   tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 26, 172, 13.5, C.ink2, 'sans'); tx(DM ? `Daten: Leetify + ${DM.n} eigene Demos` : 'Daten: Leetify', 26, 191, 13.5, C.ink2, 'sans');
   ln(22, 214, 338, 214, C.ink, 2.8, 3);
   rowsT.forEach(([k, v], i) => { const y = 270 + i * 62; tx(k, 24, y, 21); tx(v, 336, y + 3, 36, C.ink, 'hand', 'right'); ln(24, y + 18, 336, y + 18, C.rule, 1.4, 40 + i); });
-  tx('Wo du Runden verlierst:', 24, 470, 21); tx(DM ? 'Fadenkreuz · Granaten · Todeszonen · Duelle' : 'Fadenkreuz · Granaten · erstes Duell', 26, 494, 13.5, C.ink2, 'sans');
+  tx('Wo du Runden verlierst:', 24, 470, 21); tx(TITLE_SUB, 26, 494, 13.5, C.ink2, 'sans');
 };
 PAGES.map1 = (paint) => {
   const m = MAP1, px = (x, y) => toPx(m, x, y);
@@ -562,63 +594,44 @@ PAGES.gut = () => {
   });
 };
 // death maps: floor traced from where all players walked in your demos, your deaths and kills measured
-const FLOOR = '#d2d7d9', UNDER = '#a9b0b5';
-function deathPage(mp, mi) {
-  return () => {
-    const m = DMODE[mi], kind = DMODES[m][0], kills = kind === 'kills';
-    const S0 = L ? 500 : 340, ox = L ? 326 : 10, oy = L ? 30 : 64, k = S0 / 1000, P = q => [ox + q[0] * k, oy + q[1] * k], R = lps => lps.map(lp => lp.map(P));
-    const floor = R(mp.floor), under = R(mp.under), pts = modePts(mp, m), top = topPlaces(mp, m);
-    // floor, the lower passage under a bridge (darker, dashed walls), the bridge over it, bombsites hatched
-    OPS.push({ k: 'F', rings: floor, col: FLOOR });
-    if (under.length) { OPS.push({ k: 'F', rings: under, col: UNDER }); OPS.push({ k: 'F', rings: R(mp.bridge), col: FLOOR }); }
-    Object.values(mp.sites).forEach(st => OPS.push({ k: 'X', rings: R(st.loops), col: 'rgba(28,30,35,.42)', gap: L ? 7 : 5.5 }));
-    // heat: where the deaths (or kills) of this mode pile up
-    OPS.push({ k: 'K', pts: pts.map(P), rings: floor, box: [ox, oy, S0], ramp: kills ? 'ink' : 'red', sig: S0 * .026 });
-    floor.forEach((lp, i) => stroke([...lp, lp[0]], C.ink, L ? 2.6 : 1.9, 2000 + i, .35, true));
-    under.forEach(lp => lp.forEach((a, q) => { const b = lp[(q + 1) % lp.length]; dash(a[0], a[1], b[0], b[1], C.ink, L ? 2 : 1.5, [5, 4]); }));
-    R(mp.bridge_edges).forEach((l, i) => stroke(l, C.ink, L ? 3 : 2.2, 2300 + i, .25, true));
-    if (!kills) pts.filter(d => d[3]).forEach((q, i) => { const [x, y] = P(q); cross(x, y, L ? 9 : 7, C.ink, 2600 + i * 2, L ? 2.4 : 2); });
-    // orientation: spawns, bombsite letters, the three busiest callouts of this mode
-    Object.entries(mp.spawns).forEach(([sd, at]) => { const [x, y] = P(at); tx(`${sd}-Spawn`, x, y + 4, L ? 13 : 10, C.ink2, 'sans', 'center', 700, true); });
-    Object.entries(mp.sites).forEach(([letter, st], i) => { const [x, y] = P(st.at); ring(x, y, L ? 17 : 13, C.ink, 2.8, 2500 + i); tx(letter, x, y + (L ? 9 : 7), L ? 26 : 20, C.ink, 'hand', 'center', 400, true); });
-    top.slice(0, 3).forEach(t => { const [x, y] = P(t.at), site = /^Bombsite/.test(t.name); tx(`${site ? t.name.replace('Bombsite ', '') + '-Site' : t.name} ${t.n}`, x, y + (site ? (L ? 36 : 28) : -(L ? 12 : 9)), L ? 15 : 11, kills ? C.ink : C.redT, 'sans', 'center', 800, true); });
-    const opens = pts.filter(d => d[3]).length, head = kills ? 'wo du triffst' : kind === 'all' ? 'wo du fällst' : `wo du als ${kind} fällst`;
-    const switcher = (x, y, size, dx, vertical) => { let cx = x; DMODES.forEach(([, lbl], i) => {
-      const xx = vertical ? x : cx, yy = vertical ? y + i * dx : y, on = i === m, w = tx(lbl, xx, yy, size, on ? (kills ? C.ink : C.redT) : C.ink2, on ? 'hand' : 'sans', 'left', on ? 400 : 600);
-      if (on) ln(xx, yy + size * .32, xx + w, yy + size * .32, kills ? C.ink : C.red, 2.4, 3200 + i, .6);
-      cx += w + dx;
-    }); };
-    if (L) {
-      tx(mp.name, 64, 98, 58); tx(head, 68, 138, 24, kills ? C.ink : C.redT);
-      tx(`${mp.matches} Matches · ${mp.rounds} Runden · Demos`, 66, 168, 15, C.ink2, 'sans');
-      switcher(66, 214, 19, 30, true);
-      tx(kills ? `${pts.length} Kills` : `${pts.length} Tode · × erstes Duell (${opens})`, 66, 352, 17, C.ink, 'sans', 'left', 600);
-      top.slice(0, 3).forEach((t, i) => { const y = 386 + i * 28; tx(t.name, 66, y, 19); tx(kills ? String(t.n) : kind === 'all' ? `T ${t.t} · CT ${t.ct}` : String(t.n), 290, y, 15, C.ink2, 'sans', 'right'); });
-      tx('Fläche: wie oft · schraffiert: Bombsite', 66, 492, 13, C.ink2, 'sans');
-      if (under.length) tx('gestrichelt: Weg unter einer Brücke', 66, 512, 13, C.ink2, 'sans');
-      tx('Grundriss: Laufwege aller Spieler', 66, 532, 13, C.ink2, 'sans');
-    } else {
-      const w = tx(mp.name, 22, 40, 30); tx(head, 22 + w + 10, 40, 17, kills ? C.ink : C.redT);
-      tx(`${mp.matches} Matches · ${mp.rounds} Runden · Demos · ${kills ? pts.length + ' Kills' : pts.length + ' Tode, × erstes Duell ' + opens}`, 24, 58, 10.5, C.ink2, 'sans');
-      switcher(24, 428, 14.5, 18, false);
-      top.slice(0, 3).forEach((t, i) => { const y = 454 + i * 18; tx(t.name, 24, y, 14); tx(kills || kind !== 'all' ? String(t.n) : `T ${t.t} · CT ${t.ct}`, 336, y, 11.5, C.ink2, 'sans', 'right'); });
-      tx(`Fläche: wie oft · schraffiert: Bombsite${under.length ? ' · gestrichelt: unter einer Brücke' : ''}`, 24, 506, 10, C.ink2, 'sans');
-      tx('Grundriss aus den Laufwegen aller Spieler', 24, 518, 10, C.ink2, 'sans');
-    }
-  };
-}
-DMAPS.forEach((mp, i) => { PAGES['deaths' + i] = deathPage(mp, i); });
-// heat: a gaussian density of the points on a small grid, coloured and smoothed up to the map square
-const RAMPS = {
-  red: [[0, 255, 196, 120, 0], [.22, 246, 152, 82, .42], [.55, 214, 47, 42, .72], [1, 128, 18, 16, .9]],
-  ink: [[0, 90, 96, 105, 0], [.3, 70, 75, 84, .3], [1, 28, 30, 35, .72]],
+// ---------------- maps ----------------
+// overview: every map from the Leetify history, ranked by relevance; the focus maps get their own pages
+PAGES.mapsAll = () => {
+  const x0 = L ? 64 : 24, rows = RANK.slice(0, L ? 7 : 8), maxA = 120;
+  tx('Deine Maps', x0, L ? 96 : 50, L ? 40 : 25);
+  tx('nach Relevanz · ADR du gegen Lobby', x0, L ? 126 : 74, L ? 18 : 12.5, C.ink2, 'sans');
+  const bx0 = L ? 430 : 150, bx1 = L ? 730 : 296, X = v => bx0 + (bx1 - bx0) * Math.min(v, maxA) / maxA;
+  rows.forEach((r, i) => {
+    const y = (L ? 178 : 118) + i * (L ? 52 : 46), worseA = r.l_adr - r.adr >= 5, col = r.focus ? C.redT : C.ink;
+    tx(r.name, x0, y, L ? 24 : 18, col);
+    tx(`${r.matches} Matches · ${r.w}–${r.l}`, L ? x0 + 150 : x0, y + (L ? 0 : 16), L ? 15 : 11, C.ink2, 'sans');
+    ln(bx0, y - (L ? 6 : 4), X(r.adr), y - (L ? 6 : 4), worseA ? C.red : C.ink, L ? 6 : 5, 3300 + i, .5);
+    dash(X(r.l_adr), y - (L ? 18 : 14), X(r.l_adr), y + (L ? 6 : 5), C.blue, 2.4, [4, 3]);
+    tx(de(r.adr, 0), X(Math.max(r.adr, r.l_adr)) + 8, y, L ? 18 : 13, worseA ? C.redT : C.ink);
+    if (r.focus) { const fx = L ? 790 : 336; tx('Fokus', fx, y, L ? 18 : 13, C.redT, 'hand', 'right'); }
+  });
+  const ly = (L ? 178 : 118) + rows.length * (L ? 52 : 46) + (L ? 4 : 0);
+  ln(bx0, ly, bx0 + 26, ly, C.ink, L ? 6 : 5, 3390, .4); tx('du', bx0 + 32, ly + 5, L ? 15 : 11, C.ink2, 'sans');
+  dash(bx0 + (L ? 80 : 62), ly - 9, bx0 + (L ? 80 : 62), ly + 7, C.blue, 2.4, [4, 3]); tx('Lobby', bx0 + (L ? 88 : 68), ly + 5, L ? 15 : 11, C.blue, 'sans');
 };
-function heatCanvas(o) {
+
+// focus maps: a printed floor plan from the map's nav mesh (lighter = higher), taped to the board; heat and marks drawn on it
+const SHADE = t => { const a = [134, 142, 149], b = [222, 226, 228]; return `rgb(${a.map((v, i) => Math.round(lerp(v, b[i], t))).join(',')})`; };
+const polyPath = (p, polys, P) => { polys.forEach(fl => { for (let k = 0; k < fl.length; k += 2) { const [x, y] = P([fl[k], fl[k + 1]]); k ? p.lineTo(x, y) : p.moveTo(x, y); } p.closePath(); }); return p; };
+function cachedImage(o) {
+  const [x, y, w, h] = o.box, cv = document.createElement('canvas'); cv.width = Math.ceil(w * SC); cv.height = Math.ceil(h * SC);
+  const g = cv.getContext('2d'); g.setTransform(SC, 0, 0, SC, -x * SC, -y * SC); o.draw(g); return cv;
+}
+const RAMPS = {
+  red: [[0, 255, 196, 120, 0], [.22, 246, 152, 82, .45], [.55, 214, 47, 42, .75], [1, 128, 18, 16, .92]],
+  ink: [[0, 60, 66, 75, 0], [.3, 40, 45, 54, .35], [1, 20, 22, 26, .78]],
+};
+function heatSmall(pts, box, ramp, sigma) {
   const G = 170, cv = document.createElement('canvas'); cv.width = cv.height = G;
-  const g = cv.getContext('2d'), d = new Float32Array(G * G), [bx, by, bs] = o.box, sc = G / bs, sig = o.sig * sc, r = Math.ceil(sig * 3);
-  o.pts.forEach(([x, y]) => { const cx = (x - bx) * sc, cy = (y - by) * sc; for (let i = Math.max(0, Math.floor(cy - r)); i <= Math.min(G - 1, Math.ceil(cy + r)); i++) for (let j = Math.max(0, Math.floor(cx - r)); j <= Math.min(G - 1, Math.ceil(cx + r)); j++) d[i * G + j] += Math.exp(-((j - cx) ** 2 + (i - cy) ** 2) / (2 * sig * sig)); });
+  const g = cv.getContext('2d'), d = new Float32Array(G * G), [bx, by, bs] = box, sc = G / bs, sig = sigma * sc, r = Math.ceil(sig * 3);
+  pts.forEach(([x, y]) => { const cx = (x - bx) * sc, cy = (y - by) * sc; for (let i = Math.max(0, Math.floor(cy - r)); i <= Math.min(G - 1, Math.ceil(cy + r)); i++) for (let j = Math.max(0, Math.floor(cx - r)); j <= Math.min(G - 1, Math.ceil(cx + r)); j++) d[i * G + j] += Math.exp(-((j - cx) ** 2 + (i - cy) ** 2) / (2 * sig * sig)); });
   let mx = 3; for (let q = 0; q < d.length; q++) if (d[q] > mx) mx = d[q];
-  const img = g.createImageData(G, G), st = RAMPS[o.ramp];
+  const img = g.createImageData(G, G), st = RAMPS[ramp];
   for (let q = 0; q < d.length; q++) {
     const t = Math.pow(Math.min(1, d[q] / mx), .8); if (t < .03) continue;
     let a = st[0], b = st[st.length - 1]; for (let s2 = 1; s2 < st.length; s2++) if (t <= st[s2][0]) { a = st[s2 - 1]; b = st[s2]; break; }
@@ -628,6 +641,78 @@ function heatCanvas(o) {
   g.putImageData(img, 0, 0); return cv;
 }
 const ringsPath = rings => { const p = new Path2D(); rings.forEach(r => { r.forEach((q, i) => i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1])); p.closePath(); }); return p; };
+const MAPGEO = {};
+function deathPage(mp, mi) {
+  return () => {
+    const m = DMODE[mi], kind = DMODES[m][0], kills = kind === 'kills';
+    const S0 = L ? 508 : 344, ox = L ? 318 : 8, oy = L ? 26 : 66, k = S0 / 1000, P = q => [ox + q[0] * k, oy + q[1] * k];
+    const pts = modePts(mp, m), top = topPlaces(mp, m);
+    // geometry paths are built once per map
+    const geo = MAPGEO[mi] || (MAPGEO[mi] = (() => {
+      const all = new Path2D(), bands = [], site = new Path2D();
+      mp.panels.forEach(pn => { pn.bands.forEach(b => { polyPath(all, b.polys, P); bands.push({ t: b.t, p: polyPath(new Path2D(), b.polys, P) }); }); Object.values(pn.sites).forEach(v => polyPath(site, v, P)); });
+      bands.sort((a, b) => a.t - b.t);
+      return { all, bands, site };
+    })());
+    // the print: paper with a soft shadow and two strips of tape
+    fill([[ox + 3, oy + 5], [ox + S0 + 3, oy + 5], [ox + S0 + 3, oy + S0 + 5], [ox + 3, oy + S0 + 5]], 'rgba(28,30,35,.10)');
+    fill([[ox, oy], [ox + S0, oy], [ox + S0, oy + S0], [ox, oy + S0]], '#fbfbfa');
+    OPS.push({ k: 'I', box: [ox, oy, S0, S0], draw: g => {
+      g.lineJoin = 'round';
+      g.strokeStyle = C.ink; g.lineWidth = L ? 3.4 : 2.6; g.stroke(geo.all);
+      geo.bands.forEach(b => { g.strokeStyle = 'rgba(28,30,35,.32)'; g.lineWidth = L ? 1.2 : .9; g.stroke(b.p); g.fillStyle = SHADE(b.t); g.fill(b.p); });
+      g.save(); g.clip(geo.site); g.strokeStyle = 'rgba(28,30,35,.38)'; g.lineWidth = L ? 1.2 : 1; g.beginPath();
+      for (let t = ox - S0; t < ox + S0; t += L ? 7 : 5.5) { g.moveTo(t, oy + S0); g.lineTo(t + S0, oy); } g.stroke(); g.restore();
+    } });
+    (L ? [[ox + S0 * .1, oy - 7, -.12], [ox + S0 * .82, oy - 6, .1]] : [[ox + S0 * .06, oy + S0 - 9, .1], [ox + S0 * .8, oy + S0 - 7, -.08]]).forEach(([tx0, ty0, a]) => { const w = S0 * .12, h = 15, c = Math.cos(a), s2 = Math.sin(a); fill([[0, 0], [w, 0], [w, h], [0, h]].map(([u, v]) => [tx0 + u * c - v * s2, ty0 + u * s2 + v * c]), 'rgba(222,208,160,.78)'); });
+    // heat of this mode, clipped to the floor
+    OPS.push({ k: 'I', box: [ox, oy, S0, S0], draw: g => {
+      g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high';
+      g.drawImage(heatSmall(pts.map(P), [ox, oy, S0], kills ? 'ink' : 'red', S0 * .024), ox, oy, S0, S0);
+      g.globalCompositeOperation = 'destination-in'; g.fillStyle = '#000'; g.fill(geo.all);
+    } });
+    if (!kills) pts.filter(d => d[3]).forEach((q, i) => { const [x, y] = P(q); cross(x, y, L ? 9 : 7, C.ink, 2600 + i * 2, L ? 2.4 : 2); });
+    // labels: busiest callouts of this mode first, then bombsite letters and spawns, then orientation callouts where there is room
+    const boxes = [], fits = (x, y, w, h) => !boxes.some(b => x < b[0] + b[2] && x + w > b[0] && y < b[1] + b[3] && y + h > b[1]);
+    // a label tries its spot, then just above and below; forced labels take the first free spot or, failing that, their own
+    const label = (txt, at, size, col, w8, force, dys = [0, -1.25, 1.25, -2.5, 2.5]) => {
+      MC.font = font(size, 'sans', w8); const w = MC.measureText(txt).width + 6, [x, y0] = P(at);
+      for (const dy of dys) { const y = y0 + dy * size, bx = x - w / 2, by = y - size; if (fits(bx, by, w, size * 1.3)) { boxes.push([bx, by, w, size * 1.3]); tx(txt, x, y, size, col, 'sans', 'center', w8, true); return true; } }
+      if (!force) return false; boxes.push([x - w / 2, y0 - size, w, size * 1.3]); tx(txt, x, y0, size, col, 'sans', 'center', w8, true); return true;
+    };
+    const used = new Set();
+    mp.places.filter(p => /^Bombsite[AB]$/.test(p.key)).forEach((p, i) => { const [x, y] = P(p.at), r = L ? 17 : 13; ring(x, y, r, C.ink, 2.8, 2500 + i); tx(p.key.slice(-1), x, y + (L ? 9 : 7), L ? 26 : 20, C.ink, 'hand', 'center', 400, true); boxes.push([x - r - 2, y - r - 2, 2 * r + 4, 2 * r + 4]); used.add(p.key); });
+    top.slice(0, 3).forEach(t => { const site = /^Bombsite/.test(t.key); used.add(t.key); label(`${site ? t.key.slice(-1) + '-Site' : t.name} ${t.n}`, t.at, L ? 15 : 11, kills ? C.ink : C.redT, 800, true, site ? [2.4, -1.9, 3.6, -3.1] : undefined); });
+    mp.places.filter(p => /^(T|CT)Spawn$/.test(p.key)).forEach(p => { used.add(p.key); label(p.key.replace('Spawn', '-Spawn'), p.at, L ? 12 : 9.5, C.ink2, 700); });
+    mp.places.filter(p => !used.has(p.key)).sort((a, b) => b.n - a.n).slice(0, L ? 14 : 9).forEach(p => label(p.name, p.at, L ? 11 : 8.5, '#5a5f68', 600));
+    mp.panels.forEach(pn => { if (pn.name) tx(pn.name, ox + pn.rect[0] * k + 6, oy + pn.rect[1] * k + (L ? 14 : 11), L ? 16 : 12, C.ink2, 'hand'); });
+    // side column (landscape) or footer (portrait)
+    const opens = pts.filter(d => d[3]).length, head = kills ? 'wo du triffst' : kind === 'all' ? 'wo du fällst' : `wo du als ${kind} fällst`;
+    const switcher = (x, y, size, dx, vertical) => { let cx = x; DMODES.forEach(([, lbl], i) => {
+      const xx = vertical ? x : cx, yy = vertical ? y + i * dx : y, on = i === m, w = tx(lbl, xx, yy, size, on ? (kills ? C.ink : C.redT) : C.ink2, on ? 'hand' : 'sans', 'left', on ? 400 : 600);
+      if (on) ln(xx, yy + size * .32, xx + w, yy + size * .32, kills ? C.ink : C.red, 2.4, 3200 + i, .6);
+      cx += w + dx;
+    }); };
+    if (L) {
+      tx(mp.name, 64, 98, 56); tx(head, 68, 136, 23, kills ? C.ink : C.redT);
+      tx(`${mp.matches} Matches · ${mp.rounds} Runden · Demos`, 66, 164, 15, C.ink2, 'sans');
+      switcher(66, 206, 19, 29, true);
+      tx(kills ? `${pts.length} Kills` : `${pts.length} Tode · × erstes Duell (${opens})`, 66, 340, 16, C.ink, 'sans', 'left', 600);
+      top.slice(0, 3).forEach((t, i) => { const y = 372 + i * 27; tx(t.name, 66, y, 18); tx(kills || kind !== 'all' ? String(t.n) : `T ${t.t} · CT ${t.ct}`, 290, y, 14, C.ink2, 'sans', 'right'); });
+      tx('Rot: wie oft · hell: höher, dunkel: tiefer', 66, 478, 13, C.ink2, 'sans');
+      tx('Schraffur: Bombsite', 66, 497, 13, C.ink2, 'sans');
+      tx('Grundriss: Nav-Mesh der Map (awpy)', 66, 516, 13, C.ink2, 'sans');
+    } else {
+      const w = tx(mp.name, 22, 40, 30); tx(head, 22 + w + 10, 40, 17, kills ? C.ink : C.redT);
+      tx(`${mp.matches} Matches · ${mp.rounds} Runden · ${kills ? pts.length + ' Kills' : pts.length + ' Tode, × erstes Duell ' + opens}`, 24, 58, 10.5, C.ink2, 'sans');
+      switcher(24, 430, 14.5, 18, false);
+      top.slice(0, 3).forEach((t, i) => { const y = 455 + i * 17; tx(t.name, 24, y, 13.5); tx(kills || kind !== 'all' ? String(t.n) : `T ${t.t} · CT ${t.ct}`, 336, y, 11, C.ink2, 'sans', 'right'); });
+      tx('Rot: wie oft · hell: höher, dunkel: tiefer · Schraffur: Bombsite', 24, 506, 9.5, C.ink2, 'sans');
+      tx('Grundriss aus dem Nav-Mesh der Map (awpy)', 24, 518, 9.5, C.ink2, 'sans');
+    }
+  };
+}
+DMAPS.forEach((mp, i) => { PAGES['deaths' + i] = deathPage(mp, i); });
 
 const OPCACHE = {};
 function opsFor(id, paint = false) {
@@ -649,12 +734,8 @@ function drawOps(c, ops, prog) {
       if (f < 1) { const w = c.measureText(o.s).width, left = o.align === 'center' ? o.x - w / 2 : o.align === 'right' ? o.x - w : o.x; c.beginPath(); c.rect(left - 4, o.y - o.size * 1.25, (w + 8) * f, o.size * 1.7); c.clip(); }
       if (o.halo) { c.lineWidth = 4; c.lineJoin = 'round'; c.strokeStyle = C.board; c.strokeText(o.s, o.x, o.y); }
       c.fillText(o.s, o.x, o.y); c.restore();
+    } else if (o.k === 'I') { if (!o.cv) o.cv = cachedImage(o); c.save(); c.globalAlpha = f; c.drawImage(o.cv, o.box[0], o.box[1], o.box[2], o.box[3]); c.restore();
     } else if (o.k === 'F') { c.save(); c.globalAlpha = f; c.fillStyle = o.col; c.fill(o.p || (o.p = ringsPath(o.rings)), 'evenodd'); c.restore();
-    } else if (o.k === 'K') { if (!o.cv) o.cv = heatCanvas(o); c.save(); c.clip(o.p || (o.p = ringsPath(o.rings)), 'evenodd'); c.globalAlpha = f; c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high'; c.drawImage(o.cv, o.box[0], o.box[1], o.box[2], o.box[2]); c.restore();
-    } else if (o.k === 'X') {
-      if (!o.bb) { const xs = o.rings.flat().map(q => q[0]), ys = o.rings.flat().map(q => q[1]); o.bb = [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)]; }
-      const [x0, y0, x1, y1] = o.bb; c.save(); c.clip(o.p || (o.p = ringsPath(o.rings)), 'evenodd'); c.globalAlpha = f; c.strokeStyle = o.col; c.lineWidth = 1.3; c.beginPath();
-      for (let t = x0 - (y1 - y0); t < x1; t += o.gap) { c.moveTo(t, y1); c.lineTo(t + (y1 - y0), y0); } c.stroke(); c.restore();
     } else if (o.k === 'f') { c.save(); c.globalAlpha = f; c.fillStyle = o.col; c.beginPath(); o.pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.closePath(); c.fill(); c.restore(); }
   }
 }
@@ -668,22 +749,27 @@ const mkCanvas = () => { const cv = document.createElement('canvas'); cv.width =
 
 // ---------------- states ----------------
 // each page says which face it is on and whether the board lies flat; the pivot angle follows from that
+// the page sequence is assembled from blocks: title, the relevant chapters in order of their score, the maps, a summary and the plan.
+// Pages with 3D props keep their face (fixed); every other page takes the face opposite the previous one, so the board turns.
 const STATES = (() => {
+  const U = (page, cam, cap, extra = {}) => ({ page, cam, cap, ...extra });
+  const blocks = {
+    aim: [U('map1', 'top', CAP.map1A, { face: 'B', p: { mag1: 1 } }), U('map1', 'side', CAP.map1B, { face: 'B', p: { mag1: 1, wall1: 1, fig1: 1, rays1: 1 } }),
+      U('map1', 'ego', CAP.map1C, { face: 'B', p: { mag1: 1, wall1: 1, fig1: 1, hide1: 1 } }), ...(DX ? [U('aimH', 'face', CAP.aimH), U('gut', 'face', CAP.gut)] : [])],
+    util: [U('util1', 'face', CAP.util1), U('util2', 'face', CAP.util2),
+      ...['flash', 'he', 'molly', 'smoke'].filter(nadeShown).map(u => U('utilmap', 'util', CAP[u], { face: 'F', util: u, p: { magU: 1, wallU: 1, figU: 1 } }))],
+    open: [U('map2', 'top', CAP.map2top, { face: 'B', p: { mag2: 1 } }), U('map2', 'side', CAP.map2side, { face: 'B', p: { mag2: 1, wall2: 1, fig2: 1 } })],
+  };
   const list = [
-    { face: 'F', page: 'title', cam: 'face' },
-    { face: 'B', page: 'map1', cam: 'top', p: { mag1: 1 } },
-    { face: 'B', page: 'map1', cam: 'side', p: { mag1: 1, wall1: 1, fig1: 1, rays1: 1 } },
-    { face: 'B', page: 'map1', cam: 'ego', p: { mag1: 1, wall1: 1, fig1: 1, hide1: 1 } },
-    ...(DX ? [{ face: 'B', page: 'aimH', cam: 'face' }, { face: 'F', page: 'gut', cam: 'face' }] : []),
-    { face: 'F', page: 'util1', cam: 'face' },
-    { face: 'B', page: 'util2', cam: 'face' },
-    ...['flash', 'he', 'molly', 'smoke'].map(u => ({ face: 'F', page: 'utilmap', cam: 'util', util: u, p: { magU: 1, wallU: 1, figU: 1 } })),
-    ...DMAPS.map((mp, i) => ({ face: i % 2 ? 'F' : 'B', page: 'deaths' + i, cam: 'top', dm: i })),
-    { face: 'B', page: 'map2', cam: 'top', p: { mag2: 1 } },
-    { face: 'B', page: 'map2', cam: 'side', p: { mag2: 1, wall2: 1, fig2: 1 } },
-    { face: 'F', page: 'erg', cam: 'face' },
-    { face: 'B', page: 'plan', cam: 'face' },
+    U('title', 'face', null, { face: 'F' }),
+    ...SHOWN.flatMap(c => blocks[c.id]),
+    ...(RANK.length > 1 ? [U('mapsAll', 'face', CAP.mapsAll)] : []),
+    ...DMAPS.map((mp, i) => U('deaths' + i, 'top', deathCap(mp, DMODE[i]), { dm: i })),
+    ...(DX && !SHOWN.some(c => c.id === 'aim') ? [U('gut', 'face', CAP.gut)] : []),
+    U('erg', 'face', CAP.erg),
+    U('plan', 'face', CAP.plan),
   ];
+  list.forEach((st, i) => { if (!st.face) { const prev = list[i - 1]; st.face = prev.page === st.page ? prev.face : prev.face === 'F' ? 'B' : 'F'; } });
   // the face is seen upright at th = 0 (F) or PI (B), and lies face up at PI/2 (B) or 3PI/2 (F): take the nearest such angle, forward on a tie
   let th = 0;
   return list.map((st, i) => {
@@ -693,6 +779,9 @@ const STATES = (() => {
   });
 })();
 const NST = STATES.length;
+const CAPS = STATES.map(st => st.cap || null);
+CAPS.forEach(c => { const el = document.createElement('div'); el.className = 'cap'; if (c) el.innerHTML = capHTML(c); capsEl.appendChild(el); });
+const capEls = [...capsEl.children];
 const PKEYS = ['mag1', 'wall1', 'fig1', 'rays1', 'hide1', 'magU', 'wallU', 'figU', 'mag2', 'wall2', 'fig2'];
 const flatPage = st => st.cam !== 'face';
 
@@ -1064,7 +1153,7 @@ function frame(now) {
     let kRot = k;
     if (TR.routed) kRot = TR.flatFirst ? ease(clamp((k - .5) * 2)) : ease(clamp(k * 2));
     pivot.rotation.x = lerp(A.th, B.th, kRot); pivot.updateMatrixWorld(true);
-    const fA = TR.from === 3 ? flickF : 0, pa = poseOf(TR.from, fA), pb = poseOf(TR.to, 0);
+    const fA = STATES[TR.from].cam === 'ego' ? flickF : 0, pa = poseOf(TR.from, fA), pb = poseOf(TR.to, 0);
     if (TR.routed) { const mid = TOPS[TR.flatSide]; pose = k < .5 ? lerpPose(pa, mid, ease(k * 2)) : lerpPose(mid, pb, ease((k - .5) * 2)); }
     else pose = lerpPose(pa, pb, k);
     P = {};
@@ -1083,7 +1172,7 @@ function frame(now) {
     if (REDRAW) { const R2 = REDRAW, pr = clamp((now - R2.t0) / 1000 / R2.F.ops.dur); if (pr >= 1 || now - R2.F.lastPaint > 30) { R2.F.prog = pr; paintFace(R2.F); R2.F.lastPaint = now; } if (pr >= 1) REDRAW = null; else busy = true; }
     pivot.rotation.x = STATES[cur].th; pivot.updateMatrixWorld(true);
     const u = (now - arriveT) / 1000;
-    if (cur === 3) { flickF = REDUCED ? 0 : ease((u - .4) / 1.3); if (u < 1.8) busy = true; }
+    if (STATES[cur].cam === 'ego') { flickF = REDUCED ? 0 : ease((u - .4) / 1.3); if (u < 1.8) busy = true; }
     pose = poseOf(cur, flickF);
     if (STATES[cur].util && !sheetOpen) { if (utilFX(STATES[cur].util, u - .2)) busy = true; }
     capEls.forEach((el, i) => { el.style.opacity = i === cur ? out(u / .4) : 0; });
@@ -1112,7 +1201,7 @@ function frame(now) {
   renderer.render(scene, camera);
 
   // first-person overlay
-  const cOp = !TR && cur === 3 ? out((now - arriveT) / 300) : 0;
+  const cOp = !TR && STATES[cur].cam === 'ego' ? out((now - arriveT) / 300) : 0;
   const head = worldOf(m1, MAP1.E[0], EYE, MAP1.E[1]), lobP = worldOf(m1, MAP1.P[0] + LOB[0] * DIST, EYE, MAP1.P[1] + LOB[1] * DIST), stP = worldOf(m1, MAP1.P[0] + AIM[0] * DIST, EYE, MAP1.P[1] + AIM[1] * DIST);
   const showL = cOp * clamp((flickF - .2) / .2);
   putL(LB.head, head, cOp, 0, -48); putG(rHead, head, cOp);
@@ -1164,6 +1253,8 @@ function layout() { W = innerWidth; H = innerHeight; renderer.setSize(W, H, fals
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layout(); kick(); }, 150); });
 layout();
 setFace('F', 'title', !REDUCED);
+// build the map prints and heat images while the title is written, so turning to a map page does not stall
+setTimeout(() => DMAPS.forEach((_, i) => opsFor('deaths' + i).forEach(o => { if (o.k === 'I' && !o.cv) o.cv = cachedImage(o); })), 2500);
 { const c = faces.B.ctx; c.setTransform(SC, 0, 0, SC, 0, 0); boardBase(c, 3); faces.B.tex.needsUpdate = true; }
 kick();
 })();

@@ -280,7 +280,7 @@ def build_debrief(steam64):
         "steam64": steam64,
         "matches": [{k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()} for r in rows],
         "profile": {k: profile.get(k) for k in ("name", "winrate", "total_matches", "first_match_date", "ranks", "rating", "stats")},
-        "demo": debrief_demos.digest(steam64),
+        "demo": debrief_demos.digest(steam64, rows),
     }
     template = os.path.join(ROOT, "debrief", "template.html")
     out = os.path.join(ROOT, "debrief", "index.html")

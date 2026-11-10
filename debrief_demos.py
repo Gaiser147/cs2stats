@@ -16,9 +16,10 @@ import statistics as st
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DEMOS = os.path.join(ROOT, "data", "demos")
-GRID = 128            # cells across the 1024 px radar space
-MAP_MIN_DEATHS = 25   # a map gets its own death map from this many deaths on
-MAX_MAPS = 2
+MAP_MIN_DEATHS = 20   # a focus map needs at least this many of your deaths in the demos
+FOCUS_MAPS = 2        # deep-dive pages; every other map only appears in the overview
+GEOMETRY = os.path.join(ROOT, "data", "maps", "geometry")
+BAND = 40             # height bands of the floor shading, in game units
 
 
 def _wavg(pairs):
@@ -33,231 +34,156 @@ def _place(name):
     return re.sub(r"(?<=[a-z])(?=[A-Z0-9])|(?<=[A-Z])(?=[A-Z][a-z])", " ", name or "").strip()
 
 
-# ---------- floor plan ----------
-
-def _close(g, n):
-    def morph(src, want):
-        out = [[0] * n for _ in range(n)]
-        for i in range(n):
-            for j in range(n):
-                block = [src[a][b] for a in range(max(0, i - 1), min(n, i + 2)) for b in range(max(0, j - 1), min(n, j + 2))]
-                out[i][j] = 1 if (any(block) if want else all(block)) else 0
-        return out
-    return morph(morph(g, True), False)
+def _short(map_name):
+    return map_name.split("_", 1)[-1]
 
 
-def _loops(g, n):
-    """Boundary loops of filled cells along grid lines, filled side on the left (outer CCW in y-down)."""
-    edges = {}
-    filled = lambda i, j: 0 <= i < n and 0 <= j < n and g[i][j]
-    for i in range(n):
-        for j in range(n):
-            if not g[i][j]:
-                continue
-            # vertices are (x, y) = (col, row); walk so the filled cell stays on one side
-            if not filled(i - 1, j): edges.setdefault((j + 1, i), []).append((j, i))
-            if not filled(i + 1, j): edges.setdefault((j, i + 1), []).append((j + 1, i + 1))
-            if not filled(i, j - 1): edges.setdefault((j, i), []).append((j, i + 1))
-            if not filled(i, j + 1): edges.setdefault((j + 1, i + 1), []).append((j + 1, i))
-    loops = []
-    while edges:
-        start = next(iter(edges))
-        loop, v = [start], start
-        while True:
-            nxt = edges[v].pop()
-            if not edges[v]:
-                del edges[v]
-            if nxt == start:
-                break
-            loop.append(nxt)
-            v = nxt
-            if v not in edges:
-                break
-        loops.append(loop)
-    return loops
+# ---------- map view: nav-mesh floor plan, places, your deaths and kills ----------
 
-
-def _area(loop):
-    return abs(sum(loop[k][0] * loop[k - 1][1] - loop[k - 1][0] * loop[k][1] for k in range(len(loop)))) / 2
-
-
-def _simplify(pts, tol):
-    """Douglas-Peucker on an open polyline."""
-    if len(pts) < 3:
-        return pts
-    (x0, y0), (x1, y1) = pts[0], pts[-1]
-    dx, dy = x1 - x0, y1 - y0
-    ln = (dx * dx + dy * dy) ** .5 or 1e-9
-    best, idx = -1, 0
-    for k in range(1, len(pts) - 1):
-        d = abs(dy * pts[k][0] - dx * pts[k][1] + x1 * y0 - y1 * x0) / ln
-        if d > best:
-            best, idx = d, k
-    if best <= tol:
-        return [pts[0], pts[-1]]
-    return _simplify(pts[:idx + 1], tol)[:-1] + _simplify(pts[idx:], tol)
-
-
-def _simplify_loop(loop, tol):
-    far = max(range(len(loop)), key=lambda k: (loop[k][0] - loop[0][0]) ** 2 + (loop[k][1] - loop[0][1]) ** 2)
-    a = _simplify(loop[:far + 1], tol)
-    b = _simplify(loop[far:] + [loop[0]], tol)
-    return a[:-1] + b[:-1]
-
-
-def _clusters(zs, gap=110):
-    """Height levels in one cell: z values split where they jump by more than `gap` units; tiny groups dropped."""
-    zs = sorted(zs)
-    out = [[zs[0]]]
-    for z in zs[1:]:
-        if z - out[-1][-1] > gap:
-            out.append([z])
-        else:
-            out[-1].append(z)
-    keep = [c for c in out if len(c) >= max(3, .04 * len(zs))]
-    return [(sum(c) / len(c), min(c), max(c), len(c)) for c in keep]
-
-
-def _components(cells):
-    cells, seen, comps = set(cells), set(), []
-    for c in cells:
-        if c in seen:
-            continue
-        stack, comp = [c], []
-        seen.add(c)
-        while stack:
-            i, j = stack.pop()
-            comp.append((i, j))
-            for nb in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
-                if nb in cells and nb not in seen:
-                    seen.add(nb); stack.append(nb)
-        comps.append(comp)
-    return comps
-
-
-def _chain(segments):
-    """Join unit grid edges into polylines."""
-    adj = {}
-    for a, b in segments:
-        adj.setdefault(a, []).append(b); adj.setdefault(b, []).append(a)
-    used, lines = set(), []
-    for a, b in segments:
-        if (a, b) in used or (b, a) in used:
-            continue
-        used.add((a, b))
-        line = [a, b]
-        for end in (1, 0):
-            while True:
-                v = line[-1] if end else line[0]
-                nxt = next((w for w in adj[v] if (v, w) not in used and (w, v) not in used), None)
-                if nxt is None:
-                    break
-                used.add((v, nxt))
-                if end:
-                    line.append(nxt)
-                else:
-                    line.insert(0, nxt)
-        lines.append(_simplify(line, .6))
-    return lines
-
-
-def _grid_loops(cells, n, min_area=6, close=False):
-    g = [[0] * n for _ in range(n)]
-    for i, j in cells:
-        g[i][j] = 1
-    if close:
-        g = _close(g, n)
-    loops = [_simplify_loop(lp, .85) for lp in _loops(g, n) if _area(lp) >= min_area]
-    return [lp for lp in loops if len(lp) >= 3]
-
-
-def _floor(map_name, ov, demos):
-    """Floor plan from movement: walkable cells, stacked passages (a lower path under an upper one),
-    bombsite areas and spawn positions, all in grid coordinates."""
-    n, zs, place_cells, places = GRID, {}, {}, {}
-    lower = (ov.get("vertical_sections") or {}).get("lower")
+def _samples(ov, demos):
+    """Place statistics from everyone's movement: per place the mean radar position and height, and per
+    (4 px cell, 64-unit height step) the most common place, to tag floor polygons with their callout."""
+    places, cells = {}, {}
     for d in demos:
         path = os.path.join(DEMOS, d, "positions.csv.gz")
         if not os.path.exists(path):
             continue
         with gzip.open(path, "rt", encoding="utf-8") as f:
             for r in csv.DictReader(f):
-                x, y, z = float(r["x"]), float(r["y"]), float(r["z"])
-                if lower and z < lower["z_max"]:
+                if not r.get("place"):
                     continue
+                x, y, z = float(r["x"]), float(r["y"]), float(r["z"])
                 px, py = (x - ov["pos_x"]) / ov["scale"], (ov["pos_y"] - y) / ov["scale"]
-                i, j = int(py / 1024 * n), int(px / 1024 * n)
-                if 0 <= i < n and 0 <= j < n:
-                    zs.setdefault((i, j), []).append(z)
-                    if r.get("place"):
-                        pc = place_cells.setdefault((i, j), {})
-                        pc[r["place"]] = pc.get(r["place"], 0) + 1
-                        s = places.setdefault(r["place"], [0.0, 0.0, 0])
-                        s[0] += px / 1024 * n; s[1] += py / 1024 * n; s[2] += 1
-    loops = _grid_loops(zs.keys(), n, close=True)
+                s = places.setdefault(r["place"], [0.0, 0.0, 0.0, 0])
+                s[0] += px; s[1] += py; s[2] += z; s[3] += 1
+                c = cells.setdefault((int(px // 4), int(py // 4), int(z // 64)), {})
+                c[r["place"]] = c.get(r["place"], 0) + 1
+    centroids = {k: (v[0] / v[3], v[1] / v[3], v[2] / v[3], v[3]) for k, v in places.items() if v[3] >= 20}
+    return centroids, cells
 
-    # stacked passages: cells with two height levels at least STACK units apart (a tunnel under a bridge).
-    # The lower path is followed a few cells beyond the crossing so it reads as passing underneath.
-    STACK, EXT = 140, 7
-    levels = {c: _clusters(v) for c, v in zs.items()}
-    over = {}
-    for c, cl in levels.items():
-        for lo, hi in zip(cl, cl[1:]):
-            if hi[1] - lo[2] >= STACK:
-                over[c] = lo[0]
-                break
-    under, bridge_edges, overlap = set(), [], set()
-    if not lower:
-        for comp in _components(over):
-            if len(comp) < 3:
-                continue
-            seed = sum(over[c] for c in comp) / len(comp)
-            overlap.update(comp)
-            under.update(comp)
-            frontier, depth = list(comp), 0
-            while frontier and depth < EXT:
-                nxt = []
-                for i, j in frontier:
-                    for nb in ((i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)):
-                        if nb in under or nb not in levels:
-                            continue
-                        if any(abs(m - seed) < 45 for m, *_ in levels[nb]):
-                            under.add(nb); nxt.append(nb)
-                frontier, depth = nxt, depth + 1
-        ext = under - overlap
-        for i, j in overlap:
-            # the bridge's sides: edges between a crossing cell and the open lower path next to it
-            if (i - 1, j) in ext: bridge_edges.append(((j, i), (j + 1, i)))
-            if (i + 1, j) in ext: bridge_edges.append(((j, i + 1), (j + 1, i + 1)))
-            if (i, j - 1) in ext: bridge_edges.append(((j, i), (j, i + 1)))
-            if (i, j + 1) in ext: bridge_edges.append(((j + 1, i), (j + 1, i + 1)))
 
-    # bombsites: cells where the site is the most common place name
-    sites = {}
-    for c, pc in place_cells.items():
-        top = max(pc, key=pc.get)
-        if top in ("BombsiteA", "BombsiteB"):
-            sites.setdefault(top[-1], []).append(c)
-    site_out = {}
-    for k, cells in sites.items():
-        big = max(_components(cells), key=len)
-        site_out[k] = {"loops": _grid_loops(big, n, min_area=4, close=True),
-                       "at": (sum(j for i, j in big) / len(big) + .5, sum(i for i, j in big) / len(big) + .5)}
+def _poly_place(cells, px, py, z):
+    best = {}
+    for dx in (-1, 0, 1):
+        for dy in (-1, 0, 1):
+            for dz in (-1, 0, 1):
+                for k, v in cells.get((int(px // 4) + dx, int(py // 4) + dy, int(z // 64) + dz), {}).items():
+                    best[k] = best.get(k, 0) + v * (3 if dx == dy == dz == 0 else 1)
+    return max(best, key=best.get) if best else None
 
-    xs = [p[0] for lp in loops for p in lp]
-    ys = [p[1] for lp in loops for p in lp]
-    centroids = {k: (v[0] / v[2], v[1] / v[2]) for k, v in places.items() if v[2] >= 20}
-    return {
-        "loops": loops, "box": (min(xs), min(ys), max(xs), max(ys)), "centroids": centroids,
-        "under": _grid_loops(under, n, min_area=2), "bridge": _grid_loops(overlap, n, min_area=2),
-        "bridge_edges": _chain(bridge_edges), "sites": site_out,
-        "spawns": {k: centroids[p] for k, p in (("T", "TSpawn"), ("CT", "CTSpawn")) if p in centroids},
-    }
+
+def map_view(map_name, ov, demos, deaths, kills):
+    path = os.path.join(GEOMETRY, map_name + ".json")
+    if not os.path.exists(path):
+        return None
+    geo = json.load(open(path, encoding="utf-8"))
+    to_px = lambda x, y: ((x - ov["pos_x"]) / ov["scale"], (ov["pos_y"] - y) / ov["scale"])
+    polys = [[to_px(p[k], p[k + 1]) for k in range(0, len(p), 2)] for p in geo["polys"]]
+    zs = geo["z"]
+    lower = (ov.get("vertical_sections") or {}).get("lower")
+    split = lower["z_max"] if lower else None
+    level = lambda z: 1 if split is not None and z < split else 0
+    centroids, cells = _samples(ov, demos)
+
+    # panels: one, or for maps with two radar levels (Nuke) the upper and the lower level side by side or stacked
+    groups = {}
+    for i, z in enumerate(zs):
+        groups.setdefault(level(z), []).append(i)
+    keys = sorted(groups)
+    boxes = {}
+    for k in keys:
+        xs = [x for i in groups[k] for x, _ in polys[i]]
+        ys = [y for i in groups[k] for _, y in polys[i]]
+        boxes[k] = (min(xs), min(ys), max(xs), max(ys))
+    pad = 30
+    layout = {}
+    if len(keys) == 1:
+        layout[keys[0]] = (pad, pad, 1000 - 2 * pad, 1000 - 2 * pad)
+    else:
+        w = [boxes[k][2] - boxes[k][0] for k in keys]
+        h = [boxes[k][3] - boxes[k][1] for k in keys]
+        side = min((1000 - 3 * pad) / sum(w), (1000 - 2 * pad) / max(h))
+        stack = min((1000 - 2 * pad) / max(w), (1000 - 3 * pad) / sum(h))
+        if side >= stack:
+            x = pad
+            for k, wk in zip(keys, w):
+                layout[k] = (x, pad, wk * side, 1000 - 2 * pad); x += wk * side + pad
+        else:
+            y = pad
+            for k, hk in zip(keys, h):
+                layout[k] = (pad, y, 1000 - 2 * pad, hk * stack); y += hk * stack + pad
+    tf = {}
+    for k in keys:
+        bx0, by0, bx1, by1 = boxes[k]
+        rx, ry, rw, rh = layout[k]
+        sc = min(rw / (bx1 - bx0), rh / (by1 - by0))
+        ox, oy = rx + (rw - (bx1 - bx0) * sc) / 2, ry + (rh - (by1 - by0) * sc) / 2
+        tf[k] = (bx0, by0, sc, ox, oy)
+    def norm(px, py, k):
+        bx0, by0, sc, ox, oy = tf[k]
+        return [round(ox + (px - bx0) * sc), round(oy + (py - by0) * sc)]
+
+    z0 = min(zs)
+    zspan = max(max(zs) - z0, 1)
+    panels = []
+    for k in keys:
+        bands = {}
+        sites = {"A": [], "B": []}
+        for i in sorted(groups[k], key=lambda i: zs[i]):
+            flat = [c for x, y in polys[i] for c in norm(x, y, k)]
+            bands.setdefault(int((zs[i] - z0) // BAND), []).append(flat)
+            cx = sum(x for x, _ in polys[i]) / len(polys[i])
+            cy = sum(y for _, y in polys[i]) / len(polys[i])
+            pl = _poly_place(cells, cx, cy, zs[i])
+            if pl in ("BombsiteA", "BombsiteB"):
+                sites[pl[-1]].append(flat)
+        panels.append({
+            "name": ("unten" if k else "oben") if len(keys) > 1 else "",
+            "rect": [round(v) for v in layout[k]],
+            "bands": [{"t": round(min(1, (b * BAND + BAND / 2) / zspan), 3), "polys": v} for b, v in sorted(bands.items())],
+            "sites": {s: v for s, v in sites.items() if v},
+        })
+
+    names = sorted(centroids)
+    places = []
+    for p in names:
+        px, py, z, n = centroids[p]
+        places.append({"name": _place(p), "key": p, "at": norm(px, py, level(z)) + [level(z)], "n": n})
+    pidx = lambda p: names.index(p) if p in centroids else -1
+    dpts = [norm(*to_px(x, y), level(z)) + [1 if s == "CT" else 0, 1 if op else 0, pidx(place)] for x, y, z, s, op, place in deaths]
+    kpts = [norm(*to_px(x, y), level(z)) + [pidx(place)] for x, y, z, place in kills]
+    return {"panels": panels, "places": places, "deaths": dpts, "kills": kpts}
+
+
+# ---------- which maps matter ----------
+
+def map_relevance(rows, deaths_by_map):
+    """Rank the maps from the Leetify history: played often and recently, and lost on.
+    relevance = share of recent rounds (each older match counts 10 % less) x (1 + ADR deficit / 20) x (1.5 - win rate)."""
+    five = sorted([r for r in rows or [] if r.get("n_lobby", 0) >= 10 and r.get("rounds", 0) >= 5], key=lambda r: r["date"])
+    stats = {}
+    for age, r in enumerate(reversed(five)):
+        s = stats.setdefault(r["map"], {"matches": 0, "rounds": 0, "w": 0, "l": 0, "adr": 0.0, "l_adr": 0.0, "rating": 0.0, "fresh": 0.0, "last": r["date"]})
+        s["matches"] += 1; s["rounds"] += r["rounds"]
+        s["w"] += r["res"] == "W"; s["l"] += r["res"] == "L"
+        s["adr"] += r["adr"] * r["rounds"]; s["l_adr"] += r["l_adr"] * r["rounds"]; s["rating"] += r["rating"]
+        s["fresh"] += r["rounds"] * 0.9 ** age
+    tot = sum(s["fresh"] for s in stats.values()) or 1
+    out = []
+    for m, s in stats.items():
+        adr, ladr = s["adr"] / s["rounds"], s["l_adr"] / s["rounds"]
+        wr = s["w"] / s["matches"]
+        rel = s["fresh"] / tot * (1 + max(0, ladr - adr) / 20) * (1.5 - wr)
+        out.append({"map": m, "name": m.capitalize(), "matches": s["matches"], "rounds": s["rounds"], "w": s["w"], "l": s["l"],
+                    "adr": round(adr, 1), "l_adr": round(ladr, 1), "rating": round(s["rating"] / s["matches"], 2),
+                    "last": s["last"], "relevance": round(rel, 4),
+                    "demo_deaths": len(deaths_by_map.get(m, []))})
+    return sorted(out, key=lambda x: -x["relevance"])
 
 
 # ---------- digest ----------
 
-def digest(steam64):
+def digest(steam64, rows=None):
     idx_path = os.path.join(DEMOS, "index.json")
     if not os.path.exists(idx_path):
         return None
@@ -326,44 +252,37 @@ def digest(steam64):
         "maps": [],
     }
 
-    ranked = sorted(deaths_by_map.items(), key=lambda kv: -len(kv[1]))
-    for map_name, deaths in ranked[:MAX_MAPS]:
-        ov = ov_all.get(map_name)
-        if len(deaths) < MAP_MIN_DEATHS or not ov:
+    # maps: rank all from the Leetify history, deep-dive the most relevant ones that have demo deaths and a floor plan
+    by_short = {_short(k): k for k in deaths_by_map}
+    ranking = map_relevance(rows, {_short(k): v for k, v in deaths_by_map.items()})
+    if not ranking:   # no Leetify rows: fall back to the maps you died on most in the demos
+        ranking = [{"map": _short(k), "name": _short(k).capitalize(), "relevance": len(v), "demo_deaths": len(v)} for k, v in deaths_by_map.items()]
+        ranking.sort(key=lambda x: -x["relevance"])
+    for entry in ranking:
+        full = by_short.get(entry["map"])
+        entry["focus"] = False
+        if len(out["maps"]) >= FOCUS_MAPS or not full or entry["demo_deaths"] < MAP_MIN_DEATHS or full not in ov_all:
             continue
-        demos = [m["demo"] for m in index if m["map"] == map_name]
-        fl = _floor(map_name, ov, demos)
-        (bx0, by0, bx1, by1), centroids = fl["box"], fl["centroids"]
-        lower = (ov.get("vertical_sections") or {}).get("lower")
-        pad = 2
-        span = max(bx1 - bx0, by1 - by0) + 2 * pad
-        ox, oy = (bx0 + bx1) / 2 - span / 2, (by0 + by1) / 2 - span / 2
-        norm = lambda gx, gy: [round((gx - ox) / span * 1000), round((gy - oy) / span * 1000)]
-        nl = lambda lps: [[norm(x, y) for x, y in lp] for lp in lps]
-        to_grid = lambda x, y: ((x - ov["pos_x"]) / ov["scale"] / 1024 * GRID, (ov["pos_y"] - y) / ov["scale"] / 1024 * GRID)
-        names = sorted(p for p in centroids)
-        pidx = lambda p: names.index(p) if p in centroids else -1
-        dpts = [norm(*to_grid(x, y)) + [1 if s == "CT" else 0, 1 if op else 0, pidx(place)]
-                for x, y, z, s, op, place in deaths if not (lower and z < lower["z_max"])]
-        kpts = [norm(*to_grid(x, y)) + [pidx(place)] for x, y, z, place in kills_by_map.get(map_name, []) if not (lower and z < lower["z_max"])]
-        out["maps"].append({
-            "map": map_name, "name": map_name.split("_", 1)[-1].capitalize(), "rounds": rounds_by_map.get(map_name, 0),
-            "matches": sum(1 for m in five if m["map"] == map_name), "upper_only": bool(lower),
-            "floor": nl(fl["loops"]), "under": nl(fl["under"]), "bridge": nl(fl["bridge"]), "bridge_edges": nl(fl["bridge_edges"]),
-            "sites": {k: {"loops": nl(v["loops"]), "at": norm(*v["at"])} for k, v in fl["sites"].items()},
-            "spawns": {k: norm(*v) for k, v in fl["spawns"].items()},
-            "places": [{"name": _place(p), "at": norm(*centroids[p])} for p in names],
-            "deaths": dpts, "kills": kpts,
-        })
+        demos = [m["demo"] for m in index if m["map"] == full]
+        view = map_view(full, ov_all[full], demos, deaths_by_map[full], kills_by_map.get(full, []))
+        if not view:
+            continue
+        entry["focus"] = True
+        out["maps"].append({"map": full, "name": entry["name"], "rounds": rounds_by_map.get(full, 0),
+                            "matches": sum(1 for m in five if m["map"] == full), **view})
+    out["ranking"] = ranking
     return out
 
 
 if __name__ == "__main__":
     import sys
-    d = digest(sys.argv[1] if len(sys.argv) > 1 else "76561198382673172")
-    maps = d.pop("maps")
-    print(json.dumps({k: v for k, v in d.items() if k != "per_demo"}, indent=1))
-    for m in maps:
-        print(m["name"], m["matches"], "matches", len(m["deaths"]), "deaths", len(m["kills"]), "kills",
-              len(m["floor"]), "loops", sum(len(l) for l in m["floor"]), "pts", len(m["under"]), "under", len(m["bridge_edges"]), "bridge edges",
-              list(m["sites"]), m["spawns"], len(m["places"]), "places")
+    sys.path.insert(0, ROOT)
+    import leetify_analyze
+    sid = sys.argv[1] if len(sys.argv) > 1 else "76561198382673172"
+    d = digest(sid, leetify_analyze.build_rows(sid))
+    for r in d["ranking"]:
+        print(f"{r['name']:10s} rel {r['relevance']:.3f}  {r.get('matches', '-')} matches  ADR {r.get('adr', '-')} vs {r.get('l_adr', '-')}  demo deaths {r['demo_deaths']}  {'FOCUS' if r['focus'] else ''}")
+    for m in d["maps"]:
+        print(m["name"], len(m["panels"]), "panels", sum(len(b["polys"]) for p in m["panels"] for b in p["bands"]), "polys",
+              {k: len(v) for p in m["panels"] for k, v in p["sites"].items()}, len(m["deaths"]), "deaths", len(m["places"]), "places",
+              len(json.dumps(m)) // 1024, "KB")
