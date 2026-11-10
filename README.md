@@ -12,6 +12,7 @@ Personal CS2 stats from the [Leetify Public CS API](https://api-public-docs.cs-p
 | `python3 demo_analyze.py sync --push` | Analyses every new CS2 demo in the replays folder with [demoparser2](https://github.com/LaihoE/demoparser), writes the stats to `data/demos/` and pushes them to GitHub. |
 | `python3 demo_analyze.py analyze <demo.dem>` | Analyses one demo (any path), also again if it was analysed before. |
 | `python3 demo_analyze.py report` | One line per analysed demo: score, K/D, ADR, KAST, rating, crosshair angle, time to damage, counter-strafing. |
+| `python3 leetify_analyze.py debrief [SteamID64]` | Builds `debrief/index.html`, the interactive whiteboard debrief, from the Leetify data and the demo stats (`debrief_demos.py`: crosshair height vs. side, mechanics, opening duels, death maps on floor plans traced from player movement). |
 | `python3 leetify_analyze.py report [SteamID64] [all\|matches\|summary]` | Match-by-match analysis comparing you with your team and the lobby (ADR, rating rank, aim, preaim, utility, trades), plus totals by mode, map, result and trend. |
 
 The SteamID64 defaults to `76561198382673172`. Optional: put `LEETIFY_API_KEY=...` in `.env` (git-ignored) for higher rate limits; get a key at [leetify.com/app/developer](https://leetify.com/app/developer).

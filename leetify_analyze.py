@@ -21,6 +21,8 @@ import time
 import urllib.error
 import urllib.request
 
+import debrief_demos
+
 API = "https://api-public.cs-prod.leetify.com"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_STEAM64 = "76561198382673172"
@@ -258,6 +260,7 @@ def build_debrief(steam64):
         "steam64": steam64,
         "matches": [{k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()} for r in rows],
         "profile": {k: profile.get(k) for k in ("name", "winrate", "total_matches", "first_match_date", "ranks", "rating", "stats")},
+        "demo": debrief_demos.digest(steam64),
     }
     template = os.path.join(ROOT, "debrief", "template.html")
     out = os.path.join(ROOT, "debrief", "index.html")
@@ -265,7 +268,8 @@ def build_debrief(steam64):
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     with open(out, "w", encoding="utf-8") as f:
         f.write(html.replace("__DATA__", payload))
-    print(f"Debrief with {len(rows)} matches written to {os.path.relpath(out, ROOT)}")
+    demos = f" and {data['demo']['n']} demos" if data["demo"] else ""
+    print(f"Debrief with {len(rows)} matches{demos} written to {os.path.relpath(out, ROOT)}")
 
 
 def main():

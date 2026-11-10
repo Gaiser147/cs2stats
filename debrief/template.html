@@ -133,7 +133,8 @@ body.nogl .sheet { position: static; transform: none; box-shadow: none; overflow
     <div class="foot">
       <span id="f-stand"></span>
       <span>Data Provided by Leetify · <a id="f-link" href="https://leetify.com" target="_blank" rel="noopener">View on Leetify</a></span>
-      <span>Neue Matches einspielen: <code>python3 leetify_analyze.py fetch</code> und <code>python3 leetify_analyze.py debrief</code></span>
+      <span>Neue Matches einspielen: <code>python3 leetify_analyze.py fetch</code>, Demos mit <code>python3 demo_analyze.py auto</code>, dann <code>python3 leetify_analyze.py debrief</code></span>
+      <span>Demo-Werte stammen aus einem eigenen Parser und sind enger gemessen als Leetifys (Sichtkontakt ab dem Radar-Spot). Vergleiche sie nur mit der Lobby aus denselben Demos.</span>
     </div>
   </div>
 </section>
@@ -179,8 +180,25 @@ const modes = ['competitive', 'premier'].map(k => { const rs = M.filter(m => m.m
 const prem = modes.find(x => x.k === 'premier'), comp = modes.find(x => x.k === 'competitive');
 const ranks = [1, 2, 3, 4, 5].map(k => FIVE.filter(m => m.rk_team === k).length);
 
+// demo numbers (own parser, 5v5 only): crosshair split into height and side, mechanics, opening duels, death maps
+const DM = D.demo && D.demo.n ? D.demo : null;
+const DMAPS = DM ? DM.maps : [];
+const rate = a => a[1] ? a[0] / a[1] : 0;
+const DX = DM ? (() => {
+  const me = DM.me, lob = DM.lobby, o = DM.opening, L5d = DM.per_demo.slice(-5);
+  const sum = (rs, k) => rs.reduce((a, r) => [a[0] + r[k][0], a[1] + r[k][1]], [0, 0]);
+  const pitchRs = L5d.filter(r => r.pitch != null);
+  const sides = ['T', 'CT'].map(s => ({ s, me: rate(o.me[s]), n: o.me[s], lob: rate(o.lobby[s]), last: sum(L5d, s === 'CT' ? 'open_ct' : 'open_t') }));
+  const weak = sides.slice().sort((a, b) => (a.me - a.lob) - (b.me - b.lob))[0];
+  const cm = deg => DM.dist_m * Math.tan(deg * Math.PI / 180) * 100;
+  return { me, lob, sides, weak, nLast: L5d.length, heightGap: me.pitch / lob.pitch, sideGap: me.yaw / lob.yaw, cm,
+    lastPitch: pitchRs.length ? pitchRs.reduce((s, r) => s + r.pitch * r.rounds, 0) / pitchRs.reduce((s, r) => s + r.rounds, 0) : null };
+})() : null;
+const heightFirst = DX && DX.heightGap > DX.sideGap + .1;
+const placeSide = l => l.ct > l.t ? 'CT' : 'T';
+
 const de = (v, d = 1) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', ',');
-const pc = (v, d = 0) => de(v * 100, d) + ' %';
+const pc = (v, d = 0) => de(v * 100, d) + '\u00a0%';
 const sg = (v, d = 2) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(d).replace('.', ',');
 const dt = s => { const [y, m, d] = s.split('-'); return `${+d}.${+m}.${y}`; };
 const dts = s => { const [, m, d] = s.split('-'); return `${+d}.${+m}.`; };
@@ -196,7 +214,15 @@ const TASKS = [
     drill: 'Kaufe in jeder Vollkauf-Runde eine Flash. Wirf sie über deinen eigenen Peek oder sag sie für den Entry an.' },
   { t: 'Als Zweiter rein, eng traden', all: S.tk, last: L5 && L5.tk, goal: S.lTk, lower: false, fmt: v => pc(v), worst: .2, best: .7,
     drill: 'Auf T-Seite gehst du nicht als Erster, sondern direkt hinter dem Entry, so nah, dass du seinen Gegner sofort siehst.' },
+  ...(DX ? [
+    { t: 'Kopfhöhe halten', all: DX.me.pitch, last: DX.lastPitch, goal: DX.lob.pitch, lower: true, fmt: v => de(v) + '°', worst: 3.2, best: 1, demo: true,
+      drill: 'Im Deathmatch nur auf Kopfhöhe zielen, auch beim Laufen. Auf Treppen, Rampen und an Kisten verrutscht die Höhe am leichtesten: Dort das Fadenkreuz vor dem Peek bewusst anheben oder absenken.' },
+    { t: `Erstes Duell als ${DX.weak.s}`, all: DX.weak.me, last: DX.weak.last[1] ? rate(DX.weak.last) : null, goal: DX.weak.lob, lower: false, fmt: v => pc(v), worst: .1, best: .7, demo: true,
+      drill: DX.weak.s === 'CT' ? 'Als CT in den ersten Sekunden nicht peeken. Halte einen Winkel, den ein Teammate traden kann, und wechsle nach dem ersten Kontakt die Position, statt denselben Winkel noch einmal zu zeigen.' : 'Als T nicht als Erster in einen Winkel laufen, den du nicht geflasht oder gesmoked hast. Lass dem Entry den Vortritt und trade ihn.' },
+  ] : []),
 ].map(t => ({ ...t, done: t.last != null && (t.lower ? t.last <= t.goal : t.last >= t.goal) }));
+// the board has room for four goals: open ones first, in priority order
+const BOARD_TASKS = [...TASKS.filter(t => !t.done), ...TASKS.filter(t => t.done)].slice(0, 4);
 
 // ---------------- captions, one per board state ----------------
 const COARSE = matchMedia('(pointer: coarse)').matches;
@@ -206,24 +232,36 @@ const CAPS = [
   ['A · Draufsicht', `Taucht ein Gegner auf, steht dein Fadenkreuz im Schnitt <b class="fix">${de(S.pre)}°</b> neben ihm. In deiner Lobby sind es <span class="lobby">${de(S.lPre)}°</span>.`],
   ['B · Seitenansicht', `Von deinen Treffern gehen <b>${pc(S.head, 1)}</b> an den Kopf, in deiner Lobby <span class="lobby">${pc(S.lHead, 1)}</span>. Halte das Fadenkreuz schon vor dem Peek auf Kopfhöhe an der Kante.`],
   ['C · Ego-Sicht', `Du reagierst in <b>${de(S.rt, 0)} ms</b>, die Lobby in <span class="lobby">${de(S.lRt, 0)} ms</span>. Hast du den Gegner im Visier, triffst du <b>${pc(S.spot, 1)}</b>, die Lobby <span class="lobby">${pc(S.lSpot, 1)}</span>. Dein Aim ist gut, es startet nur zu weit weg.`],
+  ...(DX ? [
+    [heightFirst ? 'Höhe statt Seite' : 'Höhe und Seite', `Aus ${DM.n} Demos: Beim ersten Sichtkontakt liegt dein Fadenkreuz senkrecht <b class="${DX.me.pitch > DX.lob.pitch ? 'fix' : ''}">${de(DX.me.pitch)}°</b> neben dem Kopf, in der Lobby <span class="lobby">${de(DX.lob.pitch)}°</span>. Waagerecht sind es ${de(DX.me.yaw)}° gegen <span class="lobby">${de(DX.lob.yaw)}°</span>. ${heightFirst ? 'Seitlich bist du also fast so gut wie deine Lobby, die Höhe macht den Unterschied.' : ''} Nur <b>${pc(DX.me.head, 1)}</b> deiner Schüsse treffen den Kopf, in der Lobby <span class="lobby">${pc(DX.lob.head, 1)}</span>. Die Demos messen den Abstand, nicht ob du zu hoch oder zu tief zielst.`],
+    (() => {
+      const g = [DX.me.ttd < DX.lob.ttd, DX.me.cs > DX.lob.cs, DX.me.fsa > DX.lob.fsa].filter(Boolean).length;
+      return [g >= 2 ? 'Das sitzt' : 'Die Technik', `Vom ersten Sichtkontakt bis zum ersten Schaden brauchst du <b>${de(DX.me.ttd, 0)} ms</b>, deine Lobby <span class="lobby">${de(DX.lob.ttd, 0)} ms</span>. <b>${de(DX.me.cs, 0)} %</b> deiner Schüsse gibst du aus dem Stand ab (Lobby <span class="lobby">${de(DX.lob.cs, 0)} %</span>), und dein erster Schuss trifft <b>${pc(DX.me.fsa)}</b>, Lobby <span class="lobby">${pc(DX.lob.fsa)}</span>. ${g >= 2 ? 'Mechanisch musst du nichts umbauen. Was fehlt, ist der Startpunkt des Fadenkreuzes.' : ''}`];
+    })(),
+  ] : []),
   ['Granaten im Grab', `Wenn du stirbst, hast du im Schnitt noch <b class="fix">$${de(S.uod, 0)}</b> an Granaten dabei, die Lobby <span class="lobby">$${de(S.lUod, 0)}</span>. Auf den nächsten Seiten: welche Granaten fehlen.`],
   ['Match für Match', L5 ? `Im Herbst gab es Matches fast ohne Utility. In deinen letzten ${LAST.length} Matches wirfst du <b>${de(L5.util, 2)}</b> Granaten pro Runde, deine Lobby <span class="lobby">${de(L5.lUtil, 2)}</span>.` : 'Geworfene Granaten pro Runde.'],
   ['Flash', `Du wirfst <b class="${S.flPr < S.lFlPr ? 'fix' : ''}">${de(S.flPr, 2)}</b> Flashes pro Runde, ein Spieler deiner Lobby <span class="lobby">${de(S.lFlPr, 2)}</span>. Wenn du flashst, blendest du <b>${de(S.foePer, 2)}</b> Gegner pro Flash, die Lobby <span class="lobby">${de(S.lFoePer, 2)}</span>. ${S.flPr < S.lFlPr ? (S.foePer >= S.lFoePer ? 'Deine Flashes sind gut, es sind nur zu wenige.' : 'Du flashst zu selten und blendest zu wenige Gegner.') : `Du flashst inzwischen öfter als deine Lobby. Achte noch auf dein Team: <b class="${S.frPer > S.lFrPer ? 'fix' : ''}">${de(S.frPer, 2)}</b> geblendete Teammates pro Flash, Lobby <span class="lobby">${de(S.lFrPer, 2)}</span>.`} ${AGAIN}`],
   ['HE-Granate', `${S.he} HE in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lHePr)}</span>, ${S.hePr < S.lHePr ? 'also mehr als du' : 'also weniger als du'}. Wirf sie dorthin, wo ein Gegner stehen muss, bevor du peekst, statt sie mit ins Grab zu nehmen. ${AGAIN}`],
   ['Molotov', `${S.mo} Molotovs in ${S.rounds} Runden, ein Lobby-Spieler wirft <span class="lobby">${lobN(S.lMoPr)}</span>. Ein Molotov in die Ecke zwingt den CT aus seiner Position, bevor du reingehst. ${AGAIN}`],
   ['Smoke', `Smokes wirfst du ${S.smPr >= S.lSmPr ? 'sogar etwas mehr als' : 'weniger als'} deine Lobby: <b>${S.sm}</b> gegen <span class="lobby">${lobN(S.lSmPr)}</span>. Eine Smoke nimmt dem CT die Sicht auf den Eingang. ${S.smPr >= S.lSmPr ? 'Das machst du schon richtig.' : 'Lerne pro Seite zwei feste Smokes für Mirage und Inferno.'} ${AGAIN}`],
-  ['Das erste Duell', `Auf T-Seite gewinnst du <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %. Wer als Erster reingeht und fällt, lässt sein Team zu viert.`],
+  ...DMAPS.map(mp => {
+    const top = mp.labels[0], opens = mp.deaths.filter(d => d[3]).length, side = top ? placeSide(top) : null, n = top ? top[side.toLowerCase()] : 0;
+    const tip = side === 'CT' ? 'Wechsle dort nach einem Kontakt die Position, statt denselben Winkel noch einmal zu zeigen.' : 'Geh dort nicht als Erster hinein, und wirf vorher, was du dabei hast.';
+    return [`${mp.name}: wo du fällst`, `${mp.deaths.length} Tode in ${mp.matches} Matches, gemessen in deinen Demos. ${top ? `Die meisten als ${side} bei <b class="fix">${top.name}</b> (${n}). ${tip}` : ''} Umkreist: ${opens}-mal das erste Duell der Runde verloren. Kleine Kreise sind deine Kills.`];
+  }),
+  ['Das erste Duell', `Laut Leetify gewinnst du auf T-Seite <b class="fix">${de(tOpen)} %</b> deiner ersten Duelle einer Runde, auf CT-Seite ${de(ctOpen)} %.${DX ? ` In deinen Demos: als ${DX.weak.s} <b class="fix">${DX.weak.n[0]} von ${DX.weak.n[1]}</b> (${pc(DX.weak.me)}), die Lobby gewinnt <span class="lobby">${pc(DX.weak.lob)}</span>.` : ''} Wer zuerst fällt, lässt sein Team zu viert.`],
   ['So soll es aussehen', `Direkt hinter dem Entry. Du versuchst es in <b>${pc(S.tkAtt / Math.max(1, S.tkOpp))}</b> der Fälle zu traden, es klappt aber nur in <b class="fix">${pc(S.tk)}</b>, in deiner Lobby in <span class="lobby">${pc(S.lTk)}</span>. Die Skizze zeigt keine gemessenen Positionen.`],
-  ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. ${S.surv >= S.lSurv * .97 ? `Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.` : `Dazu überlebst du seltener als deine Lobby: ${pc(S.surv)} gegen ${pc(S.lSurv)} der Runden.`}${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
-  ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Das Kreuz zeigt deine letzten ${LAST.length} Matches, der Kreis alle. ${COARSE ? 'Noch einmal wischen' : 'Noch einmal scrollen'} für die Übungen.`],
+  ['Was es kostet', `Dir fehlen <b class="fix">${de(S.lAdr - S.adr)}</b> Schaden pro Runde auf deine Lobby. ${S.surv >= S.lSurv * .97 ? `Am Überleben liegt es nicht: ${pc(S.surv)} gegen ${pc(S.lSurv)}.` : `Dazu überlebst du seltener als deine Lobby: ${pc(S.surv)} gegen ${pc(S.lSurv)} der Runden.`}${DX ? ` In ${pc(DX.me.kast / 100)} deiner Runden trägst du etwas bei (Kill, Assist, Überleben oder Trade), die Lobby in <span class="lobby">${pc(DX.lob.kast / 100)}</span>.` : ''}${prem ? ` In Premier warst du im Schnitt Platz ${de(prem.rank)} von 5 in deinem Team.` : ''}`],
+  ['Bis zum nächsten Update', `Ziel ist jeweils der Schnitt deiner Lobby. Das Kreuz zeigt deine letzten ${LAST.length} Matches${DX ? ' (bei den Demo-Zielen die letzten ' + DX.nLast + ' Demos)' : ''}, der Kreis alle. ${COARSE ? 'Noch einmal wischen' : 'Noch einmal scrollen'} für die Übungen.`],
 ];
 const capsEl = document.getElementById('caps');
 CAPS.forEach(c => { const el = document.createElement('div'); el.className = 'cap'; if (c) el.innerHTML = `<h2>${c[0]}</h2><p>${c[1]}</p>`; capsEl.appendChild(el); });
 const capEls = [...capsEl.children];
-document.getElementById('f-stand').textContent = `Stand ${dt(last)} · ${M.length} Matches seit ${dt(first)} · Durchschnitte nach Runden gewichtet, nur 5v5.`;
+document.getElementById('f-stand').textContent = `Stand ${dt(last)} · ${M.length} Matches seit ${dt(first)}${DM ? ` · ${DM.n} eigene Demos (${dt(DM.first)} bis ${dt(DM.last)}, ${DM.rounds} Runden)` : ''} · Durchschnitte nach Runden gewichtet, nur 5v5.`;
 document.getElementById('f-link').href = `https://leetify.com/app/profile/${D.steam64}`;
-document.getElementById('drills').innerHTML = TASKS.map(t => `<div class="drill"><h3>${t.t}</h3><p>${t.drill}</p>
-  <span class="state">Alle Matches ${t.fmt(t.all)}${t.last != null ? ` · letzte ${LAST.length}: ${t.fmt(t.last)}` : ''} · Ziel (Lobby) ${t.fmt(t.goal)} · ${t.done ? '<b class="ok">geschafft</b>' : 'noch nicht geschafft'}</span></div>`).join('');
+document.getElementById('drills').innerHTML = [...TASKS.filter(t => !t.done), ...TASKS.filter(t => t.done)].map(t => `<div class="drill"><h3>${t.t}</h3><p>${t.drill}</p>
+  <span class="state">${t.demo ? `Alle ${DM.n} Demos` : 'Alle Matches'} ${t.fmt(t.all)}${t.last != null ? ` · letzte ${t.demo ? DX.nLast + ' Demos' : LAST.length}: ${t.fmt(t.last)}` : ''} · Ziel (Lobby) ${t.fmt(t.goal)} · ${t.done ? '<b class="ok">geschafft</b>' : 'noch nicht geschafft'}</span></div>`).join('');
 document.getElementById('flashText').textContent = S.flPr < S.lFlPr ? `Du wirfst ${de(S.flPr, 2)} Flashes pro Runde, deine Lobby ${de(S.lFlPr, 2)}. Eine Flash vor jedem Peek.` : `Du flashst jetzt öfter als deine Lobby (${de(S.flPr, 2)} gegen ${de(S.lFlPr, 2)} pro Runde). Wirf sie über die Kante, nicht in dein Team.`;
 
 // ---------------- board pages, recorded as marker strokes ----------------
@@ -256,7 +294,7 @@ const MC = document.createElement('canvas').getContext('2d');
 let OPS = [];
 function stroke(pts, col = C.ink, w = 2.6, seed = 1, amp = 1.3, sharp = false) { const o = wobPts(pts, amp, seed); OPS.push({ k: 's', d: pathD(o, sharp), L: plen(o), col, w }); }
 function ln(x0, y0, x1, y1, col = C.ink, w = 2.6, seed = 1, amp = 1.3) { stroke([[x0, y0], [x1, y1]], col, w, seed, amp); }
-function tx(s, x, y, size, col = C.ink, fam = 'hand', align = 'left', w = 400) { OPS.push({ k: 't', s, x, y, size, col, fam, align, w }); MC.font = font(size, fam, w); return MC.measureText(s).width; }
+function tx(s, x, y, size, col = C.ink, fam = 'hand', align = 'left', w = 400, halo = false) { OPS.push({ k: 't', s, x, y, size, col, fam, align, w, halo }); MC.font = font(size, fam, w); return MC.measureText(s).width; }
 function dash(x0, y0, x1, y1, col = C.blue, w = 2.6, pat = [7, 6]) { OPS.push({ k: 'd', x0, y0, x1, y1, col, w, pat, L: Math.hypot(x1 - x0, y1 - y0) }); }
 function fill(pts, col) { OPS.push({ k: 'f', pts, col }); }
 function ring(x, y, r, col = C.ink, w = 2.4, seed = 1) { const p = []; for (let i = 0; i <= 16; i++) { const a = -Math.PI / 2 + i / 16 * Math.PI * 2.06; p.push([x + Math.cos(a) * r, y + Math.sin(a) * r]); } stroke(p, col, w, seed, Math.max(.4, r * .1)); }
@@ -300,17 +338,17 @@ PAGES.title = () => {
   const rowsT = [['Premier', (P0.ranks && P0.ranks.premier || 0).toLocaleString('de-DE')], ['Winrate', pc(P0.winrate || 0)], ['Leetify-Rating', sg(P0.ranks && P0.ranks.leetify || 0)]];
   if (L) {
     tx(P0.name || 'Zattocat', 64, 186, 84); tx('Debrief', 68, 254, 52, C.blue);
-    tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 70, 302, 19, C.ink2, 'sans'); tx('Daten: Leetify', 70, 328, 19, C.ink2, 'sans');
+    tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 70, 302, 19, C.ink2, 'sans'); tx(DM ? `Daten: Leetify + ${DM.n} eigene Demos` : 'Daten: Leetify', 70, 328, 19, C.ink2, 'sans');
     ln(64, 364, 400, 364, C.ink, 3, 3);
-    tx('Wo du Runden verlierst:', 68, 424, 30); tx('Fadenkreuz · Granaten · erstes Duell', 70, 462, 21, C.ink2, 'sans');
+    tx('Wo du Runden verlierst:', 68, 424, 30); tx(DM ? 'Fadenkreuz · Granaten · Todeszonen · Duelle' : 'Fadenkreuz · Granaten · erstes Duell', 70, 462, 19, C.ink2, 'sans');
     rowsT.forEach(([k, v], i) => { const y = 200 + i * 104; tx(k, 500, y, 22); tx(v, 790, y + 4, 44, C.ink, 'hand', 'right'); ln(500, y + 24, 790, y + 24, C.rule, 1.6, 40 + i); });
     return;
   }
   tx(P0.name || 'Zattocat', 22, 92, 60); tx('Debrief', 24, 140, 34, C.blue);
-  tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 26, 172, 13.5, C.ink2, 'sans'); tx('Daten: Leetify', 26, 191, 13.5, C.ink2, 'sans');
+  tx(`${M.length} Matches · ${dts(first)}–${dt(last)}`, 26, 172, 13.5, C.ink2, 'sans'); tx(DM ? `Daten: Leetify + ${DM.n} eigene Demos` : 'Daten: Leetify', 26, 191, 13.5, C.ink2, 'sans');
   ln(22, 214, 338, 214, C.ink, 2.8, 3);
   rowsT.forEach(([k, v], i) => { const y = 270 + i * 62; tx(k, 24, y, 21); tx(v, 336, y + 3, 36, C.ink, 'hand', 'right'); ln(24, y + 18, 336, y + 18, C.rule, 1.4, 40 + i); });
-  tx('Wo du Runden verlierst:', 24, 470, 21); tx('Fadenkreuz · Granaten · erstes Duell', 26, 494, 13.5, C.ink2, 'sans');
+  tx('Wo du Runden verlierst:', 24, 470, 21); tx(DM ? 'Fadenkreuz · Granaten · Todeszonen · Duelle' : 'Fadenkreuz · Granaten · erstes Duell', 26, 494, 13.5, C.ink2, 'sans');
 };
 PAGES.map1 = (paint) => {
   const m = MAP1, px = (x, y) => toPx(m, x, y);
@@ -439,7 +477,7 @@ PAGES.plan = () => {
   cross(lg + 6, ly - 5, L ? 11 : 9, C.ink, 1400); tx(`letzte ${LAST.length}`, lg + 18, ly, L ? 17 : 12, C.ink2, 'sans');
   ring(lg + (L ? 112 : 92), ly - 5, L ? 6 : 5, C.ink, 2, 1401); tx('alle', lg + (L ? 124 : 102), ly, L ? 17 : 12, C.ink2, 'sans');
   dash(lg + (L ? 180 : 146), ly - 12, lg + (L ? 180 : 146), ly + 2); tx('Lobby = Ziel', lg + (L ? 190 : 154), ly, L ? 17 : 12, C.blue, 'sans');
-  TASKS.forEach((t, i) => {
+  BOARD_TASKS.forEach((t, i) => {
     const gx = L ? 64 + (i % 2) * 390 : 24, gy = L ? 170 + Math.floor(i / 2) * 190 : 96 + i * 104, w = L ? 300 : 262;
     tx(t.t, gx, gy + 22, L ? 21 : 18);
     const yy = gy + (L ? 88 : 62), X = v => gx + w * (v - t.worst) / (t.best - t.worst), cl = v => Math.max(gx + 10, Math.min(gx + w - 10, X(v)));
@@ -450,6 +488,97 @@ PAGES.plan = () => {
     if (t.done) check(gx + w + (L ? 32 : 26), gy + (L ? 52 : 40), L ? 34 : 26, C.ink, 1300 + i);
   });
 };
+
+// crosshair offset from the demos: a figure to scale at your typical sighting distance, boxed by the median offsets
+function figure(cx, gy, s, col) {
+  const sh = gy - 1.45 * s, hip = gy - .95 * s;
+  ring(cx, gy - EYE * s, .12 * s, col, 2.4, 1800);
+  ln(cx, gy - (EYE - .12) * s, cx, sh, col, 2.4, 1801, .3);
+  stroke([[cx - .21 * s, sh], [cx + .21 * s, sh], [cx + .17 * s, hip], [cx - .17 * s, hip], [cx - .21 * s, sh]], col, 2.4, 1802, .5, true);
+  ln(cx - .1 * s, hip, cx - .15 * s, gy, col, 2.4, 1803, .5); ln(cx + .1 * s, hip, cx + .15 * s, gy, col, 2.4, 1804, .5);
+  ln(cx - .22 * s, sh + .03 * s, cx - .3 * s, gy - .88 * s, col, 2.2, 1805, .5); ln(cx + .22 * s, sh + .03 * s, cx + .3 * s, gy - .88 * s, col, 2.2, 1806, .5);
+}
+PAGES.aimH = () => {
+  const me = DX.me, lob = DX.lob, dm = DM.dist_m, hm = d => dm * Math.tan(d * DEG);
+  const meW = hm(me.yaw), meH = hm(me.pitch), loW = hm(lob.yaw), loH = hm(lob.pitch);
+  const x0 = L ? 64 : 24;
+  tx(heightFirst ? 'Höhe statt Seite' : 'Höhe und Seite', x0, L ? 96 : 50, L ? 40 : 25);
+  tx(`Fadenkreuz beim ersten Sichtkontakt · ${DM.n} Demos`, x0, L ? 126 : 74, L ? 18 : 12.5, C.ink2, 'sans');
+  const rowsA = [['senkrecht', me.pitch, lob.pitch], ['waagerecht', me.yaw, lob.yaw]];
+  if (L) {
+    rowsA.forEach(([n, a, b], i) => {
+      const y = 196 + i * 128, bad = a > b * 1.1;
+      tx(n, x0, y, 26);
+      const w = tx(`${de(a)}°`, x0 - 2, y + 66, 64, bad ? C.red : C.ink);
+      tx(`Lobby ${de(b)}°`, x0 + w + 16, y + 60, 26, C.blue);
+    });
+    tx(`Auf ${de(dm, 0)} m Entfernung, deinem typischen`, x0, 474, 17, C.ink2, 'sans'); tx('Abstand beim Sichtkontakt', x0, 496, 17, C.ink2, 'sans');
+  } else {
+    tx('du', 230, 104, 12, C.ink2, 'sans', 'right'); tx('Lobby', 336, 104, 12, C.blue, 'sans', 'right');
+    rowsA.forEach(([n, a, b], i) => { const y = 132 + i * 34, bad = a > b * 1.1; tx(n, 24, y, 19); tx(`${de(a)}°`, 230, y + 1, 26, bad ? C.red : C.ink, 'hand', 'right'); tx(`${de(b)}°`, 336, y + 1, 20, C.blue, 'hand', 'right'); ln(24, y + 10, 336, y + 10, C.rule, 1.2, 1820 + i); });
+  }
+  // the figure
+  const top = Math.max(1.9, EYE + Math.max(meH, loH) + .12), wide = 2 * Math.max(meW, loW) + 1;
+  const gy = L ? 512 : 496, cx = L ? 640 : 180, hAv = L ? 450 : 268, wAv = L ? 330 : 300;
+  const s = Math.min(hAv / top, wAv / wide), hx = cx, hy = gy - EYE * s;
+  ln(cx - wAv / 2, gy, cx + wAv / 2, gy, C.rule, 2, 1830, .8);
+  figure(cx, gy, s, C.ink2);
+  const lx = loW * s, ly = loH * s;
+  dash(hx - lx, hy - ly, hx + lx, hy - ly); dash(hx + lx, hy - ly, hx + lx, hy + ly); dash(hx + lx, hy + ly, hx - lx, hy + ly); dash(hx - lx, hy + ly, hx - lx, hy - ly);
+  const rx = meW * s, ry = meH * s;
+  stroke([[hx - rx, hy - ry], [hx + rx, hy - ry], [hx + rx, hy + ry], [hx - rx, hy + ry], [hx - rx, hy - ry]], C.red, 3, 1840, .6, true);
+  const ax = hx + rx + (L ? 18 : 12);
+  arrow(ax, hy, ax, hy - ry + 2, C.red, 2.4, 1850); arrow(ax, hy, ax, hy + ry - 2, C.red, 2.4, 1852);
+  tx(`${Math.round(meH * 100)} cm`, ax + 8, hy + 6, L ? 20 : 15, C.redT);
+  tx('du', hx - rx, hy - ry - 8, L ? 20 : 15, C.redT);
+  tx('Lobby', hx + lx, hy - ly - 8, L ? 18 : 13.5, C.blue, 'hand', 'right');
+  if (!L) tx(`Rechtecke: typischer Abstand zum Kopf auf ${de(dm, 0)} m`, 24, 516, 10.5, C.ink2, 'sans');
+};
+PAGES.gut = () => {
+  const x0 = L ? 64 : 24, x1 = L ? 790 : 336, good3 = [DX.me.ttd < DX.lob.ttd, DX.me.cs > DX.lob.cs, DX.me.fsa > DX.lob.fsa];
+  tx(good3.filter(Boolean).length >= 2 ? 'Das sitzt' : 'Die Technik', x0, L ? 96 : 50, L ? 40 : 25);
+  tx(`aus ${DM.n} Demos, du gegen deine Lobby`, x0, L ? 126 : 74, L ? 18 : 12.5, C.ink2, 'sans');
+  const rowsG = [['Bis zum ersten Schaden', DX.me.ttd, DX.lob.ttd, v => de(v, 0) + ' ms', 600, 'weniger ist besser'], ['Schüsse aus dem Stand', DX.me.cs, DX.lob.cs, v => de(v, 0) + ' %', 100, 'Counter-Strafing'], ['Erster Schuss trifft', DX.me.fsa * 100, DX.lob.fsa * 100, v => de(v, 0) + ' %', 50, 'Anteil Treffer']];
+  rowsG.forEach(([n, a, b, fmt, max, note], i) => {
+    const y = (L ? 196 : 128) + i * (L ? 116 : 134), good = good3[i], bw = x1 - x0 - (L ? 170 : 116), X = v => x0 + bw * Math.min(v, max) / max;
+    const w = tx(n, x0, y, L ? 26 : 18); if (L) tx(note, x0 + w + 12, y, 15, C.ink2, 'sans'); else tx(note, x0, y + 17, 11, C.ink2, 'sans');
+    if (good) check(x1 - (L ? 16 : 10), y - (L ? 12 : 9), L ? 30 : 22, C.ink, 1700 + i);
+    const y1 = y + (L ? 32 : 42), y2 = y + (L ? 64 : 68);
+    ln(x0, y1, X(a), y1, good ? C.ink : C.red, L ? 7 : 6, 1710 + i, .6); tx(fmt(a), X(a) + 12, y1 + (L ? 8 : 6), L ? 24 : 17, good ? C.ink : C.redT);
+    dash(x0, y2, X(b), y2, C.blue, L ? 4 : 3.4, [8, 6]); tx(`Lobby ${fmt(b)}`, X(b) + 12, y2 + (L ? 7 : 5), L ? 20 : 14.5, C.blue);
+  });
+};
+// death maps: floor traced from where all players walked in your demos, your deaths and kills measured
+function deathPage(mp) {
+  return () => {
+    const S0 = L ? 500 : 340, ox = L ? 326 : 10, oy = L ? 30 : 64, k = S0 / 1000, P = q => [ox + q[0] * k, oy + q[1] * k];
+    OPS.push({ k: 'F', rings: mp.floor.map(lp => lp.map(P)), col: 'rgba(28,30,35,.07)' });
+    mp.floor.forEach((lp, i) => { const pts = lp.map(P); pts.push(pts[0]); stroke(pts, C.ink2, L ? 2 : 1.5, 2000 + i, .45, true); });
+    mp.kills.forEach((q, i) => { const [x, y] = P(q); ring(x, y, L ? 3.6 : 2.6, C.ink, 1.4, 2400 + i); });
+    mp.deaths.forEach((q, i) => { const [x, y] = P(q); cross(x, y, L ? 10 : 7.5, C.red, 2600 + i * 2, L ? 2.6 : 2.1); if (q[3]) ring(x, y, L ? 10 : 7.5, C.red, 1.5, 3000 + i); });
+    mp.labels.slice(0, L ? 4 : 3).forEach(l => { const [x, y] = P(l.at); tx(l.name, x, y - (L ? 14 : 10), L ? 15 : 11, C.ink, 'sans', 'center', 700, true); });
+    const opens = mp.deaths.filter(d => d[3]).length;
+    if (L) {
+      tx(mp.name, 64, 104, 60); tx('wo du fällst', 68, 146, 26, C.redT);
+      tx(`${mp.matches} Matches · ${mp.rounds} Runden · Demos`, 66, 178, 15, C.ink2, 'sans');
+      cross(78, 230, 13, C.red, 3100, 2.8); tx(`Tod (${mp.deaths.length})`, 100, 238, 21);
+      cross(78, 272, 11, C.red, 3102, 2.4); ring(78, 272, 11, C.red, 1.6, 3104); tx(`erstes Duell (${opens})`, 100, 280, 21);
+      ring(78, 314, 4.5, C.ink, 1.6, 3106); tx(`Kill (${mp.kills.length})`, 100, 322, 21);
+      tx('meiste Tode', 66, 384, 15, C.ink2, 'sans', 'left', 600);
+      mp.labels.slice(0, 4).forEach((l, i) => { const y = 418 + i * 30; tx(l.name, 66, y, 20); tx(`T ${l.t} · CT ${l.ct}`, 280, y, 15, C.ink2, 'sans', 'right'); });
+      tx('Grundriss: Laufwege aller Spieler', 66, 546, 13, C.ink2, 'sans');
+    } else {
+      const w = tx(mp.name, 22, 42, 32); tx('wo du fällst', 22 + w + 12, 42, 19, C.redT);
+      tx(`${mp.matches} Matches · ${mp.rounds} Runden · deine Demos`, 24, 60, 11, C.ink2, 'sans');
+      cross(30, 422, 9, C.red, 3100, 2.2); tx(`Tod ${mp.deaths.length}`, 42, 427, 14);
+      cross(118, 422, 8, C.red, 3102, 2); ring(118, 422, 8, C.red, 1.4, 3104); tx(`erstes Duell ${opens}`, 132, 427, 14);
+      ring(258, 422, 3.5, C.ink, 1.4, 3106); tx(`Kill ${mp.kills.length}`, 268, 427, 14);
+      mp.labels.slice(0, 3).forEach((l, i) => { const y = 452 + i * 21; tx(l.name, 24, y, 15); tx(`T ${l.t} · CT ${l.ct}`, 336, y, 12, C.ink2, 'sans', 'right'); });
+      tx('Grundriss aus den Laufwegen aller Spieler', 24, 516, 10.5, C.ink2, 'sans');
+    }
+  };
+}
+DMAPS.forEach((mp, i) => { PAGES['deaths' + i] = deathPage(mp); });
 
 const OPCACHE = {};
 function opsFor(id, paint = false) {
@@ -469,7 +598,9 @@ function drawOps(c, ops, prog) {
     else if (o.k === 't') {
       c.save(); c.font = font(o.size, o.fam, o.w); c.fillStyle = o.col; c.textAlign = o.align; c.textBaseline = 'alphabetic';
       if (f < 1) { const w = c.measureText(o.s).width, left = o.align === 'center' ? o.x - w / 2 : o.align === 'right' ? o.x - w : o.x; c.beginPath(); c.rect(left - 4, o.y - o.size * 1.25, (w + 8) * f, o.size * 1.7); c.clip(); }
+      if (o.halo) { c.lineWidth = 4; c.lineJoin = 'round'; c.strokeStyle = C.board; c.strokeText(o.s, o.x, o.y); }
       c.fillText(o.s, o.x, o.y); c.restore();
+    } else if (o.k === 'F') { c.save(); c.globalAlpha = f; c.fillStyle = o.col; if (!o.p) { o.p = new Path2D(); o.rings.forEach(r => { r.forEach((q, i) => i ? o.p.lineTo(q[0], q[1]) : o.p.moveTo(q[0], q[1])); o.p.closePath(); }); } c.fill(o.p, 'evenodd'); c.restore();
     } else if (o.k === 'f') { c.save(); c.globalAlpha = f; c.fillStyle = o.col; c.beginPath(); o.pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.closePath(); c.fill(); c.restore(); }
   }
 }
@@ -482,22 +613,31 @@ function boardBase(c, seed) {
 const mkCanvas = () => { const cv = document.createElement('canvas'); cv.width = TEXW; cv.height = TEXH; return cv; };
 
 // ---------------- states ----------------
-const STATES = [
-  { th: 0, face: 'F', page: 'title', cam: 'face' },
-  { th: PI / 2, face: 'B', page: 'map1', cam: 'top', p: { mag1: 1 } },
-  { th: PI / 2, face: 'B', page: 'map1', cam: 'side', p: { mag1: 1, wall1: 1, fig1: 1, rays1: 1 } },
-  { th: PI / 2, face: 'B', page: 'map1', cam: 'ego', p: { mag1: 1, wall1: 1, fig1: 1, hide1: 1 } },
-  { th: 0, face: 'F', page: 'util1', cam: 'face' },
-  { th: PI, face: 'B', page: 'util2', cam: 'face' },
-  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'flash', p: { magU: 1, wallU: 1, figU: 1 } },
-  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'he', p: { magU: 1, wallU: 1, figU: 1 } },
-  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'molly', p: { magU: 1, wallU: 1, figU: 1 } },
-  { th: 3 * PI / 2, face: 'F', page: 'utilmap', cam: 'util', util: 'smoke', p: { magU: 1, wallU: 1, figU: 1 } },
-  { th: 5 * PI / 2, face: 'B', page: 'map2', cam: 'top', p: { mag2: 1 } },
-  { th: 5 * PI / 2, face: 'B', page: 'map2', cam: 'side', p: { mag2: 1, wall2: 1, fig2: 1 } },
-  { th: 2 * PI, face: 'F', page: 'erg', cam: 'face' },
-  { th: 3 * PI, face: 'B', page: 'plan', cam: 'face' },
-];
+// each page says which face it is on and whether the board lies flat; the pivot angle follows from that
+const STATES = (() => {
+  const list = [
+    { face: 'F', page: 'title', cam: 'face' },
+    { face: 'B', page: 'map1', cam: 'top', p: { mag1: 1 } },
+    { face: 'B', page: 'map1', cam: 'side', p: { mag1: 1, wall1: 1, fig1: 1, rays1: 1 } },
+    { face: 'B', page: 'map1', cam: 'ego', p: { mag1: 1, wall1: 1, fig1: 1, hide1: 1 } },
+    ...(DX ? [{ face: 'B', page: 'aimH', cam: 'face' }, { face: 'F', page: 'gut', cam: 'face' }] : []),
+    { face: 'F', page: 'util1', cam: 'face' },
+    { face: 'B', page: 'util2', cam: 'face' },
+    ...['flash', 'he', 'molly', 'smoke'].map(u => ({ face: 'F', page: 'utilmap', cam: 'util', util: u, p: { magU: 1, wallU: 1, figU: 1 } })),
+    ...DMAPS.map((mp, i) => ({ face: i % 2 ? 'F' : 'B', page: 'deaths' + i, cam: 'top' })),
+    { face: 'B', page: 'map2', cam: 'top', p: { mag2: 1 } },
+    { face: 'B', page: 'map2', cam: 'side', p: { mag2: 1, wall2: 1, fig2: 1 } },
+    { face: 'F', page: 'erg', cam: 'face' },
+    { face: 'B', page: 'plan', cam: 'face' },
+  ];
+  // the face is seen upright at th = 0 (F) or PI (B), and lies face up at PI/2 (B) or 3PI/2 (F): take the nearest such angle, forward on a tie
+  let th = 0;
+  return list.map((st, i) => {
+    const flat = st.cam !== 'face', base = flat ? (st.face === 'B' ? PI / 2 : 3 * PI / 2) : (st.face === 'B' ? PI : 0);
+    if (i) { const k = Math.round((th - base) / (2 * PI)); const c = [base + (k - 1) * 2 * PI, base + k * 2 * PI, base + (k + 1) * 2 * PI]; th = c.reduce((b, v) => (Math.abs(v - th) < Math.abs(b - th) - 1e-6 || (Math.abs(Math.abs(v - th) - Math.abs(b - th)) < 1e-6 && v > b)) ? v : b); }
+    return { ...st, th };
+  });
+})();
 const NST = STATES.length;
 const PKEYS = ['mag1', 'wall1', 'fig1', 'rays1', 'hide1', 'magU', 'wallU', 'figU', 'mag2', 'wall2', 'fig2'];
 const flatPage = st => st.cam !== 'face';

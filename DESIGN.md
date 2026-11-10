@@ -320,19 +320,20 @@ No visible navigation. Keyboard users get two skip buttons (previous/next page),
 | 1 | π/2 | back | map1 (preaim) | top | magnets |
 | 2 | π/2 | back | map1 | side | wall, figures, 3D aim/lobby rays |
 | 3 | π/2 | back | map1 | ego | crosshair flick, own figure hidden |
-| 4 | 0 | front | util1 (utility on death, flashes) | face | |
-| 5 | π | back | util2 (grenades per match) | face | |
-| 6 | 3π/2 | front | utilmap | util | flash |
-| 7 | 3π/2 | front | utilmap | util | HE |
-| 8 | 3π/2 | front | utilmap | util | molotov |
-| 9 | 3π/2 | front | utilmap | util | smoke |
-| 10 | 5π/2 | back | map2 (opening duel) | top | magnets |
-| 11 | 5π/2 | back | map2 | side | walls, you, entry, CT |
-| 12 | 2π | front | erg (ADR, rank) | face | |
-| 13 | 3π | back | plan (tracks to targets) | face | |
+| 4 | π | back | aimH (crosshair height vs. side, demos) | face | figure to scale, offset boxes |
+| 5 | 2π | front | gut (mechanics vs. lobby, demos) | face | |
+| 6 | 3π | back | util1 (utility on death, flashes) | face | |
+| 7 | 4π | front | util2 (grenades per match) | face | |
+| 8–11 | 7π/2 | front | utilmap | util | flash, HE, molotov, smoke |
+| 12 | 9π/2 | back | deaths0 (most-played map) | top | measured deaths, opening deaths, kills |
+| 13 | 11π/2 | front | deaths1 (second map) | top | |
+| 14 | 13π/2 | back | map2 (opening duel) | top | magnets |
+| 15 | 13π/2 | back | map2 | side | walls, you, entry, CT |
+| 16 | 6π | front | erg (ADR, rank, KAST) | face | |
+| 17 | 7π | back | plan (four tracks to targets) | face | |
 | then | | | drills sheet | | slides up |
 
-Transitions between a flat and an upright page that are not the top view route the camera through that map's top view, with the rotation in the matching half.
+Angles are derived, not listed: each page names its face and whether the board lies flat, and the pivot takes the nearest matching angle (forward on a tie). Without demo data the demo pages drop out and the sequence falls back to the original 14 states. Transitions between a flat and an upright page that are not the top view route the camera through that map's top view, with the rotation in the matching half.
 
 ### Motion grammar
 - Board turn 1.35 s; same-page camera move 0.45 s; other camera moves 1.05 s; in-out cubic.
@@ -352,7 +353,8 @@ Transitions between a flat and an upright page that are not the top view route t
 ### Do:
 - **Do** move exactly one page per gesture, and keep the order: turn or camera move, marker writing, magnets and figures, caption last.
 - **Do** encode every value as a marker mark (stroke, dashed line, tally, hatched box, check, cross, ring, arrow) in the three inks.
-- **Do** write "Skizze" on every map page; positions are illustrative and not measured.
+- **Do** write "Skizze" on every scenario page; those positions are illustrative and not measured.
+- **Do** keep death maps measured: red marker crosses for deaths, a red ring around a cross for a lost opening duel, small ink rings for kills, a light floor fill with an ink-2 outline traced from player movement, callout names in bold sans with a board-coloured halo. No radar images.
 - **Do** keep all map writing at the board's near edge on phone so side cameras stay clean.
 - **Do** compare only the owner's stats with lobby averages, and keep "Data Provided by Leetify" with the "View on Leetify" link.
 - **Do** give every effect page its own caption with the data, and let a tap or click replay it.

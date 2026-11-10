@@ -12,7 +12,7 @@ Single-file HTML page published as a claude.ai Artifact. External scripts only f
 
 ## Users
 
-Primary: Zattocat (SteamID64 76561198382673172), a CS2 player in Competitive and Premier (Premier rating 8,274 as of 2026-11-04) who wants to find out what to practise to improve. Secondary: friends and teammates the owner shares the page with. Mostly viewed on a phone, in portrait.
+Primary: Zattocat (SteamID64 76561198382673172), a CS2 player in Competitive and Premier (Premier rating 7,540 as of 2026-11-10) who wants to find out what to practise to improve. Secondary: friends and teammates the owner shares the page with. Mostly viewed on a phone, in portrait.
 
 ## Product Purpose
 
@@ -29,8 +29,10 @@ Read on a phone between sessions or before playing; sometimes shown to friends. 
 ## Capabilities and Constraints
 
 - Data per match for all ten players: rating, ADR, K/D/A, accuracy (enemy spotted, head, spray), preaim in degrees, reaction time, counter-strafing, utility thrown, utility value held on death, flashes (enemies/teammates blinded, flash-to-kill), trades (chances, attempts, successes), multi-kills, rounds survived. Profile: Premier, Competitive per map, Leetify sub-ratings (aim, positioning, utility, clutch, opening), CT/T opening duel rates.
-- No round-by-round data, no positions, no demos: the page must not show where a player stood or died as if it were measured.
-- Small sample (17 matches as of 2026-11-04, several cut short); claims must be worded as tendencies.
+- Demos (own parser, `demo_analyze.py`, 5v5 since 2026-10-17): positions of every kill, death, shot and sighting, movement every 0.5 s, crosshair offset split into horizontal and vertical, time to damage, counter-strafing, opening duels per side, KAST. Only these pages show measured positions (death maps); the scenario sketches stay labelled "Skizze".
+- Demo aim numbers use a tighter sighting definition than Leetify's preaim and reaction time; they are only compared with the lobby of the same demos.
+- Floor plans on death maps are traced from all players' movement in the demos, not from Valve radar images.
+- Small sample (43 Leetify matches and 18 5v5 demos as of 2026-11-10); claims must be worded as tendencies.
 - Leetify attribution required ("Data Provided by Leetify", "View on Leetify" link).
 - Shared page shows only the owner's stats and lobby averages, never other players' names or Steam IDs.
 
@@ -40,7 +42,7 @@ German UI copy. No Valve game assets (character models, maps, logos) are extract
 
 ## Evidence on Hand
 
-`data/leetify/76561198382673172/` (profile.json, history.json, 17 match files). Analysis logic in `leetify_analyze.py`. No screenshots, demos or video of the player.
+`data/leetify/76561198382673172/` (profile.json, history.json, one file per match) and `data/demos/` (per-demo CSVs and positions). Analysis logic in `leetify_analyze.py`, `demo_analyze.py` and `debrief_demos.py`. No screenshots or video of the player.
 
 ## Product Principles
 
