@@ -15,7 +15,7 @@
    "finished_at": "2026-11-08T22:43:17.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:31:45+00:00",
+  "analysed_at": "2026-11-10T00:56:31+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -180,6 +180,30 @@
      "shots": 17,
      "hits": 3,
      "accuracy": 0.176
+    }
+   },
+   "places": {
+    "kills": {
+     "Tunnels": 2,
+     "BombsiteB": 2,
+     "Ramp": 1
+    },
+    "deaths": {
+     "BombsiteB": 5,
+     "Tunnels": 3,
+     "Ramp": 1,
+     "Observation": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 3,
+      "BombsiteB": 2,
+      "Ramp": 1,
+      "Observation": 1
+     },
+     "CT": {
+      "BombsiteB": 3
+     }
     }
    },
    "final_team": "CT"
@@ -348,6 +372,29 @@
      "accuracy": 0.111
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Ramp": 3,
+     "Observation": 1,
+     "Tunnels": 1,
+     "Decon": 1
+    },
+    "deaths": {
+     "BombsiteB": 2,
+     "Ramp": 2,
+     "Tunnels": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "Ramp": 2
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198783235470": {
@@ -501,6 +548,28 @@
      "shots": 12,
      "hits": 4,
      "accuracy": 0.333
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Tunnels": 2,
+     "Observation": 1
+    },
+    "deaths": {
+     "Tunnels": 2,
+     "Observation": 1,
+     "BombsiteB": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 1
+     },
+     "CT": {
+      "Tunnels": 1,
+      "Observation": 1,
+      "BombsiteB": 1
+     }
     }
    },
    "final_team": "T"
@@ -660,6 +729,27 @@
      "shots": 40,
      "hits": 2,
      "accuracy": 0.05
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 3,
+     "Tunnels": 1
+    },
+    "deaths": {
+     "BombsiteB": 6,
+     "Decon": 2,
+     "Tunnels": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "Decon": 2,
+      "Tunnels": 1
+     },
+     "CT": {
+      "BombsiteB": 3
+     }
     }
    },
    "final_team": "CT"

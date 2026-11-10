@@ -15,7 +15,7 @@
    "finished_at": "2026-11-06T20:57:01.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:30:42+00:00",
+  "analysed_at": "2026-11-10T00:55:23+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -166,6 +166,31 @@
      "shots": 11,
      "hits": 6,
      "accuracy": 0.545
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 2,
+     "Decon": 2
+    },
+    "deaths": {
+     "BombsiteB": 4,
+     "Decon": 3,
+     "Tunnels": 1,
+     "Ramp": 1,
+     "Observation": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Decon": 3,
+      "BombsiteB": 2,
+      "Tunnels": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "Ramp": 1,
+      "Observation": 1
+     }
     }
    },
    "final_team": "CT"
@@ -334,6 +359,28 @@
      "accuracy": 0.308
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Tunnels": 2,
+     "Observation": 1
+    },
+    "deaths": {
+     "BombsiteB": 6,
+     "Observation": 3,
+     "Tunnels": 2
+    },
+    "deaths_by_side": {
+     "T": {
+      "Observation": 3,
+      "BombsiteB": 3,
+      "Tunnels": 2
+     },
+     "CT": {
+      "BombsiteB": 3
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199013126064": {
@@ -493,6 +540,25 @@
      "accuracy": 0.095
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 4,
+     "Tunnels": 4,
+     "Ramp": 3
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Tunnels": 2
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 2
+     },
+     "CT": {
+      "BombsiteB": 3
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199567380151": {
@@ -639,6 +705,26 @@
      "shots": 6,
      "hits": 1,
      "accuracy": 0.167
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 10
+    },
+    "deaths": {
+     "BombsiteB": 5,
+     "Decon": 1,
+     "Tunnels": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 2,
+      "Decon": 1,
+      "Tunnels": 1
+     },
+     "CT": {
+      "BombsiteB": 3
+     }
     }
    },
    "final_team": "T"

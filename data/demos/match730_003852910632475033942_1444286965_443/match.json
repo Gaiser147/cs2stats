@@ -15,7 +15,7 @@
    "finished_at": "2026-11-08T15:12:34.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:31:30+00:00",
+  "analysed_at": "2026-11-10T00:56:16+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -182,6 +182,22 @@
      "accuracy": 0.714
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 6,
+     "Tunnels": 5,
+     "Observation": 2
+    },
+    "deaths": {
+     "BombsiteB": 2
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "BombsiteB": 2
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198382673172": {
@@ -337,6 +353,24 @@
      "accuracy": 0.261
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 3,
+     "Observation": 2,
+     "Ramp": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Observation": 1
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "BombsiteB": 3,
+      "Observation": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199569729188": {
@@ -473,6 +507,30 @@
      "shots": 36,
      "hits": 7,
      "accuracy": 0.194
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 1
+    },
+    "deaths": {
+     "Observation": 3,
+     "Tunnels": 3,
+     "BombsiteB": 2,
+     "Decon": 1,
+     "Ramp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 3,
+      "BombsiteB": 2,
+      "Observation": 2,
+      "Decon": 1
+     },
+     "CT": {
+      "Observation": 1,
+      "Ramp": 1
+     }
     }
    },
    "final_team": "CT"
@@ -635,6 +693,28 @@
      "shots": 1,
      "hits": 1,
      "accuracy": 1.0
+    }
+   },
+   "places": {
+    "kills": {
+     "Observation": 3,
+     "BombsiteB": 1,
+     "Decon": 1
+    },
+    "deaths": {
+     "Tunnels": 4,
+     "BombsiteB": 4,
+     "Decon": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 4,
+      "BombsiteB": 2,
+      "Decon": 1
+     },
+     "CT": {
+      "BombsiteB": 2
+     }
     }
    },
    "final_team": "CT"

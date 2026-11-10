@@ -15,7 +15,7 @@
    "finished_at": "2026-11-07T22:42:16.000Z",
    "data_source": "matchmaking"
   },
-  "analysed_at": "2026-11-10T00:31:18+00:00",
+  "analysed_at": "2026-11-10T00:56:02+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -194,6 +194,43 @@
      "accuracy": 0.357
     }
    },
+   "places": {
+    "kills": {
+     "Ramp": 2,
+     "HutRoof": 2,
+     "Lobby": 1,
+     "Outside": 1,
+     "Roof": 1,
+     "Squeaky": 1
+    },
+    "deaths": {
+     "BombsiteA": 4,
+     "Outside": 3,
+     "Lobby": 2,
+     "Hut": 2,
+     "Mini": 1,
+     "Vending": 1,
+     "Tunnels": 1,
+     "HutRoof": 1,
+     "CTSpawn": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Outside": 3,
+      "Lobby": 2,
+      "Hut": 2,
+      "BombsiteA": 2,
+      "Mini": 1,
+      "Vending": 1
+     },
+     "CT": {
+      "BombsiteA": 2,
+      "Tunnels": 1,
+      "HutRoof": 1,
+      "CTSpawn": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198711936135": {
@@ -349,6 +386,37 @@
      "shots": 16,
      "hits": 5,
      "accuracy": 0.312
+    }
+   },
+   "places": {
+    "kills": {
+     "Garage": 4,
+     "Lobby": 3,
+     "Outside": 3,
+     "HutRoof": 1,
+     "BombsiteA": 1,
+     "Control": 1,
+     "Tunnels": 1
+    },
+    "deaths": {
+     "Outside": 5,
+     "Hut": 2,
+     "Lobby": 2,
+     "BombsiteA": 1,
+     "HutRoof": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Outside": 3,
+      "Lobby": 1
+     },
+     "CT": {
+      "Hut": 2,
+      "Outside": 2,
+      "BombsiteA": 1,
+      "HutRoof": 1,
+      "Lobby": 1
+     }
     }
    },
    "final_team": "T"
@@ -539,6 +607,40 @@
      "accuracy": 0.333
     }
    },
+   "places": {
+    "kills": {
+     "Outside": 4,
+     "BombsiteA": 3,
+     "Hut": 2,
+     "Tunnels": 2,
+     "Decon": 1,
+     "Mini": 1,
+     "Garage": 1
+    },
+    "deaths": {
+     "Outside": 5,
+     "BombsiteA": 2,
+     "Mini": 2,
+     "Tunnels": 2,
+     "Ramp": 1,
+     "Trophy": 1,
+     "Garage": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Outside": 5,
+      "BombsiteA": 2,
+      "Ramp": 1,
+      "Mini": 1,
+      "Trophy": 1
+     },
+     "CT": {
+      "Tunnels": 2,
+      "Mini": 1,
+      "Garage": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199089385913": {
@@ -710,6 +812,39 @@
      "shots": 37,
      "hits": 7,
      "accuracy": 0.189
+    }
+   },
+   "places": {
+    "kills": {
+     "Outside": 4,
+     "BombsiteA": 4,
+     "Garage": 3,
+     "Heaven": 2,
+     "Lobby": 2,
+     "Squeaky": 1
+    },
+    "deaths": {
+     "BombsiteA": 3,
+     "Outside": 2,
+     "Ramp": 1,
+     "Garage": 1,
+     "Rafters": 1,
+     "Heaven": 1,
+     "Lobby": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Lobby": 1,
+      "BombsiteA": 1
+     },
+     "CT": {
+      "BombsiteA": 2,
+      "Outside": 2,
+      "Ramp": 1,
+      "Garage": 1,
+      "Rafters": 1,
+      "Heaven": 1
+     }
     }
    },
    "final_team": "T"
@@ -899,6 +1034,49 @@
      "accuracy": 0.571
     }
    },
+   "places": {
+    "kills": {
+     "Mini": 4,
+     "Lobby": 2,
+     "Outside": 2,
+     "Squeaky": 1,
+     "BombsiteA": 1,
+     "Trophy": 1,
+     "TSpawn": 1,
+     "Hut": 1,
+     "Control": 1
+    },
+    "deaths": {
+     "Outside": 3,
+     "BombsiteA": 2,
+     "Lobby": 2,
+     "Vending": 2,
+     "Squeaky": 1,
+     "Mini": 1,
+     "Hut": 1,
+     "BombsiteB": 1,
+     "Vents": 1,
+     "Ramp": 1,
+     "Trophy": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Outside": 3,
+      "BombsiteA": 2,
+      "Lobby": 2,
+      "Squeaky": 1,
+      "Mini": 1,
+      "Hut": 1,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "Vending": 2,
+      "Vents": 1,
+      "Ramp": 1,
+      "Trophy": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199146634055": {
@@ -1068,6 +1246,36 @@
      "accuracy": 0.233
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 4,
+     "Squeaky": 3,
+     "Rafters": 2,
+     "Trophy": 1
+    },
+    "deaths": {
+     "BombsiteA": 5,
+     "Outside": 4,
+     "Squeaky": 2,
+     "Ramp": 2,
+     "Control": 1,
+     "Lobby": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 5,
+      "Squeaky": 2,
+      "Outside": 2,
+      "Control": 1,
+      "Ramp": 1
+     },
+     "CT": {
+      "Outside": 2,
+      "Lobby": 1,
+      "Ramp": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199282317002": {
@@ -1209,6 +1417,40 @@
      "shots": 10,
      "hits": 2,
      "accuracy": 0.2
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 2,
+     "Silo": 2,
+     "Lobby": 1,
+     "Mini": 1
+    },
+    "deaths": {
+     "Outside": 5,
+     "BombsiteA": 4,
+     "Lobby": 2,
+     "Silo": 1,
+     "BombsiteB": 1,
+     "Tunnels": 1,
+     "Mini": 1,
+     "CTSpawn": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Outside": 5,
+      "BombsiteA": 3,
+      "Lobby": 1,
+      "Silo": 1,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "Tunnels": 1,
+      "BombsiteA": 1,
+      "Mini": 1,
+      "Lobby": 1,
+      "CTSpawn": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1388,6 +1630,38 @@
      "accuracy": 0.364
     }
    },
+   "places": {
+    "kills": {
+     "Ramp": 6,
+     "Lobby": 4,
+     "Tunnels": 4,
+     "BombsiteA": 3,
+     "Vending": 1,
+     "Rafters": 1
+    },
+    "deaths": {
+     "Ramp": 3,
+     "Mini": 1,
+     "Rafters": 1,
+     "Outside": 1,
+     "BombsiteB": 1,
+     "Hut": 1,
+     "Lobby": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 1,
+      "Hut": 1,
+      "Lobby": 1
+     },
+     "CT": {
+      "Ramp": 3,
+      "Mini": 1,
+      "Rafters": 1,
+      "Outside": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199832046718": {
@@ -1550,6 +1824,41 @@
      "accuracy": 0.222
     }
    },
+   "places": {
+    "kills": {
+     "Outside": 8,
+     "BombsiteA": 5,
+     "Secret": 3,
+     "Squeaky": 1,
+     "Garage": 1,
+     "Vending": 1,
+     "Ramp": 1
+    },
+    "deaths": {
+     "Outside": 3,
+     "BombsiteA": 2,
+     "BombsiteB": 2,
+     "Squeaky": 1,
+     "Roof": 1,
+     "Silo": 1,
+     "Mini": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Silo": 1,
+      "BombsiteB": 1,
+      "Outside": 1,
+      "Mini": 1
+     },
+     "CT": {
+      "BombsiteA": 2,
+      "Outside": 2,
+      "Squeaky": 1,
+      "BombsiteB": 1,
+      "Roof": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199873007308": {
@@ -1700,6 +2009,37 @@
      "shots": 21,
      "hits": 7,
      "accuracy": 0.333
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 4,
+     "HutRoof": 1,
+     "Rafters": 1,
+     "Outside": 1,
+     "CTSpawn": 1
+    },
+    "deaths": {
+     "Rafters": 4,
+     "BombsiteA": 3,
+     "HutRoof": 1,
+     "Crane": 1,
+     "Lobby": 1,
+     "Trophy": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Lobby": 1,
+      "BombsiteA": 1,
+      "Rafters": 1,
+      "Trophy": 1
+     },
+     "CT": {
+      "Rafters": 3,
+      "BombsiteA": 2,
+      "HutRoof": 1,
+      "Crane": 1
+     }
     }
    },
    "final_team": "T"

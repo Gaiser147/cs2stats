@@ -15,7 +15,7 @@
    "finished_at": "2026-11-08T20:06:58.000Z",
    "data_source": "matchmaking"
   },
-  "analysed_at": "2026-11-10T00:31:43+00:00",
+  "analysed_at": "2026-11-10T00:56:29+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -180,6 +180,42 @@
      "shots": 21,
      "hits": 5,
      "accuracy": 0.238
+    }
+   },
+   "places": {
+    "kills": {
+     "OutsideLong": 3,
+     "TSideUpper": 2,
+     "Main": 2,
+     "BombsiteB": 2
+    },
+    "deaths": {
+     "OutsideLong": 5,
+     "BombsiteB": 4,
+     "Main": 3,
+     "Canal": 2,
+     "BombsiteA": 2,
+     "Fountain": 2,
+     "TSideUpper": 1,
+     "Street": 1,
+     "Bridge": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Main": 3,
+      "BombsiteB": 2,
+      "Fountain": 2,
+      "Bridge": 1,
+      "BombsiteA": 1
+     },
+     "CT": {
+      "OutsideLong": 5,
+      "Canal": 2,
+      "BombsiteB": 2,
+      "TSideUpper": 1,
+      "Street": 1,
+      "BombsiteA": 1
+     }
     }
    },
    "final_team": "T"
@@ -362,6 +398,48 @@
      "accuracy": 0.231
     }
    },
+   "places": {
+    "kills": {
+     "Heaven": 3,
+     "Ruins": 3,
+     "Middle": 2,
+     "Bridge": 2,
+     "BombsiteB": 2,
+     "Walkway": 1,
+     "Canal": 1,
+     "Alley": 1,
+     "Main": 1
+    },
+    "deaths": {
+     "BombsiteA": 6,
+     "Middle": 2,
+     "OutsideLong": 2,
+     "BombsiteB": 2,
+     "MidDoors": 1,
+     "Ruins": 1,
+     "Fountain": 1,
+     "Bridge": 1,
+     "PalaceInterior": 1,
+     "Heaven": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 4,
+      "BombsiteB": 2,
+      "Fountain": 1,
+      "Bridge": 1,
+      "PalaceInterior": 1,
+      "Heaven": 1
+     },
+     "CT": {
+      "Middle": 2,
+      "BombsiteA": 2,
+      "OutsideLong": 2,
+      "MidDoors": 1,
+      "Ruins": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198309983345": {
@@ -535,6 +613,54 @@
      "accuracy": 0.107
     }
    },
+   "places": {
+    "kills": {
+     "Walkway": 2,
+     "Connector": 2,
+     "OutsideLong": 2,
+     "Bridge": 1,
+     "Main": 1,
+     "Heaven": 1,
+     "BombsiteB": 1,
+     "TStairs": 1,
+     "BombsiteA": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Main": 3,
+     "Middle": 2,
+     "Walkway": 2,
+     "Heaven": 1,
+     "Fountain": 1,
+     "Connector": 1,
+     "Bridge": 1,
+     "Bricks": 1,
+     "Canal": 1,
+     "Street": 1,
+     "BombsiteA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Main": 2,
+      "BombsiteB": 2,
+      "Bricks": 1,
+      "Canal": 1,
+      "Street": 1,
+      "Middle": 1,
+      "BombsiteA": 1
+     },
+     "CT": {
+      "Walkway": 2,
+      "Middle": 1,
+      "BombsiteB": 1,
+      "Heaven": 1,
+      "Fountain": 1,
+      "Main": 1,
+      "Connector": 1,
+      "Bridge": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198382673172": {
@@ -705,6 +831,48 @@
      "accuracy": 0.5
     }
    },
+   "places": {
+    "kills": {
+     "Walkway": 6,
+     "Connector": 3,
+     "BombsiteA": 3,
+     "BombsiteB": 3,
+     "Canal": 2,
+     "Ruins": 1,
+     "Street": 1,
+     "Bridge": 1,
+     "MidDoors": 1,
+     "OutsideLong": 1
+    },
+    "deaths": {
+     "Canal": 4,
+     "OutsideLong": 2,
+     "MidDoors": 2,
+     "Connector": 2,
+     "Heaven": 2,
+     "Walkway": 1,
+     "Main": 1,
+     "Street": 1,
+     "BombsiteB": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "OutsideLong": 2,
+      "Walkway": 1,
+      "Canal": 1,
+      "Main": 1,
+      "Street": 1,
+      "MidDoors": 1
+     },
+     "CT": {
+      "Canal": 3,
+      "Connector": 2,
+      "Heaven": 2,
+      "BombsiteB": 1,
+      "MidDoors": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198734664572": {
@@ -834,6 +1002,27 @@
      "shots": 4,
      "hits": 1,
      "accuracy": 0.25
+    }
+   },
+   "places": {
+    "kills": {
+     "Bridge": 2,
+     "Middle": 1
+    },
+    "deaths": {
+     "Fountain": 2,
+     "Bridge": 1,
+     "Canal": 1,
+     "Main": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Fountain": 2,
+      "Bridge": 1,
+      "Canal": 1,
+      "Main": 1
+     },
+     "CT": {}
     }
    },
    "final_team": null
@@ -1003,6 +1192,42 @@
      "shots": 36,
      "hits": 4,
      "accuracy": 0.111
+    }
+   },
+   "places": {
+    "kills": {
+     "Connector": 4,
+     "BombsiteB": 3,
+     "Main": 3,
+     "Canal": 2,
+     "OutsideLong": 2,
+     "MidDoors": 1,
+     "BombsiteA": 1
+    },
+    "deaths": {
+     "BombsiteA": 4,
+     "Walkway": 2,
+     "BombsiteB": 2,
+     "Canal": 2,
+     "Connector": 1,
+     "Main": 1,
+     "BackofB": 1,
+     "Fountain": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 4,
+      "BackofB": 1,
+      "Fountain": 1,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "Walkway": 2,
+      "Canal": 2,
+      "Connector": 1,
+      "BombsiteB": 1,
+      "Main": 1
+     }
     }
    },
    "final_team": "T"
@@ -1183,6 +1408,45 @@
      "shots": 4,
      "hits": 1,
      "accuracy": 0.25
+    }
+   },
+   "places": {
+    "kills": {
+     "Canal": 3,
+     "BombsiteB": 3,
+     "OutsideLong": 3,
+     "MidDoors": 2,
+     "Main": 2,
+     "BombsiteA": 2,
+     "Ruins": 1,
+     "Connector": 1,
+     "TStairs": 1
+    },
+    "deaths": {
+     "Canal": 3,
+     "BombsiteB": 3,
+     "BombsiteA": 2,
+     "OutsideLong": 2,
+     "Main": 2,
+     "Connector": 2,
+     "Bridge": 1,
+     "Heaven": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Canal": 3,
+      "BombsiteB": 2,
+      "OutsideLong": 2,
+      "BombsiteA": 1,
+      "Bridge": 1
+     },
+     "CT": {
+      "Main": 2,
+      "Connector": 2,
+      "BombsiteB": 1,
+      "Heaven": 1,
+      "BombsiteA": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1367,6 +1631,45 @@
      "shots": 19,
      "hits": 5,
      "accuracy": 0.263
+    }
+   },
+   "places": {
+    "kills": {
+     "Main": 5,
+     "BombsiteB": 4,
+     "Walkway": 3,
+     "BombsiteA": 3,
+     "OutsideLong": 3,
+     "Fountain": 2,
+     "Heaven": 2,
+     "Bricks": 2,
+     "Ruins": 1,
+     "PalaceInterior": 1,
+     "Bridge": 1
+    },
+    "deaths": {
+     "Canal": 3,
+     "OutsideLong": 3,
+     "Heaven": 3,
+     "BombsiteB": 2,
+     "Ruins": 1,
+     "Bridge": 1,
+     "Walkway": 1,
+     "SnipersNest": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Canal": 3,
+      "OutsideLong": 3,
+      "Ruins": 1,
+      "Bridge": 1
+     },
+     "CT": {
+      "Heaven": 3,
+      "BombsiteB": 2,
+      "Walkway": 1,
+      "SnipersNest": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1556,6 +1859,47 @@
      "accuracy": 0.026
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 3,
+     "Heaven": 2,
+     "Main": 2,
+     "BombsiteA": 2,
+     "OutsideLong": 1,
+     "TunnelStairs": 1,
+     "Street": 1,
+     "TStairs": 1,
+     "Connector": 1,
+     "Middle": 1
+    },
+    "deaths": {
+     "BombsiteA": 4,
+     "OutsideLong": 3,
+     "BombsiteB": 3,
+     "Heaven": 2,
+     "Bridge": 2,
+     "Walkway": 2,
+     "Main": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 2,
+      "BombsiteB": 2,
+      "Walkway": 2,
+      "OutsideLong": 1,
+      "Bridge": 1,
+      "Heaven": 1
+     },
+     "CT": {
+      "OutsideLong": 2,
+      "BombsiteA": 2,
+      "Main": 1,
+      "Heaven": 1,
+      "BombsiteB": 1,
+      "Bridge": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199662261070": {
@@ -1713,6 +2057,52 @@
      "shots": 31,
      "hits": 8,
      "accuracy": 0.258
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 4,
+     "OutsideLong": 3,
+     "Heaven": 3,
+     "Main": 2,
+     "Canal": 2,
+     "Middle": 1,
+     "PalaceInterior": 1,
+     "BackofB": 1,
+     "TunnelStairs": 1
+    },
+    "deaths": {
+     "BombsiteA": 3,
+     "OutsideLong": 3,
+     "Heaven": 3,
+     "Main": 2,
+     "Bridge": 1,
+     "Canal": 1,
+     "Ruins": 1,
+     "BombsiteB": 1,
+     "BackofB": 1,
+     "Alley": 1,
+     "PalaceInterior": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "OutsideLong": 3,
+      "Main": 1,
+      "BombsiteA": 1,
+      "Bridge": 1,
+      "Heaven": 1,
+      "Canal": 1,
+      "Ruins": 1
+     },
+     "CT": {
+      "BombsiteA": 2,
+      "Heaven": 2,
+      "BombsiteB": 1,
+      "Main": 1,
+      "BackofB": 1,
+      "Alley": 1,
+      "PalaceInterior": 1
+     }
     }
    },
    "final_team": "CT"

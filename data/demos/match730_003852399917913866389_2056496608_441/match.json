@@ -15,7 +15,7 @@
    "finished_at": "2026-11-05T20:36:43.000Z",
    "data_source": "matchmaking"
   },
-  "analysed_at": "2026-11-10T00:30:18+00:00",
+  "analysed_at": "2026-11-10T00:54:56+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -197,6 +197,44 @@
      "shots": 6,
      "hits": 1,
      "accuracy": 0.167
+    }
+   },
+   "places": {
+    "kills": {
+     "Banana": 4,
+     "CTSpawn": 3,
+     "TopofMid": 2,
+     "BombsiteA": 2,
+     "BombsiteB": 2,
+     "Library": 1,
+     "Arch": 1,
+     "Upstairs": 1,
+     "TSpawn": 1,
+     "Middle": 1,
+     "SecondMid": 1
+    },
+    "deaths": {
+     "Banana": 4,
+     "TopofMid": 3,
+     "BombsiteB": 2,
+     "Middle": 2,
+     "Ruins": 1,
+     "BombsiteA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Banana": 2,
+      "Middle": 2,
+      "BombsiteB": 1,
+      "TopofMid": 1,
+      "BombsiteA": 1
+     },
+     "CT": {
+      "Banana": 2,
+      "TopofMid": 2,
+      "BombsiteB": 1,
+      "Ruins": 1
+     }
     }
    },
    "final_team": "T"
@@ -386,6 +424,45 @@
      "accuracy": 0.385
     }
    },
+   "places": {
+    "kills": {
+     "Apartments": 6,
+     "BombsiteB": 4,
+     "Ruins": 4,
+     "Banana": 2,
+     "Library": 1,
+     "CTSpawn": 1,
+     "TRamp": 1,
+     "BackAlley": 1,
+     "SecondMid": 1
+    },
+    "deaths": {
+     "BombsiteB": 6,
+     "Banana": 2,
+     "TopofMid": 2,
+     "Ruins": 1,
+     "Library": 1,
+     "Middle": 1,
+     "Arch": 1,
+     "BombsiteA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 4,
+      "TopofMid": 1,
+      "Arch": 1,
+      "BombsiteA": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "Banana": 2,
+      "Ruins": 1,
+      "TopofMid": 1,
+      "Library": 1,
+      "Middle": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198382673172": {
@@ -546,6 +623,38 @@
      "shots": 4,
      "hits": 3,
      "accuracy": 0.75
+    }
+   },
+   "places": {
+    "kills": {
+     "Banana": 5,
+     "Apartments": 3,
+     "BombsiteB": 3,
+     "TopofMid": 2,
+     "Ruins": 1,
+     "Middle": 1
+    },
+    "deaths": {
+     "Banana": 7,
+     "Apartments": 5,
+     "BombsiteB": 2,
+     "BombsiteA": 2,
+     "SecondMid": 1,
+     "Ruins": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Banana": 6,
+      "BombsiteB": 2,
+      "BombsiteA": 2,
+      "Apartments": 1
+     },
+     "CT": {
+      "Apartments": 4,
+      "SecondMid": 1,
+      "Banana": 1,
+      "Ruins": 1
+     }
     }
    },
    "final_team": "CT"
@@ -724,6 +833,53 @@
      "shots": 11,
      "hits": 10,
      "accuracy": 0.909
+    }
+   },
+   "places": {
+    "kills": {
+     "TopofMid": 4,
+     "BombsiteB": 3,
+     "Banana": 2,
+     "Apartments": 2,
+     "Middle": 2,
+     "TRamp": 2,
+     "CTSpawn": 2,
+     "LowerMid": 1,
+     "Ruins": 1
+    },
+    "deaths": {
+     "BombsiteB": 5,
+     "Arch": 2,
+     "Banana": 2,
+     "Apartments": 1,
+     "Underpass": 1,
+     "TopofMid": 1,
+     "LowerMid": 1,
+     "Middle": 1,
+     "SecondMid": 1,
+     "BackAlley": 1,
+     "Ruins": 1,
+     "CTSpawn": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "Apartments": 1,
+      "Underpass": 1,
+      "TopofMid": 1,
+      "LowerMid": 1,
+      "Middle": 1,
+      "Arch": 1,
+      "SecondMid": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "Banana": 2,
+      "BackAlley": 1,
+      "Ruins": 1,
+      "Arch": 1,
+      "CTSpawn": 1
+     }
     }
    },
    "final_team": "CT"
@@ -917,6 +1073,45 @@
      "accuracy": 0.353
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 6,
+     "BombsiteA": 5,
+     "TopofMid": 4,
+     "Banana": 3,
+     "CTSpawn": 1,
+     "Ruins": 1,
+     "TRamp": 1,
+     "LowerMid": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Banana": 2,
+     "Ruins": 2,
+     "Middle": 2,
+     "Apartments": 1,
+     "TopofMid": 1,
+     "CTSpawn": 1,
+     "SecondMid": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Ruins": 1,
+      "BombsiteB": 1,
+      "Middle": 1,
+      "CTSpawn": 1,
+      "SecondMid": 1
+     },
+     "CT": {
+      "Banana": 2,
+      "BombsiteB": 2,
+      "Apartments": 1,
+      "TopofMid": 1,
+      "Ruins": 1,
+      "Middle": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199059889957": {
@@ -1097,6 +1292,39 @@
      "accuracy": 0.429
     }
    },
+   "places": {
+    "kills": {
+     "Banana": 4,
+     "BombsiteA": 3,
+     "Ruins": 1,
+     "TopofMid": 1,
+     "BombsiteB": 1,
+     "SecondMid": 1,
+     "Apartments": 1
+    },
+    "deaths": {
+     "BombsiteB": 6,
+     "Banana": 5,
+     "Apartments": 2,
+     "Ruins": 1,
+     "BombsiteA": 1,
+     "Middle": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Apartments": 2,
+      "BombsiteB": 1,
+      "Ruins": 1,
+      "BombsiteA": 1,
+      "Middle": 1,
+      "Banana": 1
+     },
+     "CT": {
+      "BombsiteB": 5,
+      "Banana": 4
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199087799756": {
@@ -1264,6 +1492,37 @@
      "accuracy": 0.25
     }
    },
+   "places": {
+    "kills": {
+     "Banana": 11,
+     "Apartments": 3,
+     "BombsiteB": 2,
+     "Pit": 2,
+     "Ruins": 1
+    },
+    "deaths": {
+     "BombsiteB": 5,
+     "Banana": 3,
+     "BombsiteA": 2,
+     "Apartments": 2,
+     "TopofMid": 1,
+     "Pit": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 4,
+      "Banana": 2,
+      "BombsiteA": 2,
+      "TopofMid": 1
+     },
+     "CT": {
+      "Apartments": 2,
+      "Pit": 1,
+      "BombsiteB": 1,
+      "Banana": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199821359245": {
@@ -1421,6 +1680,51 @@
      "shots": 44,
      "hits": 4,
      "accuracy": 0.091
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 2,
+     "Banana": 1,
+     "TopofMid": 1,
+     "Middle": 1,
+     "BombsiteA": 1
+    },
+    "deaths": {
+     "Apartments": 4,
+     "Banana": 3,
+     "BombsiteA": 3,
+     "BombsiteB": 3,
+     "BackAlley": 1,
+     "TRamp": 1,
+     "TSpawn": 1,
+     "TopofMid": 1,
+     "Middle": 1,
+     "Arch": 1,
+     "Ruins": 1,
+     "Upstairs": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Apartments": 3,
+      "Banana": 2,
+      "BackAlley": 1,
+      "BombsiteA": 1,
+      "TRamp": 1,
+      "TSpawn": 1,
+      "BombsiteB": 1,
+      "TopofMid": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "BombsiteA": 2,
+      "Middle": 1,
+      "Banana": 1,
+      "Arch": 1,
+      "Apartments": 1,
+      "Ruins": 1,
+      "Upstairs": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1593,6 +1897,43 @@
      "accuracy": 0.667
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Banana": 3,
+     "BackAlley": 2,
+     "Ruins": 2,
+     "Apartments": 1,
+     "TRamp": 1,
+     "BombsiteA": 1
+    },
+    "deaths": {
+     "Banana": 4,
+     "BombsiteB": 4,
+     "BombsiteA": 3,
+     "Apartments": 2,
+     "Balcony": 1,
+     "TRamp": 1,
+     "Middle": 1,
+     "CTSpawn": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Banana": 4,
+      "BombsiteA": 2,
+      "BombsiteB": 1,
+      "Balcony": 1,
+      "TRamp": 1
+     },
+     "CT": {
+      "BombsiteB": 3,
+      "Apartments": 2,
+      "BombsiteA": 1,
+      "Middle": 1,
+      "CTSpawn": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199887296994": {
@@ -1753,6 +2094,42 @@
      "shots": 19,
      "hits": 4,
      "accuracy": 0.211
+    }
+   },
+   "places": {
+    "kills": {
+     "Banana": 6,
+     "Apartments": 3,
+     "Arch": 2,
+     "Balcony": 1,
+     "BombsiteA": 1,
+     "Deck": 1
+    },
+    "deaths": {
+     "Banana": 5,
+     "Apartments": 3,
+     "BombsiteB": 3,
+     "Middle": 2,
+     "BombsiteA": 2,
+     "Balcony": 1,
+     "BackAlley": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "Banana": 2,
+      "Apartments": 2,
+      "BombsiteA": 1,
+      "Middle": 1
+     },
+     "CT": {
+      "Banana": 3,
+      "Apartments": 1,
+      "Balcony": 1,
+      "BackAlley": 1,
+      "Middle": 1,
+      "BombsiteA": 1
+     }
     }
    },
    "final_team": "T"

@@ -15,7 +15,7 @@
    "finished_at": "2026-11-06T00:01:52.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:29:12+00:00",
+  "analysed_at": "2026-11-10T00:54:05+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -168,6 +168,30 @@
      "accuracy": 0.375
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 1,
+     "Pipe": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Walkway": 2,
+     "SnipersNest": 1,
+     "Construction": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Construction": 1,
+      "BombsiteB": 1,
+      "Walkway": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "SnipersNest": 1,
+      "Walkway": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198620114861": {
@@ -314,6 +338,29 @@
      "shots": 12,
      "hits": 1,
      "accuracy": 0.083
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 2,
+     "SnipersNest": 1,
+     "UnderA": 1
+    },
+    "deaths": {
+     "Canal": 4,
+     "Construction": 2,
+     "Walkway": 2,
+     "Water": 2
+    },
+    "deaths_by_side": {
+     "T": {
+      "Canal": 4,
+      "Construction": 2
+     },
+     "CT": {
+      "Walkway": 2,
+      "Water": 2
+     }
     }
    },
    "final_team": "CT"
@@ -489,6 +536,27 @@
      "accuracy": 0.167
     }
    },
+   "places": {
+    "kills": {
+     "Canal": 8,
+     "BombsiteB": 7,
+     "Walkway": 2,
+     "Pipe": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Walkway": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 2
+     },
+     "CT": {
+      "Walkway": 1,
+      "BombsiteB": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199118224066": {
@@ -642,6 +710,32 @@
      "shots": 10,
      "hits": 2,
      "accuracy": 0.2
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 4,
+     "Construction": 2,
+     "Walkway": 1
+    },
+    "deaths": {
+     "Canal": 3,
+     "BombsiteB": 2,
+     "Water": 2,
+     "SnipersNest": 2,
+     "Construction": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Canal": 3,
+      "Water": 2,
+      "BombsiteB": 1,
+      "Construction": 1
+     },
+     "CT": {
+      "SnipersNest": 2,
+      "BombsiteB": 1
+     }
     }
    },
    "final_team": "CT"

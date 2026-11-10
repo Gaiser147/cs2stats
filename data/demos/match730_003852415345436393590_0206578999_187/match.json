@@ -15,7 +15,7 @@
    "finished_at": "2026-11-05T22:49:27.000Z",
    "data_source": "matchmaking"
   },
-  "analysed_at": "2026-11-10T00:30:33+00:00",
+  "analysed_at": "2026-11-10T00:55:14+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -187,6 +187,36 @@
      "shots": 15,
      "hits": 5,
      "accuracy": 0.333
+    }
+   },
+   "places": {
+    "kills": {
+     "LongA": 4,
+     "UpperTunnel": 3,
+     "Catwalk": 3,
+     "ExtendedA": 2,
+     "BombsiteB": 1,
+     "BombsiteA": 1,
+     "ARamp": 1,
+     "MidDoors": 1,
+     "Pit": 1,
+     "TunnelStairs": 1
+    },
+    "deaths": {
+     "MidDoors": 1,
+     "BombsiteB": 1,
+     "TunnelStairs": 1,
+     "UnderA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 1,
+      "TunnelStairs": 1,
+      "UnderA": 1
+     },
+     "CT": {
+      "MidDoors": 1
+     }
     }
    },
    "final_team": "T"
@@ -374,6 +404,38 @@
      "accuracy": 0.286
     }
    },
+   "places": {
+    "kills": {
+     "MidDoors": 7,
+     "BDoors": 3,
+     "BombsiteB": 2,
+     "LowerTunnel": 2,
+     "TopofMid": 1,
+     "LongA": 1,
+     "Catwalk": 1,
+     "CTSpawn": 1,
+     "UpperTunnel": 1
+    },
+    "deaths": {
+     "BombsiteB": 2,
+     "TopofMid": 1,
+     "Middle": 1,
+     "BDoors": 1,
+     "LongDoors": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BDoors": 1,
+      "LongDoors": 1,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "BombsiteB": 1,
+      "TopofMid": 1,
+      "Middle": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198256084505": {
@@ -548,6 +610,36 @@
      "accuracy": 0.444
     }
    },
+   "places": {
+    "kills": {
+     "LowerTunnel": 2,
+     "OutsideLong": 2,
+     "OutsideTunnel": 1,
+     "BombsiteB": 1,
+     "LongDoors": 1
+    },
+    "deaths": {
+     "LongDoors": 5,
+     "BombsiteB": 4,
+     "LowerTunnel": 1,
+     "OutsideTunnel": 1,
+     "TopofMid": 1,
+     "UpperTunnel": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 4,
+      "LongDoors": 3,
+      "LowerTunnel": 1,
+      "OutsideTunnel": 1,
+      "TopofMid": 1,
+      "UpperTunnel": 1
+     },
+     "CT": {
+      "LongDoors": 2
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198382673172": {
@@ -696,6 +788,38 @@
      "shots": 33,
      "hits": 10,
      "accuracy": 0.303
+    }
+   },
+   "places": {
+    "kills": {
+     "LowerTunnel": 2,
+     "UpperTunnel": 2,
+     "OutsideTunnel": 1,
+     "Middle": 1,
+     "TopofMid": 1,
+     "LongDoors": 1
+    },
+    "deaths": {
+     "MidDoors": 3,
+     "LowerTunnel": 2,
+     "TopofMid": 2,
+     "OutsideLong": 2,
+     "Middle": 1,
+     "UpperTunnel": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "OutsideLong": 1,
+      "UpperTunnel": 1,
+      "TopofMid": 1
+     },
+     "CT": {
+      "MidDoors": 3,
+      "LowerTunnel": 2,
+      "Middle": 1,
+      "TopofMid": 1,
+      "OutsideLong": 1
+     }
     }
    },
    "final_team": "T"
@@ -865,6 +989,43 @@
      "shots": 17,
      "hits": 1,
      "accuracy": 0.059
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 4,
+     "TopofMid": 3,
+     "UpperTunnel": 1,
+     "LowerTunnel": 1,
+     "Middle": 1,
+     "CTSpawn": 1,
+     "LongA": 1
+    },
+    "deaths": {
+     "TopofMid": 3,
+     "BombsiteB": 2,
+     "LongDoors": 2,
+     "Catwalk": 1,
+     "MidDoors": 1,
+     "Middle": 1,
+     "OutsideLong": 1,
+     "UnderA": 1,
+     "LongA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "TopofMid": 3,
+      "BombsiteB": 2,
+      "LongDoors": 2,
+      "Catwalk": 1,
+      "MidDoors": 1,
+      "Middle": 1,
+      "OutsideLong": 1
+     },
+     "CT": {
+      "UnderA": 1,
+      "LongA": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1044,6 +1205,42 @@
      "accuracy": 0.029
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 4,
+     "LongDoors": 2,
+     "TunnelStairs": 1,
+     "LongA": 1,
+     "ExtendedA": 1
+    },
+    "deaths": {
+     "LongDoors": 4,
+     "MidDoors": 2,
+     "BombsiteB": 1,
+     "ARamp": 1,
+     "TopofMid": 1,
+     "TRamp": 1,
+     "Catwalk": 1,
+     "Middle": 1,
+     "CTSpawn": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "LongDoors": 4,
+      "BombsiteB": 1,
+      "ARamp": 1,
+      "TopofMid": 1,
+      "TRamp": 1,
+      "Catwalk": 1,
+      "MidDoors": 1,
+      "Middle": 1
+     },
+     "CT": {
+      "MidDoors": 1,
+      "CTSpawn": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199075730706": {
@@ -1201,6 +1398,33 @@
      "accuracy": 0.625
     }
    },
+   "places": {
+    "kills": {
+     "LongDoors": 3,
+     "BombsiteB": 3,
+     "OutsideLong": 1,
+     "MidDoors": 1
+    },
+    "deaths": {
+     "BombsiteB": 4,
+     "UpperTunnel": 2,
+     "LongA": 1,
+     "LongDoors": 1,
+     "OutsideLong": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "LongDoors": 1,
+      "OutsideLong": 1,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "BombsiteB": 3,
+      "UpperTunnel": 2,
+      "LongA": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199468520292": {
@@ -1340,6 +1564,40 @@
      "shots": 98,
      "hits": 21,
      "accuracy": 0.214
+    }
+   },
+   "places": {
+    "kills": {
+     "TopofMid": 2,
+     "OutsideLong": 2,
+     "UpperTunnel": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "LongDoors": 3,
+     "TopofMid": 3,
+     "TunnelStairs": 2,
+     "ARamp": 1,
+     "OutsideLong": 1,
+     "ExtendedA": 1,
+     "ShortStairs": 1,
+     "LongA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "LongDoors": 3,
+      "TopofMid": 2,
+      "ARamp": 1,
+      "OutsideLong": 1,
+      "ExtendedA": 1,
+      "ShortStairs": 1
+     },
+     "CT": {
+      "TunnelStairs": 2,
+      "LongA": 1,
+      "TopofMid": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1483,6 +1741,38 @@
      "shots": 36,
      "hits": 3,
      "accuracy": 0.083
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 1,
+     "LongDoors": 1,
+     "TopofMid": 1
+    },
+    "deaths": {
+     "BombsiteB": 4,
+     "LongDoors": 4,
+     "TopofMid": 2,
+     "ARamp": 1,
+     "Catwalk": 1,
+     "LongA": 1,
+     "TunnelStairs": 1,
+     "UpperTunnel": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 4,
+      "LongDoors": 3,
+      "TopofMid": 2,
+      "ARamp": 1,
+      "Catwalk": 1
+     },
+     "CT": {
+      "LongA": 1,
+      "TunnelStairs": 1,
+      "UpperTunnel": 1,
+      "LongDoors": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1640,6 +1930,32 @@
      "shots": 15,
      "hits": 4,
      "accuracy": 0.267
+    }
+   },
+   "places": {
+    "kills": {
+     "LongA": 11,
+     "BombsiteB": 3,
+     "BombsiteA": 1,
+     "LongDoors": 1
+    },
+    "deaths": {
+     "BombsiteB": 2,
+     "BDoors": 1,
+     "LongA": 1,
+     "LongDoors": 1,
+     "ARamp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 2,
+      "LongDoors": 1,
+      "ARamp": 1
+     },
+     "CT": {
+      "BDoors": 1,
+      "LongA": 1
+     }
     }
    },
    "final_team": "T"

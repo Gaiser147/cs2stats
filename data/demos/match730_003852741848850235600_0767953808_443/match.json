@@ -15,7 +15,7 @@
    "finished_at": "2026-11-07T16:56:10.000Z",
    "data_source": "matchmaking"
   },
-  "analysed_at": "2026-11-10T00:31:11+00:00",
+  "analysed_at": "2026-11-10T00:55:54+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -195,6 +195,49 @@
      "shots": 37,
      "hits": 6,
      "accuracy": 0.162
+    }
+   },
+   "places": {
+    "kills": {
+     "BMain": 3,
+     "Garage": 2,
+     "Truck": 1,
+     "Highway": 1,
+     "Checkers": 1,
+     "Mid": 1,
+     "AMain": 1
+    },
+    "deaths": {
+     "AMain": 3,
+     "BombsiteA": 2,
+     "Checkers": 2,
+     "Mid": 2,
+     "Garage": 1,
+     "BHalls": 1,
+     "Heaven": 1,
+     "TYard": 1,
+     "Corner": 1,
+     "BombsiteB": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "AMain": 2,
+      "BombsiteB": 1,
+      "Checkers": 1,
+      "BombsiteA": 1,
+      "Mid": 1
+     },
+     "CT": {
+      "Garage": 1,
+      "BHalls": 1,
+      "Heaven": 1,
+      "TYard": 1,
+      "BombsiteA": 1,
+      "AMain": 1,
+      "Checkers": 1,
+      "Mid": 1,
+      "Corner": 1
+     }
     }
    },
    "final_team": "T"
@@ -381,6 +424,49 @@
      "accuracy": 0.421
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 4,
+     "Squeaky": 3,
+     "BMain": 2,
+     "Catwalk": 2,
+     "AMain": 2,
+     "Heaven": 2,
+     "Headshot": 2,
+     "BombsiteA": 2,
+     "Useless": 1,
+     "BHalls": 1,
+     "SunRoom": 1,
+     "AStairs": 1,
+     "ForkLift": 1,
+     "Mid": 1,
+     "Quad": 1,
+     "Rafters": 1,
+     "OutsideB": 1,
+     "Truck": 1
+    },
+    "deaths": {
+     "BombsiteA": 3,
+     "Catwalk": 2,
+     "ForkLift": 1,
+     "BombsiteB": 1,
+     "Garage": 1,
+     "Mid": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Catwalk": 2,
+      "BombsiteA": 2,
+      "ForkLift": 1,
+      "BombsiteB": 1,
+      "Garage": 1,
+      "Mid": 1
+     },
+     "CT": {
+      "BombsiteA": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198382673172": {
@@ -541,6 +627,49 @@
      "shots": 14,
      "hits": 7,
      "accuracy": 0.5
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 3,
+     "Sandbags": 2,
+     "Checkers": 1,
+     "Catwalk": 1,
+     "Boost": 1
+    },
+    "deaths": {
+     "Mid": 3,
+     "BombsiteB": 2,
+     "BHalls": 2,
+     "AMain": 1,
+     "MidRoof": 1,
+     "Sandbags": 1,
+     "Catwalk": 1,
+     "Connector": 1,
+     "BMain": 1,
+     "BombsiteA": 1,
+     "OutsideA": 1,
+     "Boost": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 1,
+      "BMain": 1,
+      "BHalls": 1,
+      "BombsiteA": 1,
+      "OutsideA": 1,
+      "Boost": 1
+     },
+     "CT": {
+      "Mid": 3,
+      "AMain": 1,
+      "BombsiteB": 1,
+      "MidRoof": 1,
+      "BHalls": 1,
+      "Sandbags": 1,
+      "Catwalk": 1,
+      "Connector": 1
+     }
     }
    },
    "final_team": "T"
@@ -705,6 +834,49 @@
      "accuracy": 0.293
     }
    },
+   "places": {
+    "kills": {
+     "Garage": 4,
+     "Mid": 3,
+     "BMain": 2,
+     "BombsiteB": 2,
+     "Boost": 2,
+     "BHalls": 1,
+     "OutsideB": 1,
+     "Truck": 1,
+     "BombsiteA": 1
+    },
+    "deaths": {
+     "BombsiteA": 2,
+     "BombsiteB": 2,
+     "BMain": 1,
+     "Connector": 1,
+     "OutsideB": 1,
+     "Boost": 1,
+     "Mid": 1,
+     "Headshot": 1,
+     "Garage": 1,
+     "Highway": 1,
+     "Truck": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 2,
+      "BombsiteB": 2,
+      "BMain": 1,
+      "Connector": 1,
+      "OutsideB": 1,
+      "Boost": 1,
+      "Mid": 1
+     },
+     "CT": {
+      "Headshot": 1,
+      "Garage": 1,
+      "Highway": 1,
+      "Truck": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198982797147": {
@@ -865,6 +1037,53 @@
      "shots": 6,
      "hits": 1,
      "accuracy": 0.167
+    }
+   },
+   "places": {
+    "kills": {
+     "Catwalk": 3,
+     "BMain": 3,
+     "Mid": 2,
+     "TreeRoom": 1,
+     "BHalls": 1,
+     "Connector": 1,
+     "Heaven": 1,
+     "Quad": 1,
+     "Checkers": 1,
+     "Garage": 1
+    },
+    "deaths": {
+     "BombsiteA": 4,
+     "BombsiteB": 3,
+     "Mid": 2,
+     "BMain": 1,
+     "Connector": 1,
+     "BHalls": 1,
+     "Headshot": 1,
+     "Sandbags": 1,
+     "Checkers": 1,
+     "Squeaky": 1,
+     "Garage": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 1,
+      "Checkers": 1,
+      "Squeaky": 1,
+      "Garage": 1,
+      "BombsiteA": 1,
+      "Mid": 1
+     },
+     "CT": {
+      "BombsiteA": 3,
+      "BombsiteB": 2,
+      "BMain": 1,
+      "Connector": 1,
+      "BHalls": 1,
+      "Headshot": 1,
+      "Mid": 1,
+      "Sandbags": 1
+     }
     }
    },
    "final_team": "T"
@@ -1029,6 +1248,44 @@
      "shots": 0,
      "hits": 0,
      "accuracy": null
+    }
+   },
+   "places": {
+    "kills": {
+     "Garage": 3,
+     "Vents": 3,
+     "Checkers": 2,
+     "Quad": 1,
+     "Mid": 1,
+     "Bear": 1
+    },
+    "deaths": {
+     "Mid": 4,
+     "Garage": 3,
+     "BMain": 2,
+     "Truck": 1,
+     "BHalls": 1,
+     "Useless": 1,
+     "Cubby": 1,
+     "BombsiteB": 1,
+     "Vents": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Mid": 3,
+      "BMain": 2,
+      "Garage": 2,
+      "Truck": 1,
+      "BHalls": 1,
+      "Useless": 1,
+      "Cubby": 1
+     },
+     "CT": {
+      "BombsiteB": 1,
+      "Mid": 1,
+      "Garage": 1,
+      "Vents": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1211,6 +1468,45 @@
      "accuracy": 0.5
     }
    },
+   "places": {
+    "kills": {
+     "Garage": 4,
+     "BombsiteA": 3,
+     "Mid": 2,
+     "Quad": 2,
+     "AMain": 1,
+     "BMain": 1,
+     "TYard": 1,
+     "Squeaky": 1,
+     "Boost": 1,
+     "BombsiteB": 1,
+     "Connector": 1
+    },
+    "deaths": {
+     "AMain": 2,
+     "Quad": 2,
+     "BMain": 1,
+     "Mid": 1,
+     "Garage": 1,
+     "BombsiteB": 1,
+     "ForkLift": 1,
+     "Connector": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "AMain": 2,
+      "BMain": 1,
+      "Mid": 1,
+      "Garage": 1,
+      "BombsiteB": 1,
+      "ForkLift": 1
+     },
+     "CT": {
+      "Quad": 2,
+      "Connector": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199404907727": {
@@ -1376,6 +1672,45 @@
      "shots": 12,
      "hits": 4,
      "accuracy": 0.333
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 3,
+     "BombsiteB": 2,
+     "Squeaky": 2,
+     "Connector": 2,
+     "Catwalk": 1,
+     "Truck": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Squeaky": 3,
+     "Connector": 3,
+     "Checkers": 2,
+     "Mid": 2,
+     "Ladder": 1,
+     "Rafters": 1,
+     "BMain": 1,
+     "BombsiteA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Squeaky": 2,
+      "BombsiteB": 1,
+      "BMain": 1,
+      "Checkers": 1,
+      "BombsiteA": 1
+     },
+     "CT": {
+      "Connector": 3,
+      "Mid": 2,
+      "BombsiteB": 2,
+      "Ladder": 1,
+      "Checkers": 1,
+      "Rafters": 1,
+      "Squeaky": 1
+     }
     }
    },
    "final_team": "T"
@@ -1555,6 +1890,46 @@
      "accuracy": 0.158
     }
    },
+   "places": {
+    "kills": {
+     "Garage": 4,
+     "Highway": 2,
+     "BombsiteA": 2,
+     "BMain": 2,
+     "Mid": 2,
+     "Useless": 1,
+     "Heaven": 1,
+     "AMain": 1,
+     "TYard": 1
+    },
+    "deaths": {
+     "BMain": 2,
+     "Heaven": 2,
+     "Garage": 2,
+     "Squeaky": 2,
+     "Mid": 2,
+     "AMain": 2,
+     "Checkers": 1,
+     "BombsiteB": 1,
+     "OutsideB": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "AMain": 2,
+      "BombsiteB": 1,
+      "BMain": 1,
+      "OutsideB": 1
+     },
+     "CT": {
+      "Heaven": 2,
+      "Garage": 2,
+      "Squeaky": 2,
+      "Mid": 2,
+      "BMain": 1,
+      "Checkers": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199847732882": {
@@ -1703,6 +2078,44 @@
      "shots": 13,
      "hits": 1,
      "accuracy": 0.077
+    }
+   },
+   "places": {
+    "kills": {
+     "Connector": 2,
+     "Rafters": 1,
+     "Heaven": 1,
+     "Truck": 1
+    },
+    "deaths": {
+     "BombsiteB": 2,
+     "Garage": 2,
+     "Squeaky": 1,
+     "BHalls": 1,
+     "Mid": 1,
+     "Quad": 1,
+     "BombsiteA": 1,
+     "Checkers": 1,
+     "AMain": 1,
+     "Rafters": 1,
+     "ElectricalBox": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 2,
+      "Garage": 2,
+      "Squeaky": 1,
+      "BHalls": 1,
+      "Mid": 1,
+      "Quad": 1,
+      "BombsiteA": 1,
+      "Checkers": 1,
+      "AMain": 1
+     },
+     "CT": {
+      "Rafters": 1,
+      "ElectricalBox": 1
+     }
     }
    },
    "final_team": "CT"

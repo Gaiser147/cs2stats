@@ -28,6 +28,9 @@ Output per demo in data/demos/<demo name>/:
   shots.csv         every gun shot: speed, counter-strafed, burst index, hit, head hit
   engagements.csv   every time a player saw an enemy: time to damage, crosshair angle off target
   grenades.csv      every grenade detonation with position, flashes with enemies/teammates blinded
+  positions.csv.gz  every alive player every 0.5 s: position, view yaw, health, weapon, callout
+  (kills, damage, shots and engagements carry positions and callouts too)
+  python3 demo_analyze.py maps   # radar transforms from the game files -> data/maps/overviews.json
 data/demos/index.json lists all analysed demos with the main numbers of the tracked player.
 
 Requires: pip install demoparser2 pandas (see requirements.txt).
@@ -54,8 +57,9 @@ from demoparser2 import DemoParser
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "data", "demos")
 DEFAULT_STEAM64 = "76561198382673172"
-REPLAYS = os.path.expanduser(
-    "~/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/replays")
+GAME_DIR = os.path.expanduser("~/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo")
+REPLAYS = os.path.join(GAME_DIR, "replays")
+OVERVIEWS = os.path.join(ROOT, "data", "maps", "overviews.json")
 CACHE = os.path.expanduser("~/.cache/cs2stats")
 DEMO_CACHE = os.path.join(CACHE, "demos")
 STATE = os.path.join(CACHE, "auto_state.json")
@@ -66,6 +70,7 @@ DEMO_MAX_AGE_DAYS = 30
 TICK = 64
 TRADE_WINDOW = 5 * TICK          # a death counts as traded if the killer dies within 5 s
 BURST_GAP = 16                   # shots less than 0.25 s apart belong to the same burst
+POS_EVERY = 32                   # positions.csv.gz: one sample per player every 0.5 s
 SPOT_GAP = 32                    # an enemy must be unseen for 0.5 s before a new sighting counts
 ENGAGE_WINDOW = 3 * TICK         # damage within 3 s of a sighting counts for time to damage
 EYE, EYE_DUCK = 64.0, 46.0
@@ -195,11 +200,28 @@ def analyze(demo_path, steam64):
 
     # --- ticks (every tick, every player) ---
     ticks = pd.DataFrame(p.parse_ticks(["X", "Y", "Z", "pitch", "yaw", "is_alive", "team_num", "ducking",
-                                        "approximate_spotted_by", "health"]))
+                                        "approximate_spotted_by", "health", "last_place_name",
+                                        "active_weapon_name"]))
     ticks = norm_ids(ticks, ["steamid"])
     ticks = ticks[ticks.steamid.notna() & ticks.team_num.isin([2, 3])]
     names_by_id = ticks.groupby("steamid")["name"].last().to_dict()
     per = {s: g.set_index("tick").sort_index() for s, g in ticks.groupby("steamid")}
+
+    def pos_at(steamid, tick):
+        """(x, y, z, callout) of a player at a tick, from the last tick at or before it."""
+        g = per.get(steamid)
+        if g is None:
+            return (None, None, None, None)
+        i = g.index.searchsorted(tick, side="right") - 1
+        if i < 0:
+            return (None, None, None, None)
+        row = g.iloc[i]
+        return (r(row.X), r(row.Y), r(row.Z), row.last_place_name or None)
+
+    def add_pos(df, id_col, prefix):
+        vals = [pos_at(sid_, t) for sid_, t in zip(df[id_col], df.tick)]
+        for k, name in enumerate(("x", "y", "z", "place")):
+            df[f"{prefix}{name}"] = [v[k] for v in vals]
 
     def at(steamid, tick, col):
         g = per.get(steamid)
@@ -227,7 +249,7 @@ def analyze(demo_path, steam64):
                                           int(snap.loc[k, "balance"] + snap.loc[k, "round_start_equip_value"]))
 
     # --- kills ---
-    kills = ev("player_death", player=["X", "Y", "Z", "team_num"])
+    kills = ev("player_death", player=["X", "Y", "Z", "team_num", "last_place_name"])
     kills = norm_ids(kills, ["attacker_steamid", "user_steamid", "assister_steamid"])
     kills["round"] = kills.tick.map(round_of)
     kills = kills[kills["round"].notna()].sort_values("tick").reset_index(drop=True)
@@ -362,12 +384,17 @@ def analyze(demo_path, steam64):
                 shot = st_[(st_ >= t) & (st_ <= t + ENGAGE_WINDOW)]
                 engagements.append({
                     "round": rd, "tick": t, "steamid": shooter, "enemy_steamid": victim,
+                    "x": r(a.X), "y": r(a.Y), "z": r(a.Z), "place": a.last_place_name or None,
+                    "enemy_x": r(v.X), "enemy_y": r(v.Y), "enemy_z": r(v.Z),
+                    "enemy_place": v.last_place_name or None,
                     "distance": r(dist), "crosshair_angle": r(angle, 2), "yaw_off": r(dyaw, 2),
                     "pitch_off": r(dpitch, 2),
                     "time_to_damage_ms": r((dmg[0] - t) * 1000 / TICK, 0) if dmg else None,
                     "time_to_shot_ms": r((shot[0] - t) * 1000 / TICK, 0) if len(shot) else None,
                 })
-    engagements = pd.DataFrame(engagements, columns=["round", "tick", "steamid", "enemy_steamid", "distance",
+    engagements = pd.DataFrame(engagements, columns=["round", "tick", "steamid", "enemy_steamid", "x", "y", "z",
+                                                     "place", "enemy_x", "enemy_y", "enemy_z", "enemy_place",
+                                                     "distance",
                                                      "crosshair_angle", "yaw_off", "pitch_off",
                                                      "time_to_damage_ms", "time_to_shot_ms"])
 
@@ -595,6 +622,14 @@ def analyze(demo_path, steam64):
                      "defuses": int((defuses.user_steamid == s).sum()) if len(defuses) else 0},
             "sides": sides,
             "weapons": by_weapon,
+            "places": {
+                "kills": mk.attacker_last_place_name.replace("", None).dropna().value_counts().to_dict(),
+                "deaths": kills[(kills.user_steamid == s) & ~kills.suicide].user_last_place_name
+                .replace("", None).dropna().value_counts().to_dict(),
+                "deaths_by_side": {sd: kills[(kills.user_steamid == s) & ~kills.suicide
+                                             & (kills.user_team_num == (2 if sd == "T" else 3))]
+                                   .user_last_place_name.replace("", None).dropna().value_counts().to_dict()
+                                   for sd in ("T", "CT")}},
             "final_team": "T" if team_end == 2 else "CT" if team_end == 3 else None,
         }
 
@@ -630,21 +665,41 @@ def analyze(demo_path, steam64):
     kills_out = kills.rename(columns={"user_steamid": "victim_steamid", "user_name": "victim_name",
                                       "user_X": "victim_x", "user_Y": "victim_y", "user_Z": "victim_z",
                                       "attacker_X": "attacker_x", "attacker_Y": "attacker_y", "attacker_Z": "attacker_z",
-                                      "attacker_team_num": "attacker_team", "user_team_num": "victim_team"})
+                                      "attacker_team_num": "attacker_team", "user_team_num": "victim_team",
+                                      "attacker_last_place_name": "attacker_place",
+                                      "user_last_place_name": "victim_place"})
     kills_out = kills_out[["round", "tick", "time_in_round", "attacker_steamid", "attacker_name", "attacker_team",
                            "victim_steamid", "victim_name", "victim_team", "assister_steamid", "weapon", "headshot",
                            "penetrated", "thrusmoke", "attackerblind", "noscope", "attackerinair", "assistedflash",
-                           "distance", "attacker_x", "attacker_y", "attacker_z", "victim_x", "victim_y", "victim_z",
-                           "opening", "trade_kill", "traded", "team_kill", "utility_on_death"]]
-    damage_out = hurt.rename(columns={"user_steamid": "victim_steamid", "health": "health_after"})[
+                           "distance", "attacker_x", "attacker_y", "attacker_z", "attacker_place",
+                           "victim_x", "victim_y", "victim_z", "victim_place", "opening", "trade_kill", "traded", "team_kill", "utility_on_death"]]
+    damage_out = hurt.rename(columns={"user_steamid": "victim_steamid", "health": "health_after"})
+    add_pos(damage_out, "attacker_steamid", "attacker_")
+    add_pos(damage_out, "victim_steamid", "victim_")
+    damage_out = damage_out[
         ["round", "tick", "attacker_steamid", "victim_steamid", "weapon", "hitgroup", "dmg_health", "damage",
-         "dmg_armor", "health_after", "enemy", "team_damage", "utility"]]
-    shots_out = shots.rename(columns={"user_steamid": "steamid"})[
-        ["round", "tick", "steamid", "weapon", "speed", "max_speed", "counter_strafed", "burst_index", "hit", "head"]]
+         "dmg_armor", "health_after", "enemy", "team_damage", "utility", "attacker_x", "attacker_y", "attacker_z",
+         "attacker_place", "victim_x", "victim_y", "victim_z", "victim_place"]]
+    shots_out = shots.rename(columns={"user_steamid": "steamid"})
+    add_pos(shots_out, "steamid", "")
+    shots_out = shots_out[
+        ["round", "tick", "steamid", "weapon", "speed", "max_speed", "counter_strafed", "burst_index", "hit", "head",
+         "x", "y", "z", "place"]]
+
+    # movement: every alive player twice per second while the round is live
+    live_t = ticks[(ticks.tick % POS_EVERY == 0) & ticks.is_alive.astype(bool)
+                   & live[ticks.tick.clip(upper=len(live) - 1).values]].copy()
+    live_t["round"] = [round_of(t) for t in live_t.tick]
+    positions = pd.DataFrame({
+        "round": live_t["round"], "tick": live_t.tick, "steamid": live_t.steamid,
+        "team": live_t.team_num, "x": live_t.X.round().astype(int), "y": live_t.Y.round().astype(int),
+        "z": live_t.Z.round().astype(int), "yaw": live_t.yaw.round().astype(int),
+        "health": live_t.health, "weapon": live_t.active_weapon_name, "place": live_t.last_place_name,
+    }).sort_values(["tick", "steamid"])
     return {
         "meta": meta, "players": stats, "rounds": rounds, "clutches": clutch_rows,
         "tables": {"rounds": prounds, "kills": kills_out, "damage": damage_out, "shots": shots_out,
-                   "engagements": engagements, "grenades": grenades},
+                   "engagements": engagements, "grenades": grenades, "positions": positions},
     }
 
 
@@ -662,7 +717,10 @@ def save(result, path):
         for c in df.columns:
             if df[c].dtype == float:
                 df[c] = df[c].round(2)
-        df.to_csv(os.path.join(d, f"{name}.csv"), index=False)
+        if name == "positions":
+            df.to_csv(os.path.join(d, f"{name}.csv.gz"), index=False, compression={"method": "gzip", "mtime": 0})
+        else:
+            df.to_csv(os.path.join(d, f"{name}.csv"), index=False)
     doc = {k: v for k, v in result.items() if k != "tables"}
     with open(os.path.join(d, "match.json"), "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=1, default=lambda o: o.item() if hasattr(o, "item") else str(o))
@@ -902,6 +960,8 @@ def auto(steam64, push_after=True):
         analysed.append(res["meta"])
     save_state(state)
     prune_cache()
+    if analysed:
+        update_overviews()
     update_index(steam64)
     if not todo:
         print("no new matches with downloadable demos")
@@ -924,9 +984,54 @@ def prune_cache(days=DEMO_MAX_AGE_DAYS):
             os.remove(p)
 
 
+# ---------- radar coordinates ----------
+
+def update_overviews():
+    """Read every map's radar transform from the game files (resource/overviews/*.txt in pak01_dir.vpk)
+    into data/maps/overviews.json. Only numbers are stored, no Valve images."""
+    pak = os.path.join(GAME_DIR, "pak01_dir.vpk")
+    try:
+        import vpk
+    except ImportError:
+        print("pip install vpk to read radar coordinates", file=sys.stderr)
+        return None
+    if not os.path.exists(pak):
+        return None
+    maps = {}
+    for path in vpk.open(pak):
+        if not (path.startswith("resource/overviews/") and path.endswith(".txt")):
+            continue
+        text = vpk.open(pak)[path].read().decode("utf-8", "replace")
+        text = re.sub(r"//[^\n]*", "", text)
+        num = lambda k: (lambda m: float(m.group(1)) if m else None)(re.search(rf'"{k}"\s+"(-?[\d.]+)"', text))
+        entry = {"pos_x": num("pos_x"), "pos_y": num("pos_y"), "scale": num("scale")}
+        sections = {}
+        vs = re.search(r'"verticalsections"\s*\{(.*)\}\s*', text, re.S)
+        if vs:
+            for name, body in re.findall(r'"(\w+)"\s*\{([^{}]*)\}', vs.group(1)):
+                lo = re.search(r'"AltitudeMin"\s+"(-?[\d.]+)"', body)
+                hi = re.search(r'"AltitudeMax"\s+"(-?[\d.]+)"', body)
+                sections[name] = {"z_min": float(lo.group(1)) if lo else None,
+                                  "z_max": float(hi.group(1)) if hi else None}
+        if sections:
+            entry["vertical_sections"] = sections
+        if entry["scale"]:
+            maps[os.path.basename(path)[:-4]] = entry
+    os.makedirs(os.path.dirname(OVERVIEWS), exist_ok=True)
+    doc = {"_how_to": "Radar images are 1024x1024 px. pixel_x = (x - pos_x) / scale, "
+                      "pixel_y = (pos_y - y) / scale. Maps with vertical_sections use the radar of the "
+                      "section whose z range contains the player's z (e.g. de_nuke lower). "
+                      "Wingman matches on maps with a _2v2 entry use that radar.",
+           "source": "resource/overviews/*.txt from the CS2 game files", "maps": maps}
+    with open(OVERVIEWS, "w", encoding="utf-8") as f:
+        json.dump(doc, f, indent=1)
+        f.write("\n")
+    return maps
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("command", choices=["sync", "analyze", "report", "push", "auto"])
+    ap.add_argument("command", choices=["sync", "analyze", "report", "push", "auto", "maps"])
     ap.add_argument("paths", nargs="*")
     ap.add_argument("--steamid", default=DEFAULT_STEAM64)
     ap.add_argument("--push", action="store_true", help="commit and push data/demos/ after sync")
@@ -934,6 +1039,9 @@ def main():
     ap.add_argument("--force", action="store_true", help="re-analyse demos that were analysed before")
     a = ap.parse_args()
 
+    if a.command == "maps":
+        maps = update_overviews()
+        return print(f"{len(maps or {})} maps written to {os.path.relpath(OVERVIEWS, ROOT)}")
     if a.command == "auto":
         return auto(a.steamid, push_after=not a.no_push)
     if a.command == "report":

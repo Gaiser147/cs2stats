@@ -15,7 +15,7 @@
    "finished_at": "2026-11-06T21:26:23.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:30:46+00:00",
+  "analysed_at": "2026-11-10T00:55:27+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -169,6 +169,27 @@
      "shots": 20,
      "hits": 8,
      "accuracy": 0.4
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 6,
+     "Arch": 2,
+     "TopofMid": 1
+    },
+    "deaths": {
+     "BombsiteA": 2,
+     "TopofMid": 2,
+     "Quad": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "TopofMid": 2,
+      "Quad": 1
+     },
+     "CT": {
+      "BombsiteA": 2
+     }
     }
    },
    "final_team": "T"
@@ -330,6 +351,32 @@
      "accuracy": 0.167
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 5,
+     "TopofMid": 2,
+     "Arch": 1
+    },
+    "deaths": {
+     "TopofMid": 4,
+     "BombsiteA": 3,
+     "Arch": 2,
+     "Apartments": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 2,
+      "TopofMid": 2,
+      "Arch": 1,
+      "Apartments": 1
+     },
+     "CT": {
+      "TopofMid": 2,
+      "BombsiteA": 1,
+      "Arch": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198805479519": {
@@ -476,6 +523,34 @@
      "shots": 13,
      "hits": 5,
      "accuracy": 0.385
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 2,
+     "Apartments": 1,
+     "Library": 1
+    },
+    "deaths": {
+     "TopofMid": 3,
+     "BombsiteA": 3,
+     "Balcony": 2,
+     "Apartments": 2,
+     "Arch": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 3,
+      "TopofMid": 2,
+      "Balcony": 1,
+      "Apartments": 1,
+      "Arch": 1
+     },
+     "CT": {
+      "TopofMid": 1,
+      "Apartments": 1,
+      "Balcony": 1
+     }
     }
    },
    "final_team": "CT"
@@ -642,6 +717,31 @@
      "shots": 22,
      "hits": 11,
      "accuracy": 0.5
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 6,
+     "Pit": 2,
+     "TopofMid": 1,
+     "Quad": 1,
+     "Middle": 1,
+     "Apartments": 1
+    },
+    "deaths": {
+     "BombsiteA": 5,
+     "Pit": 1,
+     "TopofMid": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 2,
+      "TopofMid": 1
+     },
+     "CT": {
+      "BombsiteA": 3,
+      "Pit": 1
+     }
     }
    },
    "final_team": "T"

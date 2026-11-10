@@ -15,7 +15,7 @@
    "finished_at": "2026-11-08T15:23:02.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:31:33+00:00",
+  "analysed_at": "2026-11-10T00:56:19+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -173,6 +173,30 @@
      "shots": 139,
      "hits": 32,
      "accuracy": 0.23
+    }
+   },
+   "places": {
+    "kills": {
+     "Tunnels": 4,
+     "BombsiteB": 3,
+     "Ramp": 1,
+     "Decon": 1
+    },
+    "deaths": {
+     "Tunnels": 4,
+     "BombsiteB": 4,
+     "Observation": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 3,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "BombsiteB": 3,
+      "Observation": 1,
+      "Tunnels": 1
+     }
     }
    },
    "final_team": "CT"
@@ -362,6 +386,35 @@
      "accuracy": 0.545
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 7,
+     "Decon": 3,
+     "Observation": 1,
+     "Tunnels": 1,
+     "Ramp": 1
+    },
+    "deaths": {
+     "BombsiteB": 5,
+     "Tunnels": 2,
+     "Ramp": 2,
+     "Decon": 1,
+     "Observation": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "Decon": 1,
+      "Observation": 1,
+      "Tunnels": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "Ramp": 2,
+      "Tunnels": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199212250125": {
@@ -521,6 +574,29 @@
      "accuracy": 0.267
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Tunnels": 2,
+     "Observation": 1,
+     "Decon": 1
+    },
+    "deaths": {
+     "BombsiteB": 10,
+     "Observation": 1,
+     "Tunnels": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 4,
+      "Observation": 1,
+      "Tunnels": 1
+     },
+     "CT": {
+      "BombsiteB": 6
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199479357601": {
@@ -678,6 +754,29 @@
      "shots": 26,
      "hits": 7,
      "accuracy": 0.269
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 6,
+     "Tunnels": 3,
+     "Vents": 1,
+     "Observation": 1
+    },
+    "deaths": {
+     "BombsiteB": 6,
+     "Tunnels": 3,
+     "Ramp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "Tunnels": 3
+     },
+     "CT": {
+      "BombsiteB": 3,
+      "Ramp": 1
+     }
     }
    },
    "final_team": "T"

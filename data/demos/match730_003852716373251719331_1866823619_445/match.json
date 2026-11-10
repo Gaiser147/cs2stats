@@ -15,7 +15,7 @@
    "finished_at": "2026-11-07T14:03:06.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:31:03+00:00",
+  "analysed_at": "2026-11-10T00:55:46+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -180,6 +180,29 @@
      "shots": 13,
      "hits": 10,
      "accuracy": 0.769
+    }
+   },
+   "places": {
+    "kills": {
+     "Tunnels": 3,
+     "Ramp": 2
+    },
+    "deaths": {
+     "Tunnels": 3,
+     "Observation": 2,
+     "BombsiteB": 2,
+     "Ramp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 3,
+      "Observation": 2,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "BombsiteB": 1,
+      "Ramp": 1
+     }
     }
    },
    "final_team": "CT"
@@ -351,6 +374,26 @@
      "accuracy": 0.25
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 7,
+     "Tunnels": 3
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Tunnels": 1,
+     "Ramp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 1,
+      "Ramp": 1
+     },
+     "CT": {
+      "BombsiteB": 3
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198870250829": {
@@ -497,6 +540,27 @@
      "shots": 7,
      "hits": 3,
      "accuracy": 0.429
+    }
+   },
+   "places": {
+    "kills": {
+     "Decon": 2,
+     "Tunnels": 1
+    },
+    "deaths": {
+     "Tunnels": 4,
+     "BombsiteB": 3,
+     "Decon": 2
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3,
+      "Tunnels": 3,
+      "Decon": 2
+     },
+     "CT": {
+      "Tunnels": 1
+     }
     }
    },
    "final_team": null
@@ -649,6 +713,26 @@
      "shots": 39,
      "hits": 4,
      "accuracy": 0.103
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Tunnels": 1
+    },
+    "deaths": {
+     "BombsiteB": 1,
+     "Decon": 1,
+     "Ramp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Ramp": 1
+     },
+     "CT": {
+      "BombsiteB": 1,
+      "Decon": 1
+     }
     }
    },
    "final_team": "T"

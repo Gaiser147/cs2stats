@@ -15,7 +15,7 @@
    "finished_at": "2026-11-02T20:30:07.000Z",
    "data_source": "matchmaking_competitive"
   },
-  "analysed_at": "2026-11-10T00:29:41+00:00",
+  "analysed_at": "2026-11-10T00:54:17+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -173,6 +173,31 @@
      "accuracy": 0.227
     }
    },
+   "places": {
+    "kills": {
+     "SideHall": 2,
+     "MainHall": 2,
+     "BackWay": 1,
+     "Office": 1
+    },
+    "deaths": {
+     "BackWay": 4,
+     "Stairwell": 1,
+     "MainHall": 1,
+     "SideHall": 1,
+     "Office": 1
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "BackWay": 4,
+      "Stairwell": 1,
+      "MainHall": 1,
+      "SideHall": 1,
+      "Office": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198067554429": {
@@ -297,6 +322,24 @@
      "shots": 222,
      "hits": 49,
      "accuracy": 0.221
+    }
+   },
+   "places": {
+    "kills": {
+     "SideHall": 9,
+     "MainHall": 2,
+     "BackWay": 1
+    },
+    "deaths": {
+     "SideHall": 6,
+     "FrontCourtyard": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "SideHall": 6,
+      "FrontCourtyard": 1
+     },
+     "CT": {}
     }
    },
    "final_team": "T"
@@ -430,6 +473,26 @@
      "accuracy": 0.462
     }
    },
+   "places": {
+    "kills": {
+     "BackWay": 2,
+     "SideHall": 2,
+     "TSpawn": 1
+    },
+    "deaths": {
+     "MainHall": 2,
+     "Kitchen": 1,
+     "Bathroom": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "MainHall": 2,
+      "Kitchen": 1,
+      "Bathroom": 1
+     },
+     "CT": {}
+    }
+   },
    "final_team": "T"
   },
   "76561198444913985": {
@@ -561,6 +624,29 @@
      "accuracy": 0.144
     }
    },
+   "places": {
+    "kills": {
+     "Office": 2,
+     "Bathroom": 1,
+     "FrontCourtyard": 1,
+     "MainHall": 1
+    },
+    "deaths": {
+     "MainHall": 3,
+     "SideHall": 2,
+     "BackWay": 2,
+     "FrontCourtyard": 1
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "MainHall": 3,
+      "SideHall": 2,
+      "BackWay": 2,
+      "FrontCourtyard": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198769313541": {
@@ -678,6 +764,26 @@
      "shots": 25,
      "hits": 4,
      "accuracy": 0.16
+    }
+   },
+   "places": {
+    "kills": {
+     "Stairwell": 1
+    },
+    "deaths": {
+     "MainHall": 5,
+     "TSpawn": 2,
+     "BackWay": 2,
+     "SideHall": 1
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "MainHall": 5,
+      "TSpawn": 2,
+      "BackWay": 2,
+      "SideHall": 1
+     }
     }
    },
    "final_team": "CT"
@@ -825,6 +931,23 @@
      "accuracy": 0.667
     }
    },
+   "places": {
+    "kills": {
+     "MainHall": 4,
+     "SideHall": 1
+    },
+    "deaths": {
+     "SideHall": 4,
+     "MainHall": 3
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "SideHall": 4,
+      "MainHall": 3
+     }
+    }
+   },
    "final_team": null
   },
   "76561198893199261": {
@@ -961,6 +1084,25 @@
      "shots": 62,
      "hits": 12,
      "accuracy": 0.194
+    }
+   },
+   "places": {
+    "kills": {
+     "Bathroom": 2,
+     "MainHall": 2,
+     "BackWay": 1,
+     "Office": 1
+    },
+    "deaths": {
+     "SideHall": 3,
+     "MainHall": 2
+    },
+    "deaths_by_side": {
+     "T": {
+      "SideHall": 3,
+      "MainHall": 2
+     },
+     "CT": {}
     }
    },
    "final_team": "T"
@@ -1101,6 +1243,27 @@
      "accuracy": 0.5
     }
    },
+   "places": {
+    "kills": {
+     "Bathroom": 5,
+     "StorageRoom": 2,
+     "MainHall": 2,
+     "SideHall": 1
+    },
+    "deaths": {
+     "MainHall": 2,
+     "StorageRoom": 1,
+     "SideHall": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "MainHall": 2,
+      "StorageRoom": 1,
+      "SideHall": 1
+     },
+     "CT": {}
+    }
+   },
    "final_team": "T"
   },
   "76561199336020275": {
@@ -1239,6 +1402,26 @@
      "shots": 3,
      "hits": 2,
      "accuracy": 0.667
+    }
+   },
+   "places": {
+    "kills": {
+     "SideHall": 2,
+     "TSpawn": 2,
+     "MainHall": 2
+    },
+    "deaths": {
+     "SideHall": 2,
+     "TSpawn": 1,
+     "BackWay": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "SideHall": 2,
+      "TSpawn": 1,
+      "BackWay": 1
+     },
+     "CT": {}
     }
    },
    "final_team": "T"
@@ -1391,6 +1574,31 @@
      "shots": 5,
      "hits": 2,
      "accuracy": 0.4
+    }
+   },
+   "places": {
+    "kills": {
+     "SideHall": 3,
+     "MainHall": 2,
+     "StorageRoom": 1,
+     "SnipersNest": 1
+    },
+    "deaths": {
+     "Office": 2,
+     "MainHall": 2,
+     "SideHall": 2,
+     "BackWay": 1,
+     "SnipersNest": 1
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "Office": 2,
+      "MainHall": 2,
+      "SideHall": 2,
+      "BackWay": 1,
+      "SnipersNest": 1
+     }
     }
    },
    "final_team": null

@@ -15,7 +15,7 @@
    "finished_at": "2026-11-06T21:11:01.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:30:43+00:00",
+  "analysed_at": "2026-11-10T00:55:25+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -161,6 +161,21 @@
      "accuracy": 0.1
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 2,
+     "Tunnels": 1
+    },
+    "deaths": {
+     "BombsiteB": 2
+    },
+    "deaths_by_side": {
+     "T": {},
+     "CT": {
+      "BombsiteB": 2
+     }
+    }
+   },
    "final_team": null
   },
   "76561198382673172": {
@@ -300,6 +315,27 @@
      "shots": 2,
      "hits": 2,
      "accuracy": 1.0
+    }
+   },
+   "places": {
+    "kills": {
+     "Tunnels": 1,
+     "BombsiteB": 1
+    },
+    "deaths": {
+     "BombsiteB": 2,
+     "Observation": 1,
+     "Tunnels": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Observation": 1,
+      "Tunnels": 1,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "BombsiteB": 1
+     }
     }
    },
    "final_team": "CT"
@@ -475,6 +511,20 @@
      "accuracy": null
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 9
+    },
+    "deaths": {
+     "Tunnels": 2
+    },
+    "deaths_by_side": {
+     "T": {
+      "Tunnels": 2
+     },
+     "CT": {}
+    }
+   },
    "final_team": "CT"
   },
   "76561199037743105": {
@@ -621,6 +671,27 @@
      "shots": 13,
      "hits": 4,
      "accuracy": 0.308
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 2,
+     "Observation": 1
+    },
+    "deaths": {
+     "BombsiteB": 7,
+     "Ramp": 1,
+     "Observation": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 3
+     },
+     "CT": {
+      "BombsiteB": 4,
+      "Ramp": 1,
+      "Observation": 1
+     }
     }
    },
    "final_team": "T"

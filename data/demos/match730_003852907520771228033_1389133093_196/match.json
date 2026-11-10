@@ -15,7 +15,7 @@
    "finished_at": "2026-11-08T14:47:03.000Z",
    "data_source": "matchmaking_wingman"
   },
-  "analysed_at": "2026-11-10T00:31:29+00:00",
+  "analysed_at": "2026-11-10T00:56:14+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -175,6 +175,31 @@
      "accuracy": 0.297
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 4,
+     "Apartments": 1
+    },
+    "deaths": {
+     "Middle": 3,
+     "BombsiteA": 3,
+     "Balcony": 1,
+     "TopofMid": 1,
+     "Pit": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Middle": 3,
+      "Balcony": 1,
+      "TopofMid": 1,
+      "BombsiteA": 1,
+      "Pit": 1
+     },
+     "CT": {
+      "BombsiteA": 2
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198928872614": {
@@ -330,6 +355,27 @@
      "accuracy": 0.375
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 6,
+     "TopofMid": 2,
+     "Arch": 1,
+     "Pit": 1,
+     "Balcony": 1
+    },
+    "deaths": {
+     "TopofMid": 1,
+     "BombsiteA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 1
+     },
+     "CT": {
+      "TopofMid": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199477129091": {
@@ -464,6 +510,23 @@
      "accuracy": 0.333
     }
    },
+   "places": {
+    "kills": {
+     "TopofMid": 1
+    },
+    "deaths": {
+     "BombsiteA": 2,
+     "Apartments": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 2
+     },
+     "CT": {
+      "Apartments": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561199877748027": {
@@ -575,6 +638,20 @@
     }
    },
    "weapons": {},
+   "places": {
+    "kills": {},
+    "deaths": {
+     "Middle": 2,
+     "BombsiteA": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Middle": 2,
+      "BombsiteA": 1
+     },
+     "CT": {}
+    }
+   },
    "final_team": null
   }
  },

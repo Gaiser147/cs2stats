@@ -15,7 +15,7 @@
    "finished_at": "2026-11-05T21:34:35.000Z",
    "data_source": "matchmaking"
   },
-  "analysed_at": "2026-11-10T00:30:26+00:00",
+  "analysed_at": "2026-11-10T00:55:06+00:00",
   "tool": "demo_analyze.py (demoparser2)",
   "tracked_player": "76561198382673172",
   "score": {
@@ -206,6 +206,47 @@
      "accuracy": 0.1
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 8,
+     "Middle": 2,
+     "Jungle": 2,
+     "PalaceAlley": 2,
+     "TopofMid": 2,
+     "Catwalk": 2,
+     "Underpass": 1,
+     "PalaceInterior": 1,
+     "Apartments": 1,
+     "CTSpawn": 1
+    },
+    "deaths": {
+     "BombsiteA": 5,
+     "Catwalk": 1,
+     "PalaceInterior": 1,
+     "CTSpawn": 1,
+     "Middle": 1,
+     "PalaceAlley": 1,
+     "TopofMid": 1,
+     "Stairs": 1,
+     "BombsiteB": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 4,
+      "Catwalk": 1,
+      "PalaceInterior": 1,
+      "CTSpawn": 1,
+      "Middle": 1,
+      "PalaceAlley": 1,
+      "TopofMid": 1
+     },
+     "CT": {
+      "BombsiteA": 1,
+      "Stairs": 1,
+      "BombsiteB": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561198261828046": {
@@ -359,6 +400,42 @@
      "shots": 17,
      "hits": 2,
      "accuracy": 0.118
+    }
+   },
+   "places": {
+    "kills": {
+     "Catwalk": 3,
+     "Shop": 2,
+     "BombsiteA": 2,
+     "Apartments": 2,
+     "TopofMid": 1,
+     "Connector": 1,
+     "PalaceInterior": 1
+    },
+    "deaths": {
+     "BombsiteB": 4,
+     "BombsiteA": 2,
+     "Catwalk": 2,
+     "PalaceInterior": 1,
+     "Shop": 1,
+     "Scaffolding": 1,
+     "Connector": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteB": 2,
+      "PalaceInterior": 1,
+      "BombsiteA": 1,
+      "Shop": 1,
+      "Catwalk": 1,
+      "Scaffolding": 1
+     },
+     "CT": {
+      "BombsiteB": 2,
+      "BombsiteA": 1,
+      "Connector": 1,
+      "Catwalk": 1
+     }
     }
    },
    "final_team": "CT"
@@ -518,6 +595,52 @@
      "shots": 138,
      "hits": 23,
      "accuracy": 0.167
+    }
+   },
+   "places": {
+    "kills": {
+     "PalaceInterior": 3,
+     "Stairs": 3,
+     "BackAlley": 3,
+     "BombsiteB": 2,
+     "Shop": 1,
+     "BombsiteA": 1,
+     "House": 1,
+     "Truck": 1
+    },
+    "deaths": {
+     "Stairs": 2,
+     "BombsiteA": 2,
+     "PalaceInterior": 2,
+     "Shop": 2,
+     "Catwalk": 2,
+     "BombsiteB": 2,
+     "Connector": 1,
+     "SnipersNest": 1,
+     "Jungle": 1,
+     "Truck": 1,
+     "Underpass": 1,
+     "PalaceAlley": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Jungle": 1,
+      "BombsiteB": 1,
+      "Truck": 1,
+      "Underpass": 1,
+      "PalaceAlley": 1,
+      "Catwalk": 1
+     },
+     "CT": {
+      "Stairs": 2,
+      "BombsiteA": 2,
+      "PalaceInterior": 2,
+      "Shop": 2,
+      "Connector": 1,
+      "Catwalk": 1,
+      "SnipersNest": 1,
+      "BombsiteB": 1
+     }
     }
    },
    "final_team": "T"
@@ -680,6 +803,45 @@
      "shots": 19,
      "hits": 4,
      "accuracy": 0.211
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 4,
+     "BombsiteA": 2,
+     "Truck": 2,
+     "PalaceInterior": 2,
+     "CTSpawn": 1,
+     "Middle": 1
+    },
+    "deaths": {
+     "BombsiteB": 4,
+     "BombsiteA": 3,
+     "Shop": 2,
+     "Middle": 2,
+     "CTSpawn": 1,
+     "Truck": 1,
+     "TSpawn": 1,
+     "House": 1,
+     "Apartments": 1,
+     "TRamp": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Middle": 2,
+      "BombsiteA": 1,
+      "House": 1,
+      "Apartments": 1,
+      "TRamp": 1
+     },
+     "CT": {
+      "BombsiteB": 4,
+      "BombsiteA": 2,
+      "Shop": 2,
+      "CTSpawn": 1,
+      "Truck": 1,
+      "TSpawn": 1
+     }
     }
    },
    "final_team": "T"
@@ -849,6 +1011,50 @@
      "accuracy": 0.5
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 2,
+     "SnipersNest": 2,
+     "TRamp": 1,
+     "Catwalk": 1,
+     "CTSpawn": 1,
+     "Stairs": 1,
+     "BackAlley": 1,
+     "Apartments": 1,
+     "BombsiteB": 1
+    },
+    "deaths": {
+     "Middle": 2,
+     "CTSpawn": 2,
+     "Stairs": 2,
+     "BombsiteA": 2,
+     "Apartments": 2,
+     "Shop": 1,
+     "SnipersNest": 1,
+     "Underpass": 1,
+     "TRamp": 1,
+     "PalaceInterior": 1,
+     "Catwalk": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 2,
+      "Apartments": 2,
+      "Stairs": 1,
+      "TRamp": 1,
+      "PalaceInterior": 1,
+      "Catwalk": 1
+     },
+     "CT": {
+      "Middle": 2,
+      "CTSpawn": 2,
+      "Shop": 1,
+      "Stairs": 1,
+      "SnipersNest": 1,
+      "Underpass": 1
+     }
+    }
+   },
    "final_team": "T"
   },
   "76561198744246480": {
@@ -1016,6 +1222,46 @@
      "shots": 17,
      "hits": 3,
      "accuracy": 0.176
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteA": 6,
+     "CTSpawn": 1,
+     "Connector": 1,
+     "TRamp": 1,
+     "Apartments": 1,
+     "BombsiteB": 1,
+     "Shop": 1,
+     "PalaceInterior": 1
+    },
+    "deaths": {
+     "BombsiteA": 3,
+     "PalaceAlley": 3,
+     "BombsiteB": 2,
+     "Jungle": 1,
+     "PalaceInterior": 1,
+     "Shop": 1,
+     "Underpass": 1,
+     "Catwalk": 1,
+     "TRamp": 1,
+     "SideAlley": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "PalaceAlley": 3,
+      "Underpass": 1,
+      "Catwalk": 1,
+      "TRamp": 1,
+      "SideAlley": 1
+     },
+     "CT": {
+      "BombsiteA": 3,
+      "BombsiteB": 2,
+      "Jungle": 1,
+      "PalaceInterior": 1,
+      "Shop": 1
+     }
     }
    },
    "final_team": "T"
@@ -1191,6 +1437,37 @@
      "accuracy": 0.1
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteA": 4,
+     "CTSpawn": 3,
+     "TopofMid": 1,
+     "Apartments": 1,
+     "Underpass": 1,
+     "PalaceAlley": 1,
+     "PalaceInterior": 1,
+     "BombsiteB": 1
+    },
+    "deaths": {
+     "BombsiteA": 3,
+     "Apartments": 2,
+     "PalaceInterior": 2,
+     "CTSpawn": 1,
+     "Middle": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "BombsiteA": 3,
+      "Apartments": 2,
+      "PalaceInterior": 1
+     },
+     "CT": {
+      "PalaceInterior": 1,
+      "CTSpawn": 1,
+      "Middle": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199163802986": {
@@ -1364,6 +1641,40 @@
      "accuracy": 0.292
     }
    },
+   "places": {
+    "kills": {
+     "BombsiteB": 5,
+     "Apartments": 4,
+     "Truck": 4,
+     "BombsiteA": 2,
+     "Shop": 1,
+     "PalaceAlley": 1,
+     "Stairs": 1,
+     "Middle": 1,
+     "BackAlley": 1,
+     "SideAlley": 1
+    },
+    "deaths": {
+     "BombsiteA": 4,
+     "Apartments": 4,
+     "BombsiteB": 1,
+     "Ladder": 1,
+     "Shop": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "Apartments": 3,
+      "BombsiteA": 2,
+      "BombsiteB": 1
+     },
+     "CT": {
+      "BombsiteA": 2,
+      "Ladder": 1,
+      "Apartments": 1,
+      "Shop": 1
+     }
+    }
+   },
    "final_team": "CT"
   },
   "76561199170962637": {
@@ -1526,6 +1837,50 @@
      "shots": 5,
      "hits": 1,
      "accuracy": 0.2
+    }
+   },
+   "places": {
+    "kills": {
+     "BombsiteB": 3,
+     "PalaceInterior": 2,
+     "Apartments": 2,
+     "BombsiteA": 2,
+     "Jungle": 1,
+     "TopofMid": 1,
+     "House": 1,
+     "PalaceAlley": 1,
+     "Underpass": 1,
+     "Middle": 1,
+     "Catwalk": 1
+    },
+    "deaths": {
+     "Apartments": 3,
+     "PalaceInterior": 3,
+     "BombsiteB": 3,
+     "BombsiteA": 2,
+     "CTSpawn": 1,
+     "Catwalk": 1,
+     "Stairs": 1,
+     "BackAlley": 1,
+     "House": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "PalaceInterior": 3,
+      "Apartments": 2,
+      "BombsiteB": 2,
+      "BombsiteA": 1,
+      "CTSpawn": 1,
+      "Catwalk": 1
+     },
+     "CT": {
+      "Stairs": 1,
+      "Apartments": 1,
+      "BombsiteA": 1,
+      "BombsiteB": 1,
+      "BackAlley": 1,
+      "House": 1
+     }
     }
    },
    "final_team": "CT"
@@ -1703,6 +2058,47 @@
      "shots": 8,
      "hits": 3,
      "accuracy": 0.375
+    }
+   },
+   "places": {
+    "kills": {
+     "PalaceInterior": 2,
+     "TopofMid": 2,
+     "Apartments": 2,
+     "Stairs": 1,
+     "Catwalk": 1,
+     "BombsiteB": 1
+    },
+    "deaths": {
+     "BombsiteB": 3,
+     "Truck": 2,
+     "Shop": 2,
+     "BombsiteA": 2,
+     "PalaceInterior": 2,
+     "Apartments": 2,
+     "Stairs": 1,
+     "Catwalk": 1,
+     "Scaffolding": 1,
+     "SideAlley": 1,
+     "TopofMid": 1
+    },
+    "deaths_by_side": {
+     "T": {
+      "PalaceInterior": 2,
+      "Apartments": 2,
+      "BombsiteB": 1,
+      "SideAlley": 1,
+      "TopofMid": 1
+     },
+     "CT": {
+      "Truck": 2,
+      "BombsiteB": 2,
+      "Shop": 2,
+      "BombsiteA": 2,
+      "Stairs": 1,
+      "Catwalk": 1,
+      "Scaffolding": 1
+     }
     }
    },
    "final_team": "T"

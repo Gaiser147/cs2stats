@@ -41,11 +41,18 @@ Per demo, `data/demos/<demo name>/` holds:
 | --- | --- |
 | `match.json` | Map, score, link to the Leetify match (decoded from the share code), per-round summary (winner, reason, team equipment, buy type) and per-player totals for all players: K/D/A, ADR, KAST, HLTV 1.0 rating and an approximation of 2.0, multi-kills, opening duels, trade kills and traded deaths, clutches by 1vX, survival, kill details (wallbang, smoke, blind, distance), aim, utility, damage taken and team damage, economy, bomb, T/CT split, per-weapon kills and accuracy. |
 | `rounds.csv` | One row per player and round: side, equipment value, money, kills, damage, KAST, opening, trade, clutch, survival time, utility value held on death. |
-| `kills.csv` | Every kill with killer and victim positions, time into the round, weapon and flags. |
-| `damage.csv` | Every damage event; `damage` is capped at the victim's remaining health (ADR matches Leetify). |
-| `shots.csv` | Every gun shot: horizontal speed, counter-strafed (below 34 % of the weapon's max speed), position in the burst, hit and head hit. |
-| `engagements.csv` | Every time a player sees an enemy after 0.5 s unseen: distance, crosshair angle off the enemy's head (total, horizontal, vertical), time to first shot and to first damage. |
+| `kills.csv` | Every kill with killer and victim positions and callouts, time into the round, weapon and flags. |
+| `damage.csv` | Every damage event with attacker and victim positions and callouts; `damage` is capped at the victim's remaining health (ADR matches Leetify). |
+| `shots.csv` | Every gun shot: position and callout, horizontal speed, counter-strafed (below 34 % of the weapon's max speed), position in the burst, hit and head hit. |
+| `engagements.csv` | Every time a player sees an enemy after 0.5 s unseen: both positions and callouts, distance, crosshair angle off the enemy's head (total, horizontal, vertical), time to first shot and to first damage. |
 | `grenades.csv` | Every grenade detonation with position; flashes with enemies and teammates blinded (≥ 1.1 s). |
+| `positions.csv.gz` | Movement: every alive player every 0.5 s of live round time with position, view direction (yaw), health, weapon and callout. |
+
+`match.json` also lists per player the callouts of their kills and deaths (`places`, deaths split by side).
+
+### Positions on the radar
+
+Positions are game coordinates. `data/maps/overviews.json` holds each map's radar transform, read from the game files with `python3 demo_analyze.py maps` (numbers only; the radar images are Valve's and are not in this repo). On a 1024×1024 radar image: `pixel_x = (x - pos_x) / scale`, `pixel_y = (pos_y - y) / scale`. Maps with `vertical_sections` (Nuke, Vertigo) have a second radar for the lower level, chosen by z. Wingman maps with a `_2v2` entry (e.g. `de_overpass_2v2`) use that one.
 
 `data/demos/index.json` lists all analysed demos with the tracked player's main numbers.
 
