@@ -1,7 +1,7 @@
 {
  "privacy_mode": "public",
  "winrate": 0.4815,
- "total_matches": 43,
+ "total_matches": 45,
  "first_match_date": "2026-08-31T00:29:31.000Z",
  "name": "Zattocat",
  "bans": [],
@@ -86,6 +86,44 @@
   "utility_on_death_avg": 367.8249
  },
  "recent_matches": [
+  {
+   "id": "e1c5a495-7f20-4a08-a49b-8920c20cb0b2",
+   "finished_at": "2026-11-11T22:12:51.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "loss",
+   "rank": 3,
+   "rank_type": 7,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.1367,
+   "score": [
+    2,
+    9
+   ],
+   "preaim": 14.65,
+   "reaction_time_ms": 703,
+   "accuracy_enemy_spotted": 32.05,
+   "accuracy_head": 12,
+   "spray_accuracy": 31.58
+  },
+  {
+   "id": "0356c736-6eca-4d7f-9947-37abe522aa50",
+   "finished_at": "2026-11-11T22:03:43.000Z",
+   "data_source": "matchmaking_wingman",
+   "outcome": "loss",
+   "rank": 3,
+   "rank_type": 7,
+   "map_name": "de_vertigo",
+   "leetify_rating": -0.2184,
+   "score": [
+    0,
+    9
+   ],
+   "preaim": 19.79,
+   "reaction_time_ms": 688,
+   "accuracy_enemy_spotted": 27.78,
+   "accuracy_head": 0,
+   "spray_accuracy": 0
+  },
   {
    "id": "e3820f60-65d9-4ffb-a166-3a3605778e77",
    "finished_at": "2026-11-09T23:57:56.000Z",
@@ -906,11 +944,11 @@
  ],
  "recent_teammates": [
   {
-   "steam64_id": "76561198805479519",
-   "recent_matches_count": 5
+   "steam64_id": "76561199046614236",
+   "recent_matches_count": 7
   },
   {
-   "steam64_id": "76561199046614236",
+   "steam64_id": "76561198805479519",
    "recent_matches_count": 5
   }
  ]
