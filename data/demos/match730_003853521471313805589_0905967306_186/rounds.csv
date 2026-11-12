@@ -1,0 +1,45 @@
+round,steamid,name,side,won,equip_value,money_start,kills,headshots,assists,flash_assists,died,deaths,traded_death,trade_kills,damage,utility_damage,opening_kill,opening_death,kast,clutch_vs,clutch_won,survival_s,utility_on_death
+1,76561198382673172,Zattocat,T,False,300,700,0,0,0,0,True,1,True,0,15,0,False,True,True,,,51.2,0.0
+1,76561198790421519,x'one,CT,True,850,350,1,0,1,0,False,0,False,0,165,0,False,False,True,1.0,True,69.7,
+1,76561199046614236,Zuzu_007,T,False,700,300,1,1,0,0,True,1,False,1,126,0,False,False,True,2.0,False,69.7,0.0
+1,76561199086784746,Тромб Навального,CT,True,850,350,1,1,0,0,True,1,False,0,35,0,True,False,True,,,51.5,0.0
+2,76561198382673172,Zattocat,T,True,2450,450,1,1,0,0,False,0,False,0,97,0,True,False,True,,,18.7,
+2,76561198790421519,x'one,CT,False,2100,2050,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,18.7,0.0
+2,76561199046614236,Zuzu_007,T,True,1900,900,1,1,0,0,False,0,False,0,98,0,False,False,True,,,18.7,
+2,76561199086784746,Тромб Навального,CT,False,2900,800,0,0,0,0,True,1,False,0,111,45,False,True,False,,,14.7,0.0
+3,76561198382673172,Zattocat,T,False,2450,5200,0,0,0,0,True,1,False,0,49,0,False,False,False,,,14.1,200.0
+3,76561198790421519,x'one,CT,True,2850,750,0,0,0,0,True,1,False,0,22,0,False,True,False,,,13.6,200.0
+3,76561199046614236,Zuzu_007,T,False,2600,6450,1,0,0,0,True,1,False,0,96,0,True,False,True,1.0,False,36.8,200.0
+3,76561199086784746,Тромб Навального,CT,True,3000,400,2,1,0,0,False,0,False,0,176,0,False,False,True,2.0,True,36.8,
+4,76561198382673172,Zattocat,T,True,4400,750,1,0,0,0,False,0,False,0,38,0,False,False,True,,,26.6,
+4,76561198790421519,x'one,CT,False,2700,900,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,26.6,300.0
+4,76561199046614236,Zuzu_007,T,True,2100,4300,1,0,1,0,False,0,False,0,157,0,True,False,True,,,26.6,
+4,76561199086784746,Тромб Навального,CT,False,4000,6000,0,0,0,0,True,1,False,0,25,0,False,True,False,,,22.6,200.0
+5,76561198382673172,Zattocat,T,False,4400,8000,1,0,0,0,True,1,False,0,128,0,True,False,True,1.0,False,21.2,0.0
+5,76561198790421519,x'one,CT,True,2650,450,2,2,0,0,False,0,False,0,175,0,False,False,True,2.0,True,21.2,
+5,76561199046614236,Zuzu_007,T,False,3550,9050,0,0,0,0,True,1,False,0,0,0,False,False,False,,,11.3,800.0
+5,76561199086784746,Тромб Навального,CT,True,4900,300,0,0,0,0,True,1,False,0,23,0,False,True,False,,,11.0,800.0
+6,76561198382673172,Zattocat,T,False,4400,1900,0,0,0,0,True,1,False,0,29,0,False,False,False,,,13.0,200.0
+6,76561198790421519,x'one,CT,True,5400,8700,0,0,1,0,True,1,False,0,81,0,False,True,True,,,11.8,500.0
+6,76561199046614236,Zuzu_007,T,False,4400,4000,1,0,0,0,True,1,False,0,98,0,True,False,True,1.0,False,17.8,300.0
+6,76561199086784746,Тромб Навального,CT,True,2200,1150,2,1,0,0,False,0,False,0,114,0,False,False,True,2.0,True,17.8,
+7,76561198382673172,Zattocat,T,False,4200,3200,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,29.8,0.0
+7,76561198790421519,x'one,CT,True,6350,700,1,0,0,0,False,0,False,0,85,0,False,False,True,,,29.8,
+7,76561199046614236,Zuzu_007,T,False,4400,1000,0,0,0,0,True,1,False,0,0,0,False,True,False,,,23.0,200.0
+7,76561199086784746,Тромб Навального,CT,True,5400,6350,1,1,0,0,False,0,False,0,114,15,True,False,True,,,29.8,
+8,76561198382673172,Zattocat,T,False,2800,200,1,0,0,0,True,1,False,1,137,0,False,False,True,2.0,False,77.3,0.0
+8,76561198790421519,x'one,CT,True,7650,8300,1,0,0,0,False,0,False,0,57,33,False,False,True,1.0,True,86.7,
+8,76561199046614236,Zuzu_007,T,False,4900,300,0,0,0,0,True,1,True,0,0,0,False,True,True,,,35.5,700.0
+8,76561199086784746,Тромб Навального,CT,True,5400,9450,1,0,1,0,True,1,False,0,142,93,True,False,True,,,37.2,300.0
+9,76561198382673172,Zattocat,CT,False,300,700,0,0,0,0,True,1,False,0,0,0,False,True,False,,,14.9,0.0
+9,76561198790421519,x'one,T,True,850,350,2,1,0,0,False,0,False,0,181,0,True,False,True,,,19.2,
+9,76561199046614236,Zuzu_007,CT,False,800,200,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,19.2,200.0
+9,76561199086784746,Тромб Навального,T,True,850,350,0,0,0,0,False,0,False,0,19,0,False,False,True,,,19.2,
+10,76561198382673172,Zattocat,CT,False,1550,1450,1,1,0,0,True,1,False,0,96,0,False,False,True,2.0,False,33.1,200.0
+10,76561198790421519,x'one,T,True,4100,1500,2,2,0,0,False,0,False,0,188,0,True,False,True,1.0,True,33.1,
+10,76561199046614236,Zuzu_007,CT,False,850,2200,0,0,0,0,True,1,False,0,90,0,False,True,False,,,11.7,0.0
+10,76561199086784746,Тромб Навального,T,True,3100,1800,0,0,0,0,True,1,False,0,11,0,False,False,False,,,22.3,500.0
+11,76561198382673172,Zattocat,CT,False,3950,350,0,0,0,0,True,1,False,0,0,0,False,False,False,2.0,False,13.7,200.0
+11,76561198790421519,x'one,T,True,4900,6850,0,0,0,0,False,0,False,0,0,0,False,False,True,,,13.7,
+11,76561199046614236,Zuzu_007,CT,False,1200,2900,0,0,0,0,True,1,False,0,0,0,False,True,False,,,11.5,200.0
+11,76561199086784746,Тромб Навального,T,True,4100,300,2,1,0,0,False,0,False,0,199,0,True,False,True,,,13.7,
