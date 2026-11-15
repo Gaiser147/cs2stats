@@ -1,14 +1,14 @@
 {
  "privacy_mode": "public",
- "winrate": 0.4643,
- "total_matches": 46,
+ "winrate": 0.4286,
+ "total_matches": 47,
  "first_match_date": "2026-08-31T00:29:31.000Z",
  "name": "Zattocat",
  "bans": [],
  "steam64_id": "76561198382673172",
  "id": "d864e17d-d12d-4cfb-9b5b-a26336590c41",
  "ranks": {
-  "leetify": -2.11,
+  "leetify": -2.34,
   "premier": 7540,
   "faceit": null,
   "faceit_elo": null,
@@ -55,37 +55,56 @@
  },
  "rating": {
   "aim": 54.3795,
-  "positioning": 36.3169,
-  "utility": 31.296,
-  "clutch": 0.1284,
+  "positioning": 34.8268,
+  "utility": 32.4621,
+  "clutch": 0.1259,
   "opening": -0.0461,
-  "ct_leetify": -0.0217,
-  "t_leetify": -0.0206
+  "ct_leetify": -0.0244,
+  "t_leetify": -0.0226
  },
  "stats": {
-  "accuracy_enemy_spotted": 41.7447,
-  "accuracy_head": 10.6842,
-  "counter_strafing_good_shots_ratio": 77.3295,
-  "ct_opening_aggression_success_rate": 32.7068,
-  "ct_opening_duel_success_percentage": 30.0124,
-  "flashbang_hit_foe_avg_duration": 2.3023,
-  "flashbang_hit_foe_per_flashbang": 0.4165,
-  "flashbang_hit_friend_per_flashbang": 0.3116,
-  "flashbang_leading_to_kill": 5.9729,
-  "flashbang_thrown": 7.6353,
-  "he_foes_damage_avg": 3.4256,
-  "he_friends_damage_avg": 1.8235,
-  "preaim": 13.3244,
-  "reaction_time_ms": 639.0132,
-  "spray_accuracy": 38.4136,
-  "t_opening_aggression_success_rate": 26.3786,
-  "t_opening_duel_success_percentage": 23.2455,
-  "traded_deaths_success_percentage": 47.5981,
-  "trade_kill_opportunities_per_round": 0.2433,
-  "trade_kills_success_percentage": 47.0211,
-  "utility_on_death_avg": 361.4699
+  "accuracy_enemy_spotted": 41.4576,
+  "accuracy_head": 10.2975,
+  "counter_strafing_good_shots_ratio": 77.0156,
+  "ct_opening_aggression_success_rate": 31.9266,
+  "ct_opening_duel_success_percentage": 29.2965,
+  "flashbang_hit_foe_avg_duration": 2.4073,
+  "flashbang_hit_foe_per_flashbang": 0.4251,
+  "flashbang_hit_friend_per_flashbang": 0.3018,
+  "flashbang_leading_to_kill": 5.8304,
+  "flashbang_thrown": 8.1101,
+  "he_foes_damage_avg": 3.5249,
+  "he_friends_damage_avg": 2.0391,
+  "preaim": 13.0298,
+  "reaction_time_ms": 638.3853,
+  "spray_accuracy": 38.8631,
+  "t_opening_aggression_success_rate": 25.7494,
+  "t_opening_duel_success_percentage": 22.6911,
+  "traded_deaths_success_percentage": 46.738,
+  "trade_kill_opportunities_per_round": 0.2289,
+  "trade_kills_success_percentage": 48.0096,
+  "utility_on_death_avg": 354.0294
  },
  "recent_matches": [
+  {
+   "id": "189e5342-b7e3-4fda-aec2-1b346936425c",
+   "finished_at": "2026-11-15T16:07:54.000Z",
+   "data_source": "matchmaking",
+   "outcome": "loss",
+   "rank": 0,
+   "rank_type": 12,
+   "map_name": "de_anubis",
+   "leetify_rating": -0.075,
+   "score": [
+    10,
+    13
+   ],
+   "preaim": 6.96,
+   "reaction_time_ms": 625,
+   "accuracy_enemy_spotted": 32.86,
+   "accuracy_head": 4.55,
+   "spray_accuracy": 46.15
+  },
   {
    "id": "c6f217a7-ad8f-4e58-b231-16fa815a804a",
    "finished_at": "2026-11-15T15:28:22.000Z",
@@ -964,7 +983,7 @@
  "recent_teammates": [
   {
    "steam64_id": "76561199046614236",
-   "recent_matches_count": 8
+   "recent_matches_count": 9
   },
   {
    "steam64_id": "76561198805479519",
