@@ -1,15 +1,15 @@
 {
  "privacy_mode": "public",
- "winrate": 0.4643,
- "total_matches": 50,
+ "winrate": 0.4815,
+ "total_matches": 51,
  "first_match_date": "2026-08-31T00:29:31.000Z",
  "name": "Zattocat",
  "bans": [],
  "steam64_id": "76561198382673172",
  "id": "d864e17d-d12d-4cfb-9b5b-a26336590c41",
  "ranks": {
-  "leetify": -2.17,
-  "premier": 7540,
+  "leetify": -2.83,
+  "premier": 7600,
   "faceit": null,
   "faceit_elo": null,
   "wingman": 3,
@@ -54,38 +54,57 @@
   ]
  },
  "rating": {
-  "aim": 51.1967,
-  "positioning": 36.3169,
-  "utility": 27.4748,
-  "clutch": 0.119,
-  "opening": -0.0461,
-  "ct_leetify": -0.0135,
-  "t_leetify": -0.0285
+  "aim": 47.6078,
+  "positioning": 36.6928,
+  "utility": 29.6318,
+  "clutch": 0.0959,
+  "opening": -0.0528,
+  "ct_leetify": -0.019,
+  "t_leetify": -0.0361
  },
  "stats": {
-  "accuracy_enemy_spotted": 40.0946,
-  "accuracy_head": 9.9381,
-  "counter_strafing_good_shots_ratio": 74.831,
-  "ct_opening_aggression_success_rate": 34.1284,
-  "ct_opening_duel_success_percentage": 31.4983,
-  "flashbang_hit_foe_avg_duration": 2.1718,
-  "flashbang_hit_foe_per_flashbang": 0.3777,
-  "flashbang_hit_friend_per_flashbang": 0.2638,
-  "flashbang_leading_to_kill": 2.8947,
-  "flashbang_thrown": 9.145,
-  "he_foes_damage_avg": 3.9198,
-  "he_friends_damage_avg": 2.4001,
-  "preaim": 12.8135,
-  "reaction_time_ms": 620.1596,
-  "spray_accuracy": 37.091,
-  "t_opening_aggression_success_rate": 24.2815,
-  "t_opening_duel_success_percentage": 21.2232,
-  "traded_deaths_success_percentage": 52.0741,
-  "trade_kill_opportunities_per_round": 0.2152,
-  "trade_kills_success_percentage": 48.3398,
-  "utility_on_death_avg": 336.5303
+  "accuracy_enemy_spotted": 39.8479,
+  "accuracy_head": 9.3782,
+  "counter_strafing_good_shots_ratio": 73.7076,
+  "ct_opening_aggression_success_rate": 29.6564,
+  "ct_opening_duel_success_percentage": 27.0644,
+  "flashbang_hit_foe_avg_duration": 2.2863,
+  "flashbang_hit_foe_per_flashbang": 0.4015,
+  "flashbang_hit_friend_per_flashbang": 0.2936,
+  "flashbang_leading_to_kill": 3.27,
+  "flashbang_thrown": 9.7179,
+  "he_foes_damage_avg": 4.2645,
+  "he_friends_damage_avg": 2.3654,
+  "preaim": 13.0363,
+  "reaction_time_ms": 616.4322,
+  "spray_accuracy": 35.7755,
+  "t_opening_aggression_success_rate": 23.9302,
+  "t_opening_duel_success_percentage": 20.9161,
+  "traded_deaths_success_percentage": 56.7458,
+  "trade_kill_opportunities_per_round": 0.2241,
+  "trade_kills_success_percentage": 50.7146,
+  "utility_on_death_avg": 328.9277
  },
  "recent_matches": [
+  {
+   "id": "4cf73579-b7e0-43d3-853a-49f33e4f6a2e",
+   "finished_at": "2026-11-22T20:31:02.000Z",
+   "data_source": "matchmaking",
+   "outcome": "tie",
+   "rank": 7600,
+   "rank_type": 11,
+   "map_name": "de_nuke",
+   "leetify_rating": -0.0502,
+   "score": [
+    15,
+    15
+   ],
+   "preaim": 14.82,
+   "reaction_time_ms": 555,
+   "accuracy_enemy_spotted": 40.09,
+   "accuracy_head": 3.19,
+   "spray_accuracy": 32.88
+  },
   {
    "id": "5397fc02-ef44-48a9-923b-6213998ce83e",
    "finished_at": "2026-11-21T22:39:13.000Z",
@@ -1041,10 +1060,6 @@
   {
    "steam64_id": "76561199046614236",
    "recent_matches_count": 12
-  },
-  {
-   "steam64_id": "76561198805479519",
-   "recent_matches_count": 5
   }
  ]
 }
